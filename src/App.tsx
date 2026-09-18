@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { ArrowLeft, BookOpen, Maximize, Minimize } from 'lucide-react'
+import { ArrowLeft, BookOpen, Maximize, Minimize, NotebookPen } from 'lucide-react'
 import { MotionConfig, motion, useMotionValue, useReducedMotion, useSpring } from 'motion/react'
 import Landscape from './components/Landscape'
+import SnowScenery from './components/SnowScenery'
+import ViewPicker from './components/ViewPicker'
 import Notebook from './components/Notebook'
 import TicketTray from './components/TicketTray'
 import RailMark from './components/RailMark'
@@ -9,6 +11,8 @@ import Onboarding from './components/Onboarding'
 import { useJourney } from './hooks/useJourney'
 import { useSound } from './hooks/useSound'
 import { cn, readStorage, writeStorage } from './lib/utils'
+import { isView, type View } from './lib/views'
+import './scenery.css'
 
 export interface AppProps { covered: boolean; guideRequest: number; onReady: () => void; onShowOpening: () => void }
 
@@ -25,6 +29,9 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
   const [guideStep, setGuideStep] = useState(0)
   const [windowOpen, setWindowOpen] = useState(false)
   const [atWindow, setAtWindow] = useState(false)
+  const [view, setView] = useState(() => readStorage<View>('syasou.view.v1', 'forest', isView))
+  const previousWindowView = useRef<View>(view === 'train' ? 'snow' : view)
+  const outside = view === 'train'
   const [fullscreen, setFullscreen] = useState(false)
   const [fullscreenError, setFullscreenError] = useState('')
   const [awake, setAwake] = useState(false)
@@ -47,10 +54,12 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
   }, [])
   useEffect(() => () => clearTimeout(sleepTimer.current), [])
   useEffect(() => { writeStorage('syasou.note.v1', note) }, [note])
+  useEffect(() => { writeStorage('syasou.view.v1', view) }, [view])
   useEffect(() => { onReady() }, [onReady])
   useEffect(() => {
     if (!covered && !trayOpen && !notebookOpen && !guideOpen) {
-      if (atWindow) windowButton.current?.focus({ preventScroll: true })
+      if (outside) document.querySelector<HTMLButtonElement>('.view-picker-trigger')?.focus({ preventScroll: true })
+      else if (atWindow) windowButton.current?.focus({ preventScroll: true })
       else document.querySelector<HTMLButtonElement>('.notebook-object')?.focus({ preventScroll: true })
     }
   }, [covered])
@@ -59,6 +68,7 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
     setGuideStep(0)
     setGuideOpen(true)
     setAtWindow(false)
+    setView(current => current === 'train' ? previousWindowView.current : current)
     setNotebookOpen(false)
   }, [])
   useEffect(() => { if (guideRequest > 0) showGuide() }, [guideRequest, showGuide])
@@ -85,18 +95,26 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
 
   const leaveWindow = useCallback(() => {
     setAtWindow(false)
-    windowButton.current?.focus({ preventScroll: true })
+    setView(current => current === 'train' ? previousWindowView.current : current)
+    requestAnimationFrame(() => windowButton.current?.focus({ preventScroll: true }))
   }, [])
+
+  const chooseView = (next: View) => {
+    if (next !== 'train') previousWindowView.current = next
+    setView(next)
+    lookTargetX.set(0)
+    lookTargetY.set(0)
+  }
 
   useEffect(() => {
     const keydown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && atWindow && !notebookOpen && !trayOpen && !covered && !guideOpen) leaveWindow()
+      if (event.key === 'Escape' && !event.defaultPrevented && (atWindow || outside) && !notebookOpen && !trayOpen && !covered && !guideOpen) leaveWindow()
     }
     const onFullscreen = () => setFullscreen(Boolean(document.fullscreenElement))
     document.addEventListener('keydown', keydown)
     document.addEventListener('fullscreenchange', onFullscreen)
     return () => { document.removeEventListener('keydown', keydown); document.removeEventListener('fullscreenchange', onFullscreen) }
-  }, [atWindow, notebookOpen, trayOpen, covered, guideOpen, leaveWindow])
+  }, [atWindow, outside, notebookOpen, trayOpen, covered, guideOpen, leaveWindow])
 
   const board = () => {
     start()
@@ -117,20 +135,23 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
   }
 
   return <MotionConfig reducedMotion="user">
-    <main className={cn('world', { 'at-window': atWindow, 'journal-is-open': notebookOpen, 'world-awake': awake })} inert={covered} aria-hidden={covered}
-      aria-label="列車の窓辺"
+    <main className={cn('world', { 'at-window': atWindow, 'outside-train': outside, 'journal-is-open': notebookOpen, 'world-awake': awake })} inert={covered} aria-hidden={covered}
+      aria-label="列車の窓辺" data-view={view}
       onPointerMove={event => {
         wake()
-        if (reducedMotion || notebookOpen || atWindow || trayOpen || guideOpen) return
+        if (reducedMotion || notebookOpen || atWindow || outside || trayOpen || guideOpen) return
         lookTargetX.set((event.clientX / innerWidth - .5) * -9)
         lookTargetY.set((event.clientY / innerHeight - .5) * -5)
       }}
       onPointerLeave={() => { lookTargetX.set(0); lookTargetY.set(0) }}>
       <h1 className="sr-only">車窓</h1>
-      <motion.div className="world-camera" style={{ x: lookX, y: lookY }}>
+      {outside && <div className="exterior-view"><SnowScenery exterior scene={preferences.scene} speed={preferences.speed} moving={moving && !covered && !trayOpen} windowOpen={false} travelling={journey.phase === 'focus'} /></div>}
+      <motion.div className="world-camera" style={{ x: lookX, y: lookY }} inert={outside} aria-hidden={outside}>
         <div className="room-wall" aria-hidden="true" />
         <motion.div className="window-world" animate={atWindow ? { scale: 1.36, x: '13%', y: '5%' } : { scale: 1, x: '0%', y: '0%' }} transition={{ duration: reducedMotion ? 0 : 1.15, ease: 'easeInOut' }}>
-          <Landscape scene={preferences.scene} speed={preferences.speed} moving={moving && !covered && !trayOpen} windowOpen={windowOpen} travelling={journey.phase === 'focus'} />
+          {!outside && (view === 'snow'
+            ? <SnowScenery scene={preferences.scene} speed={preferences.speed} moving={moving && !covered && !trayOpen} windowOpen={windowOpen} travelling={journey.phase === 'focus'} />
+            : <Landscape scene={preferences.scene} speed={preferences.speed} moving={moving && !covered && !trayOpen} windowOpen={windowOpen} travelling={journey.phase === 'focus'} />)}
           <button ref={windowButton} className="look-through-window" aria-label={atWindow ? '座席に戻る' : '車窓を眺める'} onClick={() => { setAtWindow(!atWindow); lookTargetX.set(0); lookTargetY.set(0) }} tabIndex={notebookOpen ? -1 : 0} />
         </motion.div>
         <div className="window-lower-shadow" aria-hidden="true" />
@@ -139,14 +160,18 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
           <span className="latch-plate" aria-hidden="true"><i /><i /></span><span className="latch-handle" aria-hidden="true" />
         </button>
       </motion.div>
-      <div className="book-location" inert={atWindow} aria-hidden={atWindow}>
+      <div className="book-location" inert={atWindow || outside} aria-hidden={atWindow || outside}>
         <Notebook open={notebookOpen && !trayOpen && !covered && !guideOpen} suspended={trayOpen || covered || guideOpen} focusTicketPocket={focusTicketPocket} onOpenChange={open => { setNotebookOpen(open); setFocusTicketPocket(false); lookTargetX.set(0); lookTargetY.set(0) }} journey={journey} preferences={preferences} remaining={remaining} onPreferences={setPreferences} onStart={board} onToggle={resume} onFinish={finish} soundEnabled={sound.enabled} soundBusy={sound.busy} soundError={sound.error} onSound={() => void sound.toggle()}
           note={note} onNote={setNote} tickets={tickets} onArchive={() => { setNotebookOpen(false); setArchiveOpen(true) }} />
       </div>
       <div className="world-corners">
+        <ViewPicker value={view} onChange={chooseView} />
+        {outside && <button className="corner-action" aria-label="旅の手帳を開く" title="手帳をひらく" onClick={() => {
+          setView(previousWindowView.current); setAtWindow(false); setNotebookOpen(true)
+        }}><NotebookPen size={18} strokeWidth={1} /></button>}
         <button className="corner-action" aria-label="タイトルに戻る" onClick={onShowOpening} title="タイトルへ"><span style={{ width: 24, height: 24 }}><RailMark strokeWidth={1} /></span></button>
         <button className="corner-action" aria-label="使い方を見る" onClick={showGuide} title="旅のしおり"><BookOpen size={18} strokeWidth={1} /></button>
-        {atWindow && <button className="corner-action" aria-label="座席に戻る" onClick={leaveWindow} title="座席に戻る"><ArrowLeft size={19} strokeWidth={1} /></button>}
+        {(atWindow || outside) && <button className="corner-action" aria-label="座席に戻る" onClick={leaveWindow} title="座席に戻る"><ArrowLeft size={19} strokeWidth={1} /></button>}
         <button className="corner-action" aria-label={fullscreen ? '全画面を終了' : '全画面で見る'} aria-pressed={fullscreen} onClick={() => void toggleFullscreen()} title={fullscreen ? '全画面を終了' : '全画面で見る'}>{fullscreen ? <Minimize size={18} strokeWidth={1} /> : <Maximize size={18} strokeWidth={1} />}</button>
       </div>
       {fullscreenError && <p className="world-error" role="alert">{fullscreenError}</p>}
@@ -160,6 +185,7 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
         acknowledgeArrival()
         setArchiveOpen(false)
         setAtWindow(false)
+        setView(current => current === 'train' ? previousWindowView.current : current)
         setNotebookOpen(returnToBook)
         setFocusTicketPocket(welcome)
         lookTargetX.set(0)
