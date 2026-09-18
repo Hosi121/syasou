@@ -18,6 +18,7 @@ interface Props {
   soundEnabled: boolean; soundBusy: boolean; soundError: string; onSound: () => void
   note: string; onNote: (note: string) => void
   tickets: Ticket[]; onArchive: () => void
+  focusTicketPocket?: boolean
 }
 
 const speeds = [
@@ -51,7 +52,7 @@ export default function Notebook(props: Props) {
       <Dialog.Overlay className="journal-shade" />
       <Dialog.Content className="journal-anchor" onOpenAutoFocus={event => {
         event.preventDefault()
-        const target = document.getElementById('journal-main-action')
+        const target = props.focusTicketPocket ? document.querySelector<HTMLButtonElement>('.ticket-pocket') : document.getElementById('journal-main-action')
         target?.focus({ preventScroll: true })
       }} onCloseAutoFocus={event => { if (suspended) event.preventDefault() }}>
         <Dialog.Title className="sr-only">旅の手帳</Dialog.Title>

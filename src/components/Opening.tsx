@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { useEffect, useRef } from 'react'
 import Landscape from './Landscape'
 import RailMark from './RailMark'
+import { demoMode } from '../lib/profile'
 
 interface Props {
   ready: boolean
@@ -36,7 +37,7 @@ export default function Opening({ ready, leaving, failed, onEnter, onGuide, onCo
     <motion.div className="opening-brand" initial={false} animate={{ opacity: leaving ? 0 : 1, y: leaving && !reducedMotion ? -10 : 0 }} transition={{ duration: reducedMotion ? 0 : .45, ease: 'easeOut' }}>
       <div className="opening-emblem" aria-hidden="true"><RailMark strokeWidth={.95} /></div>
       <h1 className="opening-title">車窓</h1>
-      <p className="opening-roman" aria-hidden="true">SYASOU</p>
+      <p className="opening-roman" aria-hidden="true">{demoMode ? 'SYASOU / TRIAL' : 'SYASOU'}</p>
       <div className="opening-action">
         {failed ? <div className="opening-failure" role="alert">
           <p>景色をひらけませんでした。</p>

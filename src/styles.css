@@ -132,6 +132,7 @@ p { text-wrap: pretty; }
 .ticket-tray-shade { position: fixed; inset: 0; z-index: 50; background: #191919; }
 .ticket-tray-dialog { position: fixed; z-index: 60; left: 50%; top: 50%; width: min(1400px,96vw,195vh); aspect-ratio: 2048 / 946; transform: translate(-50%,-50%); outline: none; }
 .ticket-tray-box { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; user-select: none; }
+.ticket-welcome-caption { position: absolute; top: 10%; left: 20%; right: 20%; text-align: center; font: 14px 'Shippori Mincho',serif; color: #fafafa; text-shadow: 0 1px 2px #222; pointer-events: none; }
 .ticket-tray-well { position: absolute; width: 43%; aspect-ratio: 1.58; top: 48%; left: 28.5%; transform: translateY(-50%); perspective: 1600px; }
 .ticket-on-top, .ticket-stack-under, .ticket-stack-under > div { position: absolute; inset: 0; }
 .ticket-stack-under { pointer-events: none; }

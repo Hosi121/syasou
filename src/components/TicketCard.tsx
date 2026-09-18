@@ -18,12 +18,13 @@ const timeFormat = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '
 export default function TicketCard({ ticket, back = false, onTitleChange, onNoteChange }: Props) {
   const reducedMotion = useReducedMotion()
   const date = dateFormat.format(ticket.arrivedAt).toUpperCase()
+  const welcome = ticket.kind === 'welcome'
   const serial = Array.from(ticket.id).reduce((value, character) => (value * 31 + character.charCodeAt(0)) >>> 0, 7).toString().padStart(8, '0').slice(-8)
-  return <div className="rail-ticket" data-ticket-kind="journey">
+  return <div className="rail-ticket" data-ticket-kind={ticket.kind ?? 'journey'}>
     <motion.div className="ticket-turn" animate={{ rotateY: back ? 180 : 0 }} transition={{ duration: reducedMotion ? 0 : .6, ease: 'easeInOut' }}>
       <div className="ticket-stock ticket-stock-bottom" aria-hidden="true" /><div className="ticket-stock" aria-hidden="true" /><div className="ticket-stock ticket-stock-top" aria-hidden="true" />
       <div className="ticket-face ticket-front" aria-hidden={back} inert={back}>
-        <div className="ticket-band ticket-band-top"><span>SYASOU RAILWAY</span><span>ONE WAY</span></div>
+        <div className="ticket-band ticket-band-top"><span>SYASOU RAILWAY</span><span>{welcome ? 'FIRST RIDE' : 'ONE WAY'}</span></div>
         <div className="ticket-print">
           <svg className="ticket-watermark" viewBox="0 0 500 250" fill="none" aria-hidden="true">
             {Array.from({ length: 10 }, (_, i) => <ellipse key={i} cx="250" cy="125" rx={154 + i * 8} ry={44 + i * 7} transform={`rotate(${i % 2 ? 13 : -13} 250 125)`} />)}
@@ -37,12 +38,12 @@ export default function TicketCard({ ticket, back = false, onTitleChange, onNote
             {onTitleChange ? <textarea rows={2} aria-label="切符に残す作業" value={ticket.title} maxLength={80} onChange={event => onTitleChange(event.target.value)} placeholder="この旅で進めたこと" spellCheck={false} /> : <p>{ticket.title || '名前のない旅'}</p>}
           </div>
           <div className="ticket-journey-line">
-            <div><small>Route</small><span>{routes[ticket.scene]}</span></div>
+            <div><small>Route</small><span>{welcome ? 'YOUR OWN PACE' : routes[ticket.scene]}</span></div>
             <div><small>Travelled on</small><span>{date}</span></div>
           </div>
           </div>
           <div className="ticket-stub" aria-hidden="true">
-            <span className="ticket-stub-type">SGL</span>
+            <span className="ticket-stub-type">{welcome ? 'GIFT' : 'SGL'}</span>
             <span className="ticket-stub-mark"><RailMark strokeWidth={.8} /></span>
             <span className="ticket-barcode" />
             <span className="ticket-serial">{serial}</span>
@@ -50,8 +51,8 @@ export default function TicketCard({ ticket, back = false, onTitleChange, onNote
         </div>
         <div className="ticket-band ticket-band-bottom">
           <span className="ticket-roundel"><RailMark /></span>
-          <span className="ticket-times">{timeFormat.format(ticket.startedAt)} — {timeFormat.format(ticket.arrivedAt)}</span>
-          <span className="ticket-stamp">ARRIVED</span>
+          <span className="ticket-times">{welcome ? 'A SMALL BEGINNING' : `${timeFormat.format(ticket.startedAt)} — ${timeFormat.format(ticket.arrivedAt)}`}</span>
+          <span className="ticket-stamp">{welcome ? 'WELCOME' : ticket.kind === 'sample' ? 'SAMPLE' : 'ARRIVED'}</span>
         </div>
         <div className="ticket-sheen" aria-hidden="true" style={{ opacity: .12 }} />
       </div>

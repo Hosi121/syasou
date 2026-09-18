@@ -14,12 +14,13 @@ export interface AppProps { covered: boolean; guideRequest: number; onReady: () 
 
 export default function App({ covered, guideRequest, onReady, onShowOpening }: AppProps) {
   const [note, setNote] = useState(() => readStorage('syasou.note.v1', '', (v): v is string => typeof v === 'string' && v.length <= 300))
-  const { journey, preferences, setPreferences, remaining, start, toggle, finish, tickets, pendingArrivalId, acknowledgeArrival, editTicket, saveError } = useJourney(note)
+  const { journey, preferences, setPreferences, remaining, start, toggle, finish, tickets, pendingArrivalId, acknowledgeArrival, receiveWelcomeTicket, editTicket, saveError } = useJourney(note)
   const [notebookOpen, setNotebookOpen] = useState(false)
+  const [focusTicketPocket, setFocusTicketPocket] = useState(false)
   const [archiveOpen, setArchiveOpen] = useState(false)
   const trayOpen = pendingArrivalId !== null || archiveOpen
   const [guideOpen, setGuideOpen] = useState(() =>
-    !readStorage('syasou.onboarding.v1', false, (v): v is boolean => typeof v === 'boolean') && journey.phase === 'idle' && tickets.length === 0,
+    !readStorage('syasou.onboarding.v1', false, (v): v is boolean => typeof v === 'boolean') && journey.phase === 'idle' && tickets.every(ticket => ticket.kind === 'sample'),
   )
   const [guideStep, setGuideStep] = useState(0)
   const [windowOpen, setWindowOpen] = useState(false)
@@ -62,12 +63,13 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
   }, [])
   useEffect(() => { if (guideRequest > 0) showGuide() }, [guideRequest, showGuide])
   useEffect(() => { if (pendingArrivalId) setGuideOpen(false) }, [pendingArrivalId])
-  const finishGuide = (openBook: boolean) => {
-    writeStorage('syasou.onboarding.v1', true)
+  const finishGuide = (receiveTicket: boolean) => {
+    if (receiveTicket) receiveWelcomeTicket()
+    else writeStorage('syasou.onboarding.v1', true)
     setGuideOpen(false)
     setGuideStep(0)
     setAtWindow(false)
-    setNotebookOpen(openBook)
+    setNotebookOpen(false)
     lookTargetX.set(0)
     lookTargetY.set(0)
   }
@@ -138,7 +140,7 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
         </button>
       </motion.div>
       <div className="book-location" inert={atWindow} aria-hidden={atWindow}>
-        <Notebook open={notebookOpen && !trayOpen && !covered && !guideOpen} suspended={trayOpen || covered || guideOpen} onOpenChange={open => { setNotebookOpen(open); lookTargetX.set(0); lookTargetY.set(0) }} journey={journey} preferences={preferences} remaining={remaining} onPreferences={setPreferences} onStart={board} onToggle={resume} onFinish={finish} soundEnabled={sound.enabled} soundBusy={sound.busy} soundError={sound.error} onSound={() => void sound.toggle()}
+        <Notebook open={notebookOpen && !trayOpen && !covered && !guideOpen} suspended={trayOpen || covered || guideOpen} focusTicketPocket={focusTicketPocket} onOpenChange={open => { setNotebookOpen(open); setFocusTicketPocket(false); lookTargetX.set(0); lookTargetY.set(0) }} journey={journey} preferences={preferences} remaining={remaining} onPreferences={setPreferences} onStart={board} onToggle={resume} onFinish={finish} soundEnabled={sound.enabled} soundBusy={sound.busy} soundError={sound.error} onSound={() => void sound.toggle()}
           note={note} onNote={setNote} tickets={tickets} onArchive={() => { setNotebookOpen(false); setArchiveOpen(true) }} />
       </div>
       <div className="world-corners">
@@ -152,11 +154,14 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
       <div className="sr-only" role="status" aria-live="polite">{announcement}</div>
       {guideOpen && !covered && !trayOpen && <Onboarding step={guideStep} onStep={step => { setGuideStep(step); setAtWindow(step === 1) }} onFinish={() => finishGuide(true)} onSkip={() => finishGuide(false)} />}
       {trayOpen && !covered && <TicketTray key={pendingArrivalId ?? 'archive'} tickets={tickets} arrivalId={pendingArrivalId} saveError={saveError} onEdit={editTicket} onClose={() => {
-        const returnToBook = pendingArrivalId === null
+        const welcome = tickets.some(ticket => ticket.id === pendingArrivalId && ticket.kind === 'welcome')
+        const returnToBook = pendingArrivalId === null || welcome
+        if (welcome) writeStorage('syasou.onboarding.v1', true)
         acknowledgeArrival()
         setArchiveOpen(false)
         setAtWindow(false)
         setNotebookOpen(returnToBook)
+        setFocusTicketPocket(welcome)
         lookTargetX.set(0)
         lookTargetY.set(0)
       }} />}

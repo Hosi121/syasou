@@ -3,6 +3,7 @@ import type { Journey, JourneyAction, Scene, Speed } from './journey'
 
 export interface Ticket {
   id: string
+  kind?: 'sample' | 'welcome'
   startedAt: number
   arrivedAt: number
   speed: Speed
@@ -23,6 +24,7 @@ export function isTicket(value: unknown): value is Ticket {
   if (!value || typeof value !== 'object') return false
   const t = value as Ticket
   return typeof t.id === 'string' && t.id.length > 0 && t.id.length <= 100
+    && (t.kind === undefined || t.kind === 'sample' || t.kind === 'welcome')
     && timestamp(t.startedAt) && timestamp(t.arrivedAt) && t.arrivedAt >= t.startedAt
     && ['local', 'rapid', 'express'].includes(t.speed) && ['mist', 'dawn', 'night'].includes(t.scene)
     && typeof t.title === 'string' && t.title.length <= 80 && typeof t.note === 'string' && t.note.length <= 300
@@ -59,10 +61,23 @@ export function restoreTravel(state: TravelState, now: number, note: string): Tr
 
 export type TravelAction =
   | { type: 'journey'; action: JourneyAction; note: string }
+  | { type: 'welcome-ticket'; now: number }
   | { type: 'acknowledge-arrival' }
   | { type: 'edit-ticket'; id: string; changes: Partial<Pick<Ticket, 'title' | 'note'>> }
 
 export function travelReducer(state: TravelState, action: TravelAction): TravelState {
+  if (action.type === 'welcome-ticket') {
+    // A guide replay presents the same keepsake, retaining any edits. It must not
+    // finish a real journey or replace an unacknowledged arrival.
+    if (state.pendingArrivalId) return state
+    const existing = state.tickets.find(ticket => ticket.kind === 'welcome')
+    const ticket: Ticket = existing ?? {
+      id: 'welcome-v1', kind: 'welcome', startedAt: action.now, arrivedAt: action.now,
+      speed: 'local', scene: 'mist', title: 'はじめての窓辺',
+      note: '車窓へ、ようこそ。\nこれは、旅のしおりをめくった記念の一枚。\n\n次の切符には、あなたが進めたことを。\nどうぞ、自分のペースで。',
+    }
+    return { ...state, tickets: existing ? state.tickets : [ticket, ...state.tickets], pendingArrivalId: ticket.id }
+  }
   if (action.type === 'acknowledge-arrival') return { ...state, pendingArrivalId: null }
   if (action.type === 'edit-ticket') return {
     ...state,

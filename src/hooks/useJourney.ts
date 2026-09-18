@@ -3,12 +3,15 @@ import { defaults, emptyJourney, isJourney, isPreferences } from '../lib/journey
 import { isTravelState, restoreTravel, travelReducer } from '../lib/tickets'
 import type { Ticket, TravelState } from '../lib/tickets'
 import { readStorage, writeStorage } from '../lib/utils'
+import { demoMode } from '../lib/profile'
+import { sampleTickets } from '../lib/sampleTickets'
 
 export function useJourney(note: string) {
   const [preferences, setPreferences] = useState(() => readStorage('syasou.preferences.v1', defaults, isPreferences))
   const [travel, dispatch] = useReducer(travelReducer, undefined, () => {
     const stored = readStorage<TravelState | null>('syasou.travel.v2', null, isTravelState)
     if (stored) return restoreTravel(stored, Date.now(), note)
+    if (demoMode) return { journey: emptyJourney, tickets: sampleTickets(Date.now()), pendingArrivalId: null }
     const legacy = readStorage('syasou.journey.v1', emptyJourney, isJourney)
     const active = legacy.phase === 'focus' || legacy.phase === 'rest'
     const legacyArrival = legacy.phase === 'rest' && legacy.deadline !== null ? legacy.deadline - legacy.restMinutes * 60_000 : undefined
@@ -62,6 +65,7 @@ export function useJourney(note: string) {
     pendingArrivalId: travel.pendingArrivalId,
     finish: () => dispatch({ type: 'journey', action: { type: 'finish', now: Date.now() }, note }),
     acknowledgeArrival: () => dispatch({ type: 'acknowledge-arrival' }),
+    receiveWelcomeTicket: () => dispatch({ type: 'welcome-ticket', now: Date.now() }),
     editTicket: (id: string, changes: Partial<Pick<Ticket, 'title' | 'note'>>) => dispatch({ type: 'edit-ticket', id, changes }),
   }
 }

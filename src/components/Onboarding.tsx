@@ -7,7 +7,7 @@ import { cn } from '../lib/utils'
 const steps = [
   { title: '手帳で、旅の支度。', description: '時間と速さを選び、▶で出発。メモには、今日進めたいことを書けます。' },
   { title: 'ときどき、窓の外へ。', description: '窓を押すと、景色だけの眺めに。もう一度押すか、Escで席へ戻れます。' },
-  { title: 'ひと区切りを、一枚に。', description: '到着すると、作業が切符になります。手帳の右ポケットから見返せます。' },
+  { title: 'ひと区切りを、一枚に。', description: '到着すると、作業が切符になります。まずは記念の一枚を受け取って、手帳にしまってみましょう。' },
 ]
 
 function GuideDrawing({ step }: { step: number }) {
@@ -36,10 +36,10 @@ interface Props {
 
 export default function Onboarding({ step, onStep, onFinish, onSkip }: Props) {
   const primary = useRef<HTMLButtonElement>(null)
-  const openingBook = useRef(false)
+  const receivingTicket = useRef(false)
   const reducedMotion = useReducedMotion()
   const current = steps[step]
-  const finish = () => { openingBook.current = true; onFinish() }
+  const finish = () => { receivingTicket.current = true; onFinish() }
   return <Dialog.Root open onOpenChange={open => { if (!open) onSkip() }}>
     <Dialog.Portal>
       <Dialog.Overlay className={cn('guide-shade', { 'guide-shade-window': step === 1 })} />
@@ -47,7 +47,7 @@ export default function Onboarding({ step, onStep, onFinish, onSkip }: Props) {
         onOpenAutoFocus={event => { event.preventDefault(); primary.current?.focus({ preventScroll: true }) }}
         onCloseAutoFocus={event => {
           event.preventDefault()
-          if (!openingBook.current) queueMicrotask(() => document.querySelector<HTMLButtonElement>('.notebook-object')?.focus({ preventScroll: true }))
+          if (!receivingTicket.current) queueMicrotask(() => document.querySelector<HTMLButtonElement>('.notebook-object')?.focus({ preventScroll: true }))
         }}>
         <motion.div className="guide-paper" initial={reducedMotion ? false : { opacity: 0, y: 14, rotate: 0 }} animate={{ opacity: 1, y: 0, rotate: -1.2 }} transition={{ duration: .18, ease: 'easeOut' }}>
           <div className="guide-topline">
@@ -64,7 +64,7 @@ export default function Onboarding({ step, onStep, onFinish, onSkip }: Props) {
               {steps.map((_, i) => <span key={i} className={cn({ 'guide-stop-visited': i <= step, 'guide-stop-current': i === step })} />)}
             </div>
             {step > 0 && <button className="guide-back" onClick={() => onStep(step - 1)} aria-label="前の案内へ"><ArrowLeft size={17} strokeWidth={1} /></button>}
-            <button ref={primary} className="guide-next" onClick={step === 2 ? finish : () => onStep(step + 1)}>{step === 2 ? '手帳をひらく' : '次へ'}<ArrowRight size={17} strokeWidth={1} /></button>
+            <button ref={primary} className="guide-next" onClick={step === 2 ? finish : () => onStep(step + 1)}>{step === 2 ? '切符を受け取る' : '次へ'}<ArrowRight size={17} strokeWidth={1} /></button>
           </div>
         </motion.div>
       </Dialog.Content>

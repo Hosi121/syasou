@@ -1,9 +1,10 @@
 import { Component, Suspense, lazy, useCallback, useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 import Opening from './components/Opening'
+import { storageKey } from './lib/profile'
 
 const World = lazy(() => import('./App'))
-const enteredKey = 'syasou.entered.v1'
+const enteredKey = storageKey('syasou.entered.v1')
 
 function hasEntered() {
   try { return sessionStorage.getItem(enteredKey) === '1' } catch { return false }

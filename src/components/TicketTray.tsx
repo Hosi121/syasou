@@ -22,6 +22,7 @@ export default function TicketTray({ tickets, arrivalId, saveError, onEdit, onCl
   const index = Math.max(0, tickets.findIndex(ticket => ticket.id === selectedId))
   const ticket = tickets[index]
   const arrival = arrivalId !== null
+  const welcome = arrival && ticket?.kind === 'welcome'
   const close = () => {
     if (leaving) return
     if (reducedMotion || !ticket) onClose()
@@ -38,11 +39,12 @@ export default function TicketTray({ tickets, arrivalId, saveError, onEdit, onCl
         onOpenAutoFocus={event => { event.preventDefault(); closeButton.current?.focus({ preventScroll: true }) }}
         onCloseAutoFocus={event => {
           event.preventDefault()
-          if (arrival) queueMicrotask(() => document.querySelector<HTMLButtonElement>('.notebook-object')?.focus({ preventScroll: true }))
+          if (arrival && !welcome) queueMicrotask(() => document.querySelector<HTMLButtonElement>('.notebook-object')?.focus({ preventScroll: true }))
         }}>
-        <Dialog.Title className="sr-only">{arrival ? '到着の切符' : '集めた切符'}</Dialog.Title>
-        <Dialog.Description className="sr-only">{arrival ? '旅の記録が切符になりました。作業名や裏面のメモを書き込んで、手帳にしまえます。' : '手帳に残した切符を一枚ずつ見返せます。裏面には旅のメモがあります。'}</Dialog.Description>
+        <Dialog.Title className="sr-only">{welcome ? 'はじめての切符' : arrival ? '到着の切符' : '集めた切符'}</Dialog.Title>
+        <Dialog.Description className="sr-only">{welcome ? '旅のしおりをめくった記念の一枚です。裏返してメモを読み、手帳にしまってみましょう。手帳の右ポケットからまた見返せます。' : arrival ? '旅の記録が切符になりました。作業名や裏面のメモを書き込んで、手帳にしまえます。' : '手帳に残した切符を一枚ずつ見返せます。裏面には旅のメモがあります。'}</Dialog.Description>
         <motion.img className="ticket-tray-box" src="/ticket-tray.png" alt="" draggable={false} initial={{ opacity: 0 }} animate={{ opacity: leaving ? 0 : 1 }} transition={{ duration: reducedMotion ? 0 : .4 }} />
+        {welcome && <motion.p className="ticket-welcome-caption" initial={{ opacity: 0 }} animate={{ opacity: leaving ? 0 : 1 }} transition={{ duration: reducedMotion ? 0 : .3, delay: reducedMotion || leaving ? 0 : 1.3 }}>ようこそ、車窓へ。</motion.p>}
         <div className="ticket-tray-well">
           {ticket ? <>
             <motion.div className="ticket-stack-under" aria-hidden="true" animate={{ opacity: leaving ? 0 : 1 }} transition={{ duration: .2 }}>
