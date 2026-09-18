@@ -3,14 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/opening.css" />
+    <link rel="preload" href="/fonts/syasou-title.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="prefetch" as="image" href="/ticket-tray.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#e6e6e6" />
     <meta name="description" content="自分のペースで、どこかへ。流れる車窓と列車の音に包まれる、小さな作業空間。" />
     <title>車窓</title>
+    <script>window.addEventListener('error',function(e){if(e.target instanceof HTMLScriptElement&&e.target.type==='module')document.documentElement.dataset.bootError='true'},true)</script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <main class="opening-screen boot-static" aria-label="車窓を読み込み中" aria-busy="true">
+        <div class="opening-light" aria-hidden="true"></div>
+        <div class="opening-window" aria-hidden="true"><div class="opening-window-glass"></div><div class="opening-window-edge"></div></div>
+        <div class="opening-window-sill" aria-hidden="true"></div>
+        <div class="opening-brand">
+          <div class="opening-emblem" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M9 28V12a5 5 0 0 1 5-5h12a5 5 0 0 1 5 5v16H9ZM9 19h22M20 7v12M14 28l-4 7m16-7 4 7M12 32h16" stroke="currentColor" stroke-width=".95"/><circle cx="15" cy="24" r="1.2" fill="currentColor"/><circle cx="25" cy="24" r="1.2" fill="currentColor"/></svg></div>
+          <h1 class="opening-title">車窓</h1>
+          <p class="opening-roman" aria-hidden="true">SYASOU</p>
+          <div class="opening-action">
+            <div class="opening-loading" role="status"><div class="opening-track" aria-hidden="true"><span></span></div><span>旅の支度をしています</span></div>
+            <div class="opening-failure" hidden role="alert"><p>景色をひらけませんでした。</p><a href="">もう一度ひらく</a></div>
+            <noscript><style>.boot-static .opening-loading { display: none; }</style><p class="opening-failure">車窓を開くには、JavaScriptを有効にしてください。</p></noscript>
+          </div>
+        </div>
+        <div class="opening-paper-grain" aria-hidden="true"></div>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

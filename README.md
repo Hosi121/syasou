@@ -24,3 +24,8 @@ Node.js 22.12以降で `npm install`、`npm run dev` を実行し、http://local
 Shippori MinchoとDM Monoをローカル配信します。日本語UIを変更した際はfonttoolsを用意し、`npm run fonts` でサブセットを生成できます。
 ライセンスは `public/fonts/Shippori-Mincho-LICENSE.txt` と各フォントパッケージ内にあります。
 紙箱はユーザー提供の画像、紙の粒子は `scripts/create-grain.mjs` で生成しています。
+
+## オープニングと旅のしおり
+
+ロゴと窓のローディング画面から「窓辺へ」で入ります。初回のしおりは手帳・車窓・切符を3段階で案内し、最後に手帳を開きます。
+案内はスキップでき、右下やタイトルから再表示できます。同じタブの再読み込みはタイトルの操作を省略します。
