@@ -151,7 +151,13 @@ p { text-wrap: pretty; }
 .ticket-put-away:focus:not(:focus-visible) { outline: none; }
 .ticket-save-error { position: absolute; bottom: 5%; left: 20%; right: 20%; padding: 8px 12px; text-align: center; font-size: 12px; background: #ececec; color: #333; }
 .ticket-empty { display: grid; place-items: center; position: absolute; inset: 0; color: #f0f0f0; font: 15px 'Shippori Mincho',serif; text-shadow: 0 1px 3px #333; }
+.ticket-handling-hint { position: absolute; bottom: 5.5%; left: 20%; right: 20%; text-align: center; font: 11px 'Shippori Mincho',serif; color: #ebebeb; text-shadow: 0 1px 2px #222; pointer-events: none; }
 
+.ticket-handling { position: absolute; inset: 0; perspective: 1400px; cursor: grab; touch-action: none; user-select: none; }
+.ticket-handling[data-held='true'], .ticket-handling[data-held='true'] * { cursor: grabbing; }
+.ticket-lift { position: absolute; inset: 0; transform-style: preserve-3d; }
+.ticket-ground-shadow { position: absolute; inset: 6% 3% 1%; border-radius: 16px; background: #080808; box-shadow: 0 17px 28px 8px #08080899; pointer-events: none; }
+.ticket-handling textarea { cursor: text; user-select: text; touch-action: auto; }
 .rail-ticket { position: relative; width: 100%; aspect-ratio: 1.58; container-type: inline-size; perspective: 1200px; text-align: left; transform-style: preserve-3d; }
 .ticket-turn { position: absolute; inset: 0; transform-style: preserve-3d; }
 .ticket-stock { position: absolute; inset: 0; border-radius: 2cqw; background: #b5b5b5; border: 1px solid #969696; pointer-events: none; box-shadow: 0 2px 1px #15151555; }

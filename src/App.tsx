@@ -130,7 +130,7 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
       <motion.div className="world-camera" style={{ x: lookX, y: lookY }}>
         <div className="room-wall" aria-hidden="true" />
         <motion.div className="window-world" animate={atWindow ? { scale: 1.36, x: '13%', y: '5%' } : { scale: 1, x: '0%', y: '0%' }} transition={{ duration: reducedMotion ? 0 : 1.15, ease: 'easeInOut' }}>
-          <Landscape scene={preferences.scene} speed={preferences.speed} moving={moving && !covered} windowOpen={windowOpen} travelling={journey.phase === 'focus'} />
+          <Landscape scene={preferences.scene} speed={preferences.speed} moving={moving && !covered && !trayOpen} windowOpen={windowOpen} travelling={journey.phase === 'focus'} />
           <button ref={windowButton} className="look-through-window" aria-label={atWindow ? '座席に戻る' : '車窓を眺める'} onClick={() => { setAtWindow(!atWindow); lookTargetX.set(0); lookTargetY.set(0) }} tabIndex={notebookOpen ? -1 : 0} />
         </motion.div>
         <div className="window-lower-shadow" aria-hidden="true" />

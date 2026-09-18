@@ -4,6 +4,8 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { useRef, useState } from 'react'
 import type { Ticket } from '../lib/tickets'
 import TicketCard from './TicketCard'
+import TouchableTicket from './TouchableTicket'
+import type { TicketHandle } from './TouchableTicket'
 
 interface Props {
   tickets: Ticket[]
@@ -17,6 +19,8 @@ export default function TicketTray({ tickets, arrivalId, saveError, onEdit, onCl
   const [selectedId, setSelectedId] = useState(arrivalId ?? tickets[0]?.id)
   const [back, setBack] = useState(false)
   const [leaving, setLeaving] = useState(false)
+  const [handled, setHandled] = useState(false)
+  const physicalTicket = useRef<TicketHandle>(null)
   const closeButton = useRef<HTMLButtonElement>(null)
   const reducedMotion = useReducedMotion()
   const index = Math.max(0, tickets.findIndex(ticket => ticket.id === selectedId))
@@ -36,6 +40,7 @@ export default function TicketTray({ tickets, arrivalId, saveError, onEdit, onCl
         <motion.div className="ticket-tray-shade" initial={{ opacity: 0 }} animate={{ opacity: leaving ? 0 : 1 }} transition={{ duration: reducedMotion ? 0 : .3 }} />
       </Dialog.Overlay>
       <Dialog.Content className="ticket-tray-dialog"
+        onEscapeKeyDown={event => { if (physicalTicket.current?.cancel()) event.preventDefault() }}
         onOpenAutoFocus={event => { event.preventDefault(); closeButton.current?.focus({ preventScroll: true }) }}
         onCloseAutoFocus={event => {
           event.preventDefault()
@@ -57,7 +62,7 @@ export default function TicketTray({ tickets, arrivalId, saveError, onEdit, onCl
                 exit={{ x: -24, opacity: 0, rotate: -4 }}
                 transition={{ duration: reducedMotion ? 0 : leaving ? .7 : arrival ? 1.25 : .18, ease: 'easeOut', delay: arrival && !leaving ? .15 : 0 }}
                 onAnimationComplete={() => { if (leaving) onClose() }}>
-                <TicketCard ticket={ticket} back={back} onTitleChange={title => onEdit(ticket.id, { title })} onNoteChange={note => onEdit(ticket.id, { note })} />
+                <TouchableTicket ref={physicalTicket} ticket={ticket} back={back} disabled={leaving} onBackChange={setBack} onTouch={() => setHandled(true)} onEdit={onEdit} />
               </motion.div>
             </AnimatePresence>
           </> : <div className="ticket-empty"><p>次の到着が、最初の一枚に。</p></div>}
@@ -69,10 +74,11 @@ export default function TicketTray({ tickets, arrivalId, saveError, onEdit, onCl
             <button aria-label="前の切符を見る" disabled={index >= tickets.length - 1 || leaving} onClick={() => select(index + 1)}><ArrowRight size={23} strokeWidth={1} /></button>
           </div>}
           <div className="ticket-tray-actions">
-            {ticket && <button className="ticket-flip" aria-label={back ? '切符の表を見る' : '切符の裏を見る'} onClick={() => setBack(!back)} disabled={leaving} title={back ? '表へ' : '裏へ'}><RotateCcw size={18} strokeWidth={1.1} /></button>}
+            {ticket && <button className="ticket-flip" aria-label={back ? '切符の表を見る' : '切符の裏を見る'} onClick={() => { setBack(!back); setHandled(true) }} disabled={leaving} title={back ? '表へ' : '裏へ'}><RotateCcw size={18} strokeWidth={1.1} /></button>}
             <button ref={closeButton} className="ticket-put-away" onClick={close} disabled={leaving}>{arrival ? '手帳にしまう' : '手帳に戻る'}<ArrowRight size={16} strokeWidth={1} /></button>
           </div>
           {saveError && <p className="ticket-save-error" role="alert">このブラウザに切符を保存できません。ページを閉じると記録が失われます。</p>}
+          {ticket && !saveError && <motion.p className="ticket-handling-hint" aria-hidden="true" animate={{ opacity: handled || leaving ? 0 : 1 }} transition={{ duration: reducedMotion ? 0 : .18 }}>端をつまんで、左右にめくる</motion.p>}
         </motion.div>
       </Dialog.Content>
     </Dialog.Portal>

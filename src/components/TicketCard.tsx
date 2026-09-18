@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
+import type { MotionValue } from 'motion/react'
 import type { Ticket } from '../lib/tickets'
 import { cn } from '../lib/utils'
 import RailMark from './RailMark'
@@ -6,6 +7,9 @@ import RailMark from './RailMark'
 interface Props {
   ticket: Ticket
   back?: boolean
+  rotation?: MotionValue<number>
+  shineX?: MotionValue<number>
+  shineOpacity?: MotionValue<number>
   onTitleChange?: (title: string) => void
   onNoteChange?: (note: string) => void
 }
@@ -15,13 +19,13 @@ const routes = { mist: 'MIST VALLEY', dawn: 'MORNING LIGHT', night: 'NIGHT FORES
 const dateFormat = new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: 'short', year: '2-digit' })
 const timeFormat = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false })
 
-export default function TicketCard({ ticket, back = false, onTitleChange, onNoteChange }: Props) {
+export default function TicketCard({ ticket, back = false, rotation, shineX, shineOpacity, onTitleChange, onNoteChange }: Props) {
   const reducedMotion = useReducedMotion()
   const date = dateFormat.format(ticket.arrivedAt).toUpperCase()
   const welcome = ticket.kind === 'welcome'
   const serial = Array.from(ticket.id).reduce((value, character) => (value * 31 + character.charCodeAt(0)) >>> 0, 7).toString().padStart(8, '0').slice(-8)
   return <div className="rail-ticket" data-ticket-kind={ticket.kind ?? 'journey'}>
-    <motion.div className="ticket-turn" animate={{ rotateY: back ? 180 : 0 }} transition={{ duration: reducedMotion ? 0 : .6, ease: 'easeInOut' }}>
+    <motion.div className="ticket-turn" style={rotation ? { rotateY: rotation } : undefined} animate={rotation ? undefined : { rotateY: back ? 180 : 0 }} transition={{ duration: reducedMotion ? 0 : .6, ease: 'easeInOut' }}>
       <div className="ticket-stock ticket-stock-bottom" aria-hidden="true" /><div className="ticket-stock" aria-hidden="true" /><div className="ticket-stock ticket-stock-top" aria-hidden="true" />
       <div className="ticket-face ticket-front" aria-hidden={back} inert={back}>
         <div className="ticket-band ticket-band-top"><span>SYASOU RAILWAY</span><span>{welcome ? 'FIRST RIDE' : 'ONE WAY'}</span></div>
@@ -54,14 +58,14 @@ export default function TicketCard({ ticket, back = false, onTitleChange, onNote
           <span className="ticket-times">{welcome ? 'A SMALL BEGINNING' : `${timeFormat.format(ticket.startedAt)} — ${timeFormat.format(ticket.arrivedAt)}`}</span>
           <span className="ticket-stamp">{welcome ? 'WELCOME' : ticket.kind === 'sample' ? 'SAMPLE' : 'ARRIVED'}</span>
         </div>
-        <div className="ticket-sheen" aria-hidden="true" style={{ opacity: .12 }} />
+        <motion.div className="ticket-sheen" aria-hidden="true" style={{ x: shineX ?? 0, opacity: shineOpacity ?? .12 }} />
       </div>
       <div className="ticket-face ticket-back" aria-hidden={!back} inert={!back}>
         <div className="ticket-back-heading"><span>旅の余白</span><small>{date}</small></div>
         {onNoteChange ? <textarea className="ticket-note" aria-label="切符のメモ" value={ticket.note} maxLength={300} onChange={event => onNoteChange(event.target.value)} placeholder="この旅で考えたこと、残しておきたいこと。" spellCheck={false} /> : <p className="ticket-note">{ticket.note}</p>}
         <span className="ticket-back-mark"><RailMark /></span>
         <span className="ticket-back-edition" aria-hidden="true">SYASOU RAILWAY / {serial}</span>
-        <div className="ticket-sheen" aria-hidden="true" style={{ opacity: .12 }} />
+        <motion.div className="ticket-sheen" aria-hidden="true" style={{ x: shineX ?? 0, opacity: shineOpacity ?? .12 }} />
       </div>
     </motion.div>
   </div>
