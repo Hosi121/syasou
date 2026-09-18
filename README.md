@@ -1,0 +1,26 @@
+# 車窓
+
+PCの画面を、モノクロの列車の窓辺にする作業用アプリ。窓と手帳そのものを操作します。
+
+## 起動
+
+Node.js 22.12以降で `npm install`、`npm run dev` を実行し、http://localhost:5173 を開きます。
+`npm run build` で型チェックと本番ビルド、`npm run preview` で確認できます。
+
+## 操作
+
+- 手帳を開き、時間と速度を選んで乗車。列車・雨・風の音を調整できます。
+- 窓を押すと車窓モードへ。もう一度押すかEscapeで席に戻れます。
+- 作業の終了時に切符が発行され、手帳の右ポケットから見返せます。表の作業名と裏のメモは編集できます。
+- 設定・メモ・進行中の作業・切符は同じブラウザ内に保存します。端末間の同期はありません。
+
+## 検証
+
+`npx playwright install chromium` の後、`npm test` を実行します。
+既存のChromiumは `CHROMIUM_PATH=/path/to/chromium npm test` で利用できます。
+
+## フォントと素材
+
+Shippori MinchoとDM Monoをローカル配信します。日本語UIを変更した際はfonttoolsを用意し、`npm run fonts` でサブセットを生成できます。
+ライセンスは `public/fonts/Shippori-Mincho-LICENSE.txt` と各フォントパッケージ内にあります。
+紙箱はユーザー提供の画像、紙の粒子は `scripts/create-grain.mjs` で生成しています。
