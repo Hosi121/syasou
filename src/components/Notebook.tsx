@@ -9,6 +9,7 @@ import TicketCard from './TicketCard'
 import RailMark from './RailMark'
 import RouteMap from './RouteMap'
 import Settings from './Settings'
+import { compactLayout, useMediaQuery } from '../hooks/useMediaQuery'
 
 interface Props {
   open: boolean; suspended: boolean; onOpenChange: (open: boolean) => void
@@ -31,6 +32,7 @@ export default function Notebook(props: Props) {
   const { open, suspended, onOpenChange, journey, preferences, remaining, onPreferences, onStart, onToggle, onFinish, soundEnabled, soundBusy, soundError, onSound, note, onNote, tickets, onArchive } = props
   const [settings, setSettings] = useState(false)
   const reducedMotion = useReducedMotion()
+  const compact = useMediaQuery(compactLayout)
   const active = journey.phase === 'focus' || journey.phase === 'rest'
   const date = new Date()
   const printedDate = `'${String(date.getFullYear()).slice(-2)} ${date.getMonth() + 1}/${date.getDate()}`
@@ -57,7 +59,7 @@ export default function Notebook(props: Props) {
       }} onCloseAutoFocus={event => { if (suspended) event.preventDefault() }}>
         <Dialog.Title className="sr-only">旅の手帳</Dialog.Title>
         <Dialog.Description className="sr-only">作業時間、列車の速さ、音、メモを手帳で操作できます。</Dialog.Description>
-        <motion.div className="journal" initial={reducedMotion ? false : { opacity: 0, y: 55, rotateX: 12, rotate: -5, scale: .93 }} animate={{ opacity: 1, y: 0, rotateX: 0, rotate: -2, scale: 1 }} transition={{ duration: .55, ease: 'easeOut' }}>
+        <motion.div className="journal" data-settings={settings} initial={reducedMotion ? false : { opacity: 0, y: compact ? 14 : 55, rotateX: compact ? 0 : 12, rotate: compact ? 0 : -5, scale: compact ? 1 : .93 }} animate={{ opacity: 1, y: 0, rotateX: 0, rotate: compact ? 0 : -2, scale: 1 }} transition={{ duration: compact ? .18 : .55, ease: 'easeOut' }}>
           <div className="journal-cover" aria-hidden="true" />
           <div className="journal-page-edges" aria-hidden="true" />
           <div className="journal-spread">
@@ -95,9 +97,9 @@ export default function Notebook(props: Props) {
                 {tickets[0] && <span className="pocket-ticket" aria-hidden="true"><TicketCard ticket={tickets[0]} /></span>}
                 <span className="pocket-paper" aria-hidden="true"><Tickets size={18} strokeWidth={1} /><span>切符</span></span>
               </button>
-              <Dialog.Close className="paper-close paper-icon" aria-label="手帳を閉じる" title="手帳を閉じる"><X size={19} strokeWidth={1} /></Dialog.Close>
             </div>
           </div>
+          <Dialog.Close className="paper-close paper-icon" aria-label="手帳を閉じる" title="手帳を閉じる"><X size={19} strokeWidth={1} /></Dialog.Close>
           <div className="journal-spine" aria-hidden="true" />
           <div className="journal-ribbon" aria-hidden="true" />
         </motion.div>

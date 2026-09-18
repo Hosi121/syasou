@@ -48,6 +48,7 @@ export default function TicketTray({ tickets, arrivalId, saveError, onEdit, onCl
         }}>
         <Dialog.Title className="sr-only">{welcome ? 'はじめての切符' : arrival ? '到着の切符' : '集めた切符'}</Dialog.Title>
         <Dialog.Description className="sr-only">{welcome ? '旅のしおりをめくった記念の一枚です。裏返してメモを読み、手帳にしまってみましょう。手帳の右ポケットからまた見返せます。' : arrival ? '旅の記録が切符になりました。作業名や裏面のメモを書き込んで、手帳にしまえます。' : '手帳に残した切符を一枚ずつ見返せます。裏面には旅のメモがあります。'}</Dialog.Description>
+        <div className="ticket-tray-stage">
         <motion.img className="ticket-tray-box" src="/ticket-tray.png" alt="" draggable={false} initial={{ opacity: 0 }} animate={{ opacity: leaving ? 0 : 1 }} transition={{ duration: reducedMotion ? 0 : .4 }} />
         {welcome && <motion.p className="ticket-welcome-caption" initial={{ opacity: 0 }} animate={{ opacity: leaving ? 0 : 1 }} transition={{ duration: reducedMotion ? 0 : .3, delay: reducedMotion || leaving ? 0 : 1.3 }}>ようこそ、車窓へ。</motion.p>}
         <div className="ticket-tray-well">
@@ -80,6 +81,7 @@ export default function TicketTray({ tickets, arrivalId, saveError, onEdit, onCl
           {saveError && <p className="ticket-save-error" role="alert">このブラウザに切符を保存できません。ページを閉じると記録が失われます。</p>}
           {ticket && !saveError && <motion.p className="ticket-handling-hint" aria-hidden="true" animate={{ opacity: handled || leaving ? 0 : 1 }} transition={{ duration: reducedMotion ? 0 : .18 }}>端をつまんで、左右にめくる</motion.p>}
         </motion.div>
+        </div>
       </Dialog.Content>
     </Dialog.Portal>
   </Dialog.Root>

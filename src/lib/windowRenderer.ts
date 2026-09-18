@@ -122,7 +122,9 @@ void main() {
 `
 
 export function createWindowRenderer(canvas: HTMLCanvasElement, onUnavailable?: () => void) {
-  const gl = canvas.getContext('webgl', { alpha: false, antialias: false, depth: false })
+  // Safari may discard a composited frame when no more animation frames follow.
+  // Retain the still image while paused or under prefers-reduced-motion.
+  const gl = canvas.getContext('webgl', { alpha: false, antialias: false, depth: false, preserveDrawingBuffer: true })
   if (!gl) return null
   const shaders: WebGLShader[] = []
   function compile(type: number, source: string) {

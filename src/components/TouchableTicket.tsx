@@ -91,8 +91,9 @@ export default function TouchableTicket({ ref, ticket, back, disabled, onBackCha
     const cancel = () => { release(false) }
     const hidden = () => { if (document.hidden) cancel() }
     window.addEventListener('blur', cancel)
+    window.addEventListener('resize', cancel)
     document.addEventListener('visibilitychange', hidden)
-    return () => { window.removeEventListener('blur', cancel); document.removeEventListener('visibilitychange', hidden) }
+    return () => { window.removeEventListener('blur', cancel); window.removeEventListener('resize', cancel); document.removeEventListener('visibilitychange', hidden) }
   }, [release])
   useEffect(() => { if (disabled) release(false) }, [disabled, release])
   useEffect(() => {

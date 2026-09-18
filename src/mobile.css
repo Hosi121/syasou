@@ -1,0 +1,129 @@
+/* The scene stays a place; only the paper and its reach change on a small screen. */
+:root { --visual-height: 100dvh; --visual-top: 0px; }
+
+@media (pointer: coarse) {
+  button { touch-action: manipulation; }
+  .world-corners, .world-awake .world-corners, .world-corners:focus-within { opacity: .8; }
+  .world-corners { gap: 3px; right: max(12px, env(safe-area-inset-right)); bottom: max(12px, env(safe-area-inset-bottom)); }
+  .corner-action, .paper-icon, .guide-back, .guide-next, .guide-skip, .ticket-flip, .tray-close, .ticket-browse button { min-width: 44px; min-height: 44px; }
+  .world-corners .corner-action { width: 44px; height: 44px; }
+  .ticket-handling { touch-action: pan-y pinch-zoom; }
+  .paper-memo, .ticket-handling textarea { font-size: max(16px, 3cqw); }
+  .paper-volume input { height: 44px; background: linear-gradient(#999, #999) center / 100% 2px no-repeat; }
+  .paper-volume input::-webkit-slider-thumb { width: 18px; height: 18px; }
+  .paper-volume input::-moz-range-thumb { width: 18px; height: 18px; }
+  .look-through-window:focus:not(:focus-visible) { outline: none; }
+}
+
+@media (max-width: 760px) and (orientation: portrait) {
+  .window-world { left: -5vw; top: -6dvh; width: 101vw; height: 79dvh; border-radius: 0 0 44px 0; }
+  .window-lower-shadow { width: 96%; top: 73dvh; }
+  .table-light { height: 27dvh; }
+  .book-location { right: 14vw; bottom: calc(82px + env(safe-area-inset-bottom)); width: clamp(112px, 32vw, 168px); }
+  .window-latch { left: auto; right: 8px; top: 67%; width: 44px; height: 68px; }
+  .latch-plate { inset-inline: 14px; }
+  .latch-handle { left: 16px; }
+  .room-wall::after, .table-light::after { opacity: .3; }
+  .world-camera { inset: 0; }
+  .distant-train { width: 48vw; min-width: 150px; max-width: 240px; }
+  .snow-sky .snow-tile { background-size: auto 203.478261%; }
+  .snow-ground .snow-tile { background-size: auto 200%; }
+  .snow-near .snow-tile { background-size: auto 360%; }
+}
+
+@media (max-width: 760px), (max-height: 520px) and (pointer: coarse) {
+  .world-error { left: max(16px, env(safe-area-inset-left)); right: max(16px, env(safe-area-inset-right)); bottom: calc(72px + env(safe-area-inset-bottom)); max-width: none; }
+  .view-picker { max-width: calc(100vw - 24px); padding: 7px; }
+  .view-options { gap: 3px; }
+  .view-option { width: min(115px, calc((100vw - 52px) / 3)); padding: 4px; }
+  .view-option-label { min-height: 36px; padding: 7px 0 0; font-size: 11px; }
+  .view-option-label svg { flex-shrink: 0; }
+
+  /* One readable leaf with the ticket pocket stitched beneath the notes. The
+     sheet scrolls inside its cover when a keyboard takes up the lower screen. */
+  .journal-anchor {
+    top: calc(var(--visual-top) + max(20px, env(safe-area-inset-top)));
+    left: 50%; transform: translateX(-50%); width: min(420px, calc(100vw - 40px));
+    height: min(680px, calc(var(--visual-height) - max(20px, env(safe-area-inset-top)) - max(20px, env(safe-area-inset-bottom))));
+    overflow: auto; overscroll-behavior: contain; border: 6px solid #353535; border-radius: 3px 8px 8px 3px;
+    background: #dedede; box-shadow: 3px 5px 0 #c2c2c2, 5px 8px 0 #353535, 0 14px 30px #0003;
+    scrollbar-width: thin; scroll-padding-block: 20px;
+  }
+  .journal { min-height: 580px; height: 100%; }
+  .journal-cover, .journal-page-edges, .journal-spine, .journal-ribbon { display: none; }
+  .journal-spread { display: block; }
+  .journal-left { position: absolute; inset: 0; transform: none; background: linear-gradient(90deg, #b8b8b8, #dedede 5%, #e7e7e7 95%, #d5d5d5); }
+  .journal .journal-page::after, .journey-paper::after { opacity: .18; }
+  .journey-paper { left: 10%; top: 46px; width: 77%; height: 212px; padding: 0 20px; transform: rotate(1deg); }
+  .paper-date { margin-top: 20px; font-size: 14px; }
+  .paper-time { margin-top: 6px; min-height: 44px; font-size: 17px; }
+  .paper-speed { margin-top: 0; min-height: 44px; font-size: 14px; }
+  .paper-play { width: 46px; height: 46px; right: 16px; bottom: 15px; }
+  .paper-phase { position: absolute; left: 18px; bottom: 28px; margin: 0; font-size: 12px; }
+  .paper-memo { top: 286px; bottom: 165px; left: 10%; width: 80%; height: auto; min-height: 90px; font-size: 16px; }
+  .paper-tools { left: 8%; bottom: 115px; gap: 14px; }
+  .paper-icon { width: 44px; height: 44px; }
+  .paper-close { top: 4px; right: 5px; }
+  .paper-back { top: 4px; left: 6px; }
+  .paper-error { bottom: 164px; left: 8%; right: 8%; font-size: 12px; }
+  .journal-right { position: absolute; left: 10%; right: 10%; bottom: 17px; height: 83px; transform: none; background: transparent; }
+  .journal-right::after, .journal-right .route-map { display: none; }
+  .ticket-pocket { inset: 0; width: 100%; height: 100%; transform: rotate(-1.5deg); }
+  .pocket-paper { top: 25%; font-size: 13px; }
+  .ticket-pocket-filled .pocket-paper { top: 25%; }
+  .pocket-ticket { width: 43%; left: 49%; bottom: 28%; }
+  .notebook-settings { top: 59px; bottom: 80px; left: 8%; right: 8%; overflow-y: auto; overscroll-behavior: contain; padding: 2px 5px 12px; scroll-padding: 8px; }
+  .setting-row { margin-bottom: 16px; }
+  .setting-row > span { font-size: 12px; margin-bottom: 5px; }
+  .paper-options { gap: 2px; }
+  .paper-options > button { min-width: 32px; height: 44px; font-size: 13px; }
+  .scene-options > button { flex-basis: 48px; }
+  .paper-sound-controls { margin-top: 12px; gap: 3px; }
+  .clock-setting { margin-top: 10px; min-height: 44px; font-size: 12px; }
+  .next-journey-note { font-size: 11px; }
+  .journal[data-settings='true'] .journal-right { display: none; }
+  .journal[data-settings='true'] .paper-tools { bottom: 14px; }
+
+  .guide-position { left: max(20px, env(safe-area-inset-left)); bottom: max(24px, env(safe-area-inset-bottom)); width: min(350px, calc(100vw - 40px)); max-width: none; max-height: calc(100dvh - 40px); overflow-y: auto; }
+  .guide-paper { padding: 18px 23px 16px; }
+  .guide-topline h2 { font-size: 12px; }
+  .guide-skip { font-size: 12px; }
+  .guide-drawing { margin: 7px auto 12px; height: 62px; }
+  .guide-title { font-size: 21px; }
+  .guide-description { font-size: 13px; line-height: 1.9; }
+  .guide-footer { margin-top: 12px; }
+  .guide-next { font-size: 13px; }
+
+  /* Turn the empty paper box upright; keep the printed ticket horizontal. */
+  .ticket-tray-dialog {
+    top: calc(var(--visual-top) + max(12px, env(safe-area-inset-top)));
+    left: 50%; transform: translateX(-50%); width: min(500px, calc(100vw - 24px)); aspect-ratio: auto;
+    height: min(720px, calc(var(--visual-height) - max(12px, env(safe-area-inset-top)) - max(12px, env(safe-area-inset-bottom))));
+    overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; scroll-padding-block: 24px;
+  }
+  .ticket-tray-stage { min-height: 540px; container-type: size; }
+  .ticket-tray-box { left: 50%; top: 50%; width: 100cqh; height: 100cqw; max-width: none; object-fit: fill; transform: translate(-50%, -50%) rotate(90deg); }
+  .ticket-tray-well { left: 26px; width: calc(100% - 52px); top: 44%; }
+  .ticket-welcome-caption { top: 10%; left: 10%; right: 10%; font-size: 16px; }
+  .tray-close { top: 3%; right: 5%; }
+  .ticket-browse { top: auto; bottom: 25%; left: 10%; right: 10%; }
+  .ticket-tray-actions { left: 9%; right: 9%; bottom: 12%; gap: 12px; }
+  .ticket-put-away { min-height: 44px; font-size: 14px; }
+  .ticket-handling-hint { left: 8%; right: 8%; bottom: 5%; font-size: 11px; }
+  .ticket-save-error { left: 8%; right: 8%; bottom: 3%; font-size: 12px; }
+  .ticket-handling textarea { font-size: max(16px, 3cqw); }
+  .ticket-task textarea { font-size: max(16px, 4.9cqw); }
+  .ticket-task-long textarea { font-size: 16px; }
+  .ticket-empty { font-size: 13px; }
+}
+
+@media (max-height: 520px) and (pointer: coarse) and (orientation: landscape) {
+  .book-location { width: 100px; bottom: 64px; }
+  .guide-position { bottom: max(12px, env(safe-area-inset-bottom)); max-height: calc(100dvh - 24px); }
+  .guide-drawing { display: none; }
+  .guide-topline { margin-bottom: 7px; }
+  .guide-paper { padding-block: 10px; }
+  .guide-title { font-size: 18px; margin-bottom: 7px; }
+  .guide-description { min-height: 0; }
+  .guide-footer { margin-top: 6px; }
+}

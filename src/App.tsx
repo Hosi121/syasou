@@ -13,10 +13,16 @@ import { useSound } from './hooks/useSound'
 import { cn, readStorage, writeStorage } from './lib/utils'
 import { isView, type View } from './lib/views'
 import './scenery.css'
+import './mobile.css'
+import { useMediaQuery } from './hooks/useMediaQuery'
+import { useVisualViewport } from './hooks/useVisualViewport'
 
 export interface AppProps { covered: boolean; guideRequest: number; onReady: () => void; onShowOpening: () => void }
 
 export default function App({ covered, guideRequest, onReady, onShowOpening }: AppProps) {
+  useVisualViewport()
+  const portrait = useMediaQuery('(max-width: 760px) and (orientation: portrait)')
+  const supportsFullscreen = Boolean(document.fullscreenEnabled && document.documentElement.requestFullscreen)
   const [note, setNote] = useState(() => readStorage('syasou.note.v1', '', (v): v is string => typeof v === 'string' && v.length <= 300))
   const { journey, preferences, setPreferences, remaining, start, toggle, finish, tickets, pendingArrivalId, acknowledgeArrival, receiveWelcomeTicket, editTicket, saveError } = useJourney(note)
   const [notebookOpen, setNotebookOpen] = useState(false)
@@ -137,9 +143,10 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
   return <MotionConfig reducedMotion="user">
     <main className={cn('world', { 'at-window': atWindow, 'outside-train': outside, 'journal-is-open': notebookOpen, 'world-awake': awake })} inert={covered} aria-hidden={covered}
       aria-label="列車の窓辺" data-view={view}
+      onPointerDown={wake}
       onPointerMove={event => {
         wake()
-        if (reducedMotion || notebookOpen || atWindow || outside || trayOpen || guideOpen) return
+        if (event.pointerType !== 'mouse' || reducedMotion || notebookOpen || atWindow || outside || trayOpen || guideOpen) return
         lookTargetX.set((event.clientX / innerWidth - .5) * -9)
         lookTargetY.set((event.clientY / innerHeight - .5) * -5)
       }}
@@ -148,7 +155,7 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
       {outside && <div className="exterior-view"><SnowScenery exterior scene={preferences.scene} speed={preferences.speed} moving={moving && !covered && !trayOpen} windowOpen={false} travelling={journey.phase === 'focus'} /></div>}
       <motion.div className="world-camera" style={{ x: lookX, y: lookY }} inert={outside} aria-hidden={outside}>
         <div className="room-wall" aria-hidden="true" />
-        <motion.div className="window-world" animate={atWindow ? { scale: 1.36, x: '13%', y: '5%' } : { scale: 1, x: '0%', y: '0%' }} transition={{ duration: reducedMotion ? 0 : 1.15, ease: 'easeInOut' }}>
+        <motion.div className="window-world" animate={atWindow ? portrait ? { scale: 1.5, x: '0%', y: '10%' } : { scale: 1.36, x: '13%', y: '5%' } : { scale: 1, x: '0%', y: '0%' }} transition={{ duration: reducedMotion ? 0 : 1.15, ease: 'easeInOut' }}>
           {!outside && (view === 'snow'
             ? <SnowScenery scene={preferences.scene} speed={preferences.speed} moving={moving && !covered && !trayOpen} windowOpen={windowOpen} travelling={journey.phase === 'focus'} />
             : <Landscape scene={preferences.scene} speed={preferences.speed} moving={moving && !covered && !trayOpen} windowOpen={windowOpen} travelling={journey.phase === 'focus'} />)}
@@ -172,7 +179,7 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
         <button className="corner-action" aria-label="タイトルに戻る" onClick={onShowOpening} title="タイトルへ"><span style={{ width: 24, height: 24 }}><RailMark strokeWidth={1} /></span></button>
         <button className="corner-action" aria-label="使い方を見る" onClick={showGuide} title="旅のしおり"><BookOpen size={18} strokeWidth={1} /></button>
         {(atWindow || outside) && <button className="corner-action" aria-label="座席に戻る" onClick={leaveWindow} title="座席に戻る"><ArrowLeft size={19} strokeWidth={1} /></button>}
-        <button className="corner-action" aria-label={fullscreen ? '全画面を終了' : '全画面で見る'} aria-pressed={fullscreen} onClick={() => void toggleFullscreen()} title={fullscreen ? '全画面を終了' : '全画面で見る'}>{fullscreen ? <Minimize size={18} strokeWidth={1} /> : <Maximize size={18} strokeWidth={1} />}</button>
+        {supportsFullscreen && <button className="corner-action" aria-label={fullscreen ? '全画面を終了' : '全画面で見る'} aria-pressed={fullscreen} onClick={() => void toggleFullscreen()} title={fullscreen ? '全画面を終了' : '全画面で見る'}>{fullscreen ? <Minimize size={18} strokeWidth={1} /> : <Maximize size={18} strokeWidth={1} />}</button>}
       </div>
       {fullscreenError && <p className="world-error" role="alert">{fullscreenError}</p>}
       {sound.error && !notebookOpen && <p className="world-error" role="alert">{sound.error}</p>}

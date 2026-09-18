@@ -13,7 +13,7 @@
 :root { font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; color: #383838; background: #e4e4e4; font-synthesis: none; -webkit-font-smoothing: antialiased; }
 * { box-sizing: border-box; }
 html, body, #root { width: 100%; height: 100%; margin: 0; overflow: hidden; }
-body { min-width: 760px; }
+body { min-width: 320px; overscroll-behavior: none; }
 button, input, textarea { font: inherit; }
 button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 button:disabled { cursor: wait; }
@@ -131,6 +131,7 @@ p { text-wrap: pretty; }
 /* Arrival is a physical cut-in: one printed ticket settles into a paper tray. */
 .ticket-tray-shade { position: fixed; inset: 0; z-index: 50; background: #191919; }
 .ticket-tray-dialog { position: fixed; z-index: 60; left: 50%; top: 50%; width: min(1400px,96vw,195vh); aspect-ratio: 2048 / 946; transform: translate(-50%,-50%); outline: none; }
+.ticket-tray-stage { position: relative; width: 100%; height: 100%; }
 .ticket-tray-box { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; user-select: none; }
 .ticket-welcome-caption { position: absolute; top: 10%; left: 20%; right: 20%; text-align: center; font: 14px 'Shippori Mincho',serif; color: #fafafa; text-shadow: 0 1px 2px #222; pointer-events: none; }
 .ticket-tray-well { position: absolute; width: 43%; aspect-ratio: 1.58; top: 48%; left: 28.5%; transform: translateY(-50%); perspective: 1600px; }

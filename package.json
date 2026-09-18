@@ -7,6 +7,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "playwright test",
+    "test:mobile": "playwright test --config playwright.mobile.config.ts",
     "fonts": "node scripts/prepare-fonts.mjs"
   },
   "keywords": [],
