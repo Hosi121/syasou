@@ -1,0 +1,54 @@
+name: Browser verification
+
+on:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: Browser scenarios to run
+        type: choice
+        default: all
+        options: [all, desktop, mobile]
+      trace:
+        description: Record traces for diagnosis (adds overhead)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CI: true
+
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24.13.0'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Install selected browsers
+        id: browsers
+        run: npx playwright install --with-deps --only-shell ${{ inputs.suite == 'desktop' && 'chromium' || 'chromium webkit' }}
+      - name: Desktop scenarios
+        if: ${{ inputs.suite != 'mobile' }}
+        run: npm test -- --output test-results/desktop --trace ${{ inputs.trace && 'retain-on-failure' || 'off' }}
+      - name: Mobile scenarios
+        if: ${{ !cancelled() && steps.browsers.outcome == 'success' && inputs.suite != 'desktop' }}
+        run: npm run test:mobile -- --output test-results/mobile --trace ${{ inputs.trace && 'retain-on-failure' || 'off' }}
+      - name: Save failure details
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: browser-failures
+          path: test-results/
+          if-no-files-found: ignore
+          retention-days: 7

@@ -106,6 +106,15 @@ iPhoneではSafariの共有メニュー、Androidでは対応ブラウザのメ�
 
 ## 検証
 
+通常の push / PR の CI は、MoonBit の単体テスト（JS / native）、TypeScript との互換性、公開型、生成物の再現性、本番ビルドを検証します。ブラウザのインストールや E2E は行いません。タイマー・切符・保存検証の正しさは UI を起動せずに確認します。
+
+画面・描画・音・入力方法を変更したときは、必要な E2E をローカルか GitHub Actions の **Browser verification** から手動実行します。`all` / `desktop` / `mobile` を選択でき、診断用のトレースは必要な場合に有効にします。失敗時のスクリーンショットとエラー情報は 7 日間保存します。
+
+```sh
+gh workflow run browser.yml -f suite=desktop
+gh workflow run browser.yml -f suite=mobile -f trace=true
+```
+
 ```sh
 npx playwright install chromium
 npm test

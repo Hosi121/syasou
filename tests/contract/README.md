@@ -5,6 +5,8 @@ The original TypeScript modules are frozen in `oracle/` (only runtime import
 suffixes change for Node). `appStorage.ts` captures the two inline App predicates
 with standalone names and parameter annotations; the expressions are unchanged. `signatures/` contains the emitted declarations.
 Existing Playwright tests are the unchanged browser contract.
+They run locally or through the manually dispatched `Browser verification`
+workflow. Routine push/PR CI verifies the pure core, API contracts and build.
 
 ## Scope and boundaries
 
@@ -56,6 +58,11 @@ pure core without JS. `npm run test:domain` compares:
 
 `npm test` and `npm run test:mobile` verify real Chromium/WebKit behavior. Mock
 traces complement these tests; they do not emulate a GPU or audio device.
+The full CI run at `540e05b` passed 41 desktop scenarios and exceeded the 30-second
+test timeout in `the passing landscape moves, holds its position when paused,
+and resumes` ([run](https://github.com/Hosi121/syasou/actions/runs/35463902474)).
+The same scenario passed locally. Moving E2E to manual execution does not resolve
+that timeout; use the desktop suite with trace enabled to investigate it.
 The original commit remains a deployable rollback. Server traffic shadowing
 is inapplicable to this static, browser-local application.
 
