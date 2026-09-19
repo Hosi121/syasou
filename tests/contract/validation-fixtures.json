@@ -410,6 +410,266 @@
     "result": true
   },
   {
+    "fn": "isNote",
+    "args": [
+      null
+    ],
+    "name": "isNote: primitive 0",
+    "result": false
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      {
+        "$value": "undefined"
+      }
+    ],
+    "name": "isNote: primitive 1",
+    "result": false
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      false
+    ],
+    "name": "isNote: primitive 2",
+    "result": false
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      0
+    ],
+    "name": "isNote: primitive 3",
+    "result": false
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      ""
+    ],
+    "name": "isNote: primitive 4",
+    "result": true
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      []
+    ],
+    "name": "isNote: primitive 5",
+    "result": false
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      {}
+    ],
+    "name": "isNote: primitive 6",
+    "result": false
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      "forest"
+    ],
+    "name": "isNote: primitive 7",
+    "result": true
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      "snow"
+    ],
+    "name": "isNote: primitive 8",
+    "result": true
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      "train"
+    ],
+    "name": "isNote: primitive 9",
+    "result": true
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      null
+    ],
+    "name": "isStoredBoolean: primitive 0",
+    "result": false
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      {
+        "$value": "undefined"
+      }
+    ],
+    "name": "isStoredBoolean: primitive 1",
+    "result": false
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      false
+    ],
+    "name": "isStoredBoolean: primitive 2",
+    "result": true
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      0
+    ],
+    "name": "isStoredBoolean: primitive 3",
+    "result": false
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      ""
+    ],
+    "name": "isStoredBoolean: primitive 4",
+    "result": false
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      []
+    ],
+    "name": "isStoredBoolean: primitive 5",
+    "result": false
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      {}
+    ],
+    "name": "isStoredBoolean: primitive 6",
+    "result": false
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      "forest"
+    ],
+    "name": "isStoredBoolean: primitive 7",
+    "result": false
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      "snow"
+    ],
+    "name": "isStoredBoolean: primitive 8",
+    "result": false
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      "train"
+    ],
+    "name": "isStoredBoolean: primitive 9",
+    "result": false
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      true
+    ],
+    "name": "isNote: note boundary 0",
+    "result": false
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ],
+    "name": "isNote: note boundary 1",
+    "result": true
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ],
+    "name": "isNote: note boundary 2",
+    "result": true
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ],
+    "name": "isNote: note boundary 3",
+    "result": false
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      "🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃"
+    ],
+    "name": "isNote: note boundary 4",
+    "result": true
+  },
+  {
+    "fn": "isNote",
+    "args": [
+      "a🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃"
+    ],
+    "name": "isNote: note boundary 5",
+    "result": false
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      true
+    ],
+    "name": "isStoredBoolean: note boundary 0",
+    "result": true
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ],
+    "name": "isStoredBoolean: note boundary 1",
+    "result": false
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ],
+    "name": "isStoredBoolean: note boundary 2",
+    "result": false
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ],
+    "name": "isStoredBoolean: note boundary 3",
+    "result": false
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      "🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃"
+    ],
+    "name": "isStoredBoolean: note boundary 4",
+    "result": false
+  },
+  {
+    "fn": "isStoredBoolean",
+    "args": [
+      "a🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃"
+    ],
+    "name": "isStoredBoolean: note boundary 5",
+    "result": false
+  },
+  {
     "fn": "isPreferences",
     "args": [
       {

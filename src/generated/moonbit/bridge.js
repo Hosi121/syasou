@@ -442,22 +442,22 @@ _M0DTP37Hosi1216syasou6domain12TravelAction4Edit.prototype.$tag = 3;
 const _M0MPB4Iter4nextN6constrS9918GRP26mizchi8js__core3AnyE = 0;
 const _M0MPB4Iter4nextN6constrS9919GRP26mizchi8js__core3AnyE = 0;
 const _M0MPB4Iter3newN6constrS9926GRP26mizchi8js__core3AnyE = 0;
-const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS389 = "welcome-v1";
-const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS391 = "local";
-const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS392 = "mist";
-const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS393 = "はじめての窓辺";
-const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS394 = "車窓へ、ようこそ。\nこれは、旅のしおりをめくった記念の一枚。\n\n次の切符には、あなたが進めたことを。\nどうぞ、自分のペースで。";
+const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS394 = "welcome-v1";
+const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS396 = "local";
+const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS397 = "mist";
+const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS398 = "はじめての窓辺";
+const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS399 = "車窓へ、ようこそ。\nこれは、旅のしおりをめくった記念の一枚。\n\n次の切符には、あなたが進めたことを。\nどうぞ、自分のペースで。";
 const _M0FP37Hosi1216syasou7browser16fragment__source = "\nprecision highp float;\nuniform vec2 u_resolution;\nuniform float u_time;\nuniform float u_travel;\nuniform float u_scene;\nfloat hash(vec2 p) {\n  vec3 q = fract(vec3(p.xyx) * .1031);\n  q += dot(q, q.yzx + 33.33);\n  return fract((q.x + q.y) * q.z);\n}\nfloat noise(float x) {\n  float i = floor(x);\n  float f = fract(x);\n  f = f * f * (3.0 - 2.0 * f);\n  return mix(hash(vec2(i, 19.0)), hash(vec2(i + 1.0, 19.0)), f);\n}\nfloat ridge(float x) {\n  return noise(x) * .64 + noise(x * 2.13 + 8.0) * .25\n       + noise(x * 5.37 + 30.0) * .085 + noise(x * 13.1) * .025;\n}\nfloat below(float y, float height, float softness) {\n  return 1.0 - smoothstep(height - softness, height + softness, y);\n}\n// Uneven tiers and individual heights keep the conifers from reading as a pattern.\nfloat forest(vec2 p, float spacing, float height, float seed, float softness) {\n  float cell = floor(p.x / spacing);\n  float shape = 0.0;\n  for (int i = -1; i <= 1; i++) {\n    float id = cell + float(i);\n    float random = hash(vec2(id, seed));\n    float center = (id + .25 + random * .5) * spacing;\n    float h = height * (.48 + .65 * hash(vec2(id, seed + 7.0)));\n    float base = -.015 + .035 * noise(id * .41 + seed);\n    float y = (p.y - base) / h;\n    float localX = p.x - center + y * y * h * (random - .5) * .055;\n    float width = h * .19 * pow(max(0.0, 1.0 - y), .95);\n    float branches = .80 + .16 * sin(y * (72.0 + random * 27.0) + random * 9.0 + sign(localX) * 1.6)\n                         + .04 * sin(y * 231.0 + random * 11.0);\n    float crown = (1.0 - smoothstep(width * branches - softness, width * branches + softness, abs(localX)))\n                * smoothstep(-.03, .06, y) * (1.0 - smoothstep(.97, 1.0, y));\n    float trunk = (1.0 - smoothstep(h * .012, h * .012 + softness, abs(p.x - center)))\n                * below(p.y, base + h * .8, softness) * smoothstep(-.07, base, p.y);\n    shape = max(shape, max(crown, trunk));\n  }\n  return shape;\n}\nvoid main() {\n  vec2 uv = gl_FragCoord.xy / u_resolution;\n  float aspect = u_resolution.x / u_resolution.y;\n  float x = uv.x * aspect;\n  float t = u_time;\n  float y = uv.y;\n  float value = mix(.81, .975, smoothstep(.35, 1.0, y));\n  float cloud = noise(x * 2.1 + t * .008 + y * 3.0) * noise(y * 9.0 + x * .3);\n  value -= cloud * .045;\n\n  // The far ridges remain almost still while the nearer slopes slide past them.\n  float farX = x + t * .012;\n  float farRidge = .50 + .30 * ridge(farX * 1.7 + 12.0);\n  float farTone = .64 + .11 * (1.0 - smoothstep(.46, .77, y));\n  value = mix(value, farTone, below(y, farRidge, .005));\n\n  float hillX = x + t * .032;\n  float hillRidge = .40 + .28 * ridge(hillX * 2.0 + 35.0);\n  float hillTone = .43 + .22 * (1.0 - smoothstep(.37, .64, y));\n  hillTone += (noise(hillX * 22.0 + y * 5.0) - .5) * .028;\n  value = mix(value, hillTone, below(y, hillRidge, .003));\n\n  float woodX = x + t * .085;\n  float woodRidge = .30 + .18 * ridge(woodX * 2.8 + 71.0);\n  float woods = forest(vec2(woodX, y - woodRidge), .027, .063, 4.0, .0018);\n  float woodTone = .28 + .22 * (1.0 - smoothstep(.27, .48, y));\n  value = mix(value, woodTone, max(woods, below(y, woodRidge, .003)));\n\n  // A pale valley separates the near trees from the mountains without a hard horizon.\n  float fog = exp(-pow((y - .335) / .075, 2.0));\n  value = mix(value, .76, fog * .64);\n  float fieldX = x + t * .15;\n  float field = .20 + .10 * ridge(fieldX * 2.3 + 5.0);\n  float fieldTone = .40 + .14 * noise(fieldX * 3.0 + y * 12.0);\n  value = mix(value, fieldTone, below(y, field, .012));\n\n  float nearX = x + t * .24;\n  float nearBase = .11 + .075 * ridge(nearX * 2.4 + 6.0);\n  float nearTrees = forest(vec2(nearX, y - nearBase), .10, .20, 23.0, .0017);\n  value = mix(value, .16 + y * .16, nearTrees * .94);\n  value = mix(value, .16, below(y, nearBase, .008));\n\n  // Sparse close trees cross the window in seconds; their edges soften with motion.\n  float closeX = x + t * .62;\n  float closeBase = -.035 + .055 * ridge(closeX * 1.8 + 9.0);\n  float closeTrees = forest(vec2(closeX, y - closeBase), .73, .49, 51.0, .0035);\n  value = mix(value, .052 + y * .065, closeTrees);\n  float bank = .045 + .035 * ridge(closeX * 4.0);\n  value = mix(value, .055, below(y, bank, .012));\n\n  if (u_scene > .5 && u_scene < 1.5) value = mix(value, 1.0, .16);\n  if (u_scene > 1.5) value = value * .37 + .01;\n  float cycle = mod(u_travel, 240.0);\n  float tunnel = smoothstep(211.0, 215.0, cycle) * (1.0 - smoothstep(223.0, 229.0, cycle));\n  float light = smoothstep(224.0, 228.0, cycle) * (1.0 - smoothstep(228.0, 236.0, cycle));\n  value = mix(value, .018, tunnel);\n  value = mix(value, .985, light * .88);\n  value = clamp(value, .018, .974);\n  vec2 pixel = floor(gl_FragCoord.xy);\n  float random = hash(pixel);\n  float fleck = smoothstep(random - .045, random + .045, value);\n  float tone = mix(value, fleck, .82);\n  tone += (hash(pixel + 173.0) - .5) * .07;\n  gl_FragColor = vec4(vec3(clamp(tone, .015, .985)), 1.0);\n}\n";
 const _M0FP37Hosi1216syasou7browser14vertex__source = "\nattribute vec2 a_position;\nvoid main() { gl_Position = vec4(a_position, 0.0, 1.0); }\n";
 const _M0FP37Hosi1216syasou6bridge15journey__fields = ["phase", "running", "deadline", "remaining", "focusMinutes", "restMinutes", "id", "startedAt", "arrivedAt", "speed", "scene"];
 const _M0FP37Hosi1216syasou6bridge14ticket__fields = ["id", "kind", "startedAt", "arrivedAt", "speed", "scene", "title", "note"];
 const _M0FPB4seed = _M0FPB12random__seed();
-const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS395 = new _M0DTP37Hosi1216syasou6domain5Field4Text("focus");
-const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS396 = new _M0DTP37Hosi1216syasou6domain5Field4Text("rest");
-const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS397 = new _M0DTP37Hosi1216syasou6domain5Field4Text("focus");
-const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS398 = new _M0DTP37Hosi1216syasou6domain5Field7Numeric(0);
-const _M0FP37Hosi1216syasou6domain14reduce__travelN6constrS399 = "welcome";
-const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS390 = "welcome";
+const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS400 = new _M0DTP37Hosi1216syasou6domain5Field4Text("focus");
+const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS401 = new _M0DTP37Hosi1216syasou6domain5Field4Text("rest");
+const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS402 = new _M0DTP37Hosi1216syasou6domain5Field4Text("focus");
+const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS403 = new _M0DTP37Hosi1216syasou6domain5Field7Numeric(0);
+const _M0FP37Hosi1216syasou6domain14reduce__travelN6constrS404 = "welcome";
+const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS395 = "welcome";
 const _M0FP37Hosi1216syasou7browser16create__rendererN6recordS214 = new _M0TP37Hosi1216syasou5webgl14ContextOptions(false, false, false, true);
 const _M0FP37Hosi1216syasou7browser16create__rendererN6recordS215 = new _M0TP37Hosi1216syasou6domain9Landscape("mist", "local", true, false);
 function _M0FPB13consume4__acc(acc, input) {
@@ -1170,57 +1170,57 @@ function _M0MPC15array5Array10push__iterGRP26mizchi8js__core3AnyE(self, iter) {
     }
   }
 }
-function _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_x_151, _x_152) {
-  switch (_x_151.$tag) {
+function _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_x_153, _x_154) {
+  switch (_x_153.$tag) {
     case 0: {
-      if (_x_152.$tag === 0) {
+      if (_x_154.$tag === 0) {
         return true;
       } else {
         return false;
       }
     }
     case 1: {
-      if (_x_152.$tag === 1) {
+      if (_x_154.$tag === 1) {
         return true;
       } else {
         return false;
       }
     }
     case 2: {
-      const _Flag = _x_151;
-      const _$42$x0_153 = _Flag._0;
-      if (_x_152.$tag === 2) {
-        const _Flag$2 = _x_152;
-        const _$42$y0_154 = _Flag$2._0;
-        return _$42$x0_153 === _$42$y0_154;
-      } else {
-        return false;
-      }
-    }
-    case 3: {
-      const _Numeric = _x_151;
-      const _$42$x0_155 = _Numeric._0;
-      if (_x_152.$tag === 3) {
-        const _Numeric$2 = _x_152;
-        const _$42$y0_156 = _Numeric$2._0;
+      const _Flag = _x_153;
+      const _$42$x0_155 = _Flag._0;
+      if (_x_154.$tag === 2) {
+        const _Flag$2 = _x_154;
+        const _$42$y0_156 = _Flag$2._0;
         return _$42$x0_155 === _$42$y0_156;
       } else {
         return false;
       }
     }
-    case 4: {
-      const _Text = _x_151;
-      const _$42$x0_157 = _Text._0;
-      if (_x_152.$tag === 4) {
-        const _Text$2 = _x_152;
-        const _$42$y0_158 = _Text$2._0;
+    case 3: {
+      const _Numeric = _x_153;
+      const _$42$x0_157 = _Numeric._0;
+      if (_x_154.$tag === 3) {
+        const _Numeric$2 = _x_154;
+        const _$42$y0_158 = _Numeric$2._0;
         return _$42$x0_157 === _$42$y0_158;
       } else {
         return false;
       }
     }
+    case 4: {
+      const _Text = _x_153;
+      const _$42$x0_159 = _Text._0;
+      if (_x_154.$tag === 4) {
+        const _Text$2 = _x_154;
+        const _$42$y0_160 = _Text$2._0;
+        return _$42$x0_159 === _$42$y0_160;
+      } else {
+        return false;
+      }
+    }
     default: {
-      if (_x_152.$tag === 5) {
+      if (_x_154.$tag === 5) {
         return true;
       } else {
         return false;
@@ -1228,31 +1228,31 @@ function _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_x_151, _x_152) {
     }
   }
 }
-function _M0IP37Hosi1216syasou6domain5PhasePB2Eq5equal(_x_139, _x_140) {
-  switch (_x_139) {
+function _M0IP37Hosi1216syasou6domain5PhasePB2Eq5equal(_x_141, _x_142) {
+  switch (_x_141) {
     case 0: {
-      if (_x_140 === 0) {
+      if (_x_142 === 0) {
         return true;
       } else {
         return false;
       }
     }
     case 1: {
-      if (_x_140 === 1) {
+      if (_x_142 === 1) {
         return true;
       } else {
         return false;
       }
     }
     case 2: {
-      if (_x_140 === 2) {
+      if (_x_142 === 2) {
         return true;
       } else {
         return false;
       }
     }
     default: {
-      if (_x_140 === 3) {
+      if (_x_142 === 3) {
         return true;
       } else {
         return false;
@@ -1403,7 +1403,7 @@ function _M0FP37Hosi1216syasou6domain14valid__journey(j) {
           }
         }
         if (_tmp$2) {
-          _tmp = (_M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_M0MP37Hosi1216syasou6domain6Record3get(j, "remaining"), _M0DTP37Hosi1216syasou6domain5Field4Null__) || _M0FP37Hosi1216syasou6domain13is__timestamp(_M0MP37Hosi1216syasou6domain6Record3get(j, "remaining"))) && (_M0FP37Hosi1216syasou6domain14is__number__in(_M0MP37Hosi1216syasou6domain6Record3get(j, "focusMinutes"), [0, 15, 25, 45, 60, 90]) && (_M0FP37Hosi1216syasou6domain14is__number__in(_M0MP37Hosi1216syasou6domain6Record3get(j, "restMinutes"), [3, 5, 10, 15]) && ((!_running || (_M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(phase, _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS395) || _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(phase, _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS396))) && (!(_running && _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_M0MP37Hosi1216syasou6domain6Record3get(j, "deadline"), _M0DTP37Hosi1216syasou6domain5Field4Null__)) || _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(phase, _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS397) && _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_M0MP37Hosi1216syasou6domain6Record3get(j, "focusMinutes"), _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS398)))));
+          _tmp = (_M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_M0MP37Hosi1216syasou6domain6Record3get(j, "remaining"), _M0DTP37Hosi1216syasou6domain5Field4Null__) || _M0FP37Hosi1216syasou6domain13is__timestamp(_M0MP37Hosi1216syasou6domain6Record3get(j, "remaining"))) && (_M0FP37Hosi1216syasou6domain14is__number__in(_M0MP37Hosi1216syasou6domain6Record3get(j, "focusMinutes"), [0, 15, 25, 45, 60, 90]) && (_M0FP37Hosi1216syasou6domain14is__number__in(_M0MP37Hosi1216syasou6domain6Record3get(j, "restMinutes"), [3, 5, 10, 15]) && ((!_running || (_M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(phase, _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS400) || _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(phase, _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS401))) && (!(_running && _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_M0MP37Hosi1216syasou6domain6Record3get(j, "deadline"), _M0DTP37Hosi1216syasou6domain5Field4Null__)) || _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(phase, _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS402) && _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_M0MP37Hosi1216syasou6domain6Record3get(j, "focusMinutes"), _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS403)))));
         } else {
           _tmp = false;
         }
@@ -1545,6 +1545,16 @@ function _M0FP37Hosi1216syasou6domain13valid__travel(is_object, journey, tickets
 }
 function _M0FP37Hosi1216syasou6domain11valid__view(value) {
   return _M0FP37Hosi1216syasou6domain12is__text__in(value, ["forest", "snow", "train"]);
+}
+function _M0FP37Hosi1216syasou6domain11valid__note(value) {
+  return _M0FP37Hosi1216syasou6domain10is__length(value, 0, 300);
+}
+function _M0FP37Hosi1216syasou6domain14valid__boolean(value) {
+  if (value.$tag === 2) {
+    return true;
+  } else {
+    return false;
+  }
 }
 function _M0FP37Hosi1216syasou6domain11limit__text(text, limit) {
   const _p = text.length;
@@ -1913,7 +1923,7 @@ function _M0FP37Hosi1216syasou6domain14reduce__travel(state, action) {
         const _ = _tmp$2;
         if (_ < _bind$3) {
           const ticket = _bind$2[_];
-          if (_M0IPC16option6OptionPB2Eq5equalGsE(ticket.kind, _M0FP37Hosi1216syasou6domain14reduce__travelN6constrS399)) {
+          if (_M0IPC16option6OptionPB2Eq5equalGsE(ticket.kind, _M0FP37Hosi1216syasou6domain14reduce__travelN6constrS404)) {
             return new _M0DTP37Hosi1216syasou6domain12TravelChange6Update(_M0DTP37Hosi1216syasou6domain13JourneyChange4Keep__, _M0DTP37Hosi1216syasou6domain12TicketChange11KeepTickets__, ticket.id);
           }
           _tmp$2 = _ + 1 | 0;
@@ -1922,8 +1932,8 @@ function _M0FP37Hosi1216syasou6domain14reduce__travel(state, action) {
           break;
         }
       }
-      const ticket = new _M0TP37Hosi1216syasou6domain6Ticket(_M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS389, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS390, _now, _now, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS391, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS392, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS393, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS394);
-      return new _M0DTP37Hosi1216syasou6domain12TravelChange6Update(_M0DTP37Hosi1216syasou6domain13JourneyChange4Keep__, new _M0DTP37Hosi1216syasou6domain12TicketChange7Prepend(ticket), _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS389);
+      const ticket = new _M0TP37Hosi1216syasou6domain6Ticket(_M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS394, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS395, _now, _now, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS396, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS397, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS398, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS399);
+      return new _M0DTP37Hosi1216syasou6domain12TravelChange6Update(_M0DTP37Hosi1216syasou6domain13JourneyChange4Keep__, new _M0DTP37Hosi1216syasou6domain12TicketChange7Prepend(ticket), _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS394);
     }
   }
 }
@@ -2663,6 +2673,12 @@ function _M0FP37Hosi1216syasou6bridge17is__travel__state(value) {
 function _M0FP37Hosi1216syasou6bridge8is__view(value) {
   return _M0FP37Hosi1216syasou6domain11valid__view(_M0FP37Hosi1216syasou6bridge11read__field(value));
 }
+function _M0FP37Hosi1216syasou6bridge8is__note(value) {
+  return _M0FP37Hosi1216syasou6domain11valid__note(_M0FP37Hosi1216syasou6bridge11read__field(value));
+}
+function _M0FP37Hosi1216syasou6bridge19is__stored__boolean(value) {
+  return _M0FP37Hosi1216syasou6domain14valid__boolean(_M0FP37Hosi1216syasou6bridge11read__field(value));
+}
 function _M0FP37Hosi1216syasou6bridge8optionalGsE(value) {
   return _M0FP26mizchi8js__core11is__nullish(value) ? undefined : value;
 }
@@ -3006,4 +3022,4 @@ function _M0FP37Hosi1216syasou6bridge24create__window__renderer(canvas, on_unava
     return out;
   }
 }
-export { _M0FP37Hosi1216syasou6bridge15is__preferences as isPreferences, _M0FP37Hosi1216syasou6bridge11is__journey as isJourney, _M0FP37Hosi1216syasou6bridge10is__ticket as isTicket, _M0FP37Hosi1216syasou6bridge17is__travel__state as isTravelState, _M0FP37Hosi1216syasou6bridge8is__view as isView, _M0FP37Hosi1216syasou6bridge15restore__travel as restoreTravel, _M0FP37Hosi1216syasou6bridge15travel__reducer as travelReducer, _M0FP37Hosi1216syasou6bridge16advance__journey as advanceJourney, _M0FP37Hosi1216syasou6bridge16journey__reducer as journeyReducer, _M0FP37Hosi1216syasou6bridge13read__storage as readStorage, _M0FP37Hosi1216syasou6bridge14write__storage as writeStorage, _M0FP37Hosi1216syasou6bridge13create__sound as createSound, _M0FP37Hosi1216syasou6bridge13enable__sound as enableSound, _M0FP37Hosi1216syasou6bridge14disable__sound as disableSound, _M0FP37Hosi1216syasou6bridge13update__sound as updateSound, _M0FP37Hosi1216syasou6bridge14dispose__sound as disposeSound, _M0FP37Hosi1216syasou6bridge24create__window__renderer as createWindowRenderer }
+export { _M0FP37Hosi1216syasou6bridge15is__preferences as isPreferences, _M0FP37Hosi1216syasou6bridge11is__journey as isJourney, _M0FP37Hosi1216syasou6bridge10is__ticket as isTicket, _M0FP37Hosi1216syasou6bridge17is__travel__state as isTravelState, _M0FP37Hosi1216syasou6bridge8is__view as isView, _M0FP37Hosi1216syasou6bridge8is__note as isNote, _M0FP37Hosi1216syasou6bridge19is__stored__boolean as isStoredBoolean, _M0FP37Hosi1216syasou6bridge15restore__travel as restoreTravel, _M0FP37Hosi1216syasou6bridge15travel__reducer as travelReducer, _M0FP37Hosi1216syasou6bridge16advance__journey as advanceJourney, _M0FP37Hosi1216syasou6bridge16journey__reducer as journeyReducer, _M0FP37Hosi1216syasou6bridge13read__storage as readStorage, _M0FP37Hosi1216syasou6bridge14write__storage as writeStorage, _M0FP37Hosi1216syasou6bridge13create__sound as createSound, _M0FP37Hosi1216syasou6bridge13enable__sound as enableSound, _M0FP37Hosi1216syasou6bridge14disable__sound as disableSound, _M0FP37Hosi1216syasou6bridge13update__sound as updateSound, _M0FP37Hosi1216syasou6bridge14dispose__sound as disposeSound, _M0FP37Hosi1216syasou6bridge24create__window__renderer as createWindowRenderer }

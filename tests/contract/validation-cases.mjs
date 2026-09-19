@@ -4,8 +4,11 @@ const ticket = { id: 'one', startedAt: 10, arrivedAt: 20, speed: 'local', scene:
 const state = { journey: emptyJourney, tickets: [ticket], pendingArrivalId: null }
 export const validationCases = []
 const add = (fn, value, name) => validationCases.push({ fn, args: [value], name: `${fn}: ${name}` })
-for (const fn of ['isPreferences', 'isJourney', 'isTicket', 'isTravelState', 'isView']) {
+for (const fn of ['isPreferences', 'isJourney', 'isTicket', 'isTravelState', 'isView', 'isNote', 'isStoredBoolean']) {
   for (const [i, value] of [null, undefined, false, 0, '', [], {}, 'forest', 'snow', 'train'].entries()) add(fn, value, `primitive ${i}`)
+}
+for (const fn of ['isNote', 'isStoredBoolean']) {
+  for (const [i, value] of [true, 'a'.repeat(299), 'a'.repeat(300), 'a'.repeat(301), '🚃'.repeat(150), 'a' + '🚃'.repeat(150)].entries()) add(fn, value, `note boundary ${i}`)
 }
 for (const [fn, valid] of [['isPreferences', defaults], ['isJourney', emptyJourney], ['isTicket', ticket], ['isTravelState', state]]) {
   add(fn, valid, 'valid')

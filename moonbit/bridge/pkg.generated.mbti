@@ -20,7 +20,11 @@ pub fn enable_sound(@js_core.Any) -> @js_core.Promise[Unit]
 
 pub fn is_journey(@js_core.Any) -> Bool
 
+pub fn is_note(@js_core.Any) -> Bool
+
 pub fn is_preferences(@js_core.Any) -> Bool
+
+pub fn is_stored_boolean(@js_core.Any) -> Bool
 
 pub fn is_ticket(@js_core.Any) -> Bool
 

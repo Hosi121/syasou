@@ -29,6 +29,8 @@ options(
         "is_ticket:isTicket",
         "is_travel_state:isTravelState",
         "is_view:isView",
+        "is_note:isNote",
+        "is_stored_boolean:isStoredBoolean",
         "advance_journey:advanceJourney",
         "journey_reducer:journeyReducer",
         "restore_travel:restoreTravel",

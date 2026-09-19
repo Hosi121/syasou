@@ -25,7 +25,7 @@ http://localhost:5173 を開きます。`npm run build` で型チェックと本
 
 ## MoonBit のロジックを変更する
 
-画面は React / TypeScript のまま、旅・切符のロジック、保存データの検証と読み書き、WebGL 描画、Web Audio の音声合成・スケジューラを MoonBit に移しています。`moonbit/domain/` は JavaScript に依存しない型付きコア、`moonbit/browser/` はブラウザ API とリソース管理、`moonbit/bridge/` は既存の TypeScript API との変換層です。DOM・保存・Promise には `mizchi/js` 系の既存バインディングを使い、未提供の WebGL / Web Audio は独立した型付きバインディングにまとめています。汎用部分の [upstream contribution 候補](docs/upstream-bindings.md) も記録しています。
+画面は React / TypeScript のまま、旅・切符のロジック、保存データの検証と localStorage の読み書き、WebGL 描画、Web Audio の音声合成・スケジューラを MoonBit に移しています。`moonbit/domain/` は JavaScript に依存しない型付きコア、`moonbit/browser/` はブラウザ API とリソース管理、`moonbit/bridge/` は既存の TypeScript API との変換層です。DOM・保存・Promise には `mizchi/js` 系の既存バインディングを使い、未提供の WebGL / Web Audio は独立した型付きバインディングにまとめています。汎用部分の [upstream contribution 候補](docs/upstream-bindings.md) も記録しています。
 
 MoonBit を JavaScript の ES Modules にコンパイルし、`src/generated/moonbit/` に生成コードとコンパイラの型定義をコミットします。通常の起動・Vercel ビルドには MoonBit のインストールは不要です。`npm run build` はソースと生成物のハッシュを照合し、再生成を忘れていた場合は失敗します。CI は固定バージョンで再コンパイルして生成物の一致も確認します。
 

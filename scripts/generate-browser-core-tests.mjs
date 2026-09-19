@@ -13,7 +13,8 @@ const record = value => {
 const names = { isPreferences: 'valid_preferences', isJourney: 'valid_journey', isTicket: 'valid_ticket' }
 const tests = validations.map(f => {
   const value = f.args[0]
-  const call = names[f.fn] ? `${names[f.fn]}(${record(value)})` : f.fn === 'isView' ? `valid_view(${field(value)})`
+  const scalars = { isView: 'valid_view', isNote: 'valid_note', isStoredBoolean: 'valid_boolean' }
+  const call = names[f.fn] ? `${names[f.fn]}(${record(value)})` : scalars[f.fn] ? `${scalars[f.fn]}(${field(value)})`
     : `valid_travel(${value !== null && typeof value === 'object'}, ${record(value?.journey)}, ${Array.isArray(value?.tickets) ? `Some([${value.tickets.map(record).join(', ')}])` : 'None'}, ${field(value?.pendingArrivalId)})`
   return `///|\ntest ${string(f.name)} {\n  assert_eq(${call}, ${f.result})\n}\n`
 })

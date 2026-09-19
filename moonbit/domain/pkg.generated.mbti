@@ -28,7 +28,11 @@ pub fn sound_mix(String, Double, Double, Double, Bool, Bool) -> SoundMix
 
 pub fn travel_delta(Double) -> Double
 
+pub fn valid_boolean(Field) -> Bool
+
 pub fn valid_journey(Record) -> Bool
+
+pub fn valid_note(Field) -> Bool
 
 pub fn valid_preferences(Record) -> Bool
 

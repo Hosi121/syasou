@@ -2,7 +2,8 @@
 
 Source: `a79a3f5`, Node.js `v24.13.0`, locked npm dependencies.
 The original TypeScript modules are frozen in `oracle/` (only runtime import
-suffixes change for Node). `signatures/` contains the emitted declarations.
+suffixes change for Node). `appStorage.ts` captures the two inline App predicates
+with standalone names and parameter annotations; the expressions are unchanged. `signatures/` contains the emitted declarations.
 Existing Playwright tests are the unchanged browser contract.
 
 ## Scope and boundaries
@@ -10,7 +11,7 @@ Existing Playwright tests are the unchanged browser contract.
 | Implementation | MoonBit location | Contract retained by TypeScript facade |
 | --- | --- | --- |
 | Journey and ticket transitions | `domain/journey.mbt`, `domain/tickets.mbt` | `advanceJourney`, `journeyReducer`, `restoreTravel`, `travelReducer` |
-| Persisted data validation | `domain/validation.mbt` | `isPreferences`, `isJourney`, `isTicket`, `isTravelState`, `isView` |
+| Persisted data validation | `domain/validation.mbt` | `isPreferences`, `isJourney`, `isTicket`, `isTravelState`, `isView`, `isNote`, `isStoredBoolean` |
 | Browser persistence | `browser/platform.mbt` | generic `readStorage`, boolean `writeStorage` |
 | WebGL renderer and shaders | `browser/window.mbt`, `browser/shaders.mbt` | `createWindowRenderer` with update/dispose |
 | Audio synthesis and scheduling | `browser/sound.mbt`, `domain/ambience.mbt` | `TrainSound` constructor, enable/disable/update/dispose |
@@ -23,7 +24,8 @@ observers, time and randomness. Local `webgl` and `webaudio` packages supply the
 missing typed API subset; they contain no application logic.
 
 React components, hooks, UI formatting, demo storage-key selection, sample data,
-clock/UUID inputs, CSS scenery and the SVG fallback remain TypeScript/React.
+clock/UUID inputs, startup sessionStorage flags, CSS scenery and the SVG fallback
+remain TypeScript/React.
 GLSL shader text is stored byte-exact in MoonBit; it still runs as GLSL on the GPU.
 The compiler emits ESM committed with generated declarations and a hash manifest,
 so Vercel's normal Node/Vite build needs no MoonBit installation.
@@ -31,7 +33,7 @@ so Vercel's normal Node/Vite build needs no MoonBit installation.
 ## Verification
 
 `npm run fixtures:domain` captures results from the frozen TS source and generates
-578 direct domain tests. Never edit expected fixtures or generated tests by hand.
+610 direct domain tests. Never edit expected fixtures or generated tests by hand.
 `npm run check:domain` checks regeneration, oracle drift and public declarations.
 `npm run test:moonbit` runs the domain tests plus a fractional audio-sample binding
 test; `node scripts/moon-command.mjs test moonbit/domain --target native` tests the
@@ -41,7 +43,7 @@ pure core without JS. `npm run test:domain` compares:
   arrivals, duplicates, welcome replay, partial edits, Unicode, null/undefined,
   nonfinite numbers and large timestamps. Values, object identity, property
   presence, ticket order and input immutability must match.
-- 403 validator fixtures: malformed persisted fields, missing values, invalid
+- 435 validator fixtures: note length, stored booleans, malformed persisted fields, missing values, invalid
   metadata, duplicates, pending arrival references and number boundaries.
   Validation accepts plain persisted JSON objects; exotic getters/proxies and
   sparse non-JSON arrays are outside this captured persistence contract.

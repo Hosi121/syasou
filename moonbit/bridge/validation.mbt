@@ -85,3 +85,13 @@ pub fn is_travel_state(value : @js.Any) -> Bool {
 pub fn is_view(value : @js.Any) -> Bool {
   @domain.valid_view(read_field(value))
 }
+
+///|
+pub fn is_note(value : @js.Any) -> Bool {
+  @domain.valid_note(read_field(value))
+}
+
+///|
+pub fn is_stored_boolean(value : @js.Any) -> Bool {
+  @domain.valid_boolean(read_field(value))
+}

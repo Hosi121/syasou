@@ -251,6 +251,166 @@ test "isView: primitive 9" {
 }
 
 ///|
+test "isNote: primitive 0" {
+  assert_eq(valid_note(Null), false)
+}
+
+///|
+test "isNote: primitive 1" {
+  assert_eq(valid_note(Missing), false)
+}
+
+///|
+test "isNote: primitive 2" {
+  assert_eq(valid_note(Flag(false)), false)
+}
+
+///|
+test "isNote: primitive 3" {
+  assert_eq(valid_note(Numeric(0.0)), false)
+}
+
+///|
+test "isNote: primitive 4" {
+  assert_eq(valid_note(Text("")), true)
+}
+
+///|
+test "isNote: primitive 5" {
+  assert_eq(valid_note(Other), false)
+}
+
+///|
+test "isNote: primitive 6" {
+  assert_eq(valid_note(Other), false)
+}
+
+///|
+test "isNote: primitive 7" {
+  assert_eq(valid_note(Text("forest")), true)
+}
+
+///|
+test "isNote: primitive 8" {
+  assert_eq(valid_note(Text("snow")), true)
+}
+
+///|
+test "isNote: primitive 9" {
+  assert_eq(valid_note(Text("train")), true)
+}
+
+///|
+test "isStoredBoolean: primitive 0" {
+  assert_eq(valid_boolean(Null), false)
+}
+
+///|
+test "isStoredBoolean: primitive 1" {
+  assert_eq(valid_boolean(Missing), false)
+}
+
+///|
+test "isStoredBoolean: primitive 2" {
+  assert_eq(valid_boolean(Flag(false)), true)
+}
+
+///|
+test "isStoredBoolean: primitive 3" {
+  assert_eq(valid_boolean(Numeric(0.0)), false)
+}
+
+///|
+test "isStoredBoolean: primitive 4" {
+  assert_eq(valid_boolean(Text("")), false)
+}
+
+///|
+test "isStoredBoolean: primitive 5" {
+  assert_eq(valid_boolean(Other), false)
+}
+
+///|
+test "isStoredBoolean: primitive 6" {
+  assert_eq(valid_boolean(Other), false)
+}
+
+///|
+test "isStoredBoolean: primitive 7" {
+  assert_eq(valid_boolean(Text("forest")), false)
+}
+
+///|
+test "isStoredBoolean: primitive 8" {
+  assert_eq(valid_boolean(Text("snow")), false)
+}
+
+///|
+test "isStoredBoolean: primitive 9" {
+  assert_eq(valid_boolean(Text("train")), false)
+}
+
+///|
+test "isNote: note boundary 0" {
+  assert_eq(valid_note(Flag(true)), false)
+}
+
+///|
+test "isNote: note boundary 1" {
+  assert_eq(valid_note(Text("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")), true)
+}
+
+///|
+test "isNote: note boundary 2" {
+  assert_eq(valid_note(Text("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")), true)
+}
+
+///|
+test "isNote: note boundary 3" {
+  assert_eq(valid_note(Text("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")), false)
+}
+
+///|
+test "isNote: note boundary 4" {
+  assert_eq(valid_note(Text("🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃")), true)
+}
+
+///|
+test "isNote: note boundary 5" {
+  assert_eq(valid_note(Text("a🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃")), false)
+}
+
+///|
+test "isStoredBoolean: note boundary 0" {
+  assert_eq(valid_boolean(Flag(true)), true)
+}
+
+///|
+test "isStoredBoolean: note boundary 1" {
+  assert_eq(valid_boolean(Text("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")), false)
+}
+
+///|
+test "isStoredBoolean: note boundary 2" {
+  assert_eq(valid_boolean(Text("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")), false)
+}
+
+///|
+test "isStoredBoolean: note boundary 3" {
+  assert_eq(valid_boolean(Text("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")), false)
+}
+
+///|
+test "isStoredBoolean: note boundary 4" {
+  assert_eq(valid_boolean(Text("🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃")), false)
+}
+
+///|
+test "isStoredBoolean: note boundary 5" {
+  assert_eq(valid_boolean(Text("a🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃🚃")), false)
+}
+
+///|
 test "isPreferences: valid" {
   assert_eq(valid_preferences(Record::{ is_object: true, fields: Map([("focusMinutes", Numeric(25.0)), ("restMinutes", Numeric(5.0)), ("speed", Text("local")), ("scene", Text("mist")), ("showTime", Flag(true)), ("trainVolume", Numeric(45.0)), ("rainVolume", Numeric(0.0)), ("windVolume", Numeric(20.0))]) }), true)
 }

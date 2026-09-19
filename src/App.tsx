@@ -11,6 +11,7 @@ import Onboarding from './components/Onboarding'
 import { useJourney } from './hooks/useJourney'
 import { useSound } from './hooks/useSound'
 import { cn, readStorage, writeStorage } from './lib/utils'
+import { isNote, isStoredBoolean } from './lib/storageValidation'
 import { isView, type View } from './lib/views'
 import './scenery.css'
 import './mobile.css'
@@ -23,14 +24,14 @@ export default function App({ covered, guideRequest, onReady, onShowOpening }: A
   useVisualViewport()
   const portrait = useMediaQuery('(max-width: 760px) and (orientation: portrait)')
   const supportsFullscreen = Boolean(document.fullscreenEnabled && document.documentElement.requestFullscreen)
-  const [note, setNote] = useState(() => readStorage('syasou.note.v1', '', (v): v is string => typeof v === 'string' && v.length <= 300))
+  const [note, setNote] = useState(() => readStorage('syasou.note.v1', '', isNote))
   const { journey, preferences, setPreferences, remaining, start, toggle, finish, tickets, pendingArrivalId, acknowledgeArrival, receiveWelcomeTicket, editTicket, saveError } = useJourney(note)
   const [notebookOpen, setNotebookOpen] = useState(false)
   const [focusTicketPocket, setFocusTicketPocket] = useState(false)
   const [archiveOpen, setArchiveOpen] = useState(false)
   const trayOpen = pendingArrivalId !== null || archiveOpen
   const [guideOpen, setGuideOpen] = useState(() =>
-    !readStorage('syasou.onboarding.v1', false, (v): v is boolean => typeof v === 'boolean') && journey.phase === 'idle' && tickets.every(ticket => ticket.kind === 'sample'),
+    !readStorage('syasou.onboarding.v1', false, isStoredBoolean) && journey.phase === 'idle' && tickets.every(ticket => ticket.kind === 'sample'),
   )
   const [guideStep, setGuideStep] = useState(0)
   const [windowOpen, setWindowOpen] = useState(false)

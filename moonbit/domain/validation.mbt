@@ -161,3 +161,13 @@ pub fn valid_travel(
 pub fn valid_view(value : Field) -> Bool {
   is_text_in(value, ["forest", "snow", "train"])
 }
+
+///|
+pub fn valid_note(value : Field) -> Bool {
+  is_length(value, 0, 300)
+}
+
+///|
+pub fn valid_boolean(value : Field) -> Bool {
+  value is Flag(_)
+}

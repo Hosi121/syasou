@@ -36,6 +36,10 @@ export function restoreTravel(state: any,
                               now: MoonBit.Double,
                               note: MoonBit.String): any;
 
+export function isStoredBoolean(value: any): MoonBit.Bool;
+
+export function isNote(value: any): MoonBit.Bool;
+
 export function isView(value: any): MoonBit.Bool;
 
 export function isTravelState(value: any): MoonBit.Bool;
