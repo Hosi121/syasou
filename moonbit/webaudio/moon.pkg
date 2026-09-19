@@ -1,0 +1,9 @@
+import {
+  "mizchi/js_core",
+}
+
+supported_targets = "js"
+
+options(
+  targets: { "bindings.mbt": [ "js" ] },
+)

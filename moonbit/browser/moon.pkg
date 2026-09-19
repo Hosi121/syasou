@@ -1,0 +1,17 @@
+import {
+  "Hosi121/syasou/domain",
+  "Hosi121/syasou/webaudio" @audio,
+  "Hosi121/syasou/webgl" @gl,
+  "mizchi/js_core" @js,
+  "mizchi/js_browser/dom",
+  "mizchi/js_browser/observer",
+  "mizchi/js_browser/storage",
+  "mizchi/js_builtin/math",
+  "mizchi/js_web/performance",
+}
+
+supported_targets = "js"
+
+options(
+  targets: { "platform.mbt": [ "js" ] },
+)

@@ -1,4 +1,3 @@
-import { isJourney } from './journey'
 import * as moon from '../generated/moonbit/bridge.js'
 import type { Journey, JourneyAction, Scene, Speed } from './journey'
 
@@ -19,30 +18,12 @@ export interface TravelState {
   pendingArrivalId: string | null
 }
 
-const timestamp = (value: unknown): value is number => typeof value === 'number' && Number.isFinite(value) && value >= 0
-
 export function isTicket(value: unknown): value is Ticket {
-  if (!value || typeof value !== 'object') return false
-  const t = value as Ticket
-  return typeof t.id === 'string' && t.id.length > 0 && t.id.length <= 100
-    && (t.kind === undefined || t.kind === 'sample' || t.kind === 'welcome')
-    && timestamp(t.startedAt) && timestamp(t.arrivedAt) && t.arrivedAt >= t.startedAt
-    && ['local', 'rapid', 'express'].includes(t.speed) && ['mist', 'dawn', 'night'].includes(t.scene)
-    && typeof t.title === 'string' && t.title.length <= 80 && typeof t.note === 'string' && t.note.length <= 300
+  return moon.isTicket(value)
 }
 
 export function isTravelState(value: unknown): value is TravelState {
-  if (!value || typeof value !== 'object') return false
-  const s = value as TravelState
-  return isJourney(s.journey)
-    && (s.journey.id === undefined || (typeof s.journey.id === 'string' && s.journey.id.length > 0))
-    && (s.journey.startedAt === undefined || timestamp(s.journey.startedAt))
-    && (s.journey.arrivedAt === undefined || timestamp(s.journey.arrivedAt))
-    && (s.journey.speed === undefined || ['local', 'rapid', 'express'].includes(s.journey.speed))
-    && (s.journey.scene === undefined || ['mist', 'dawn', 'night'].includes(s.journey.scene))
-    && Array.isArray(s.tickets) && s.tickets.every(isTicket)
-    && new Set(s.tickets.map(t => t.id)).size === s.tickets.length
-    && (s.pendingArrivalId === null || s.tickets.some(t => t.id === s.pendingArrivalId))
+  return moon.isTravelState(value)
 }
 
 export function restoreTravel(state: TravelState, now: number, note: string): TravelState {

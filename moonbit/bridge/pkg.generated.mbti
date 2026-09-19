@@ -8,11 +8,37 @@ import {
 // Values
 pub fn advance_journey(@js_core.Any, Double) -> @js_core.Any
 
+pub fn create_sound() -> @js_core.Any
+
+pub fn create_window_renderer(@js_core.Any, @js_core.Any) -> @js_core.Any
+
+pub fn disable_sound(@js_core.Any) -> @js_core.Promise[Unit]
+
+pub fn dispose_sound(@js_core.Any) -> Unit
+
+pub fn enable_sound(@js_core.Any) -> @js_core.Promise[Unit]
+
+pub fn is_journey(@js_core.Any) -> Bool
+
+pub fn is_preferences(@js_core.Any) -> Bool
+
+pub fn is_ticket(@js_core.Any) -> Bool
+
+pub fn is_travel_state(@js_core.Any) -> Bool
+
+pub fn is_view(@js_core.Any) -> Bool
+
 pub fn journey_reducer(@js_core.Any, @js_core.Any) -> @js_core.Any
+
+pub fn read_storage(String, @js_core.Any, (@js_core.Any) -> Bool) -> @js_core.Any
 
 pub fn restore_travel(@js_core.Any, Double, String) -> @js_core.Any
 
 pub fn travel_reducer(@js_core.Any, @js_core.Any) -> @js_core.Any
+
+pub fn update_sound(@js_core.Any, @js_core.Any, Bool, Bool) -> Unit
+
+pub fn write_storage(String, @js_core.Any) -> Bool
 
 // Errors
 

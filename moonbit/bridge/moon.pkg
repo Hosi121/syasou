@@ -1,4 +1,5 @@
 import {
+  "Hosi121/syasou/browser",
   "Hosi121/syasou/domain",
   "mizchi/js_core" @js,
 }
@@ -6,10 +7,28 @@ import {
 supported_targets = "js"
 
 options(
-  targets: { "journey.mbt": [ "js" ], "tickets.mbt": [ "js" ] },
+  targets: {
+    "journey.mbt": [ "js" ],
+    "tickets.mbt": [ "js" ],
+    "validation.mbt": [ "js" ],
+    "browser.mbt": [ "js" ],
+  },
   link: {
     "js": {
       "exports": [
+        "read_storage:readStorage",
+        "write_storage:writeStorage",
+        "create_sound:createSound",
+        "enable_sound:enableSound",
+        "disable_sound:disableSound",
+        "update_sound:updateSound",
+        "dispose_sound:disposeSound",
+        "create_window_renderer:createWindowRenderer",
+        "is_preferences:isPreferences",
+        "is_journey:isJourney",
+        "is_ticket:isTicket",
+        "is_travel_state:isTravelState",
+        "is_view:isView",
         "advance_journey:advanceJourney",
         "journey_reducer:journeyReducer",
         "restore_travel:restoreTravel",

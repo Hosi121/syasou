@@ -1,0 +1,10 @@
+import {
+  "mizchi/js_core",
+  "mizchi/js_browser/dom",
+}
+
+supported_targets = "js"
+
+options(
+  targets: { "bindings.mbt": [ "js" ] },
+)

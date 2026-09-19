@@ -1,17 +1,19 @@
 import { clsx } from 'clsx'
 import type { ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { storageKey } from './profile'
-import * as moon from '../generated/moonbit/bridge.js'
+import { storageKey } from './profile.ts'
 
 export const cn = (...values: ClassValue[]) => twMerge(clsx(values))
 
 export function readStorage<T>(key: string, fallback: T, validate: (value: unknown) => value is T): T {
-  return moon.readStorage(storageKey(key), fallback, validate)
+  try {
+    const value: unknown = JSON.parse(localStorage.getItem(storageKey(key)) || 'null')
+    return validate(value) ? value : fallback
+  } catch { return fallback }
 }
 
 export function writeStorage(key: string, value: unknown) {
-  return moon.writeStorage(storageKey(key), value)
+  try { localStorage.setItem(storageKey(key), JSON.stringify(value)); return true } catch { return false }
 }
 
 export function formatTime(milliseconds: number) {

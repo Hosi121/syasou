@@ -8,7 +8,13 @@ import {
 // Values
 pub fn advance(Journey, Double) -> JourneyChange
 
+pub fn animation_delta(Double, String) -> Double
+
+pub fn beat_step(Double, Int) -> (Double, Double)
+
 pub fn limit_text(String, Int) -> String
+
+pub fn noise_sample(Double, Double) -> (Double, Double)
 
 pub fn reduce_journey(Journey, JourneyAction) -> JourneyChange
 
@@ -16,9 +22,34 @@ pub fn reduce_travel(Travel, TravelAction) -> TravelChange
 
 pub fn restore(Travel, Double, String) -> TravelChange
 
+pub fn scene_index(String) -> Double
+
+pub fn sound_mix(String, Double, Double, Double, Bool, Bool) -> SoundMix
+
+pub fn travel_delta(Double) -> Double
+
+pub fn valid_journey(Record) -> Bool
+
+pub fn valid_preferences(Record) -> Bool
+
+pub fn valid_ticket(Record) -> Bool
+
+pub fn valid_travel(Bool, Record, Array[Record]?, Field) -> Bool
+
+pub fn valid_view(Field) -> Bool
+
 // Errors
 
 // Types and methods
+pub(all) enum Field {
+  Missing
+  Null
+  Flag(Bool)
+  Numeric(Double)
+  Text(String)
+  Other
+} derive(Eq, @debug.Debug)
+
 pub(all) struct Journey {
   phase : Phase
   running : Bool
@@ -47,12 +78,33 @@ pub(all) enum JourneyChange {
 }
 pub fn JourneyChange::value(Self, Journey) -> Journey
 
+pub(all) struct Landscape {
+  scene : String
+  speed : String
+  moving : Bool
+  travelling : Bool
+}
+
 pub(all) enum Phase {
   Idle
   Focus
   Rest
   Finished
 } derive(Eq, @debug.Debug)
+
+pub(all) struct Record {
+  is_object : Bool
+  fields : Map[String, Field]
+}
+pub fn Record::get(Self, String) -> Field
+
+pub(all) struct SoundMix {
+  period : Double
+  train : Double
+  rain : Double
+  wind : Double
+  cabin : Double
+}
 
 pub(all) struct Ticket {
   id : String

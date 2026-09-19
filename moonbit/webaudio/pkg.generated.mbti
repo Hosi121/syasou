@@ -1,0 +1,89 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/webaudio"
+
+import {
+  "mizchi/js_core",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+#external
+pub type AudioBuffer
+pub fn AudioBuffer::channel(Self, Int) -> Samples
+
+#external
+pub type AudioBufferSourceNode
+pub fn AudioBufferSourceNode::as_node(Self) -> AudioNode
+pub fn AudioBufferSourceNode::on_ended(Self, () -> Unit) -> Unit
+pub fn AudioBufferSourceNode::set_buffer(Self, AudioBuffer) -> Unit
+pub fn AudioBufferSourceNode::set_loop(Self, Bool) -> Unit
+pub fn AudioBufferSourceNode::start(Self, Double, Double) -> Unit
+pub fn AudioBufferSourceNode::stop(Self, Double) -> Unit
+pub fn AudioBufferSourceNode::stop_now(Self) -> Unit
+
+#external
+pub type AudioContext
+pub fn AudioContext::AudioContext() -> Self
+pub fn AudioContext::close(Self) -> @js_core.Promise[Unit]
+pub fn AudioContext::create_buffer(Self, Int, Int, Double) -> AudioBuffer
+pub fn AudioContext::create_compressor(Self) -> DynamicsCompressorNode
+pub fn AudioContext::create_filter(Self) -> BiquadFilterNode
+pub fn AudioContext::create_gain(Self) -> GainNode
+pub fn AudioContext::create_oscillator(Self) -> OscillatorNode
+pub fn AudioContext::create_source(Self) -> AudioBufferSourceNode
+pub fn AudioContext::current_time(Self) -> Double
+pub fn AudioContext::destination(Self) -> AudioNode
+pub fn AudioContext::resume_(Self) -> @js_core.Promise[Unit]
+pub fn AudioContext::sample_rate(Self) -> Double
+pub fn AudioContext::state(Self) -> String
+pub fn AudioContext::suspend(Self) -> @js_core.Promise[Unit]
+
+#external
+pub type AudioNode
+pub fn AudioNode::connect(Self, Self) -> Self
+pub fn AudioNode::disconnect(Self) -> Unit
+
+#external
+pub type AudioParam
+pub fn AudioParam::at_time(Self, Double, Double) -> Unit
+pub fn AudioParam::exponential_ramp(Self, Double, Double) -> Unit
+pub fn AudioParam::set_value(Self, Double) -> Unit
+pub fn AudioParam::target(Self, Double, Double, Double) -> Unit
+
+#external
+pub type BiquadFilterNode
+pub fn BiquadFilterNode::as_node(Self) -> AudioNode
+pub fn BiquadFilterNode::frequency(Self) -> AudioParam
+pub fn BiquadFilterNode::q(Self) -> AudioParam
+pub fn BiquadFilterNode::set_type(Self, String) -> Unit
+
+#external
+pub type DynamicsCompressorNode
+pub fn DynamicsCompressorNode::as_node(Self) -> AudioNode
+pub fn DynamicsCompressorNode::ratio(Self) -> AudioParam
+pub fn DynamicsCompressorNode::threshold(Self) -> AudioParam
+
+#external
+pub type GainNode
+pub fn GainNode::as_node(Self) -> AudioNode
+pub fn GainNode::gain(Self) -> AudioParam
+
+#external
+pub type OscillatorNode
+pub fn OscillatorNode::as_node(Self) -> AudioNode
+pub fn OscillatorNode::frequency(Self) -> AudioParam
+pub fn OscillatorNode::start(Self) -> Unit
+pub fn OscillatorNode::stop(Self) -> Unit
+
+#external
+pub type Samples
+pub fn Samples::get(Self, Int) -> Double
+pub fn Samples::length(Self) -> Int
+pub fn Samples::set(Self, Int, Double) -> Unit
+
+// Type aliases
+
+// Traits

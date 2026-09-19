@@ -21,12 +21,7 @@ export const defaults: Preferences = {
 }
 
 export function isPreferences(value: unknown): value is Preferences {
-  if (!value || typeof value !== 'object') return false
-  const p = value as Preferences
-  return [0, 15, 25, 45, 60, 90].includes(p.focusMinutes) && [3, 5, 10, 15].includes(p.restMinutes)
-    && ['local', 'rapid', 'express'].includes(p.speed) && ['mist', 'dawn', 'night'].includes(p.scene)
-    && typeof p.showTime === 'boolean'
-    && [p.trainVolume, p.rainVolume, p.windVolume].every(n => typeof n === 'number' && n >= 0 && n <= 100)
+  return moon.isPreferences(value)
 }
 
 export interface Journey {
@@ -48,15 +43,7 @@ export const emptyJourney: Journey = {
 }
 
 export function isJourney(value: unknown): value is Journey {
-  if (!value || typeof value !== 'object') return false
-  const j = value as Journey
-  return ['idle', 'focus', 'rest', 'finished'].includes(j.phase)
-    && typeof j.running === 'boolean'
-    && (j.deadline === null || (typeof j.deadline === 'number' && Number.isFinite(j.deadline)))
-    && (j.remaining === null || (typeof j.remaining === 'number' && Number.isFinite(j.remaining) && j.remaining >= 0))
-    && [0, 15, 25, 45, 60, 90].includes(j.focusMinutes) && [3, 5, 10, 15].includes(j.restMinutes)
-    && (!j.running || j.phase === 'focus' || j.phase === 'rest')
-    && (!(j.running && j.deadline === null) || (j.phase === 'focus' && j.focusMinutes === 0))
+  return moon.isJourney(value)
 }
 
 export type JourneyAction =

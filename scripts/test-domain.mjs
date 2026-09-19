@@ -16,3 +16,11 @@ for (const encoded of fixtures) {
   assert.deepStrictEqual(fixture.args, before, `${fixture.name}: input mutation`)
 }
 console.log(`${fixtures.length} domain fixtures passed, including object identity and immutability`)
+
+const validators = JSON.parse(readFileSync(new URL('../tests/contract/validation-fixtures.json', import.meta.url), 'utf8')).map(decode)
+for (const fixture of validators) {
+  const before = structuredClone(fixture.args)
+  assert.equal(domain[fixture.fn](...fixture.args), fixture.result, fixture.name)
+  assert.deepStrictEqual(fixture.args, before, `${fixture.name}: input mutation`)
+}
+console.log(`${validators.length} storage validation fixtures passed`)

@@ -1,0 +1,75 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/browser"
+
+import {
+  "Hosi121/syasou/domain",
+  "Hosi121/syasou/webaudio",
+  "Hosi121/syasou/webgl",
+  "mizchi/js_browser/dom",
+  "mizchi/js_browser/observer",
+  "mizchi/js_core",
+}
+
+// Values
+pub fn create_renderer(@dom.HTMLCanvasElement, () -> Unit) -> Renderer?
+
+pub fn create_sound() -> Sound
+
+pub fn read_storage(String, @js_core.Any, (@js_core.Any) -> Bool) -> @js_core.Any
+
+pub fn write_storage(String, @js_core.Any) -> Bool
+
+// Errors
+
+// Types and methods
+pub struct Renderer {
+  canvas : @dom.HTMLCanvasElement
+  gl : @webgl.Context
+  shaders : Array[@webgl.Shader]
+  program : @webgl.Program
+  buffer : @js_core.Nullable[@webgl.Buffer]
+  resolution : @js_core.Nullable[@webgl.Uniform]
+  time : @js_core.Nullable[@webgl.Uniform]
+  travel : @js_core.Nullable[@webgl.Uniform]
+  scene : @js_core.Nullable[@webgl.Uniform]
+  reduced_motion : @dom.MediaQueryList
+  mut params : @domain.Landscape
+  mut animation_time : Double
+  mut travel_time : Double
+  mut last_frame : Double
+  mut frame : Int
+  mut disposed : Bool
+  mut lost : Bool
+  mut observer : @observer.ResizeObserver?
+  mut visibility_callback : ((@js_core.Any) -> Unit)?
+  mut motion_callback : ((@dom.Event) -> Unit)?
+  mut lost_callback : ((@js_core.Any) -> Unit)?
+}
+pub fn Renderer::dispose(Self) -> Unit
+pub fn Renderer::update(Self, @domain.Landscape) -> Unit
+
+pub struct Sound {
+  context : @webaudio.AudioContext
+  master : @webaudio.GainNode
+  train : @webaudio.GainNode
+  rain : @webaudio.GainNode
+  wind : @webaudio.GainNode
+  cabin : @webaudio.BiquadFilterNode
+  noise : @webaudio.AudioBuffer
+  sources : Array[Source]
+  mut scheduler : Int?
+  mut next_beat : Double
+  mut beat : Int
+  mut moving : Bool
+  mut period : Double
+}
+pub fn Sound::disable(Self) -> @js_core.Promise[Unit]
+pub fn Sound::dispose(Self) -> Unit
+pub fn Sound::enable(Self) -> @js_core.Promise[Unit]
+pub fn Sound::update(Self, @domain.SoundMix, Bool) -> Unit
+
+type Source
+
+// Type aliases
+
+// Traits

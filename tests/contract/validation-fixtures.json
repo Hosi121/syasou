@@ -1,0 +1,7239 @@
+[
+  {
+    "fn": "isPreferences",
+    "args": [
+      null
+    ],
+    "name": "isPreferences: primitive 0",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "$value": "undefined"
+      }
+    ],
+    "name": "isPreferences: primitive 1",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      false
+    ],
+    "name": "isPreferences: primitive 2",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      0
+    ],
+    "name": "isPreferences: primitive 3",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      ""
+    ],
+    "name": "isPreferences: primitive 4",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      []
+    ],
+    "name": "isPreferences: primitive 5",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {}
+    ],
+    "name": "isPreferences: primitive 6",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      "forest"
+    ],
+    "name": "isPreferences: primitive 7",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      "snow"
+    ],
+    "name": "isPreferences: primitive 8",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      "train"
+    ],
+    "name": "isPreferences: primitive 9",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      null
+    ],
+    "name": "isJourney: primitive 0",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "$value": "undefined"
+      }
+    ],
+    "name": "isJourney: primitive 1",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      false
+    ],
+    "name": "isJourney: primitive 2",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      0
+    ],
+    "name": "isJourney: primitive 3",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      ""
+    ],
+    "name": "isJourney: primitive 4",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      []
+    ],
+    "name": "isJourney: primitive 5",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {}
+    ],
+    "name": "isJourney: primitive 6",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      "forest"
+    ],
+    "name": "isJourney: primitive 7",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      "snow"
+    ],
+    "name": "isJourney: primitive 8",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      "train"
+    ],
+    "name": "isJourney: primitive 9",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      null
+    ],
+    "name": "isTicket: primitive 0",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "$value": "undefined"
+      }
+    ],
+    "name": "isTicket: primitive 1",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      false
+    ],
+    "name": "isTicket: primitive 2",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      0
+    ],
+    "name": "isTicket: primitive 3",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      ""
+    ],
+    "name": "isTicket: primitive 4",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      []
+    ],
+    "name": "isTicket: primitive 5",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {}
+    ],
+    "name": "isTicket: primitive 6",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      "forest"
+    ],
+    "name": "isTicket: primitive 7",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      "snow"
+    ],
+    "name": "isTicket: primitive 8",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      "train"
+    ],
+    "name": "isTicket: primitive 9",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      null
+    ],
+    "name": "isTravelState: primitive 0",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "$value": "undefined"
+      }
+    ],
+    "name": "isTravelState: primitive 1",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      false
+    ],
+    "name": "isTravelState: primitive 2",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      0
+    ],
+    "name": "isTravelState: primitive 3",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      ""
+    ],
+    "name": "isTravelState: primitive 4",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      []
+    ],
+    "name": "isTravelState: primitive 5",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {}
+    ],
+    "name": "isTravelState: primitive 6",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      "forest"
+    ],
+    "name": "isTravelState: primitive 7",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      "snow"
+    ],
+    "name": "isTravelState: primitive 8",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      "train"
+    ],
+    "name": "isTravelState: primitive 9",
+    "result": false
+  },
+  {
+    "fn": "isView",
+    "args": [
+      null
+    ],
+    "name": "isView: primitive 0",
+    "result": false
+  },
+  {
+    "fn": "isView",
+    "args": [
+      {
+        "$value": "undefined"
+      }
+    ],
+    "name": "isView: primitive 1",
+    "result": false
+  },
+  {
+    "fn": "isView",
+    "args": [
+      false
+    ],
+    "name": "isView: primitive 2",
+    "result": false
+  },
+  {
+    "fn": "isView",
+    "args": [
+      0
+    ],
+    "name": "isView: primitive 3",
+    "result": false
+  },
+  {
+    "fn": "isView",
+    "args": [
+      ""
+    ],
+    "name": "isView: primitive 4",
+    "result": false
+  },
+  {
+    "fn": "isView",
+    "args": [
+      []
+    ],
+    "name": "isView: primitive 5",
+    "result": false
+  },
+  {
+    "fn": "isView",
+    "args": [
+      {}
+    ],
+    "name": "isView: primitive 6",
+    "result": false
+  },
+  {
+    "fn": "isView",
+    "args": [
+      "forest"
+    ],
+    "name": "isView: primitive 7",
+    "result": true
+  },
+  {
+    "fn": "isView",
+    "args": [
+      "snow"
+    ],
+    "name": "isView: primitive 8",
+    "result": true
+  },
+  {
+    "fn": "isView",
+    "args": [
+      "train"
+    ],
+    "name": "isView: primitive 9",
+    "result": true
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: valid",
+    "result": true
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: missing focusMinutes",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": {
+          "$value": "undefined"
+        },
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: focusMinutes/0",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": null,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: focusMinutes/1",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": false,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: focusMinutes/2",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": "",
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: focusMinutes/3",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": -1,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: focusMinutes/4",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": {
+          "$value": "NaN"
+        },
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: focusMinutes/5",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": {
+          "$value": "Infinity"
+        },
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: focusMinutes/6",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 0,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: focusMinutes/7",
+    "result": true
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 100,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: focusMinutes/8",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: focusMinutes/9",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: missing restMinutes",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": {
+          "$value": "undefined"
+        },
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: restMinutes/0",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": null,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: restMinutes/1",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": false,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: restMinutes/2",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": "",
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: restMinutes/3",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": -1,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: restMinutes/4",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": {
+          "$value": "NaN"
+        },
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: restMinutes/5",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": {
+          "$value": "Infinity"
+        },
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: restMinutes/6",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 0,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: restMinutes/7",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 100,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: restMinutes/8",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: restMinutes/9",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: missing speed",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": {
+          "$value": "undefined"
+        },
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: speed/0",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": null,
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: speed/1",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": false,
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: speed/2",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: speed/3",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": -1,
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: speed/4",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": {
+          "$value": "NaN"
+        },
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: speed/5",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": {
+          "$value": "Infinity"
+        },
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: speed/6",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": 0,
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: speed/7",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": 100,
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: speed/8",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: speed/9",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: missing scene",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": {
+          "$value": "undefined"
+        },
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: scene/0",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": null,
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: scene/1",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": false,
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: scene/2",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: scene/3",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": -1,
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: scene/4",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": {
+          "$value": "NaN"
+        },
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: scene/5",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": {
+          "$value": "Infinity"
+        },
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: scene/6",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": 0,
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: scene/7",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": 100,
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: scene/8",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: scene/9",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: missing showTime",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": {
+          "$value": "undefined"
+        },
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: showTime/0",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": null,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: showTime/1",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": false,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: showTime/2",
+    "result": true
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": "",
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: showTime/3",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": -1,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: showTime/4",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": {
+          "$value": "NaN"
+        },
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: showTime/5",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": {
+          "$value": "Infinity"
+        },
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: showTime/6",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": 0,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: showTime/7",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": 100,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: showTime/8",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: showTime/9",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: missing trainVolume",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": {
+          "$value": "undefined"
+        },
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: trainVolume/0",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": null,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: trainVolume/1",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": false,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: trainVolume/2",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": "",
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: trainVolume/3",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": -1,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: trainVolume/4",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": {
+          "$value": "NaN"
+        },
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: trainVolume/5",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": {
+          "$value": "Infinity"
+        },
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: trainVolume/6",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 0,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: trainVolume/7",
+    "result": true
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 100,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: trainVolume/8",
+    "result": true
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: trainVolume/9",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: missing rainVolume",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": {
+          "$value": "undefined"
+        },
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: rainVolume/0",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": null,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: rainVolume/1",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": false,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: rainVolume/2",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": "",
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: rainVolume/3",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": -1,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: rainVolume/4",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": {
+          "$value": "NaN"
+        },
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: rainVolume/5",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": {
+          "$value": "Infinity"
+        },
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: rainVolume/6",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: rainVolume/7",
+    "result": true
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 100,
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: rainVolume/8",
+    "result": true
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "windVolume": 20
+      }
+    ],
+    "name": "isPreferences: rainVolume/9",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0
+      }
+    ],
+    "name": "isPreferences: missing windVolume",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": {
+          "$value": "undefined"
+        }
+      }
+    ],
+    "name": "isPreferences: windVolume/0",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": null
+      }
+    ],
+    "name": "isPreferences: windVolume/1",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": false
+      }
+    ],
+    "name": "isPreferences: windVolume/2",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": ""
+      }
+    ],
+    "name": "isPreferences: windVolume/3",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": -1
+      }
+    ],
+    "name": "isPreferences: windVolume/4",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": {
+          "$value": "NaN"
+        }
+      }
+    ],
+    "name": "isPreferences: windVolume/5",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": {
+          "$value": "Infinity"
+        }
+      }
+    ],
+    "name": "isPreferences: windVolume/6",
+    "result": false
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 0
+      }
+    ],
+    "name": "isPreferences: windVolume/7",
+    "result": true
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": 100
+      }
+    ],
+    "name": "isPreferences: windVolume/8",
+    "result": true
+  },
+  {
+    "fn": "isPreferences",
+    "args": [
+      {
+        "focusMinutes": 25,
+        "restMinutes": 5,
+        "speed": "local",
+        "scene": "mist",
+        "showTime": true,
+        "trainVolume": 45,
+        "rainVolume": 0,
+        "windVolume": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      }
+    ],
+    "name": "isPreferences: windVolume/9",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: valid",
+    "result": true
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: missing phase",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": {
+          "$value": "undefined"
+        },
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: phase/0",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": null,
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: phase/1",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": false,
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: phase/2",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: phase/3",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": -1,
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: phase/4",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": {
+          "$value": "NaN"
+        },
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: phase/5",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": {
+          "$value": "Infinity"
+        },
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: phase/6",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": 0,
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: phase/7",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": 100,
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: phase/8",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: phase/9",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: missing running",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": {
+          "$value": "undefined"
+        },
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running/0",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": null,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running/1",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running/2",
+    "result": true
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": "",
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running/3",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": -1,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running/4",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": {
+          "$value": "NaN"
+        },
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running/5",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": {
+          "$value": "Infinity"
+        },
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running/6",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": 0,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running/7",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": 100,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running/8",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running/9",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: missing deadline",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": {
+          "$value": "undefined"
+        },
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: deadline/0",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: deadline/1",
+    "result": true
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": false,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: deadline/2",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": "",
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: deadline/3",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": -1,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: deadline/4",
+    "result": true
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": {
+          "$value": "NaN"
+        },
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: deadline/5",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": {
+          "$value": "Infinity"
+        },
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: deadline/6",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": 0,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: deadline/7",
+    "result": true
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": 100,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: deadline/8",
+    "result": true
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: deadline/9",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: missing remaining",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": {
+          "$value": "undefined"
+        },
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: remaining/0",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: remaining/1",
+    "result": true
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": false,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: remaining/2",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": "",
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: remaining/3",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": -1,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: remaining/4",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": {
+          "$value": "NaN"
+        },
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: remaining/5",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": {
+          "$value": "Infinity"
+        },
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: remaining/6",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": 0,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: remaining/7",
+    "result": true
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": 100,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: remaining/8",
+    "result": true
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: remaining/9",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: missing focusMinutes",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": {
+          "$value": "undefined"
+        },
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: focusMinutes/0",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": null,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: focusMinutes/1",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": false,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: focusMinutes/2",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": "",
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: focusMinutes/3",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": -1,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: focusMinutes/4",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": {
+          "$value": "NaN"
+        },
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: focusMinutes/5",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": {
+          "$value": "Infinity"
+        },
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: focusMinutes/6",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 0,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: focusMinutes/7",
+    "result": true
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 100,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: focusMinutes/8",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: focusMinutes/9",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25
+      }
+    ],
+    "name": "isJourney: missing restMinutes",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": {
+          "$value": "undefined"
+        }
+      }
+    ],
+    "name": "isJourney: restMinutes/0",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": null
+      }
+    ],
+    "name": "isJourney: restMinutes/1",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": false
+      }
+    ],
+    "name": "isJourney: restMinutes/2",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": ""
+      }
+    ],
+    "name": "isJourney: restMinutes/3",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": -1
+      }
+    ],
+    "name": "isJourney: restMinutes/4",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": {
+          "$value": "NaN"
+        }
+      }
+    ],
+    "name": "isJourney: restMinutes/5",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": {
+          "$value": "Infinity"
+        }
+      }
+    ],
+    "name": "isJourney: restMinutes/6",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 0
+      }
+    ],
+    "name": "isJourney: restMinutes/7",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 100
+      }
+    ],
+    "name": "isJourney: restMinutes/8",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": false,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      }
+    ],
+    "name": "isJourney: restMinutes/9",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: valid",
+    "result": true
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: missing id",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": {
+          "$value": "undefined"
+        },
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: id/0",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": null,
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: id/1",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": false,
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: id/2",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: id/3",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": -1,
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: id/4",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": {
+          "$value": "NaN"
+        },
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: id/5",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": {
+          "$value": "Infinity"
+        },
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: id/6",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": 0,
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: id/7",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": 100,
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: id/8",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: id/9",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: missing startedAt",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": {
+          "$value": "undefined"
+        },
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: startedAt/0",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": null,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: startedAt/1",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": false,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: startedAt/2",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": "",
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: startedAt/3",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": -1,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: startedAt/4",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": {
+          "$value": "NaN"
+        },
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: startedAt/5",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": {
+          "$value": "Infinity"
+        },
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: startedAt/6",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 0,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: startedAt/7",
+    "result": true
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 100,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: startedAt/8",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: startedAt/9",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: missing arrivedAt",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": {
+          "$value": "undefined"
+        },
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: arrivedAt/0",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": null,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: arrivedAt/1",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": false,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: arrivedAt/2",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": "",
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: arrivedAt/3",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": -1,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: arrivedAt/4",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": {
+          "$value": "NaN"
+        },
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: arrivedAt/5",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": {
+          "$value": "Infinity"
+        },
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: arrivedAt/6",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 0,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: arrivedAt/7",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 100,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: arrivedAt/8",
+    "result": true
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: arrivedAt/9",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: missing speed",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": {
+          "$value": "undefined"
+        },
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: speed/0",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": null,
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: speed/1",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": false,
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: speed/2",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: speed/3",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": -1,
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: speed/4",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": {
+          "$value": "NaN"
+        },
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: speed/5",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": {
+          "$value": "Infinity"
+        },
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: speed/6",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": 0,
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: speed/7",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": 100,
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: speed/8",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: speed/9",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: missing scene",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": {
+          "$value": "undefined"
+        },
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: scene/0",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": null,
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: scene/1",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": false,
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: scene/2",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: scene/3",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": -1,
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: scene/4",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": {
+          "$value": "NaN"
+        },
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: scene/5",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": {
+          "$value": "Infinity"
+        },
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: scene/6",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": 0,
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: scene/7",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": 100,
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: scene/8",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: scene/9",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: missing title",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": {
+          "$value": "undefined"
+        },
+        "note": ""
+      }
+    ],
+    "name": "isTicket: title/0",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": null,
+        "note": ""
+      }
+    ],
+    "name": "isTicket: title/1",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": false,
+        "note": ""
+      }
+    ],
+    "name": "isTicket: title/2",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: title/3",
+    "result": true
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": -1,
+        "note": ""
+      }
+    ],
+    "name": "isTicket: title/4",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": {
+          "$value": "NaN"
+        },
+        "note": ""
+      }
+    ],
+    "name": "isTicket: title/5",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": {
+          "$value": "Infinity"
+        },
+        "note": ""
+      }
+    ],
+    "name": "isTicket: title/6",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": 0,
+        "note": ""
+      }
+    ],
+    "name": "isTicket: title/7",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": 100,
+        "note": ""
+      }
+    ],
+    "name": "isTicket: title/8",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: title/9",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書"
+      }
+    ],
+    "name": "isTicket: missing note",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": {
+          "$value": "undefined"
+        }
+      }
+    ],
+    "name": "isTicket: note/0",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": null
+      }
+    ],
+    "name": "isTicket: note/1",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": false
+      }
+    ],
+    "name": "isTicket: note/2",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": ""
+      }
+    ],
+    "name": "isTicket: note/3",
+    "result": true
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": -1
+      }
+    ],
+    "name": "isTicket: note/4",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": {
+          "$value": "NaN"
+        }
+      }
+    ],
+    "name": "isTicket: note/5",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": {
+          "$value": "Infinity"
+        }
+      }
+    ],
+    "name": "isTicket: note/6",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": 0
+      }
+    ],
+    "name": "isTicket: note/7",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": 100
+      }
+    ],
+    "name": "isTicket: note/8",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      }
+    ],
+    "name": "isTicket: note/9",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: valid",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: missing journey",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "$value": "undefined"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: journey/0",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": null,
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: journey/1",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": false,
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: journey/2",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": "",
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: journey/3",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": -1,
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: journey/4",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "$value": "NaN"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: journey/5",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "$value": "Infinity"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: journey/6",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": 0,
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: journey/7",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": 100,
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: journey/8",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: journey/9",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: missing tickets",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": {
+          "$value": "undefined"
+        },
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: tickets/0",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": null,
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: tickets/1",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": false,
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: tickets/2",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": "",
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: tickets/3",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": -1,
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: tickets/4",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": {
+          "$value": "NaN"
+        },
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: tickets/5",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": {
+          "$value": "Infinity"
+        },
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: tickets/6",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": 0,
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: tickets/7",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": 100,
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: tickets/8",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: tickets/9",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "name": "isTravelState: missing pendingArrivalId",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": {
+          "$value": "undefined"
+        }
+      }
+    ],
+    "name": "isTravelState: pendingArrivalId/0",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: pendingArrivalId/1",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": false
+      }
+    ],
+    "name": "isTravelState: pendingArrivalId/2",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": ""
+      }
+    ],
+    "name": "isTravelState: pendingArrivalId/3",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": -1
+      }
+    ],
+    "name": "isTravelState: pendingArrivalId/4",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": {
+          "$value": "NaN"
+        }
+      }
+    ],
+    "name": "isTravelState: pendingArrivalId/5",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": {
+          "$value": "Infinity"
+        }
+      }
+    ],
+    "name": "isTravelState: pendingArrivalId/6",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": 0
+      }
+    ],
+    "name": "isTravelState: pendingArrivalId/7",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": 100
+      }
+    ],
+    "name": "isTravelState: pendingArrivalId/8",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      }
+    ],
+    "name": "isTravelState: pendingArrivalId/9",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 0,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running idle/0",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 15,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running idle/15",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running idle/25",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 45,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running idle/45",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 60,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running idle/60",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "idle",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 90,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running idle/90",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "focus",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 0,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running focus/0",
+    "result": true
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "focus",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 15,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running focus/15",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "focus",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running focus/25",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "focus",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 45,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running focus/45",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "focus",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 60,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running focus/60",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "focus",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 90,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running focus/90",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "rest",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 0,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running rest/0",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "rest",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 15,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running rest/15",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "rest",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running rest/25",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "rest",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 45,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running rest/45",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "rest",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 60,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running rest/60",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "rest",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 90,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running rest/90",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "finished",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 0,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running finished/0",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "finished",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 15,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running finished/15",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "finished",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 25,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running finished/25",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "finished",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 45,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running finished/45",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "finished",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 60,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running finished/60",
+    "result": false
+  },
+  {
+    "fn": "isJourney",
+    "args": [
+      {
+        "phase": "finished",
+        "running": true,
+        "deadline": null,
+        "remaining": null,
+        "focusMinutes": 90,
+        "restMinutes": 5
+      }
+    ],
+    "name": "isJourney: running finished/90",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": "",
+        "kind": {
+          "$value": "undefined"
+        }
+      }
+    ],
+    "name": "isTicket: kind undefined",
+    "result": true
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": "",
+        "kind": "sample"
+      }
+    ],
+    "name": "isTicket: kind sample",
+    "result": true
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": "",
+        "kind": "welcome"
+      }
+    ],
+    "name": "isTicket: kind welcome",
+    "result": true
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": "",
+        "kind": "other"
+      }
+    ],
+    "name": "isTicket: kind other",
+    "result": false
+  },
+  {
+    "fn": "isTicket",
+    "args": [
+      {
+        "id": "one",
+        "startedAt": 10,
+        "arrivedAt": 20,
+        "speed": "local",
+        "scene": "mist",
+        "title": "読書",
+        "note": "",
+        "kind": null
+      }
+    ],
+    "name": "isTicket: kind null",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          },
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: duplicate",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {}
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: invalid",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: none",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": "one"
+      }
+    ],
+    "name": "isTravelState: pending one",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": "missing"
+      }
+    ],
+    "name": "isTravelState: pending missing",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: pending null",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "id": {
+            "$value": "undefined"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata id/undefined",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "id": null
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata id/null",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "id": ""
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata id/",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "id": -1
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata id/-1",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "id": {
+            "$value": "NaN"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata id/NaN",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "id": {
+            "$value": "Infinity"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata id/Infinity",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "id": 0
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata id/0",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "id": "local"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata id/local",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "id": "mist"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata id/mist",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "id": "trip"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata id/trip",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "startedAt": {
+            "$value": "undefined"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata startedAt/undefined",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "startedAt": null
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata startedAt/null",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "startedAt": ""
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata startedAt/",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "startedAt": -1
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata startedAt/-1",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "startedAt": {
+            "$value": "NaN"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata startedAt/NaN",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "startedAt": {
+            "$value": "Infinity"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata startedAt/Infinity",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "startedAt": 0
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata startedAt/0",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "startedAt": "local"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata startedAt/local",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "startedAt": "mist"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata startedAt/mist",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "startedAt": "trip"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata startedAt/trip",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "arrivedAt": {
+            "$value": "undefined"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata arrivedAt/undefined",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "arrivedAt": null
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata arrivedAt/null",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "arrivedAt": ""
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata arrivedAt/",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "arrivedAt": -1
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata arrivedAt/-1",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "arrivedAt": {
+            "$value": "NaN"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata arrivedAt/NaN",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "arrivedAt": {
+            "$value": "Infinity"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata arrivedAt/Infinity",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "arrivedAt": 0
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata arrivedAt/0",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "arrivedAt": "local"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata arrivedAt/local",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "arrivedAt": "mist"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata arrivedAt/mist",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "arrivedAt": "trip"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata arrivedAt/trip",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "speed": {
+            "$value": "undefined"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata speed/undefined",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "speed": null
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata speed/null",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "speed": ""
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata speed/",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "speed": -1
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata speed/-1",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "speed": {
+            "$value": "NaN"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata speed/NaN",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "speed": {
+            "$value": "Infinity"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata speed/Infinity",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "speed": 0
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata speed/0",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "speed": "local"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata speed/local",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "speed": "mist"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata speed/mist",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "speed": "trip"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata speed/trip",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "scene": {
+            "$value": "undefined"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata scene/undefined",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "scene": null
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata scene/null",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "scene": ""
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata scene/",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "scene": -1
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata scene/-1",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "scene": {
+            "$value": "NaN"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata scene/NaN",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "scene": {
+            "$value": "Infinity"
+          }
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata scene/Infinity",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "scene": 0
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata scene/0",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "scene": "local"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata scene/local",
+    "result": false
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "scene": "mist"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata scene/mist",
+    "result": true
+  },
+  {
+    "fn": "isTravelState",
+    "args": [
+      {
+        "journey": {
+          "phase": "idle",
+          "running": false,
+          "deadline": null,
+          "remaining": null,
+          "focusMinutes": 25,
+          "restMinutes": 5,
+          "scene": "trip"
+        },
+        "tickets": [
+          {
+            "id": "one",
+            "startedAt": 10,
+            "arrivedAt": 20,
+            "speed": "local",
+            "scene": "mist",
+            "title": "読書",
+            "note": ""
+          }
+        ],
+        "pendingArrivalId": null
+      }
+    ],
+    "name": "isTravelState: metadata scene/trip",
+    "result": false
+  }
+]
