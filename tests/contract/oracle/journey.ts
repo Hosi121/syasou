@@ -1,5 +1,3 @@
-import * as moon from '../generated/moonbit/bridge.js'
-
 export type Phase = 'idle' | 'focus' | 'rest' | 'finished'
 export type Speed = 'local' | 'rapid' | 'express'
 export type Scene = 'mist' | 'dawn' | 'night'
@@ -65,11 +63,32 @@ export type JourneyAction =
   | { type: 'tick'; now: number }
   | { type: 'finish'; now: number }
 
-// Keep the original typed API at the JS boundary; the reducer lives in MoonBit.
 export function advanceJourney(state: Journey, now: number): Journey {
-  return moon.advanceJourney(state, now)
+  if (!state.running || state.deadline === null || now < state.deadline) return state
+  if (state.phase === 'focus') {
+    const restDeadline = state.deadline + state.restMinutes * 60_000
+    if (now < restDeadline) return { ...state, phase: 'rest', deadline: restDeadline, remaining: null, arrivedAt: state.deadline }
+    return { ...state, phase: 'finished', running: false, deadline: null, remaining: null, arrivedAt: state.deadline }
+  }
+  return { ...state, phase: 'finished', running: false, deadline: null, remaining: null }
 }
 
 export function journeyReducer(state: Journey, action: JourneyAction): Journey {
-  return moon.journeyReducer(state, action)
+  if (action.type === 'start') return {
+    phase: 'focus', running: true, focusMinutes: action.focusMinutes, restMinutes: action.restMinutes,
+    deadline: action.focusMinutes ? action.now + action.focusMinutes * 60_000 : null, remaining: null,
+    id: action.id, startedAt: action.now, speed: action.speed, scene: action.scene,
+  }
+  if (action.type === 'finish') return {
+    ...state, phase: 'finished', running: false, deadline: null, remaining: null,
+    arrivedAt: state.arrivedAt ?? (state.phase === 'focus' ? Math.min(action.now, state.deadline ?? action.now) : undefined),
+  }
+  if (action.type === 'tick') return advanceJourney(state, action.now)
+  const current = advanceJourney(state, action.now)
+  if (current.phase !== 'focus' && current.phase !== 'rest') return current
+  if (current.running) return {
+    ...current, running: false, deadline: null,
+    remaining: current.deadline === null ? null : Math.max(0, current.deadline - action.now),
+  }
+  return { ...current, running: true, deadline: current.remaining === null ? null : action.now + current.remaining, remaining: null }
 }

@@ -4,12 +4,17 @@
   "description": "A quiet, tactile train-window workspace.",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "tsc --noEmit && vite build",
+    "build": "node scripts/check-domain-generated.mjs && tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "playwright test",
     "test:mobile": "playwright test --config playwright.mobile.config.ts",
     "icons": "node scripts/prepare-app-icons.mjs",
-    "fonts": "node scripts/prepare-fonts.mjs"
+    "fonts": "node scripts/prepare-fonts.mjs",
+    "build:domain": "node scripts/build-domain.mjs",
+    "check:domain": "node scripts/build-domain.mjs --check && node scripts/generate-domain-fixtures.mjs --check && node scripts/generate-domain-tests.mjs --check && node scripts/check-domain-types.mjs",
+    "test:domain": "node scripts/test-domain.mjs",
+    "test:moonbit": "node scripts/moon-command.mjs test",
+    "fixtures:domain": "node scripts/generate-domain-fixtures.mjs && node scripts/generate-domain-tests.mjs"
   },
   "keywords": [],
   "author": "",

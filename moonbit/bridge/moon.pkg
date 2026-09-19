@@ -1,0 +1,21 @@
+import {
+  "Hosi121/syasou/domain",
+  "mizchi/js_core" @js,
+}
+
+supported_targets = "js"
+
+options(
+  targets: { "journey.mbt": [ "js" ], "tickets.mbt": [ "js" ] },
+  link: {
+    "js": {
+      "exports": [
+        "advance_journey:advanceJourney",
+        "journey_reducer:journeyReducer",
+        "restore_travel:restoreTravel",
+        "travel_reducer:travelReducer",
+      ],
+      "format": "esm",
+    },
+  },
+)

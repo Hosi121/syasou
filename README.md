@@ -4,6 +4,8 @@ PCやスマートフォンの画面を、モノクロの列車の窓辺にする
 
 公開URL: https://syasou.vercel.app
 
+公開リポジトリ: https://github.com/Hosi121/syasou
+
 テスト用URL: https://syasou.vercel.app/?demo=1
 
 現時点ではログインを使わず、ブラウザ内に保存します。テスト用URLでは別の保存領域を使い、読書・企画・メモのサンプル切符を3枚用意します。通常の手帳の作業・メモ・設定・切符は変更しません。サンプルは初回だけ用意し、編集や新しい切符もテスト用の手帳に保存します。サンプルの切符には `SAMPLE` の印があります。
@@ -20,6 +22,32 @@ npm run dev
 ```
 
 http://localhost:5173 を開きます。`npm run build` で型チェックと本番ビルド、`npm run preview` で本番ビルドの確認ができます。`dist/` は静的配信可能です。
+
+## MoonBit のロジックを変更する
+
+画面は React / TypeScript、旅の状態遷移と切符の発行・編集は MoonBit です。`moonbit/domain/` は JavaScript に依存しない型付きコア、`moonbit/bridge/` は `mizchi/js_core@0.13.0`（`mizchi/js` から分離された基礎バインディング）による変換層です。React、ブラウザ保存の検証、WebGL、音の処理は TypeScript に残しています。
+
+MoonBit を JavaScript の ES Modules にコンパイルし、`src/generated/moonbit/` に生成コードとコンパイラの型定義をコミットします。通常の起動・Vercel ビルドには MoonBit のインストールは不要です。`npm run build` はソースと生成物のハッシュを照合し、再生成を忘れていた場合は失敗します。CI は固定バージョンで再コンパイルして生成物の一致も確認します。
+
+ロジックの変更には Node.js 24.13.0 と MoonBit `0.10.13+cbb11c36f` を使用します。[公式インストーラ](https://www.moonbitlang.com/download/)でバージョンを指定してインストールできます。
+
+```sh
+curl -fsSL https://cli.moonbitlang.com/install/unix.sh -o /tmp/install-moonbit.sh
+bash /tmp/install-moonbit.sh '0.10.13+cbb11c36f'
+export PATH="$HOME/.moon/bin:$PATH"
+moon update
+npm run test:moonbit
+npm run build:domain
+npm run check:domain
+npm run test:domain
+npm run build
+npm test
+npm run test:mobile
+```
+
+別の場所にインストールした場合は `MOON_BIN=/path/to/moon` を指定できます。`moon fmt` と `moon info` の後は `npm run build:domain` を実行してください。生成した JavaScript・型定義は手で変更しません。Vercel の `npm run build` → `dist/` という配信構成はそのまま使います。
+
+移行前の実装・API型定義・実装から生成した期待値は `tests/contract/` に保存しています。`npm run check:domain` は生成物の再現性、期待値の更新漏れ、公開 API の型の一致を検証します。`npm run test:domain` は値・入力の非変更・オブジェクト参照の維持を比較します。`npm run fixtures:domain` は凍結した TypeScript から期待値と MoonBit の直接テストを生成します。互換性の詳細とロールバック先は [移行契約](tests/contract/README.md) を参照してください。
 
 ## 操作
 
@@ -68,11 +96,11 @@ iPhoneではSafariの共有メニュー、Androidでは対応ブラウザのメ�
 - `src/components/Notebook.tsx`: 紙・表紙・背表紙をCSSで描く操作可能な手帳。Radix Dialogでフォーカスを管理。
 - `src/components/TicketTray.tsx` / `TicketCard.tsx`: 到着のカットイン、切符の箱、編集できる切符の表裏。Motionで紙の移動と反転を描き、動きを減らす設定では即座に表示します。
 - `src/components/TouchableTicket.tsx`: ポインターキャプチャとMotionのばねで、つまむ・持ち上げる・傾ける・めくる動作を制御。紙の厚み、ミシン目、透かし、光と影をCSS 3Dで描画します。キャンセル・フォーカス喪失では元の面に戻り、動きを減らす設定では傾きを省いて表裏だけを切り替えます。
-- `src/lib/tickets.ts`: 完了した旅を一枚の切符へ変換する処理。旅・切符・カットイン確認済み状態を `syasou.travel.v2` にまとめて保存し、旧バージョンの進行中データを移行します。
+- `moonbit/domain/tickets.mbt` / `src/lib/tickets.ts`: 切符の発行・編集を MoonBit で処理し、TypeScript の既存 API と保存データの検証を維持します。旅・切符・カットイン確認済み状態を `syasou.travel.v2` にまとめて保存し、旧バージョンの進行中データを移行します。
 - `public/ticket-tray.png`: ユーザー提供の空の紙箱画像をそのまま使用。
 - `src/components/Settings.tsx`: 手帳の設定ページ。
 - `src/App.tsx`: 窓辺と物体の配置、Motionによる視点移動。大きな動きはOSの設定に従って停止。
-- `src/lib/journey.ts`: 作業・休憩・停止の状態管理。
+- `moonbit/domain/journey.mbt` / `src/lib/journey.ts`: 作業・休憩・停止の状態管理と、React から呼ぶ既存の型付き API。
 - `src/lib/sound.ts`: Web Audio APIで合成する列車・雨・風の音。音源配信やAPIキーは不要。
 - `scripts/create-grain.mjs`: 紙の粒子をコードで生成。`node scripts/create-grain.mjs` で再生成できます。
 

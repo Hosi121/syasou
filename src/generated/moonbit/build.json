@@ -1,0 +1,9 @@
+{
+  "compiler": "v0.10.13+cbb11c36f",
+  "source": "8730c90777b409d74556baa993917ec0e1328f08dab9419d7d0d401dcdbd3eec",
+  "artifacts": {
+    "bridge.js": "9a4684017653b6ca17ef6afade2823bffc3f266bf7992767fd96f26a869d2af0",
+    "bridge.d.ts": "3e0c9e22057b5361f7ac201b786cc404566504f291e318a25cdb793b251b28fa",
+    "moonbit.d.ts": "97a3aa026dda2cbda6d5cf8b28c3d75d3f41ec176dc216bf02a33b0e888a86fe"
+  }
+}

@@ -1,6 +1,5 @@
-import { isJourney } from './journey'
-import * as moon from '../generated/moonbit/bridge.js'
-import type { Journey, JourneyAction, Scene, Speed } from './journey'
+import { advanceJourney, isJourney, journeyReducer } from './journey.ts'
+import type { Journey, JourneyAction, Scene, Speed } from './journey.ts'
 
 export interface Ticket {
   id: string
@@ -45,8 +44,19 @@ export function isTravelState(value: unknown): value is TravelState {
     && (s.pendingArrivalId === null || s.tickets.some(t => t.id === s.pendingArrivalId))
 }
 
+function collectArrival(state: TravelState, note: string): TravelState {
+  const j = state.journey
+  if (!j.id || j.startedAt === undefined || j.arrivedAt === undefined || state.tickets.some(t => t.id === j.id)) return state
+  const ticket: Ticket = {
+    id: j.id, startedAt: j.startedAt, arrivedAt: Math.max(j.startedAt, j.arrivedAt),
+    speed: j.speed ?? 'local', scene: j.scene ?? 'mist',
+    title: note.trim().split('\n')[0].slice(0, 80), note: note.slice(0, 300),
+  }
+  return { ...state, tickets: [ticket, ...state.tickets], pendingArrivalId: ticket.id }
+}
+
 export function restoreTravel(state: TravelState, now: number, note: string): TravelState {
-  return moon.restoreTravel(state, now, note)
+  return collectArrival({ ...state, journey: advanceJourney(state.journey, now) }, note)
 }
 
 export type TravelAction =
@@ -56,5 +66,27 @@ export type TravelAction =
   | { type: 'edit-ticket'; id: string; changes: Partial<Pick<Ticket, 'title' | 'note'>> }
 
 export function travelReducer(state: TravelState, action: TravelAction): TravelState {
-  return moon.travelReducer(state, action)
+  if (action.type === 'welcome-ticket') {
+    // A guide replay presents the same keepsake, retaining any edits. It must not
+    // finish a real journey or replace an unacknowledged arrival.
+    if (state.pendingArrivalId) return state
+    const existing = state.tickets.find(ticket => ticket.kind === 'welcome')
+    const ticket: Ticket = existing ?? {
+      id: 'welcome-v1', kind: 'welcome', startedAt: action.now, arrivedAt: action.now,
+      speed: 'local', scene: 'mist', title: 'はじめての窓辺',
+      note: '車窓へ、ようこそ。\nこれは、旅のしおりをめくった記念の一枚。\n\n次の切符には、あなたが進めたことを。\nどうぞ、自分のペースで。',
+    }
+    return { ...state, tickets: existing ? state.tickets : [ticket, ...state.tickets], pendingArrivalId: ticket.id }
+  }
+  if (action.type === 'acknowledge-arrival') return { ...state, pendingArrivalId: null }
+  if (action.type === 'edit-ticket') return {
+    ...state,
+    tickets: state.tickets.map(ticket => ticket.id !== action.id ? ticket : {
+      ...ticket,
+      title: (action.changes.title ?? ticket.title).slice(0, 80),
+      note: (action.changes.note ?? ticket.note).slice(0, 300),
+    }),
+  }
+  const journey = journeyReducer(state.journey, action.action)
+  return collectArrival(journey === state.journey ? state : { ...state, journey }, action.note)
 }

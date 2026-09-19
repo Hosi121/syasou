@@ -6,3 +6,5 @@ playwright-report/
 .git/
 .env*
 *.local
+.mooncakes/
+_build/

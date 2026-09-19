@@ -1,0 +1,94 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/domain"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn advance(Journey, Double) -> JourneyChange
+
+pub fn limit_text(String, Int) -> String
+
+pub fn reduce_journey(Journey, JourneyAction) -> JourneyChange
+
+pub fn reduce_travel(Travel, TravelAction) -> TravelChange
+
+pub fn restore(Travel, Double, String) -> TravelChange
+
+// Errors
+
+// Types and methods
+pub(all) struct Journey {
+  phase : Phase
+  running : Bool
+  deadline : Double?
+  remaining : Double?
+  focus_minutes : Double
+  rest_minutes : Double
+  id : String?
+  started_at : Double?
+  arrived_at : Double?
+  speed : String?
+  scene : String?
+} derive(Eq, @debug.Debug)
+
+pub(all) enum JourneyAction {
+  Start(Double, Double, Double, String, String, String)
+  Tick(Double)
+  Toggle(Double)
+  Finish(Double)
+}
+
+pub(all) enum JourneyChange {
+  Keep
+  Replace(Journey)
+  Patch(Journey, write_arrival~ : Bool)
+}
+pub fn JourneyChange::value(Self, Journey) -> Journey
+
+pub(all) enum Phase {
+  Idle
+  Focus
+  Rest
+  Finished
+} derive(Eq, @debug.Debug)
+
+pub(all) struct Ticket {
+  id : String
+  kind : String?
+  started_at : Double
+  arrived_at : Double
+  speed : String
+  scene : String
+  title : String
+  note : String
+} derive(Eq, @debug.Debug)
+
+pub(all) enum TicketChange {
+  KeepTickets
+  Prepend(Ticket)
+  EditTickets(Array[(String, String)?])
+}
+
+pub(all) struct Travel {
+  journey : Journey
+  tickets : Array[Ticket]
+  pending_arrival_id : String?
+}
+
+pub(all) enum TravelAction {
+  JourneyEvent(JourneyAction, String)
+  Welcome(Double)
+  Acknowledge
+  Edit(String, String?, String?)
+}
+
+pub(all) enum TravelChange {
+  KeepTravel
+  Update(JourneyChange, TicketChange, String?)
+}
+
+// Type aliases
+
+// Traits

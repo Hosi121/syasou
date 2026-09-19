@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
+import * as domain from '../src/generated/moonbit/bridge.js'
+import { decode, sharing } from '../tests/contract/cases.mjs'
+import { checkArtifacts } from './domain-artifacts.mjs'
+
+checkArtifacts()
+const fixtures = JSON.parse(readFileSync(new URL('../tests/contract/fixtures.json', import.meta.url), 'utf8'))
+assert.ok(fixtures.length > 0)
+for (const encoded of fixtures) {
+  const fixture = decode(encoded)
+  const before = structuredClone(fixture.args)
+  const result = domain[fixture.fn](...fixture.args)
+  assert.deepStrictEqual(result, fixture.result, fixture.name)
+  assert.deepStrictEqual(sharing(result, fixture.args[0]), fixture.sharing, `${fixture.name}: object identity`)
+  assert.deepStrictEqual(fixture.args, before, `${fixture.name}: input mutation`)
+}
+console.log(`${fixtures.length} domain fixtures passed, including object identity and immutability`)
