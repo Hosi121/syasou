@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import type { Scene, Speed } from '../lib/journey'
-import { createWindowRenderer } from '../lib/windowRenderer'
-import { cn } from '../lib/utils'
+import type { Scene, Speed } from '../../../../src/lib/journey'
+import { createWindowRenderer } from '../../../../src/lib/windowRenderer'
+import { cn } from '../../../../src/lib/utils'
 
 export interface LandscapeProps { scene: Scene; speed: Speed; moving: boolean; windowOpen: boolean; travelling: boolean }
 

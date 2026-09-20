@@ -10,7 +10,11 @@ from `useJourney.ts`, with clock/UUID calls injected as callbacks.
 `ticketInteraction.ts` extracts the numeric expressions from
 `TouchableTicket.tsx` and the serial calculation from `TicketCard.tsx`.
 These helpers were captured and their declarations emitted before the MoonBit
-implementation replaced them. UI effects and event guards remain in React.
+implementation replaced them. The UI migration additionally freezes six TSX
+components and four helper modules from `aaffee3` in `oracle/ui/` and
+`oracle/helpers/`; only their relative library imports change. Rendering output
+was captured before replacing those components. UI effects, pointer guards,
+React hooks and startup now also live in MoonBit.
 Existing Playwright tests are the unchanged browser contract.
 They run locally or through the manually dispatched `Browser verification`
 workflow. Routine push/PR CI verifies the pure core, API contracts and build.
@@ -27,6 +31,9 @@ workflow. Routine push/PR CI verifies the pure core, API contracts and build.
 | Browser persistence | `browser/platform.mbt` | generic `readStorage`, boolean `writeStorage` |
 | WebGL renderer and shaders | `browser/window.mbt`, `browser/shaders.mbt` | `createWindowRenderer` with update/dispose |
 | Audio synthesis and scheduling | `browser/sound.mbt`, `domain/ambience.mbt` | `TrainSound` constructor, enable/disable/update/dispose |
+| React components, hooks and lifecycle | `ui/` | original DOM, labels, focus, pointer behavior and browser scenarios |
+| Startup and lazy world loading | `ui_startup/`, `ui_world/` | title loading state, delayed world import, failed download/retry |
+| Presentation and initial settings | `domain/presentation.mbt`, `bridge/presentation.mbt` | `formatTime`, `cn`, demo profile, defaults, view metadata |
 
 The pure domain package has no JS imports and runs on both JS and native.
 The browser package owns API calls and lifecycle management. The bridge converts
@@ -35,11 +42,17 @@ JS values into typed records, enums and opaque handles. Existing `mizchi/js_core
 observers, time and randomness. Local `webgl` and `webaudio` packages supply the
 missing typed API subset; they contain no application logic.
 
-React components, hooks, locale-dependent date/time formatting, demo storage-key selection,
-clock/UUID inputs, startup sessionStorage flags, CSS scenery and the SVG fallback
-remain TypeScript/React.
-React still owns pointer capture, input-field exclusions, event subscriptions,
-reduced-motion handling and applying the calculated poses to Motion springs.
+All application behavior is authored in MoonBit, including React rendering,
+pointer capture, input-field exclusions, subscriptions, reduced-motion handling,
+Motion springs, locale formatting, session storage and visual-viewport effects.
+React, Motion, Radix and Lucide remain npm dependencies. `mizchi/npm_typed`
+supplies React hooks, element creation and ReactDOM; typed local adapters bind
+missing browser/component APIs. The small JS error-boundary class implements
+React's class protocol, with recovery controlled by MoonBit startup state.
+The two TSX entry shims retain CSS loading and Vite's lazy module boundary.
+Existing `src/lib/` files preserve typed public APIs by delegating to MoonBit.
+CSS, development scripts, Playwright tests and frozen oracles retain their
+original languages.
 GLSL shader text is stored byte-exact in MoonBit; it still runs as GLSL on the GPU.
 The compiler emits ESM committed with generated declarations and a hash manifest,
 so Vercel's normal Node/Vite build needs no MoonBit installation.
@@ -74,6 +87,13 @@ pure core without JS. `npm run test:domain` compares:
   throwing validators and blocked storage. Node-only TS resolution lives in the
   runner. The production app uses normal Vite resolution.
 
+- 21 byte-exact React SSR renderings from the frozen TSX: rail mark, route map,
+  ticket kinds/sides/editable fields, settings states, SVG landscape and title
+  loading/ready/leaving/error states. Dates use UTC for this comparison.
+- 30 helper results: duration rounding and nonfinite/large inputs, clsx/Tailwind
+  merging, URL-encoded and repeated demo parameters, default settings, initial
+  journey and view metadata. These also come from frozen TypeScript.
+
 `npm test` and `npm run test:mobile` verify real Chromium/WebKit behavior. Mock
 traces complement these tests; they do not emulate a GPU or audio device.
 The full CI run at `540e05b` passed 41 desktop scenarios and exceeded the 30-second
@@ -81,6 +101,12 @@ test timeout in `the passing landscape moves, holds its position when paused,
 and resumes` ([run](https://github.com/Hosi121/syasou/actions/runs/35463902474)).
 The same scenario passed locally. Moving E2E to manual execution does not resolve
 that timeout; use the desktop suite with trace enabled to investigate it.
+For the full UI migration, all 42 desktop scenarios and 8 Android Chromium
+scenarios passed locally without changing their assertions. Four existing
+scenarios also passed against the production Vite build (journey, demo editing,
+audio/window/fullscreen and scenery persistence). Production lazy-download
+failure and retry were checked separately. iPhone WebKit was not revalidated
+in this migration.
 The original commit remains a deployable rollback. Server traffic shadowing
 is inapplicable to this static, browser-local application.
 
@@ -108,7 +134,8 @@ is inapplicable to this static, browser-local application.
   nine public TS facade modules retain their captured declarations. Only private
   member names in `TrainSound` are excluded from declaration comparison: its
   private engine replaces private audio nodes; public methods are unchanged.
-  Generated declarations are never patched.
+  Generated declarations are never patched. UI exports also have compiler-produced
+  declarations; the internal React component boundary remains opaque to TypeScript.
 - Audio and WebGL use typed extern bindings. Fractional samples use `Double` at
   the JS boundary and Float32Array rounding at storage. WebGL nullable handles
   retain JS null. Context options are converted into a plain JS dictionary.

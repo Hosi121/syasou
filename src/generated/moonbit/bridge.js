@@ -1,3 +1,5 @@
+import { clsx as clsx$1699 } from "clsx";
+import { twMerge as twMerge$1701 } from "tailwind-merge";
 function _M0DTP37Hosi1216syasou6domain5Field7Missing() {}
 _M0DTP37Hosi1216syasou6domain5Field7Missing.prototype.$tag = 0;
 const _M0DTP37Hosi1216syasou6domain5Field7Missing__ = new _M0DTP37Hosi1216syasou6domain5Field7Missing();
@@ -127,6 +129,7 @@ function _M0TPB5EntryGsbE(param0, param1, param2, param3, param4, param5) {
   this.key = param4;
   this.value = param5;
 }
+const _M0MPC16double6Double8mod__ffi = (a, b) => (a % b);
 function _M0TPB9ArrayViewGUsbEE(param0, param1, param2) {
   this.buf = param0;
   this.start = param1;
@@ -493,30 +496,36 @@ function _M0DTP37Hosi1216syasou6domain12TravelAction4Edit(param0, param1, param2
   this._2 = param2;
 }
 _M0DTP37Hosi1216syasou6domain12TravelAction4Edit.prototype.$tag = 3;
+const _M0FP37Hosi1216syasou6bridge14search__params = search => new URLSearchParams(search);
 const _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger = { method_0: _M0IPB13StringBuilderPB6Logger13write__string, method_1: _M0IP016_24default__implPB6Logger16write__substringGRPB13StringBuilderE, method_2: _M0IPB13StringBuilderPB6Logger11write__view, method_3: _M0IPB13StringBuilderPB6Logger11write__char, method_4: _M0IP016_24default__implPB6Logger28write__string__interpolationGRPB13StringBuilderE, method_5: _M0IP016_24default__implPB6Logger5writeGRPB13StringBuilderE };
 const _M0MPB4Iter4nextN6constrS9918GRP26mizchi8js__core3AnyE = 0;
 const _M0MPB4Iter4nextN6constrS9919GRP26mizchi8js__core3AnyE = 0;
 const _M0MPB4Iter3newN6constrS9926GRP26mizchi8js__core3AnyE = 0;
-const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS520 = "welcome-v1";
-const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS522 = "local";
-const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS523 = "mist";
-const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS524 = "はじめての窓辺";
-const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS525 = "車窓へ、ようこそ。\nこれは、旅のしおりをめくった記念の一枚。\n\n次の切符には、あなたが進めたことを。\nどうぞ、自分のペースで。";
+const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS527 = "welcome-v1";
+const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS529 = "local";
+const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS530 = "mist";
+const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS531 = "はじめての窓辺";
+const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS532 = "車窓へ、ようこそ。\nこれは、旅のしおりをめくった記念の一枚。\n\n次の切符には、あなたが進めたことを。\nどうぞ、自分のペースで。";
+const _M0FP37Hosi1216syasou6domain13view__optionsN5tupleS533 = { _0: "forest", _1: "山あいの窓" };
+const _M0FP37Hosi1216syasou6domain13view__optionsN5tupleS534 = { _0: "snow", _1: "雪原の窓" };
+const _M0FP37Hosi1216syasou6domain13view__optionsN5tupleS535 = { _0: "train", _1: "遠くの列車" };
+const _M0FP37Hosi1216syasou6domain13view__options = [_M0FP37Hosi1216syasou6domain13view__optionsN5tupleS533, _M0FP37Hosi1216syasou6domain13view__optionsN5tupleS534, _M0FP37Hosi1216syasou6domain13view__optionsN5tupleS535];
 const _M0FP37Hosi1216syasou7browser16fragment__source = "\nprecision highp float;\nuniform vec2 u_resolution;\nuniform float u_time;\nuniform float u_travel;\nuniform float u_scene;\nfloat hash(vec2 p) {\n  vec3 q = fract(vec3(p.xyx) * .1031);\n  q += dot(q, q.yzx + 33.33);\n  return fract((q.x + q.y) * q.z);\n}\nfloat noise(float x) {\n  float i = floor(x);\n  float f = fract(x);\n  f = f * f * (3.0 - 2.0 * f);\n  return mix(hash(vec2(i, 19.0)), hash(vec2(i + 1.0, 19.0)), f);\n}\nfloat ridge(float x) {\n  return noise(x) * .64 + noise(x * 2.13 + 8.0) * .25\n       + noise(x * 5.37 + 30.0) * .085 + noise(x * 13.1) * .025;\n}\nfloat below(float y, float height, float softness) {\n  return 1.0 - smoothstep(height - softness, height + softness, y);\n}\n// Uneven tiers and individual heights keep the conifers from reading as a pattern.\nfloat forest(vec2 p, float spacing, float height, float seed, float softness) {\n  float cell = floor(p.x / spacing);\n  float shape = 0.0;\n  for (int i = -1; i <= 1; i++) {\n    float id = cell + float(i);\n    float random = hash(vec2(id, seed));\n    float center = (id + .25 + random * .5) * spacing;\n    float h = height * (.48 + .65 * hash(vec2(id, seed + 7.0)));\n    float base = -.015 + .035 * noise(id * .41 + seed);\n    float y = (p.y - base) / h;\n    float localX = p.x - center + y * y * h * (random - .5) * .055;\n    float width = h * .19 * pow(max(0.0, 1.0 - y), .95);\n    float branches = .80 + .16 * sin(y * (72.0 + random * 27.0) + random * 9.0 + sign(localX) * 1.6)\n                         + .04 * sin(y * 231.0 + random * 11.0);\n    float crown = (1.0 - smoothstep(width * branches - softness, width * branches + softness, abs(localX)))\n                * smoothstep(-.03, .06, y) * (1.0 - smoothstep(.97, 1.0, y));\n    float trunk = (1.0 - smoothstep(h * .012, h * .012 + softness, abs(p.x - center)))\n                * below(p.y, base + h * .8, softness) * smoothstep(-.07, base, p.y);\n    shape = max(shape, max(crown, trunk));\n  }\n  return shape;\n}\nvoid main() {\n  vec2 uv = gl_FragCoord.xy / u_resolution;\n  float aspect = u_resolution.x / u_resolution.y;\n  float x = uv.x * aspect;\n  float t = u_time;\n  float y = uv.y;\n  float value = mix(.81, .975, smoothstep(.35, 1.0, y));\n  float cloud = noise(x * 2.1 + t * .008 + y * 3.0) * noise(y * 9.0 + x * .3);\n  value -= cloud * .045;\n\n  // The far ridges remain almost still while the nearer slopes slide past them.\n  float farX = x + t * .012;\n  float farRidge = .50 + .30 * ridge(farX * 1.7 + 12.0);\n  float farTone = .64 + .11 * (1.0 - smoothstep(.46, .77, y));\n  value = mix(value, farTone, below(y, farRidge, .005));\n\n  float hillX = x + t * .032;\n  float hillRidge = .40 + .28 * ridge(hillX * 2.0 + 35.0);\n  float hillTone = .43 + .22 * (1.0 - smoothstep(.37, .64, y));\n  hillTone += (noise(hillX * 22.0 + y * 5.0) - .5) * .028;\n  value = mix(value, hillTone, below(y, hillRidge, .003));\n\n  float woodX = x + t * .085;\n  float woodRidge = .30 + .18 * ridge(woodX * 2.8 + 71.0);\n  float woods = forest(vec2(woodX, y - woodRidge), .027, .063, 4.0, .0018);\n  float woodTone = .28 + .22 * (1.0 - smoothstep(.27, .48, y));\n  value = mix(value, woodTone, max(woods, below(y, woodRidge, .003)));\n\n  // A pale valley separates the near trees from the mountains without a hard horizon.\n  float fog = exp(-pow((y - .335) / .075, 2.0));\n  value = mix(value, .76, fog * .64);\n  float fieldX = x + t * .15;\n  float field = .20 + .10 * ridge(fieldX * 2.3 + 5.0);\n  float fieldTone = .40 + .14 * noise(fieldX * 3.0 + y * 12.0);\n  value = mix(value, fieldTone, below(y, field, .012));\n\n  float nearX = x + t * .24;\n  float nearBase = .11 + .075 * ridge(nearX * 2.4 + 6.0);\n  float nearTrees = forest(vec2(nearX, y - nearBase), .10, .20, 23.0, .0017);\n  value = mix(value, .16 + y * .16, nearTrees * .94);\n  value = mix(value, .16, below(y, nearBase, .008));\n\n  // Sparse close trees cross the window in seconds; their edges soften with motion.\n  float closeX = x + t * .62;\n  float closeBase = -.035 + .055 * ridge(closeX * 1.8 + 9.0);\n  float closeTrees = forest(vec2(closeX, y - closeBase), .73, .49, 51.0, .0035);\n  value = mix(value, .052 + y * .065, closeTrees);\n  float bank = .045 + .035 * ridge(closeX * 4.0);\n  value = mix(value, .055, below(y, bank, .012));\n\n  if (u_scene > .5 && u_scene < 1.5) value = mix(value, 1.0, .16);\n  if (u_scene > 1.5) value = value * .37 + .01;\n  float cycle = mod(u_travel, 240.0);\n  float tunnel = smoothstep(211.0, 215.0, cycle) * (1.0 - smoothstep(223.0, 229.0, cycle));\n  float light = smoothstep(224.0, 228.0, cycle) * (1.0 - smoothstep(228.0, 236.0, cycle));\n  value = mix(value, .018, tunnel);\n  value = mix(value, .985, light * .88);\n  value = clamp(value, .018, .974);\n  vec2 pixel = floor(gl_FragCoord.xy);\n  float random = hash(pixel);\n  float fleck = smoothstep(random - .045, random + .045, value);\n  float tone = mix(value, fleck, .82);\n  tone += (hash(pixel + 173.0) - .5) * .07;\n  gl_FragColor = vec4(vec3(clamp(tone, .015, .985)), 1.0);\n}\n";
 const _M0FP37Hosi1216syasou7browser14vertex__source = "\nattribute vec2 a_position;\nvoid main() { gl_Position = vec4(a_position, 0.0, 1.0); }\n";
 const _M0FP37Hosi1216syasou6bridge15journey__fields = ["phase", "running", "deadline", "remaining", "focusMinutes", "restMinutes", "id", "startedAt", "arrivedAt", "speed", "scene"];
 const _M0FP37Hosi1216syasou6bridge14ticket__fields = ["id", "kind", "startedAt", "arrivedAt", "speed", "scene", "title", "note"];
 const _M0FPB4seed = _M0FPB12random__seed();
-const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS526 = new _M0DTP37Hosi1216syasou6domain5Field4Text("focus");
-const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS527 = new _M0DTP37Hosi1216syasou6domain5Field4Text("rest");
-const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS528 = new _M0DTP37Hosi1216syasou6domain5Field4Text("focus");
-const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS529 = new _M0DTP37Hosi1216syasou6domain5Field7Numeric(0);
-const _M0FP37Hosi1216syasou6domain14reduce__travelN6constrS530 = "welcome";
-const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS521 = "welcome";
-const _M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS531 = { _0: "読みかけの本を、ひと章", _1: "気になっていた本の続きを読んだ。\n次は、折り目をつけたページから。", _2: "local", _3: "mist", _4: 25 };
-const _M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS532 = { _0: "企画のラフを描く", _1: "浮かんだアイデアを三つ、紙に描いた。\nまだ途中だけれど、形が見えてきた。", _2: "express", _3: "dawn", _4: 45 };
-const _M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS533 = { _0: "明日のことを手帳に", _1: "気にかかっていたことを、ひとつずつ書き出した。\n明日は、自分のペースで。", _2: "rapid", _3: "night", _4: 15 };
-const _M0FP37Hosi1216syasou6domain15sample__ticketsN7_2abindS481 = "sample";
+const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS536 = new _M0DTP37Hosi1216syasou6domain5Field4Text("focus");
+const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS537 = new _M0DTP37Hosi1216syasou6domain5Field4Text("rest");
+const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS538 = new _M0DTP37Hosi1216syasou6domain5Field4Text("focus");
+const _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS539 = new _M0DTP37Hosi1216syasou6domain5Field7Numeric(0);
+const _M0FP37Hosi1216syasou6domain14reduce__travelN6constrS540 = "welcome";
+const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS528 = "welcome";
+const _M0FP37Hosi1216syasou6bridge16is__demo__searchN6constrS235 = "1";
+const _M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS541 = { _0: "読みかけの本を、ひと章", _1: "気になっていた本の続きを読んだ。\n次は、折り目をつけたページから。", _2: "local", _3: "mist", _4: 25 };
+const _M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS542 = { _0: "企画のラフを描く", _1: "浮かんだアイデアを三つ、紙に描いた。\nまだ途中だけれど、形が見えてきた。", _2: "express", _3: "dawn", _4: 45 };
+const _M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS543 = { _0: "明日のことを手帳に", _1: "気にかかっていたことを、ひとつずつ書き出した。\n明日は、自分のペースで。", _2: "rapid", _3: "night", _4: 15 };
+const _M0FP37Hosi1216syasou6domain15sample__ticketsN7_2abindS488 = "sample";
 const _M0FP37Hosi1216syasou7browser16create__rendererN6recordS214 = new _M0TP37Hosi1216syasou5webgl14ContextOptions(false, false, false, true);
 const _M0FP37Hosi1216syasou7browser16create__rendererN6recordS215 = new _M0TP37Hosi1216syasou6domain9Landscape("mist", "local", true, false);
 function _M0FPB13consume4__acc(acc, input) {
@@ -1297,6 +1306,15 @@ function _M0IPC16string6StringPB4Hash4hash(self) {
 function _M0MPC16double6Double7to__int(self) {
   return self !== self ? 0 : self >= 2147483647 ? 2147483647 : self <= -2147483648 ? -2147483648 : self | 0;
 }
+function _M0MPC16double6Double4ceil(_tmp) {
+  return Math.ceil(_tmp);
+}
+function _M0MPC16double6Double5floor(_tmp) {
+  return Math.floor(_tmp);
+}
+function _M0IPC16double6DoublePB3Mod3mod(self, other) {
+  return _M0MPC16double6Double8mod__ffi(self, other);
+}
 function _M0MPC16double6Double3min(self, other) {
   return self !== self ? other : other !== other ? self : self < other ? self : other;
 }
@@ -1361,60 +1379,66 @@ function _M0MPC15array5Array10push__iterGRP26mizchi8js__core3AnyE(self, iter) {
     }
   }
 }
+function _M0FPC16double4ceil(d) {
+  return _M0MPC16double6Double4ceil(d);
+}
+function _M0FPC16double5floor(d) {
+  return _M0MPC16double6Double5floor(d);
+}
 function _M0FPC14math3cos(_tmp) {
   return Math.cos(_tmp);
 }
-function _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_x_239, _x_240) {
-  switch (_x_239.$tag) {
+function _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_x_246, _x_247) {
+  switch (_x_246.$tag) {
     case 0: {
-      if (_x_240.$tag === 0) {
+      if (_x_247.$tag === 0) {
         return true;
       } else {
         return false;
       }
     }
     case 1: {
-      if (_x_240.$tag === 1) {
+      if (_x_247.$tag === 1) {
         return true;
       } else {
         return false;
       }
     }
     case 2: {
-      const _Flag = _x_239;
-      const _$42$x0_241 = _Flag._0;
-      if (_x_240.$tag === 2) {
-        const _Flag$2 = _x_240;
-        const _$42$y0_242 = _Flag$2._0;
-        return _$42$x0_241 === _$42$y0_242;
+      const _Flag = _x_246;
+      const _$42$x0_248 = _Flag._0;
+      if (_x_247.$tag === 2) {
+        const _Flag$2 = _x_247;
+        const _$42$y0_249 = _Flag$2._0;
+        return _$42$x0_248 === _$42$y0_249;
       } else {
         return false;
       }
     }
     case 3: {
-      const _Numeric = _x_239;
-      const _$42$x0_243 = _Numeric._0;
-      if (_x_240.$tag === 3) {
-        const _Numeric$2 = _x_240;
-        const _$42$y0_244 = _Numeric$2._0;
-        return _$42$x0_243 === _$42$y0_244;
+      const _Numeric = _x_246;
+      const _$42$x0_250 = _Numeric._0;
+      if (_x_247.$tag === 3) {
+        const _Numeric$2 = _x_247;
+        const _$42$y0_251 = _Numeric$2._0;
+        return _$42$x0_250 === _$42$y0_251;
       } else {
         return false;
       }
     }
     case 4: {
-      const _Text = _x_239;
-      const _$42$x0_245 = _Text._0;
-      if (_x_240.$tag === 4) {
-        const _Text$2 = _x_240;
-        const _$42$y0_246 = _Text$2._0;
-        return _$42$x0_245 === _$42$y0_246;
+      const _Text = _x_246;
+      const _$42$x0_252 = _Text._0;
+      if (_x_247.$tag === 4) {
+        const _Text$2 = _x_247;
+        const _$42$y0_253 = _Text$2._0;
+        return _$42$x0_252 === _$42$y0_253;
       } else {
         return false;
       }
     }
     default: {
-      if (_x_240.$tag === 5) {
+      if (_x_247.$tag === 5) {
         return true;
       } else {
         return false;
@@ -1422,31 +1446,31 @@ function _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_x_239, _x_240) {
     }
   }
 }
-function _M0IP37Hosi1216syasou6domain5PhasePB2Eq5equal(_x_227, _x_228) {
-  switch (_x_227) {
+function _M0IP37Hosi1216syasou6domain5PhasePB2Eq5equal(_x_234, _x_235) {
+  switch (_x_234) {
     case 0: {
-      if (_x_228 === 0) {
+      if (_x_235 === 0) {
         return true;
       } else {
         return false;
       }
     }
     case 1: {
-      if (_x_228 === 1) {
+      if (_x_235 === 1) {
         return true;
       } else {
         return false;
       }
     }
     case 2: {
-      if (_x_228 === 2) {
+      if (_x_235 === 2) {
         return true;
       } else {
         return false;
       }
     }
     default: {
-      if (_x_228 === 3) {
+      if (_x_235 === 3) {
         return true;
       } else {
         return false;
@@ -1597,7 +1621,7 @@ function _M0FP37Hosi1216syasou6domain14valid__journey(j) {
           }
         }
         if (_tmp$2) {
-          _tmp = (_M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_M0MP37Hosi1216syasou6domain6Record3get(j, "remaining"), _M0DTP37Hosi1216syasou6domain5Field4Null__) || _M0FP37Hosi1216syasou6domain13is__timestamp(_M0MP37Hosi1216syasou6domain6Record3get(j, "remaining"))) && (_M0FP37Hosi1216syasou6domain14is__number__in(_M0MP37Hosi1216syasou6domain6Record3get(j, "focusMinutes"), [0, 15, 25, 45, 60, 90]) && (_M0FP37Hosi1216syasou6domain14is__number__in(_M0MP37Hosi1216syasou6domain6Record3get(j, "restMinutes"), [3, 5, 10, 15]) && ((!_running || (_M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(phase, _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS526) || _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(phase, _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS527))) && (!(_running && _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_M0MP37Hosi1216syasou6domain6Record3get(j, "deadline"), _M0DTP37Hosi1216syasou6domain5Field4Null__)) || _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(phase, _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS528) && _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_M0MP37Hosi1216syasou6domain6Record3get(j, "focusMinutes"), _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS529)))));
+          _tmp = (_M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_M0MP37Hosi1216syasou6domain6Record3get(j, "remaining"), _M0DTP37Hosi1216syasou6domain5Field4Null__) || _M0FP37Hosi1216syasou6domain13is__timestamp(_M0MP37Hosi1216syasou6domain6Record3get(j, "remaining"))) && (_M0FP37Hosi1216syasou6domain14is__number__in(_M0MP37Hosi1216syasou6domain6Record3get(j, "focusMinutes"), [0, 15, 25, 45, 60, 90]) && (_M0FP37Hosi1216syasou6domain14is__number__in(_M0MP37Hosi1216syasou6domain6Record3get(j, "restMinutes"), [3, 5, 10, 15]) && ((!_running || (_M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(phase, _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS536) || _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(phase, _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS537))) && (!(_running && _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_M0MP37Hosi1216syasou6domain6Record3get(j, "deadline"), _M0DTP37Hosi1216syasou6domain5Field4Null__)) || _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(phase, _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS538) && _M0IP37Hosi1216syasou6domain5FieldPB2Eq5equal(_M0MP37Hosi1216syasou6domain6Record3get(j, "focusMinutes"), _M0FP37Hosi1216syasou6domain14valid__journeyN6constrS539)))));
         } else {
           _tmp = false;
         }
@@ -2117,7 +2141,7 @@ function _M0FP37Hosi1216syasou6domain14reduce__travel(state, action) {
         const _ = _tmp$2;
         if (_ < _bind$3) {
           const ticket = _bind$2[_];
-          if (_M0IPC16option6OptionPB2Eq5equalGsE(ticket.kind, _M0FP37Hosi1216syasou6domain14reduce__travelN6constrS530)) {
+          if (_M0IPC16option6OptionPB2Eq5equalGsE(ticket.kind, _M0FP37Hosi1216syasou6domain14reduce__travelN6constrS540)) {
             return new _M0DTP37Hosi1216syasou6domain12TravelChange6Update(_M0DTP37Hosi1216syasou6domain13JourneyChange4Keep__, _M0DTP37Hosi1216syasou6domain12TicketChange11KeepTickets__, ticket.id);
           }
           _tmp$2 = _ + 1 | 0;
@@ -2126,13 +2150,13 @@ function _M0FP37Hosi1216syasou6domain14reduce__travel(state, action) {
           break;
         }
       }
-      const ticket = new _M0TP37Hosi1216syasou6domain6Ticket(_M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS520, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS521, _now, _now, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS522, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS523, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS524, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS525);
-      return new _M0DTP37Hosi1216syasou6domain12TravelChange6Update(_M0DTP37Hosi1216syasou6domain13JourneyChange4Keep__, new _M0DTP37Hosi1216syasou6domain12TicketChange7Prepend(ticket), _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS520);
+      const ticket = new _M0TP37Hosi1216syasou6domain6Ticket(_M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS527, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS528, _now, _now, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS529, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS530, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS531, _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS532);
+      return new _M0DTP37Hosi1216syasou6domain12TravelChange6Update(_M0DTP37Hosi1216syasou6domain13JourneyChange4Keep__, new _M0DTP37Hosi1216syasou6domain12TicketChange7Prepend(ticket), _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS527);
     }
   }
 }
 function _M0FP37Hosi1216syasou6domain15sample__tickets(now) {
-  const samples = [_M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS531, _M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS532, _M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS533];
+  const samples = [_M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS541, _M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS542, _M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS543];
   if (samples.length === 0) {
     return [];
   }
@@ -2154,7 +2178,7 @@ function _M0FP37Hosi1216syasou6domain15sample__tickets(now) {
       _M0MPB13StringBuilder13write__objectGiE(_p$11, _p$3 + 1 | 0);
       const _p$12 = _p$11.val;
       const _p$13 = _p$10 - _p$9 * 60000;
-      _p[_p$3] = new _M0TP37Hosi1216syasou6domain6Ticket(_p$12, _M0FP37Hosi1216syasou6domain15sample__ticketsN7_2abindS481, _p$13, _p$10, _p$7, _p$8, _p$5, _p$6);
+      _p[_p$3] = new _M0TP37Hosi1216syasou6domain6Ticket(_p$12, _M0FP37Hosi1216syasou6domain15sample__ticketsN7_2abindS488, _p$13, _p$10, _p$7, _p$8, _p$5, _p$6);
       _tmp = _p$3 + 1 | 0;
       continue;
     } else {
@@ -2162,6 +2186,13 @@ function _M0FP37Hosi1216syasou6domain15sample__tickets(now) {
     }
   }
   return _p;
+}
+function _M0FP37Hosi1216syasou6domain12format__time(milliseconds) {
+  const rounded = _M0FPC16double4ceil(milliseconds / 1000);
+  const total = rounded !== rounded ? rounded : _M0MPC16double6Double3max(rounded, 0);
+  const minutes = String(_M0FPC16double5floor(total / 60));
+  const seconds = String(_M0IPC16double6DoublePB3Mod3mod(total, 60));
+  return `${minutes.length < 2 ? `0${minutes}` : minutes}:${seconds.length < 2 ? `0${seconds}` : seconds}`;
 }
 function _M0FP37Hosi1216syasou6domain24migrate__legacy__journey(legacy, speed, scene, create_id, now) {
   if (_M0IP016_24default__implPB2Eq10not__equalGRP37Hosi1216syasou6domain5PhaseE(legacy.phase, 1) && _M0IP016_24default__implPB2Eq10not__equalGRP37Hosi1216syasou6domain5PhaseE(legacy.phase, 2)) {
@@ -2379,6 +2410,9 @@ function _M0FP26mizchi8js__core9try__sync(op) {
 }
 function _M0FP26mizchi8js__core13from__entries(entries) {
   return _M0FP26mizchi8js__core18ffi__from__entries(_M0MPC15array10FixedArray11from__arrayGUsRP26mizchi8js__core3AnyEE(new _M0TPB9ArrayViewGUsRP26mizchi8js__core3AnyEE(entries, 0, entries.length)));
+}
+function _M0FP26mizchi8js__core16identity__optionGsE(v) {
+  return _M0FP26mizchi8js__core11is__nullish(v) ? undefined : v;
 }
 function _M0FP36mizchi11js__builtin6global12global__this() {
   return _M0FP36mizchi11js__builtin6global10globalThis();
@@ -2917,6 +2951,9 @@ function _M0FP37Hosi1216syasou7browser14write__storage(key, value) {
   }
   return result;
 }
+function _M0MP36mizchi7js__web3url15URLSearchParams3get(self, name) {
+  return _M0FP26mizchi8js__core16identity__optionGsE(_M0MP26mizchi8js__core3Any6__call(self, "get", [name]));
+}
 function _M0FP37Hosi1216syasou6bridge11read__field(value) {
   if (_M0FP26mizchi8js__core13is__undefined(value)) {
     return _M0DTP37Hosi1216syasou6domain5Field7Missing__;
@@ -3293,6 +3330,70 @@ function _M0FP37Hosi1216syasou6bridge15travel__reducer(state, action) {
   }
   return _M0FP37Hosi1216syasou6bridge13write__travel(state, _M0FP37Hosi1216syasou6domain14reduce__travel(_M0FP37Hosi1216syasou6bridge12read__travel(state), event));
 }
+function _M0FP37Hosi1216syasou6bridge4clsx(_tmp) {
+  return clsx$1699(_tmp);
+}
+function _M0FP37Hosi1216syasou6bridge9tw__merge(_tmp) {
+  return twMerge$1701(_tmp);
+}
+function _M0FP37Hosi1216syasou6bridge12class__names(values) {
+  return _M0FP37Hosi1216syasou6bridge9tw__merge(_M0FP37Hosi1216syasou6bridge4clsx(values));
+}
+function _M0FP37Hosi1216syasou6bridge12format__time(milliseconds) {
+  return _M0FP37Hosi1216syasou6domain12format__time(milliseconds);
+}
+function _M0FP37Hosi1216syasou6bridge16is__demo__search(search) {
+  return _M0IPC16option6OptionPB2Eq5equalGsE(_M0MP36mizchi7js__web3url15URLSearchParams3get(_M0FP37Hosi1216syasou6bridge14search__params(search), "demo"), _M0FP37Hosi1216syasou6bridge16is__demo__searchN6constrS235);
+}
+function _M0FP37Hosi1216syasou6bridge21profile__storage__key(key, demo) {
+  return demo ? `${key}.demo` : key;
+}
+function _M0FP37Hosi1216syasou6bridge20default__preferences() {
+  const out = _M0FP26mizchi8js__core11new__object();
+  _M0MP26mizchi8js__core3Any5__set(out, "focusMinutes", 25);
+  _M0MP26mizchi8js__core3Any5__set(out, "restMinutes", 5);
+  _M0MP26mizchi8js__core3Any5__set(out, "speed", "local");
+  _M0MP26mizchi8js__core3Any5__set(out, "scene", "mist");
+  _M0MP26mizchi8js__core3Any5__set(out, "showTime", true);
+  _M0MP26mizchi8js__core3Any5__set(out, "trainVolume", 45);
+  _M0MP26mizchi8js__core3Any5__set(out, "rainVolume", 0);
+  _M0MP26mizchi8js__core3Any5__set(out, "windVolume", 20);
+  return out;
+}
+function _M0FP37Hosi1216syasou6bridge14empty__journey() {
+  const out = _M0FP26mizchi8js__core11new__object();
+  _M0MP26mizchi8js__core3Any5__set(out, "phase", "idle");
+  _M0MP26mizchi8js__core3Any5__set(out, "running", false);
+  _M0MP26mizchi8js__core3Any5__set(out, "deadline", _M0FP26mizchi8js__core4null());
+  _M0MP26mizchi8js__core3Any5__set(out, "remaining", _M0FP26mizchi8js__core4null());
+  _M0MP26mizchi8js__core3Any5__set(out, "focusMinutes", 25);
+  _M0MP26mizchi8js__core3Any5__set(out, "restMinutes", 5);
+  return out;
+}
+function _M0FP37Hosi1216syasou6bridge5views() {
+  const _p = _M0FP37Hosi1216syasou6domain13view__options.length;
+  if (_p <= 0) {
+    return [];
+  } else {
+    const _p$2 = new Array(_p);
+    let _tmp = 0;
+    while (true) {
+      const _p$3 = _tmp;
+      if (_p$3 < _p) {
+        const _p$4 = _p$3 >>> 0 < _M0FP37Hosi1216syasou6domain13view__options.length ? _M0FP37Hosi1216syasou6domain13view__options[_p$3] : $oob();
+        const _p$5 = _M0FP26mizchi8js__core11new__object();
+        _M0MP26mizchi8js__core3Any5__set(_p$5, "id", _p$4._0);
+        _M0MP26mizchi8js__core3Any5__set(_p$5, "label", _p$4._1);
+        _p$2[_p$3] = _p$5;
+        _tmp = _p$3 + 1 | 0;
+        continue;
+      } else {
+        break;
+      }
+    }
+    return _p$2;
+  }
+}
 function _M0FP37Hosi1216syasou6bridge24migrate__legacy__journey(legacy, preferences, create_id, now) {
   const _bind = _M0FP37Hosi1216syasou6domain24migrate__legacy__journey(_M0FP37Hosi1216syasou6bridge13read__journey(legacy), _M0MP26mizchi8js__core3Any5__get(preferences, "speed"), _M0MP26mizchi8js__core3Any5__get(preferences, "scene"), create_id, now);
   if (_bind === undefined) {
@@ -3457,4 +3558,4 @@ function _M0FP37Hosi1216syasou6bridge24create__window__renderer(canvas, on_unava
     return out;
   }
 }
-export { _M0FP37Hosi1216syasou6bridge15is__preferences as isPreferences, _M0FP37Hosi1216syasou6bridge11is__journey as isJourney, _M0FP37Hosi1216syasou6bridge10is__ticket as isTicket, _M0FP37Hosi1216syasou6bridge17is__travel__state as isTravelState, _M0FP37Hosi1216syasou6bridge8is__view as isView, _M0FP37Hosi1216syasou6bridge8is__note as isNote, _M0FP37Hosi1216syasou6bridge19is__stored__boolean as isStoredBoolean, _M0FP37Hosi1216syasou6bridge15restore__travel as restoreTravel, _M0FP37Hosi1216syasou6bridge15travel__reducer as travelReducer, _M0FP37Hosi1216syasou6bridge24migrate__legacy__journey as migrateLegacyJourney, _M0FP37Hosi1216syasou6bridge18journey__remaining as journeyRemaining, _M0FP37Hosi1216syasou6bridge15sample__tickets as sampleTickets, _M0FP37Hosi1216syasou6bridge16advance__journey as advanceJourney, _M0FP37Hosi1216syasou6bridge16journey__reducer as journeyReducer, _M0FP37Hosi1216syasou6bridge16ticket__is__back as ticketIsBack, _M0FP37Hosi1216syasou6bridge21ticket__shadow__width as ticketShadowWidth, _M0FP37Hosi1216syasou6bridge22ticket__resting__angle as ticketRestingAngle, _M0FP37Hosi1216syasou6bridge14ticket__serial as ticketSerial, _M0FP37Hosi1216syasou6bridge19begin__ticket__grip as beginTicketGrip, _M0FP37Hosi1216syasou6bridge12lift__ticket as liftTicket, _M0FP37Hosi1216syasou6bridge12drag__ticket as dragTicket, _M0FP37Hosi1216syasou6bridge13hover__ticket as hoverTicket, _M0FP37Hosi1216syasou6bridge15release__ticket as releaseTicket, _M0FP37Hosi1216syasou6bridge13read__storage as readStorage, _M0FP37Hosi1216syasou6bridge14write__storage as writeStorage, _M0FP37Hosi1216syasou6bridge13create__sound as createSound, _M0FP37Hosi1216syasou6bridge13enable__sound as enableSound, _M0FP37Hosi1216syasou6bridge14disable__sound as disableSound, _M0FP37Hosi1216syasou6bridge13update__sound as updateSound, _M0FP37Hosi1216syasou6bridge14dispose__sound as disposeSound, _M0FP37Hosi1216syasou6bridge24create__window__renderer as createWindowRenderer }
+export { _M0FP37Hosi1216syasou6bridge15is__preferences as isPreferences, _M0FP37Hosi1216syasou6bridge11is__journey as isJourney, _M0FP37Hosi1216syasou6bridge10is__ticket as isTicket, _M0FP37Hosi1216syasou6bridge17is__travel__state as isTravelState, _M0FP37Hosi1216syasou6bridge8is__view as isView, _M0FP37Hosi1216syasou6bridge8is__note as isNote, _M0FP37Hosi1216syasou6bridge19is__stored__boolean as isStoredBoolean, _M0FP37Hosi1216syasou6bridge15restore__travel as restoreTravel, _M0FP37Hosi1216syasou6bridge15travel__reducer as travelReducer, _M0FP37Hosi1216syasou6bridge12class__names as classNames, _M0FP37Hosi1216syasou6bridge12format__time as formatTime, _M0FP37Hosi1216syasou6bridge16is__demo__search as isDemoSearch, _M0FP37Hosi1216syasou6bridge21profile__storage__key as profileStorageKey, _M0FP37Hosi1216syasou6bridge20default__preferences as defaultPreferences, _M0FP37Hosi1216syasou6bridge14empty__journey as emptyJourney, _M0FP37Hosi1216syasou6bridge5views as views, _M0FP37Hosi1216syasou6bridge24migrate__legacy__journey as migrateLegacyJourney, _M0FP37Hosi1216syasou6bridge18journey__remaining as journeyRemaining, _M0FP37Hosi1216syasou6bridge15sample__tickets as sampleTickets, _M0FP37Hosi1216syasou6bridge16advance__journey as advanceJourney, _M0FP37Hosi1216syasou6bridge16journey__reducer as journeyReducer, _M0FP37Hosi1216syasou6bridge16ticket__is__back as ticketIsBack, _M0FP37Hosi1216syasou6bridge21ticket__shadow__width as ticketShadowWidth, _M0FP37Hosi1216syasou6bridge22ticket__resting__angle as ticketRestingAngle, _M0FP37Hosi1216syasou6bridge14ticket__serial as ticketSerial, _M0FP37Hosi1216syasou6bridge19begin__ticket__grip as beginTicketGrip, _M0FP37Hosi1216syasou6bridge12lift__ticket as liftTicket, _M0FP37Hosi1216syasou6bridge12drag__ticket as dragTicket, _M0FP37Hosi1216syasou6bridge13hover__ticket as hoverTicket, _M0FP37Hosi1216syasou6bridge15release__ticket as releaseTicket, _M0FP37Hosi1216syasou6bridge13read__storage as readStorage, _M0FP37Hosi1216syasou6bridge14write__storage as writeStorage, _M0FP37Hosi1216syasou6bridge13create__sound as createSound, _M0FP37Hosi1216syasou6bridge13enable__sound as enableSound, _M0FP37Hosi1216syasou6bridge14disable__sound as disableSound, _M0FP37Hosi1216syasou6bridge13update__sound as updateSound, _M0FP37Hosi1216syasou6bridge14dispose__sound as disposeSound, _M0FP37Hosi1216syasou6bridge24create__window__renderer as createWindowRenderer }

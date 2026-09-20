@@ -64,3 +64,27 @@ this subset.
 A few missing canvas/document accessors in `browser/platform.mbt` can be proposed
 separately for the existing DOM package. Storage already uses upstream bindings;
 the persisted-data rules belong to this app.
+
+
+## 4. React component values and error boundaries
+
+The full UI migration also uses `mizchi/npm_typed@0.1.18`. Its React hooks,
+element creation and ReactDOM bindings work for this application, but the
+installed `react/error_boundary.mbt` implementation is disabled and returns its
+children. It does not currently catch rendering or lazy-import failures.
+A small functioning boundary with a throwing-child/retry example is a focused
+contribution candidate.
+
+Component imports need to preserve values: React's `Component` is a class,
+Radix exports forwardRef objects, and `motion` is a proxy. Declaring an imported
+component as an ordinary MoonBit extern function and passing that function as
+a component value creates a wrapper, losing these identities. The local
+`ui/react_bindings.mbt` loads module values and feeds their original identity to
+React's JSX factory. `ui/startup_bindings.mbt` implements the required class
+boundary; the unchanged failed-world-download browser test checks recovery.
+
+A reusable upstream API should accept opaque component types as element tags,
+retain React props and refs, and document function imports versus component
+values. Motion/Radix bindings should build on that API. The train's components,
+styles and state transitions remain application code. No upstream PR has been
+submitted for these additions.

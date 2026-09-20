@@ -1,5 +1,5 @@
 ///|
-fn read_ticket(value : @js.Any) -> @domain.Ticket {
+pub fn read_ticket(value : @js.Any) -> @domain.Ticket {
   {
     id: value._get("id").cast(),
     kind: optional(value._get("kind")),

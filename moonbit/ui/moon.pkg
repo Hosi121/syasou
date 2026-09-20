@@ -1,0 +1,31 @@
+import {
+  "Hosi121/syasou/domain",
+  "Hosi121/syasou/bridge",
+  "mizchi/js_core" @js,
+  "mizchi/js_browser/dom",
+  "mizchi/js_browser/storage",
+  "mizchi/js_builtin/date",
+  "moonbitlang/core/math",
+  "mizchi/js_web/crypto",
+  "mizchi/npm_typed/react",
+  "mizchi/npm_typed/react_dom_client" @react_dom,
+}
+
+supported_targets = "js"
+
+options(
+  link: {
+    "js": {
+      "format": "esm",
+      "exports": [
+        "prepare_ui:prepareUi",
+        "contract_rail:RailMark",
+        "contract_route:RouteMap",
+        "contract_card:TicketCard",
+        "contract_settings:Settings",
+        "contract_landscape:Landscape",
+        "contract_opening:Opening",
+      ],
+    },
+  },
+)

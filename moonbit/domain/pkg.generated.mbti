@@ -16,6 +16,8 @@ pub fn begin_ticket_grip(Double, Double, Double, Double, Double, Double, Bool) -
 
 pub fn drag_ticket(TicketGrip, Double, Double) -> TicketDrag
 
+pub fn format_time(Double) -> String
+
 pub fn hover_ticket(Double, Double, Double, Double, Double, Double) -> TicketHover
 
 pub fn journey_remaining(Journey, Double) -> Double?
@@ -27,6 +29,8 @@ pub fn limit_text(String, Int) -> String
 pub fn migrate_legacy_journey(Journey, String, String, () -> String, () -> Double) -> Journey?
 
 pub fn noise_sample(Double, Double) -> (Double, Double)
+
+pub fn profile_storage_key(String, Bool) -> String
 
 pub fn reduce_journey(Journey, JourneyAction) -> JourneyChange
 
@@ -65,6 +69,8 @@ pub fn valid_ticket(Record) -> Bool
 pub fn valid_travel(Bool, Record, Array[Record]?, Field) -> Bool
 
 pub fn valid_view(Field) -> Bool
+
+pub let view_options : ReadOnlyArray[(String, String)]
 
 // Errors
 

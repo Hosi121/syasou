@@ -1,6 +1,6 @@
 import * as ToggleGroup from '@radix-ui/react-toggle-group'
 import { CloudFog, CloudRain, Eye, EyeOff, Moon, Sun, TrainFront, Wind } from 'lucide-react'
-import type { Preferences, Scene, Speed } from '../lib/journey'
+import type { Preferences, Scene, Speed } from '../../../../src/lib/journey'
 
 interface Props { preferences: Preferences; onChange: (preferences: Preferences) => void; active: boolean }
 

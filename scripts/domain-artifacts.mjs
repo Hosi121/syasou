@@ -2,7 +2,12 @@ import { createHash } from 'node:crypto'
 import { readFileSync, readdirSync } from 'node:fs'
 
 export const outputDir = new URL('../src/generated/moonbit/', import.meta.url)
-export const artifactNames = ['bridge.js', 'bridge.d.ts', 'moonbit.d.ts']
+export const artifactSources = Object.fromEntries([
+  ...['bridge', 'ui', 'ui_startup', 'ui_world'].flatMap(name =>
+    ['js', 'd.ts'].map(ext => [`${name}.${ext}`, `${name}/${name}.${ext}`])),
+  ['moonbit.d.ts', 'bridge/moonbit.d.ts'],
+])
+export const artifactNames = Object.keys(artifactSources)
 export const digest = content => createHash('sha256').update(content).digest('hex')
 
 export function sourceDigest() {

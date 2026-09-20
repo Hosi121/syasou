@@ -73,6 +73,21 @@ export function migrateLegacyJourney(legacy: any,
                                      create_id: () => MoonBit.String,
                                      now: () => MoonBit.Double): any;
 
+export function views(): any;
+
+export function emptyJourney(): any;
+
+export function defaultPreferences(): any;
+
+export function profileStorageKey(key: MoonBit.String,
+                                  demo: MoonBit.Bool): MoonBit.String;
+
+export function isDemoSearch(search: MoonBit.String): MoonBit.Bool;
+
+export function formatTime(milliseconds: MoonBit.Double): MoonBit.String;
+
+export function classNames(values: any): MoonBit.String;
+
 export function travelReducer(state: any,
                               action: any): any;
 

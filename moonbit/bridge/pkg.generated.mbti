@@ -2,6 +2,7 @@
 package "Hosi121/syasou/bridge"
 
 import {
+  "Hosi121/syasou/domain",
   "mizchi/js_core",
 }
 
@@ -10,9 +11,13 @@ pub fn advance_journey(@js_core.Any, Double) -> @js_core.Any
 
 pub fn begin_ticket_grip(Double, Double, Double, Double, Double, Double, Bool) -> @js_core.Any
 
+pub fn class_names(Array[@js_core.Any]) -> String
+
 pub fn create_sound() -> @js_core.Any
 
 pub fn create_window_renderer(@js_core.Any, @js_core.Any) -> @js_core.Any
+
+pub fn default_preferences() -> @js_core.Any
 
 pub fn disable_sound(@js_core.Any) -> @js_core.Promise[Unit]
 
@@ -20,9 +25,15 @@ pub fn dispose_sound(@js_core.Any) -> Unit
 
 pub fn drag_ticket(@js_core.Any, Double, Double) -> @js_core.Any
 
+pub fn empty_journey() -> @js_core.Any
+
 pub fn enable_sound(@js_core.Any) -> @js_core.Promise[Unit]
 
+pub fn format_time(Double) -> String
+
 pub fn hover_ticket(Double, Double, Double, Double, Double, Double) -> @js_core.Any
+
+pub fn is_demo_search(String) -> Bool
 
 pub fn is_journey(@js_core.Any) -> Bool
 
@@ -46,7 +57,13 @@ pub fn lift_ticket(@js_core.Any, Double) -> @js_core.Any
 
 pub fn migrate_legacy_journey(@js_core.Any, @js_core.Any, () -> String, () -> Double) -> @js_core.Any
 
+pub fn profile_storage_key(String, Bool) -> String
+
+pub fn read_journey(@js_core.Any) -> @domain.Journey
+
 pub fn read_storage(String, @js_core.Any, (@js_core.Any) -> Bool) -> @js_core.Any
+
+pub fn read_ticket(@js_core.Any) -> @domain.Ticket
 
 pub fn release_ticket(@js_core.Any, Bool) -> @js_core.Any
 
@@ -65,6 +82,8 @@ pub fn ticket_shadow_width(Double) -> Double
 pub fn travel_reducer(@js_core.Any, @js_core.Any) -> @js_core.Any
 
 pub fn update_sound(@js_core.Any, @js_core.Any, Bool, Bool) -> Unit
+
+pub fn views() -> @js_core.Any
 
 pub fn write_storage(String, @js_core.Any) -> Bool
 

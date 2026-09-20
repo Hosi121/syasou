@@ -2,6 +2,7 @@ import {
   "Hosi121/syasou/browser",
   "Hosi121/syasou/domain",
   "mizchi/js_core" @js,
+  "mizchi/js_web/url",
 }
 
 supported_targets = "js"
@@ -18,6 +19,13 @@ options(
   link: {
     "js": {
       "exports": [
+        "class_names:classNames",
+        "format_time:formatTime",
+        "is_demo_search:isDemoSearch",
+        "profile_storage_key:profileStorageKey",
+        "default_preferences:defaultPreferences",
+        "empty_journey:emptyJourney",
+        "views",
         "migrate_legacy_journey:migrateLegacyJourney",
         "journey_remaining:journeyRemaining",
         "sample_tickets:sampleTickets",

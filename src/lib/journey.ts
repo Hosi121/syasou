@@ -15,10 +15,7 @@ export interface Preferences {
   windVolume: number
 }
 
-export const defaults: Preferences = {
-  focusMinutes: 25, restMinutes: 5, speed: 'local', scene: 'mist', showTime: true,
-  trainVolume: 45, rainVolume: 0, windVolume: 20,
-}
+export const defaults: Preferences = moon.defaultPreferences()
 
 export function isPreferences(value: unknown): value is Preferences {
   return moon.isPreferences(value)
@@ -38,9 +35,7 @@ export interface Journey {
   scene?: Scene
 }
 
-export const emptyJourney: Journey = {
-  phase: 'idle', running: false, deadline: null, remaining: null, focusMinutes: 25, restMinutes: 5,
-}
+export const emptyJourney: Journey = moon.emptyJourney()
 
 export function isJourney(value: unknown): value is Journey {
   return moon.isJourney(value)

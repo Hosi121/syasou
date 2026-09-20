@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { useEffect, useRef } from 'react'
 import Landscape from './Landscape'
 import RailMark from './RailMark'
-import { demoMode } from '../lib/profile'
+import { demoMode } from '../../../../src/lib/profile'
 
 interface Props {
   ready: boolean

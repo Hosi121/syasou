@@ -1,6 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { checkCompiler, compilerVersion, moon } from './moon-command.mjs'
-import { artifactNames, digest, outputDir, sourceDigest } from './domain-artifacts.mjs'
+import { artifactNames, artifactSources, digest, outputDir, sourceDigest } from './domain-artifacts.mjs'
 
 checkCompiler()
 moon(['build', '--release'])
@@ -14,7 +14,7 @@ function output(name, content) {
   } else writeFileSync(path, content)
 }
 for (const name of artifactNames) {
-  const content = readFileSync(`_build/js/release/build/bridge/${name}`, 'utf8')
+  const content = readFileSync(`_build/js/release/build/${artifactSources[name]}`, 'utf8')
   artifacts[name] = digest(content)
   output(name, content)
 }

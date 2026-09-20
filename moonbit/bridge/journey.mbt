@@ -24,7 +24,7 @@ fn[T] undefined_or(value : T?) -> @js.Any {
 }
 
 ///|
-fn read_journey(value : @js.Any) -> @domain.Journey {
+pub fn read_journey(value : @js.Any) -> @domain.Journey {
   let phase = match (value._get("phase").cast() : String) {
     "focus" => @domain.Focus
     "rest" => @domain.Rest

@@ -1,0 +1,13 @@
+import {
+  "Hosi121/syasou/ui",
+  "mizchi/js_core" @js,
+  "mizchi/npm_typed/react",
+}
+
+supported_targets = "js"
+
+options(
+  link: {
+    "js": { "format": "esm", "exports": [ "app:App", "prepare_ui:prepareUi" ] },
+  },
+)

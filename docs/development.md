@@ -19,20 +19,27 @@ npm run dev
 
 | 場所 | 役割 |
 | --- | --- |
-| `src/Startup.tsx`、`src/components/Opening.tsx` | 読み込み、タイトル、入場時の表示 |
-| `src/App.tsx`、`src/components/`、`src/hooks/` | React の画面、手帳・切符の操作、状態と UI の接続 |
+| `moonbit/ui/` | React の全画面・hooks・起動処理・手帳と切符の操作。React / Motion / Radix を型付きアダプターから呼び出す |
+| `moonbit/ui_startup/`、`moonbit/ui_world/` | タイトルと遅延読み込みする本体の ESM エントリーポイント |
+| `src/main.tsx`、`src/App.tsx` | CSS 読み込みと生成モジュールへの接続のみ |
 | `moonbit/domain/` | 旅・切符・旧セーブ変換・残り時間・保存検証・切符操作と番号・サンプル生成・音や移動量の計算。JS に依存しない型付きコア |
 | `moonbit/browser/` | localStorage、WebGL 描画とシェーダー、Web Audio 合成・スケジューラ、リソース管理 |
 | `moonbit/bridge/`、`src/lib/` | MoonBit と既存の TypeScript API の変換・呼び出し |
 | `moonbit/webgl/`、`moonbit/webaudio/` | ブラウザ API の型付きバインディング |
 | `src/generated/moonbit/` | コミットする ESM・コンパイラ生成型定義・ハッシュ |
-| `src/components/SnowScenery.tsx`、`src/scenery.css` | 空・雪原・列車の素材を合成する景色 |
+| `moonbit/ui/snow.mbt`、`src/scenery.css` | 空・雪原・列車の素材を合成する景色 |
 | `tests/contract/` | 凍結した移行前の実装、API 型、期待値、ブラウザ API の比較用ハーネス |
 | `tests/*.spec.ts` | 実際の画面・描画・入力を確認する Playwright シナリオ |
 
-DOM・保存・Promise には `mizchi/js` 系の既存パッケージを使っています。未提供の WebGL / Web Audio API はローカルの独立したバインディングにまとめています。詳しくは [upstream contribution 候補](upstream-bindings.md) を参照してください。
+DOM・保存・Promise には `mizchi/js` 系の既存パッケージを使っています。未提供の WebGL / Web Audio API はローカルの独立したバインディングにまとめています。React は `mizchi/npm_typed@0.1.18` の既存バインディングを使い、Motion / Radix などの不足部分だけローカルで補っています。詳しくは [upstream contribution 候補](upstream-bindings.md) を参照してください。
 
-切符の持ち上げ・ドラッグ・めくり判定・キャンセル時の角度は MoonBit で計算します。React はポインターの取得、入力欄の除外、イベント購読、Motion の spring への反映を担当します。旧セーブの変換では、ID と現在時刻を必要な場合だけ取得する順序も維持しています。
+切符の持ち上げ・ドラッグ・めくり判定・キャンセル時の角度は MoonBit で計算します。ポインター取得、入力欄の除外、イベント購読、Motion の spring への反映も MoonBit のコンポーネントで行います。旧セーブの変換では、ID と現在時刻を必要な場合だけ取得する順序も維持しています。
+
+残る TypeScript は Vite の入口、既存公開 API の型と委譲処理、開発設定とテストです。CSS・GLSL、npm ライブラリ、MoonBit が生成する JavaScript は引き続き使います。GitHub の言語比率には生成物や検証用の旧ソースも含まれるため、アプリの移行率とは一致しません。
+
+移行前 `aaffee3` と同じ Node / npm 依存で比較すると、本番 JS の全チャンク合計は gzip 179,184 → 216,932 bytes（約 +38 KB）です。これは全チャンクの合計で、初期画面だけの転送量ではありません。MoonBit 化によって配信サイズが減るわけではありません。
+
+起動と本体は別々にコンパイルします。本体の読み込み失敗はタイトルのエラーバウンダリーで受け取り、再試行を表示します。`src/main.tsx` は UI の依存読み込みとマウントまで待つため、モジュール読み込み完了後に元と同じタイトル操作ができます。
 
 ## MoonBit を変更する
 
@@ -61,7 +68,7 @@ npm run build
 
 生成された JavaScript・型定義は直接編集せず、MoonBit ソースから再生成します。`npm run build` はソースと生成物のハッシュを照合し、更新漏れがあれば失敗します。CI では固定バージョンのコンパイラによる再生成結果も比較します。
 
-`npm run fixtures:domain` は、凍結した TypeScript 実装から期待値と MoonBit の直接テストを生成します。互換性テストは、値、入力の非変更、オブジェクト参照、保存検証、ブラウザ API の呼び出し、音声サンプル、失敗時の挙動を比較します。型や UTF-16、数値などの扱いは [移行契約](../tests/contract/README.md) に記録しています。
+`npm run fixtures:domain` は、凍結した TypeScript 実装から期待値と MoonBit の直接テストを生成します。互換性テストは、値、入力の非変更、オブジェクト参照、保存検証、ブラウザ API の呼び出し、音声サンプル、失敗時の挙動を比較します。UI は移行前の TSX から採取した 21 パターンの HTML、表示・設定・保存キーは 30 パターンの旧実装出力とも比較します。これらはブラウザを起動せず Node で実行します。型や UTF-16、数値などの扱いは [移行契約](../tests/contract/README.md) に記録しています。
 
 ## CI とブラウザ検証
 
@@ -101,7 +108,7 @@ npx vercel deploy --prod --scope hosi121s-projects
 ## 素材とフォント
 
 - フォントは Shippori Mincho と DM Mono をローカル配信します。ライセンスは [`public/fonts/Shippori-Mincho-LICENSE.txt`](../public/fonts/Shippori-Mincho-LICENSE.txt) と各フォントパッケージにあります。
-- 日本語 UI の変更後は、必要に応じて Python の `fonttools[woff]` を用意し、`npm run fonts` でサブセットを再生成します。入力メモで含まれない文字は OS のフォントへフォールバックします。
+- 日本語 UI の文字列は `moonbit/ui/` にあります。フォント生成は MoonBit ソースも読み取ります。日本語 UI の変更後は、必要に応じて Python の `fonttools[woff]` を用意し、`npm run fonts` でサブセットを再生成します。入力メモで含まれない文字は OS のフォントへフォールバックします。
 - アプリアイコンは既存の列車マークから `npm run icons` で生成します。実行には Playwright の Chromium が必要です。
 - 紙の粒子は `node scripts/create-grain.mjs` で再生成できます。
 - 空・雪原・列車は提供された画像を使用しています。元画像の領域と合成方法は [素材メモ](../public/scenery/README.md) にあります。切符の箱も提供された `public/ticket-tray.png` を使用しています。

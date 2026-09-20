@@ -1,8 +1,8 @@
 import { motion, useReducedMotion } from 'motion/react'
 import type { MotionValue } from 'motion/react'
-import type { Ticket } from '../lib/tickets'
-import { cn } from '../lib/utils'
-import { ticketSerial } from '../lib/ticketInteraction'
+import type { Ticket } from '../../../../src/lib/tickets'
+import { cn } from '../../../../src/lib/utils'
+import { ticketSerial } from '../../../../src/lib/ticketInteraction'
 import RailMark from './RailMark'
 
 interface Props {

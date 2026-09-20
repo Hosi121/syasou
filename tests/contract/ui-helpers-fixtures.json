@@ -1,0 +1,88 @@
+{
+  "times": [
+    "00:00",
+    "00:00",
+    "00:00",
+    "00:00",
+    "00:00",
+    "00:01",
+    "00:01",
+    "00:01",
+    "01:00",
+    "01:00",
+    "60:00",
+    "150119987579:01",
+    "166666666666666660000:40",
+    "Infinity:NaN",
+    "NaN:NaN"
+  ],
+  "classes": [
+    "",
+    "a 1 b",
+    "p-4 m-1",
+    "text-lg hover:p-3",
+    "foo foo"
+  ],
+  "profiles": [
+    [
+      false,
+      "syasou.note.v1"
+    ],
+    [
+      true,
+      "syasou.note.v1.demo"
+    ],
+    [
+      false,
+      "syasou.note.v1"
+    ],
+    [
+      false,
+      "syasou.note.v1"
+    ],
+    [
+      true,
+      "syasou.note.v1.demo"
+    ],
+    [
+      false,
+      "syasou.note.v1"
+    ],
+    [
+      true,
+      "syasou.note.v1.demo"
+    ]
+  ],
+  "defaults": {
+    "focusMinutes": 25,
+    "restMinutes": 5,
+    "speed": "local",
+    "scene": "mist",
+    "showTime": true,
+    "trainVolume": 45,
+    "rainVolume": 0,
+    "windVolume": 20
+  },
+  "emptyJourney": {
+    "phase": "idle",
+    "running": false,
+    "deadline": null,
+    "remaining": null,
+    "focusMinutes": 25,
+    "restMinutes": 5
+  },
+  "views": [
+    {
+      "id": "forest",
+      "label": "山あいの窓"
+    },
+    {
+      "id": "snow",
+      "label": "雪原の窓"
+    },
+    {
+      "id": "train",
+      "label": "遠くの列車"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/ui"
+
+import {
+  "mizchi/js_core",
+  "mizchi/npm_typed/react",
+}
+
+// Values
+pub fn app(AppProps) -> @react.Element
+
+pub fn contract_card(@js_core.Any) -> @react.Element
+
+pub fn contract_landscape(@js_core.Any) -> @react.Element
+
+pub fn contract_opening(@js_core.Any) -> @react.Element
+
+pub fn contract_rail(@js_core.Any) -> @react.Element
+
+pub fn contract_route(@js_core.Any) -> @react.Element
+
+pub fn contract_settings(@js_core.Any) -> @react.Element
+
+pub fn prepare_ui() -> @js_core.Promise[Unit]
+
+pub fn start() -> @js_core.Promise[Unit]
+
+// Errors
+
+// Types and methods
+pub(all) struct AppProps {
+  covered : Bool
+  guideRequest : Int
+  onReady : () -> Unit
+  onShowOpening : () -> Unit
+}
+
+#external
+pub type Preferences
+
+#external
+pub type PropertyValue
+
+#external
+pub type UiEvent
+
+// Type aliases
+
+// Traits

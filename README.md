@@ -54,7 +54,7 @@ PC・スマートフォンのブラウザで遊べます。マウスやタッチ
 
 ## 開発について
 
-画面は React、旅・切符・保存データの検証・WebGL 描画・音声合成は MoonBit で実装しています。MoonBit から生成した JavaScript を Vite でビルドし、Vercel で配信します。
+画面・操作・旅と切符のロジック・保存・WebGL 描画・音声合成まで、アプリ本体を MoonBit で実装しています。画面には MoonBit から React・Motion・Radix を使っています。生成した JavaScript を Vite でビルドし、Vercel で配信します。
 
 ローカルで起動するには、Node.js 22.12 以降で次を実行してください。
 
