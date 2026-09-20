@@ -30,7 +30,8 @@ npm run preview
 | `tests/wasm/`、`tests/fixtures/` | Wasm の回帰テスト、模擬ブラウザ API、採取済みの期待値 |
 | `moonbit/wasm_contract/` | 回帰テスト用の Wasm 入口。配信しない |
 | `tests/*.spec.ts` | 手動で実行する Playwright シナリオ |
-| `scripts/`、`scripts/assets/` | ビルド・生成物照合と素材の整備 |
+| `moonbit/dev/` | ビルド・生成物照合・FFI 生成・素材整備を行う MoonBit CLI |
+| `scripts/generated/dev.js` | Node 上で動く、コミット済みの開発 CLI 生成物 |
 
 画面・操作・旅・切符・保存・WebGL・音声合成は MoonBit で実装しています。ブラウザ API の呼び出しは型付き FFI を介して行います。React と旧 TypeScript 公開 API は廃止しました。`bridge` は現在の画面と保存データが使う内部変換で、外部向け JS ライブラリとしては公開しません。
 
@@ -57,7 +58,14 @@ npm test
 npm run build
 ```
 
-`build:moonbit` は FFI の生成・整形、Wasm / JS のコンパイル、生成物と HTML の起動ガードの更新を行います。検証用 Wasm も `_build/` に出力します。生成物は直接編集せず、ソースと一緒にコミットしてください。
+`build:moonbit` は最初に開発 CLI 自身をコンパイルし、その新しい CLI で FFI の生成・整形、Wasm / JS のコンパイル、生成物と HTML の起動ガードの更新を行います。検証用 Wasm も `_build/` に出力します。生成物は直接編集せず、`src/generated/moonbit/` と `scripts/generated/dev.js` をソースと一緒にコミットしてください。`check:generated` は CLI 自身も再現できるか照合し、コミット済みの CLI を上書きしません。
+
+生成済み CLI が壊れた場合は、固定コンパイラから再生成できます。
+
+```sh
+moon build moonbit/dev --target js --release
+node _build/js/release/build/dev/dev.js build
+```
 
 | コマンド | 用途 |
 | --- | --- |
@@ -69,6 +77,8 @@ npm run build
 | `npm run build` | コンパイラ不要のハッシュ照合と Vite 本番ビルド |
 
 生成処理は、実行中の開発サーバーを再読み込みさせることがあります。ブラウザテストの実行前に完了させてください。
+
+手書きの開発 JS スクリプトは廃止し、処理を `moonbit/dev/` に集約しました。ファイル・プロセス・暗号・圧縮・正規表現・Playwright の呼び出しは、小さな Node API バインディングを介します。生成・照合の方針や素材のアルゴリズムは MoonBit にあります。Vercel では生成 CLI を使うので、コンパイラは不要です。
 
 旧実装の再採取コマンド・型互換検査・JS 版の重複検証は廃止しました。期待値と MoonBit の単体テストは回帰テストとして維持します。期待値の由来と更新方針は [テスト資料](../tests/fixtures/README.md) にあります。
 

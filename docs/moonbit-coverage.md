@@ -1,6 +1,6 @@
 # MoonBit 化の範囲
 
-**アプリの制御ロジックは、起動とエラー復帰を含め MoonBit で実装しています。リポジトリ全体が 100% MoonBit という意味ではありません。**
+**アプリの制御ロジックと開発 CLI は MoonBit で実装しています。リポジトリ全体が 100% MoonBit という意味ではありません。**
 
 画面・旅・切符・保存検証・描画・音声合成は `wasm-gc`、Wasm のローダーと最初の通信エラー検知は `js` ターゲットです。配信する JS は MoonBit のコンパイル結果と型付き FFI の生成結果です。
 
@@ -14,14 +14,14 @@
 
 | 範囲 | 現状 |
 | --- | --- |
-| `scripts/` の 8 ファイル | Node でビルド、生成物照合、コンパイラ起動、FFI 生成、素材準備を行う開発ツール |
+| 開発 CLI | 手書き JS 8 ファイルを削除。実装は `moonbit/dev/`、Node 用生成物は `scripts/generated/dev.js` |
 | `tests/wasm/` の 9 ファイル | Node 上の Wasm 回帰テストと模擬ブラウザ API |
 | `tests/` 直下の 8 ファイル | Playwright のシナリオとヘルパー。残る TypeScript はこの範囲 |
 | 設定 3 ファイル | Vite / Playwright の JS 設定。本番モジュールの判定ロジックは MoonBit |
-| `src/generated/moonbit/` の JS | 生成物。手書きのアプリ実装ではない |
+| `src/generated/moonbit/` と `scripts/generated/` の JS | MoonBit / FFI からの生成物 |
 | HTML / CSS / GLSL / 画像・フォント | ブラウザと GPU に渡す文書・表現・素材 |
 
-FFI 宣言には DOM、WebGL、Web Audio、Promise、WeakMap、WebAssembly API を呼ぶ JS の式が残ります。「配信 JS が 0 bytes」にはなりません。GitHub の言語比率も、生成物・テスト・開発ツールを含むため、アプリの実装元とは別の指標です。
+FFI 宣言にはブラウザ API と、開発 CLI 用の Node / Playwright API を呼ぶ JS の式が残ります。「配信 JS が 0 bytes」にはなりません。GitHub の言語比率も、生成物・テスト・開発ツールを含むため、アプリの実装元とは別の指標です。
 
 ## 本番コードの検査
 
@@ -30,3 +30,5 @@ FFI 宣言には DOM、WebGL、Web Audio、Promise、WeakMap、WebAssembly API �
 `npm run check:generated` は MoonBit ソースから JS・Wasm・HTML 内の起動検知コードを再現します。通常の `npm run build` もソースと生成物のハッシュを照合するため、MoonBit をインストールしない Vercel でも更新漏れを検出できます。
 
 測定範囲とブラウザの既知の制限は [Wasm 配信の検証記録](wasm-runtime.md) を参照してください。
+
+開発 CLI の移行では、アプリの Wasm・ブラウザ接続・起動 JS は同一です。紙の粒子はコミット済みの画像と、アイコンとフォントは同じツール環境で旧 JS の出力とバイト単位で一致しています。素材とテストの期待値は変更していません。

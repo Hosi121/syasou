@@ -1,5 +1,5 @@
 import { existsSync, readFileSync } from 'node:fs'
-import { checkArtifacts } from '../../scripts/artifacts.mjs'
+import { checkArtifacts } from '../../scripts/generated/dev.js'
 
 export async function loadWasmContract() {
   checkArtifacts()
