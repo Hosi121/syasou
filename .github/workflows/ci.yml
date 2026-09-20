@@ -17,7 +17,7 @@ env:
   CI: true
 
 jobs:
-  domain:
+  moonbit:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -34,13 +34,11 @@ jobs:
           bash "$RUNNER_TEMP/install-moonbit.sh" '0.10.13+cbb11c36f'
           echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
       - run: moon update
-      - run: node scripts/moon-command.mjs check --deny-warn
-      - run: node scripts/moon-command.mjs fmt --check
-      - run: npm run check:domain
+      - run: npm run check:moonbit
+      - run: npm run check:generated
       - run: npm run test:moonbit
-      - run: node scripts/moon-command.mjs test moonbit/interop --target wasm-gc
-      - run: node scripts/moon-command.mjs test moonbit/domain --target native
-      - run: npm run test:domain
+      - run: npm run moon -- test moonbit/interop --target wasm-gc
+      - run: npm run moon -- test moonbit/domain --target native
       - run: npm run test:wasm
 
   build:

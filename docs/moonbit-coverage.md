@@ -1,27 +1,32 @@
 # MoonBit 化の範囲
 
-**ブラウザに配信するアプリの制御ロジックは、起動とエラー復帰を含め MoonBit で実装しています。リポジトリ全体が 100% MoonBit になったわけではありません。**
+**アプリの制御ロジックは、起動とエラー復帰を含め MoonBit で実装しています。リポジトリ全体が 100% MoonBit という意味ではありません。**
 
-画面・旅・切符・保存検証・描画・音声合成は `wasm-gc`、Wasm のローダーと最初の通信エラー検知は `js` ターゲットです。ブラウザへ配信する JS は MoonBit のコンパイル結果と型付き FFI の生成結果です。WeakMap によるコールバック管理、初期化の順序、失敗時の復帰は MoonBit のコードであり、以前の TS を FFI の文字列に移したものではありません。
+画面・旅・切符・保存検証・描画・音声合成は `wasm-gc`、Wasm のローダーと最初の通信エラー検知は `js` ターゲットです。配信する JS は MoonBit のコンパイル結果と型付き FFI の生成結果です。
+
+## 互換層の廃止
+
+旧公開 API の `src/lib/` 11 モジュール、`bridge.js` とその型宣言、凍結した旧 TypeScript / React 実装、公開型の比較、期待値を再採取するツールを削除しました。専用だった `clsx`・`tailwind-merge` と TypeScript コンパイラも依存から外しています。
+
+アプリで利用する旧セーブデータの読み込みは維持しています。`moonbit/bridge/` は画面・保存データの内部変換に使いますが、外部向けの JS API は出力しません。採取済みの期待値と MoonBit の単体テストは、ゲームの回帰テストとして維持します。
 
 ## 残っているもの
 
-| 範囲 | 現状 | 次に移行する場合の扱い |
-| --- | --- | --- |
-| `src/lib/` の 11 モジュール | TS の旧公開 API。型と MoonBit への委譲処理。本番バンドル外 | 型・公開名・クラス・同期/非同期の契約を維持して生成境界へ置換する |
-| `scripts/` の 23 スクリプト | JS の生成・照合・型検証・素材準備・ベンチマークなど | ファイル操作とプロセス呼び出しをバインドし、MoonBit の CLI として順に移す |
-| ブラウザテストと比較用ハーネス 11 ファイル | TS / JS、Playwright とブラウザ API の模擬処理 | 期待値を維持しながらテスト本体を移す。通常 CI への E2E 追加は必要ない |
-| 設定 3 ファイル | Vite と Playwright の TS 設定 | 設定値と判定ロジックを分け、ロジックを MoonBit へ移す。本番モジュールの判定は移行済み |
-| 凍結した旧実装 22 ファイル・型宣言 9 ファイル | 移行前の挙動を比較する oracle | 比較の独立性を保つ。MoonBit に書き換えて新旧同じ実装で比較しない |
-| `.d.ts` とコンパイル済み `.js` | 型宣言と生成物 | ソース言語の移行対象とは区別して記録する |
-| HTML / CSS / GLSL / 画像・フォント | ブラウザと GPU に渡す文書・表現・素材 | MoonBit の制御ロジックとは別のものとして扱う |
+| 範囲 | 現状 |
+| --- | --- |
+| `scripts/` の 8 ファイル | Node でビルド、生成物照合、コンパイラ起動、FFI 生成、素材準備を行う開発ツール |
+| `tests/wasm/` の 9 ファイル | Node 上の Wasm 回帰テストと模擬ブラウザ API |
+| `tests/` 直下の 8 ファイル | Playwright のシナリオとヘルパー。残る TypeScript はこの範囲 |
+| 設定 3 ファイル | Vite / Playwright の JS 設定。本番モジュールの判定ロジックは MoonBit |
+| `src/generated/moonbit/` の JS | 生成物。手書きのアプリ実装ではない |
+| HTML / CSS / GLSL / 画像・フォント | ブラウザと GPU に渡す文書・表現・素材 |
 
-FFI 宣言には JS の式が残ります。DOM、WebGL、Web Audio、Promise、WeakMap、WebAssembly API への接続で、生成された JS に含まれます。現行構成では「配信 JS が 0 bytes」という意味の 100% ではありません。GitHub の言語比率も、生成物・テスト・旧実装を含むため、この実装範囲とは一致しません。
+FFI 宣言には DOM、WebGL、Web Audio、Promise、WeakMap、WebAssembly API を呼ぶ JS の式が残ります。「配信 JS が 0 bytes」にはなりません。GitHub の言語比率も、生成物・テスト・開発ツールを含むため、アプリの実装元とは別の指標です。
 
-## 本番に手書きコードを戻さない仕組み
+## 本番コードの検査
 
-`moonbit/runtime_policy/` が Vite の解決済みモジュール一覧を検査します。生成された `bootstrap.js` と `browser-host.js`、Vite の仮想モジュール、非コード資産を許可し、それ以外の JS / TS を拒否します。旧 API の `bridge.js` や React を参照してもビルドは失敗します。
+`moonbit/runtime_policy/` が Vite の解決済みモジュール一覧を検査します。生成された `bootstrap.js` と `browser-host.js`、Vite の仮想モジュール、非コード資産を許可し、それ以外の JS / TS を拒否します。
 
-`npm run check:domain` は MoonBit ソースから生成した JS・Wasm・HTML 内の起動検知コードを再現し、通常の `npm run build` もソースと生成物のハッシュを照合します。MoonBit をインストールしない Vercel ビルドでも確認できます。
+`npm run check:generated` は MoonBit ソースから JS・Wasm・HTML 内の起動検知コードを再現します。通常の `npm run build` もソースと生成物のハッシュを照合するため、MoonBit をインストールしない Vercel でも更新漏れを検出できます。
 
-今回の起動移行では、Wasm 本体のバイナリは `47d8399` と同一です。ローダーの async 処理を MoonBit に移したことで JS は gzip 5,076 → 6,082 bytes に増えています。測定範囲とブラウザの既知の制限は [Wasm 配信の検証記録](wasm-runtime.md)を参照してください。
+測定範囲とブラウザの既知の制限は [Wasm 配信の検証記録](wasm-runtime.md) を参照してください。

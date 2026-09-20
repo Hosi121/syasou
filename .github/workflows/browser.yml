@@ -40,10 +40,10 @@ jobs:
         run: npx playwright install --with-deps --only-shell ${{ inputs.suite == 'desktop' && 'chromium' || 'chromium webkit' }}
       - name: Desktop scenarios
         if: ${{ inputs.suite != 'mobile' }}
-        run: npm test -- --output test-results/desktop --trace ${{ inputs.trace && 'retain-on-failure' || 'off' }}
+        run: npm run test:browser -- --output test-results/desktop --trace ${{ inputs.trace && 'retain-on-failure' || 'off' }}
       - name: Mobile scenarios
         if: ${{ !cancelled() && steps.browsers.outcome == 'success' && inputs.suite != 'desktop' }}
-        run: npm run test:mobile -- --output test-results/mobile --trace ${{ inputs.trace && 'retain-on-failure' || 'off' }}
+        run: npm run test:browser:mobile -- --output test-results/mobile --trace ${{ inputs.trace && 'retain-on-failure' || 'off' }}
       - name: Save failure details
         if: ${{ failure() }}
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

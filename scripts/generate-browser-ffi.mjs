@@ -25,9 +25,8 @@ export function generateBrowserFFI() {
       }
       source = source.replace(/(?:#cfg\(target="js"\)\s*)?((?:pub )?extern "js" fn ([\w:]+)\s*\([\s\S]*?\)\s*(?:->\s*[\s\S]*?)?=)\s*(#\|[^\n]*(?:\n[ \t]*#\|[^\n]*)*|"[^"\n]+"(?:[ \t]+"[^"\n]+")?)/g, (full, signature, name, implementation) => {
         const key = `${directory.name}_${name.replaceAll('::', '_')}`
-        // Module-backed legacy helpers are never reachable from the Wasm app.
         let body = implementation.startsWith('#|') ? implementation.split('\n').map(line => line.replace(/^\s*#\| ?/, '')).join('\n') : [...implementation.matchAll(/"([^"]+)"/g)].map(m => m[1]).join('.')
-        // Wasm's Bool ABI is i32. Browser dictionaries and trace contracts
+        // Wasm's Bool ABI is i32. Browser dictionaries and trace tests
         // require actual JS booleans, including APIs that accept generic values.
         const parameters = []
         let depth = 0, start = signature.indexOf('(') + 1
@@ -51,8 +50,4 @@ export function generateBrowserFFI() {
     if (conversions.length) writeFileSync(join(folder, 'ffi_types.generated.mbt'), '// Typed conversions between opaque browser references.\n' + conversions.map(d => '///|\n' + d).join('\n\n') + '\n')
   }
   return imports
-}
-if (process.argv[1]?.endsWith('/generate-browser-ffi.mjs')) {
-  const imports = generateBrowserFFI()
-  writeFileSync('artifacts/browser-imports.json', JSON.stringify(imports, null, 2))
 }

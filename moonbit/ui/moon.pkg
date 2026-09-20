@@ -11,21 +11,3 @@ import {
 }
 
 supported_targets = "+js+wasm-gc"
-
-options(
-  link: {
-    "js": {
-      "format": "esm",
-      "exports": [
-        "prepare_ui:prepareUi",
-        "render_contract:renderContract",
-        "contract_rail:RailMark",
-        "contract_route:RouteMap",
-        "contract_card:TicketCard",
-        "contract_settings:Settings",
-        "contract_landscape:Landscape",
-        "contract_opening:Opening",
-      ],
-    },
-  },
-)

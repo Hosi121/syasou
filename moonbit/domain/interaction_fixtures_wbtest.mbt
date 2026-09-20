@@ -1,4 +1,5 @@
-// Generated from the frozen TypeScript interaction oracle. Run npm run fixtures:domain.
+// Regression cases captured during migration; maintained as MoonBit tests.
+// Provenance: tests/fixtures/README.md (generators archived in b253332).
 
 ///|
 fn assert_interaction_number(actual : Double, expected : Double) -> Unit raise {

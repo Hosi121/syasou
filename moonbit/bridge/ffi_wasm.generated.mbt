@@ -2,12 +2,4 @@
 
 ///|
 #cfg(target="wasm-gc")
-extern "wasm" fn clsx(values : @js.Any) -> String = "syasou" "bridge_clsx"
-
-///|
-#cfg(target="wasm-gc")
-extern "wasm" fn tw_merge(value : String) -> String = "syasou" "bridge_tw_merge"
-
-///|
-#cfg(target="wasm-gc")
 extern "wasm" fn search_params(search : String) -> @url.URLSearchParams = "syasou" "bridge_search_params"

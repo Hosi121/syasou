@@ -9,17 +9,17 @@ fn[T : @js.FromJs] prop_option(props : @js.Any, key : String) -> T? {
 }
 
 ///|
-pub fn contract_rail(props : @js.Any) -> @view.Element {
+fn contract_rail(props : @js.Any) -> @view.Element {
   rail_mark(stroke_width=prop_option(props, "strokeWidth").unwrap_or(1.4))
 }
 
 ///|
-pub fn contract_route(_props : @js.Any) -> @view.Element {
+fn contract_route(_props : @js.Any) -> @view.Element {
   route_map()
 }
 
 ///|
-pub fn contract_card(props : @js.Any) -> @view.Element {
+fn contract_card(props : @js.Any) -> @view.Element {
   render_card({
     ticket: @bridge.read_ticket(props._get("ticket")),
     back: prop_option(props, "back").unwrap_or(false),
@@ -32,7 +32,7 @@ pub fn contract_card(props : @js.Any) -> @view.Element {
 }
 
 ///|
-pub fn contract_settings(props : @js.Any) -> @view.Element {
+fn contract_settings(props : @js.Any) -> @view.Element {
   render_settings({
     preferences: props._get("preferences").cast(),
     on_change: @js.to_fn1(props._get("onChange")),
@@ -41,12 +41,12 @@ pub fn contract_settings(props : @js.Any) -> @view.Element {
 }
 
 ///|
-pub fn contract_landscape(props : @js.Any) -> @view.Element {
+fn contract_landscape(props : @js.Any) -> @view.Element {
   render_landscape(props.cast())
 }
 
 ///|
-pub fn contract_opening(props : @js.Any) -> @view.Element {
+fn contract_opening(props : @js.Any) -> @view.Element {
   render_opening({
     ready: props._get("ready").cast(),
     leaving: props._get("leaving").cast(),

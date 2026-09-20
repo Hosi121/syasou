@@ -30,11 +30,11 @@ moonbit/ui + view + domain + browser
 
 音や spring をブラウザ用の辞書に入れる場合は、MoonBit 値を保持するクロージャーをカプセルとして渡します。登録表や FinalizationRegistry は使わず、JS / Wasm-GC の参照追跡に寿命を任せます。イベント購読にはキャッシュしたコールバックを渡し、解除時にも同じ関数を使います。
 
-固定バージョン `0.10.13+cbb11c36f` では、nullable な外部参照をクロージャーに捕捉すると読み出し時に失敗するケースがありました。保存読み込みでは fallback を捕捉せず、保存書き込みでは値を外部オブジェクトに包む形で回避しています。`scripts/wasm-boundary-test.mjs` が null fallback と null の保存を検証します。
+固定バージョン `0.10.13+cbb11c36f` では、nullable な外部参照をクロージャーに捕捉すると読み出し時に失敗するケースがありました。保存読み込みでは fallback を捕捉せず、保存書き込みでは値を外部オブジェクトに包む形で回避しています。`tests/wasm/storage.test.mjs` が null fallback と null の保存を検証します。
 
 ## 検証
 
-`npm run build:domain` で FFI・Wasm・旧公開 API 用 ESM を再生成します。`npm run check:domain` は固定コンパイラによるバイナリを含む再現性を確認します。`npm run test:wasm` は凍結済みの期待値に対して、値、参照共有、保存検証、入力の非変更、音・WebGL の呼び出し、HTML を比較します。検証用の `wasm_contract` は配信しません。
+`npm run build:moonbit` で FFI・Wasm・起動 JS を再生成します。`npm run check:generated` は固定コンパイラによるバイナリを含む再現性を確認します。`npm run test:wasm` は凍結済みの期待値に対して、値、参照共有、保存検証、入力の非変更、音・WebGL の呼び出し、HTML を比較します。検証用の `wasm_contract` は配信しません。
 
 通常の CI はブラウザを起動しません。実画面の既存 Playwright シナリオはローカルまたは手動ワークフローで確認します。直前の JS 版は `ac87522` です。
 

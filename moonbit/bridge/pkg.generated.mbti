@@ -11,8 +11,6 @@ pub fn advance_journey(@interop.Any, Double) -> @interop.Any
 
 pub fn begin_ticket_grip(Double, Double, Double, Double, Double, Double, Bool) -> @interop.Any
 
-pub fn class_names(Array[@interop.Any]) -> String
-
 pub fn create_sound() -> @interop.Any
 
 pub fn create_window_renderer(@interop.Any, @interop.Any) -> @interop.Any

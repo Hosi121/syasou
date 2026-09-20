@@ -1,16 +1,11 @@
 {
   "compiler": "v0.10.13+cbb11c36f",
-  "source": "7f75d1d8686c2d660c3a96116b7de544be8aee925d47cd581fec81eeaf26d338",
+  "source": "1041a53f72c534bd777278d6ba484c386734e771f50e90b75b90d37c6ea1f851",
   "artifacts": {
-    "bridge.js": "091d0bec80c547fd072508a563a527647763cd4013dd99685dc7a5b79e949987",
-    "bridge.d.ts": "1c2da8948fbf070e79dfc089cd07734901d0a8b04e0c376c542059eced1dc50c",
-    "moonbit.d.ts": "97a3aa026dda2cbda6d5cf8b28c3d75d3f41ec176dc216bf02a33b0e888a86fe",
     "bootstrap.js": "b685c59f96db2bfc9ed3ff3277c060e18d336e361f068d375a13c57efb9ae7be",
     "boot-guard.js": "dab1069a0bf96a93ffa5e52a10236813b8121829a58b1ae965a4c85a2a178701",
     "runtime-policy.js": "6faef629a22860e7693c6d2bdb70098279bf9d189e074e2e5aa051dbbe021094",
-    "runtime-policy.d.ts": "b4a8834df8e9a4dc394ba100958896bbd6e18c392c83930753faa0ca5d6edcf2",
     "app.wasm": "a3f5dbfad54220bf621b6e8172f8d84ed298a18dd45932d8a781e01a749a8b2e",
-    "browser-host.js": "621208fca42787968260c9cea5d651f0da638a784a9617eeb94f3dff80c00a0f",
-    "browser-host.d.ts": "5c9cc0333b215252a654c6ae785de56bd02f7bce97596a9425e73b76def67043"
+    "browser-host.js": "621208fca42787968260c9cea5d651f0da638a784a9617eeb94f3dff80c00a0f"
   }
 }

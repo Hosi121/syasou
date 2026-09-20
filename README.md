@@ -63,4 +63,4 @@ npm ci
 npm run dev
 ```
 
-[開発ガイド](docs/development.md) · [MoonBit 移行と互換性](tests/contract/README.md) · [バインディングの contribution 候補](docs/upstream-bindings.md)
+[開発ガイド](docs/development.md) · [回帰テスト](tests/fixtures/README.md) · [バインディングの contribution 候補](docs/upstream-bindings.md)

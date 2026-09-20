@@ -1,19 +1,4 @@
 ///|
-#module("clsx")
-#cfg(target="js")
-extern "js" fn clsx(values : @js.Any) -> String = "clsx"
-
-///|
-#module("tailwind-merge")
-#cfg(target="js")
-extern "js" fn tw_merge(value : String) -> String = "twMerge"
-
-///|
-pub fn class_names(values : Array[@js.Any]) -> String {
-  tw_merge(clsx(@js.any(values)))
-}
-
-///|
 pub fn format_time(milliseconds : Double) -> String {
   @domain.format_time(milliseconds)
 }

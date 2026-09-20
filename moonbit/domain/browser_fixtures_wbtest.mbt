@@ -1,4 +1,5 @@
-// Generated from TypeScript validation and browser oracle fixtures. Run npm run fixtures:domain.
+// Regression cases captured during migration; maintained as MoonBit tests.
+// Provenance: tests/fixtures/README.md (generators archived in b253332).
 
 ///|
 test "isPreferences: primitive 0" {

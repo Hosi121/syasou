@@ -32,7 +32,7 @@ methods generated from the same element-type table if they share the defect.
 
 This app uses a small opaque `Samples` binding with `Double` get/set until the
 upstream type contract is corrected. Its regression test is
-`moonbit/webaudio/bindings_wbtest.mbt`; deterministic source-oracle tests also
+`moonbit/webaudio/bindings_wbtest.mbt`; deterministic Wasm regression tests also
 compare all generated Float32 samples for a small stereo noise buffer.
 
 ## 2. Web Audio bindings
