@@ -14,20 +14,21 @@
 
 | 範囲 | 現状 |
 | --- | --- |
-| 開発 CLI | 手書き JS 8 ファイルを削除。実装は `moonbit/dev/`、Node 用生成物は `scripts/generated/dev.js` |
+| 開発 CLI | 手書き JS 8 ファイルを削除。実装は `moonbit/dev/`、Node 用生成物は Git 管理外の `_build/` |
 | `tests/wasm/` の 9 ファイル | Node 上の Wasm 回帰テストと模擬ブラウザ API |
 | `tests/` 直下の 8 ファイル | Playwright のシナリオとヘルパー。残る TypeScript はこの範囲 |
 | 設定 3 ファイル | Vite / Playwright の JS 設定。本番モジュールの判定ロジックは MoonBit |
-| `src/generated/moonbit/` と `scripts/generated/` の JS | MoonBit / FFI からの生成物 |
+| `src/generated/moonbit/` の JS・Wasm | MoonBit / FFI からビルド時に生成。Git 管理外 |
+| `scripts/moon.sh` | 固定コンパイラを準備する最小限の Bash |
 | HTML / CSS / GLSL / 画像・フォント | ブラウザと GPU に渡す文書・表現・素材 |
 
-FFI 宣言にはブラウザ API と、開発 CLI 用の Node / Playwright API を呼ぶ JS の式が残ります。「配信 JS が 0 bytes」にはなりません。GitHub の言語比率も、生成物・テスト・開発ツールを含むため、アプリの実装元とは別の指標です。
+FFI 宣言にはブラウザ API と、開発 CLI 用の Node / Playwright API を呼ぶ JS の式が残ります。「配信 JS が 0 bytes」にはなりません。生成 JS・Wasm は Git に含めないため、GitHub の言語比率には入りません。テスト・設定・CSS などは残るため、その比率もアプリの実装元とは別の指標です。
 
 ## 本番コードの検査
 
 `moonbit/runtime_policy/` が Vite の解決済みモジュール一覧を検査します。生成された `bootstrap.js` と `browser-host.js`、Vite の仮想モジュール、非コード資産を許可し、それ以外の JS / TS を拒否します。
 
-`npm run check:generated` は MoonBit ソースから JS・Wasm・HTML 内の起動検知コードを再現します。通常の `npm run build` もソースと生成物のハッシュを照合するため、MoonBit をインストールしない Vercel でも更新漏れを検出できます。
+`npm run build` はローカルでも Vercel でも固定コンパイラを用意し、MoonBit ソースから JS・Wasm を生成します。HTML 内の起動検知コードも Vite が挿入します。開発 CLI 自身も `moon run` から起動するため、生成 JS が一切ない checkout からビルドできます。
 
 測定範囲とブラウザの既知の制限は [Wasm 配信の検証記録](wasm-runtime.md) を参照してください。
 

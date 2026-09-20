@@ -17,7 +17,7 @@ env:
   CI: true
 
 jobs:
-  moonbit:
+  verify:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -27,28 +27,11 @@ jobs:
           node-version: '24.13.0'
           cache: npm
       - run: npm ci
-      - name: Install pinned MoonBit toolchain
-        run: |
-          curl -fsSL https://cli.moonbitlang.com/install/unix.sh -o "$RUNNER_TEMP/install-moonbit.sh"
-          export PATH="$HOME/.moon/bin:$PATH"
-          bash "$RUNNER_TEMP/install-moonbit.sh" '0.10.13+cbb11c36f'
-          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
       - run: npm run check:moonbit
-      - run: npm run check:generated
+      - run: npm run build
+      - name: Ensure generation leaves tracked sources unchanged
+        run: git diff --exit-code
       - run: npm run test:moonbit
       - run: npm run moon -- test moonbit/interop --target wasm-gc
       - run: npm run moon -- test moonbit/domain --target native
       - run: npm run test:wasm
-
-  build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version: '24.13.0'
-          cache: npm
-      - run: npm ci
-      # This job intentionally builds without installing MoonBit, as Vercel does.
-      - run: npm run build

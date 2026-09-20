@@ -2,6 +2,8 @@
 package "Hosi121/syasou/runtime_policy"
 
 // Values
+pub fn embed_boot_guard(String, String) -> String
+
 pub fn unsupported_modules(String, Array[String]) -> Array[String]
 
 // Errors

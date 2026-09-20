@@ -2,7 +2,10 @@ options(
   link: {
     "js": {
       "format": "esm",
-      "exports": [ "unsupported_modules:unsupportedModules" ],
+      "exports": [
+        "unsupported_modules:unsupportedModules",
+        "embed_boot_guard:embedBootGuard",
+      ],
     },
   },
 )

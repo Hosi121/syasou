@@ -74,10 +74,6 @@ extern "js" fn spawn(
 ) -> @js.Any = "spawnSync"
 
 ///|
-extern "js" fn node_executable() -> String =
-  #| () => process.execPath
-
-///|
 extern "js" fn platform() -> String =
   #| () => process.platform
 

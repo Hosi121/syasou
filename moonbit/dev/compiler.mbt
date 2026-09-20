@@ -1,18 +1,11 @@
 ///|
-let compiler_version : String = "v0.10.13+cbb11c36f"
+let compiler_version : String = "v" + read(".moon-version").trim().to_owned()
 
 ///|
 fn compiler() -> String {
   match @env.get_env_var("MOON_BIN") {
     Some(value) if value != "" => value
-    _ => {
-      let local_bin = absolute("artifacts/moon-toolchain/bin/moon")
-      if exists(local_bin) {
-        local_bin
-      } else {
-        "moon"
-      }
-    }
+    _ => "moon"
   }
 }
 

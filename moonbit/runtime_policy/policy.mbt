@@ -25,3 +25,18 @@ pub fn unsupported_modules(
     }
   })
 }
+
+///|
+pub fn embed_boot_guard(html : String, boot_code : String) -> String {
+  let start_marker = "<!-- moonbit:boot-guard:start -->"
+  let end_marker = "<!-- moonbit:boot-guard:end -->"
+  let start = html.find(start_marker).unwrap()
+  let end = html.find(end_marker).unwrap() + end_marker.length()
+  html.unsafe_substring(start=0, end=start) +
+  start_marker +
+  "\n    <script>" +
+  boot_code +
+  "</script>\n    " +
+  end_marker +
+  html.unsafe_substring(start=end, end=html.length())
+}

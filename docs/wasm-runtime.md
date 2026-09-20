@@ -10,14 +10,14 @@ moonbit/ui + view + domain + browser
           DOM / WebGL / Web Audio / Storage
 ```
 
-`moonbit/bootstrap/` は Wasm の取得・初期化とコールバックの接続を担当し、JS にコンパイルします。`moonbit/boot_guard/` も JS にコンパイルして HTML に埋め込み、ローダー自体の取得失敗を検知します。手書きの `main.tsx`・`wasm.ts`・`App.tsx` は廃止しました。`browser-host.js` には Wasm が参照するブラウザ API の呼び出しだけを生成します。旅・切符・保存検証・画面更新・アニメーション・音声合成の処理は Wasm 内の MoonBit にあります。シェーダーは従来どおり GPU で GLSL として実行します。
+`moonbit/bootstrap/` は Wasm の取得・初期化とコールバックの接続を担当し、JS にコンパイルします。`moonbit/boot_guard/` も JS にコンパイルし、Vite が配信用 HTML に埋め込んで、ローダー自体の取得失敗を検知します。手書きの `main.tsx`・`wasm.ts`・`App.tsx` は廃止しました。`browser-host.js` には Wasm が参照するブラウザ API の呼び出しだけを生成します。旅・切符・保存検証・画面更新・アニメーション・音声合成の処理は Wasm 内の MoonBit にあります。シェーダーは従来どおり GPU で GLSL として実行します。
 
 ## 起動と配信
 
 - 静的 HTML のタイトルを表示している間に、ハッシュ付き `.wasm` を取得します。
 - 一つの Wasm インスタンスがタイトルと本体を保持します。`src/world.css` は景色の CSS を遅延読み込みする入口です。
 - CSS や景色の失敗は MoonBit の既存の再試行表示に接続します。Wasm 自体の取得・初期化・初回描画に失敗すると、静的 HTML のタイトルを復元して再読み込みリンクを表示します。
-- Vercel の設定は `npm run build` と `dist/` のままです。配信ビルドに MoonBit コンパイラは不要です。
+- Vercel の設定は `npm run build` と `dist/` のままです。Vercel 上でも固定コンパイラを自動で用意し、ソースから JS・Wasm を生成します。生成物は Git に含めません。
 - Wasm-GC と JS string builtins をサポートするブラウザが必要です。これは以前の JS 版より新しいブラウザ機能への依存です。
 
 配信される実行コードのアセットは Wasm 205,337 bytes と JS 18,977 bytes。Node.js 24.13.0 の `gzipSync` ではそれぞれ 84,877 / 6,082 bytes、合計 90,959 bytes です。HTML 内の `boot_guard` は 797 bytes（単独 gzip 309 bytes）で、このアセット合計には含みません。手書きローダーだった `47d8399` の合計は 89,953 bytes、JS ターゲットだった `ac87522` は 59,699 bytes でした。CSS・画像・フォントも含みません。起動部分の MoonBit 化で async / エラー変換用の生成コードが加わり、転送量は増えています。
@@ -34,7 +34,7 @@ moonbit/ui + view + domain + browser
 
 ## 検証
 
-`npm run build:moonbit` で FFI・Wasm・起動 JS を再生成します。`npm run check:generated` は固定コンパイラによるバイナリを含む再現性を確認します。`npm run test:wasm` は凍結済みの期待値に対して、値、参照共有、保存検証、入力の非変更、音・WebGL の呼び出し、HTML を比較します。検証用の `wasm_contract` は配信しません。
+`npm run build:moonbit` で FFI・Wasm・起動 JS を再生成します。通常の `npm run build` も同じ生成処理を実行します。`npm run test:wasm` は凍結済みの期待値に対して、値、参照共有、保存検証、入力の非変更、音・WebGL の呼び出し、HTML を比較します。検証用の `wasm_contract` は配信しません。
 
 通常の CI はブラウザを起動しません。実画面の既存 Playwright シナリオはローカルまたは手動ワークフローで確認します。直前の JS 版は `ac87522` です。
 
