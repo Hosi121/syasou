@@ -33,7 +33,6 @@ jobs:
           export PATH="$HOME/.moon/bin:$PATH"
           bash "$RUNNER_TEMP/install-moonbit.sh" '0.10.13+cbb11c36f'
           echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
-      - run: moon update
       - run: npm run check:moonbit
       - run: npm run check:generated
       - run: npm run test:moonbit

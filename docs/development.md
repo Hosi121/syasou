@@ -44,10 +44,9 @@ Vite は生成された `bootstrap.js` と `browser-host.js` だけをアプリ�
 curl -fsSL https://cli.moonbitlang.com/install/unix.sh -o /tmp/install-moonbit.sh
 bash /tmp/install-moonbit.sh '0.10.13+cbb11c36f'
 export PATH="$HOME/.moon/bin:$PATH"
-moon update
 ```
 
-`npm run moon -- <引数>` はバージョンを確認して MoonBit CLI を実行します。インストール先を指定する場合は `MOON_BIN=/path/to/moon` を使用します。
+MoonBit は標準ライブラリのみを利用するため、依存インデックスを取得する `moon update` は不要です。`npm run moon -- <引数>` はバージョンを確認して MoonBit CLI を実行します。インストール先を指定する場合は `MOON_BIN=/path/to/moon` を使用します。
 
 ```sh
 # ソースを変更したら生成してからテストする
