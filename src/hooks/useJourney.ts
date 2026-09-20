@@ -5,6 +5,7 @@ import type { Ticket, TravelState } from '../lib/tickets'
 import { readStorage, writeStorage } from '../lib/utils'
 import { demoMode } from '../lib/profile'
 import { sampleTickets } from '../lib/sampleTickets'
+import { journeyRemaining, migrateLegacyJourney } from '../lib/journeyLegacy'
 
 export function useJourney(note: string) {
   const [preferences, setPreferences] = useState(() => readStorage('syasou.preferences.v1', defaults, isPreferences))
@@ -13,13 +14,7 @@ export function useJourney(note: string) {
     if (stored) return restoreTravel(stored, Date.now(), note)
     if (demoMode) return { journey: emptyJourney, tickets: sampleTickets(Date.now()), pendingArrivalId: null }
     const legacy = readStorage('syasou.journey.v1', emptyJourney, isJourney)
-    const active = legacy.phase === 'focus' || legacy.phase === 'rest'
-    const legacyArrival = legacy.phase === 'rest' && legacy.deadline !== null ? legacy.deadline - legacy.restMinutes * 60_000 : undefined
-    const journey = active ? {
-      ...legacy, id: crypto.randomUUID(), speed: preferences.speed, scene: preferences.scene,
-      startedAt: Math.max(0, (legacyArrival ?? legacy.deadline ?? Date.now()) - legacy.focusMinutes * 60_000),
-      arrivedAt: legacyArrival,
-    } : legacy
+    const journey = migrateLegacyJourney(legacy, preferences, () => crypto.randomUUID(), Date.now)
     return restoreTravel({ journey, tickets: [], pendingArrivalId: null }, Date.now(), note)
   })
   const journey = travel.journey
@@ -58,8 +53,7 @@ export function useJourney(note: string) {
     setNow(time)
     dispatch({ type: 'journey', action: { type: 'toggle', now: time }, note })
   }
-  const remaining = journey.running && journey.deadline !== null
-    ? Math.max(0, journey.deadline - now) : journey.remaining
+  const remaining = journeyRemaining(journey, now)
   return {
     journey, preferences, setPreferences, start, toggle, remaining, tickets: travel.tickets, saveError,
     pendingArrivalId: travel.pendingArrivalId,

@@ -2,6 +2,8 @@ import { motion, useMotionValueEvent, useSpring, useTransform } from 'motion/rea
 import { useCallback, useEffect, useImperativeHandle, useRef, useState, useSyncExternalStore } from 'react'
 import type { PointerEvent, Ref } from 'react'
 import type { Ticket } from '../lib/tickets'
+import { beginTicketGrip, dragTicket, hoverTicket, liftTicket, releaseTicket, ticketIsBack, ticketRestingAngle, ticketShadowWidth } from '../lib/ticketInteraction'
+import type { TicketGrip } from '../lib/ticketInteraction'
 import TicketCard from './TicketCard'
 
 export interface TicketHandle { cancel: () => boolean }
@@ -14,20 +16,10 @@ interface Props {
   onTouch: () => void
   onEdit: (id: string, changes: Partial<Pick<Ticket, 'title' | 'note'>>) => void
 }
-interface Grip {
+interface Grip extends TicketGrip {
   pointer: number
   node: HTMLDivElement
-  x: number
-  y: number
-  width: number
-  height: number
-  base: number
-  back: boolean
-  dx: number
-  edge: number
 }
-const clamp = (value: number, limit: number) => Math.max(-limit, Math.min(limit, value))
-const isBack = (angle: number) => Math.cos(angle * Math.PI / 180) < 0
 const follow = { stiffness: 340, damping: 32, mass: .65 }
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
 const subscribeMotion = (listener: () => void) => {
@@ -53,9 +45,9 @@ export default function TouchableTicket({ ref, ticket, back, disabled, onBackCha
   const shadowY = useSpring(7, follow)
   const shadowOpacity = useSpring(.28, follow)
   const shadowX = useTransform(x, value => value * .6)
-  const shadowWidth = useTransform(angle, value => .4 + Math.abs(Math.cos(value * Math.PI / 180)) * .6)
+  const shadowWidth = useTransform(angle, ticketShadowWidth)
 
-  useMotionValueEvent(angle, 'change', value => setVisibleBack(current => isBack(value) === current ? current : !current))
+  useMotionValueEvent(angle, 'change', value => setVisibleBack(current => ticketIsBack(value) === current ? current : !current))
 
   const putDown = useCallback(() => {
     x.set(0); y.set(0); z.set(0); tilt.set(0); roll.set(0)
@@ -65,17 +57,15 @@ export default function TouchableTicket({ ref, ticket, back, disabled, onBackCha
   const release = useCallback((complete: boolean) => {
     const current = grip.current
     if (!current) return false
-    // Distance, not accidental pointer speed, decides whether to turn the page.
-    const turn = complete && Math.abs(current.dx) > current.width * .3
-    const nextBack = turn ? !current.back : current.back
-    restingAngle.current = current.base + (turn ? Math.sign(current.dx) * 180 : 0)
+    const released = releaseTicket(current, complete)
+    restingAngle.current = released.angle
     grip.current = null
     setHeld(false)
     if (current.node.hasPointerCapture(current.pointer)) current.node.releasePointerCapture(current.pointer)
     if (reducedMotion) angle.jump(restingAngle.current)
     else angle.set(restingAngle.current)
     putDown()
-    onBackChange(nextBack)
+    onBackChange(released.back)
     return true
   }, [angle, onBackChange, putDown, reducedMotion])
 
@@ -83,7 +73,7 @@ export default function TouchableTicket({ ref, ticket, back, disabled, onBackCha
   useEffect(() => {
     // The ordinary flip button and pointer gesture share one continuous angle.
     if (grip.current) return
-    if (isBack(restingAngle.current) !== back) restingAngle.current += 180
+    restingAngle.current = ticketRestingAngle(restingAngle.current, back)
     if (reducedMotion) angle.jump(restingAngle.current)
     else angle.set(restingAngle.current)
   }, [back, reducedMotion, angle])
@@ -108,38 +98,35 @@ export default function TouchableTicket({ ref, ticket, back, disabled, onBackCha
     // Writing, selecting, and pasting in the paper fields stay native.
     if ((event.target as HTMLElement).closest('textarea, input, button, a, [contenteditable]')) { putDown(); return }
     const rect = event.currentTarget.getBoundingClientRect()
-    const edge = (event.clientX - rect.left) / rect.width - .5
-    grip.current = { pointer: event.pointerId, node: event.currentTarget, x: event.clientX, y: event.clientY,
-      width: rect.width, height: rect.height, base: restingAngle.current, back, dx: 0, edge }
+    const next = beginTicketGrip(event.clientX, event.clientY, rect.left, rect.width, rect.height, restingAngle.current, back)
+    grip.current = { ...next, pointer: event.pointerId, node: event.currentTarget }
     event.currentTarget.setPointerCapture(event.pointerId)
     event.preventDefault()
     setHeld(true)
     onTouch()
     if (reducedMotion) return
-    y.set(-18); z.set(42); tilt.set(((event.clientY - rect.top) / rect.height - .5) * -12)
-    angle.set(restingAngle.current - edge * 10); roll.set(edge * 3)
-    shineOpacity.set(.48); shadowY.set(33); shadowOpacity.set(.46)
+    const lifted = liftTicket(next, rect.top)
+    y.set(lifted.y); z.set(lifted.z); tilt.set(lifted.tilt)
+    angle.set(lifted.angle); roll.set(lifted.roll)
+    shineOpacity.set(lifted.shineOpacity); shadowY.set(lifted.shadowY); shadowOpacity.set(lifted.shadowOpacity)
   }
   const pointerMove = (event: PointerEvent<HTMLDivElement>) => {
     const current = grip.current
     if (current) {
       if (event.pointerId !== current.pointer) return
-      const dx = event.clientX - current.x
-      const dy = event.clientY - current.y
-      current.dx = dx
+      const dragged = dragTicket(current, event.clientX, event.clientY)
+      current.dx = dragged.dx
       if (reducedMotion) return
-      x.set(clamp(dx * .18, 65)); y.set(-18 + clamp(dy * .35, 65))
-      angle.set(current.base + clamp(dx / current.width * 220, 175) - current.edge * 6)
-      tilt.set(clamp(-dy / current.height * 30, 22)); roll.set(clamp(dx / current.width * 6 + current.edge * 3, 7))
-      shineX.set(clamp(dx * .2, 95))
+      x.set(dragged.x); y.set(dragged.y)
+      angle.set(dragged.angle); tilt.set(dragged.tilt); roll.set(dragged.roll)
+      shineX.set(dragged.shineX)
       return
     }
     if (disabled || reducedMotion || event.pointerType !== 'mouse' || event.buttons !== 0) return
     if ((event.target as HTMLElement).closest('textarea, input, [contenteditable]')) { putDown(); return }
     const rect = event.currentTarget.getBoundingClientRect()
-    const nx = (event.clientX - rect.left) / rect.width - .5
-    const ny = (event.clientY - rect.top) / rect.height - .5
-    tilt.set(-ny * 5); roll.set(nx * 1.4); z.set(7); shineX.set(nx * 80); shineOpacity.set(.26)
+    const hovered = hoverTicket(event.clientX, event.clientY, rect.left, rect.top, rect.width, rect.height)
+    tilt.set(hovered.tilt); roll.set(hovered.roll); z.set(hovered.z); shineX.set(hovered.shineX); shineOpacity.set(hovered.shineOpacity)
   }
 
   return <div className="ticket-handling" data-held={held} data-side={visibleBack ? 'back' : 'front'}

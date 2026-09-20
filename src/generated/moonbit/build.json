@@ -1,9 +1,9 @@
 {
   "compiler": "v0.10.13+cbb11c36f",
-  "source": "38fb483e341af592f04a304c88345b73ba83e4424a781ce430c39cc318cbb3c1",
+  "source": "29aa0bfe67f8377311c549847c56022ad7ca7d4943e5af2d3b2f2b1b454ef1f4",
   "artifacts": {
-    "bridge.js": "591184e21fd2b4f148600179ea53fbd483164565d1ac3438f008361351c202f5",
-    "bridge.d.ts": "19512a0eb4d434ced458f5c5ad88fa11023f86b6620fc979f49a96ca8ab2bbb6",
+    "bridge.js": "c7a2f7a931bb878f151dec19919bae47a754b73173b5c3d78adf11e16751b274",
+    "bridge.d.ts": "68fb6c29cd0482fc32b73039b424cec4479cd5fb7ba8e69682821405dcfca859",
     "moonbit.d.ts": "97a3aa026dda2cbda6d5cf8b28c3d75d3f41ec176dc216bf02a33b0e888a86fe"
   }
 }

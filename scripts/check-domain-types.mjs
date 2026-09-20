@@ -3,7 +3,7 @@ import { mkdirSync, readFileSync } from 'node:fs'
 import { spawnSync } from 'node:child_process'
 
 mkdirSync('artifacts/contract-signatures', { recursive: true })
-const modules = ['journey', 'tickets', 'sound', 'windowRenderer', 'utils', 'views']
+const modules = ['journey', 'tickets', 'sound', 'windowRenderer', 'utils', 'views', 'ticketInteraction', 'journeyLegacy', 'sampleTickets']
 const result = spawnSync('node_modules/.bin/tsc', [
   '--ignoreConfig', '--declaration', '--emitDeclarationOnly', '--skipLibCheck',
   '--target', 'ES2022', '--moduleResolution', 'bundler', '--module', 'ESNext',
@@ -17,4 +17,4 @@ const publicOnly = (name, text) => name === 'sound' ? text.replace(/^    private
 for (const name of modules) {
   assert.equal(publicOnly(name, readFileSync(`artifacts/contract-signatures/lib/${name}.d.ts`, 'utf8')), publicOnly(name, readFileSync(`tests/contract/signatures/${name}.d.ts`, 'utf8')), `${name}: public API changed`)
 }
-console.log(`${modules.length} public TypeScript declarations match the original API (excluding private class member names)`)
+console.log(`${modules.length} public TypeScript declarations match the captured API (excluding private class member names)`)

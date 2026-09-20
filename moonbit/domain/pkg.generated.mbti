@@ -12,7 +12,19 @@ pub fn animation_delta(Double, String) -> Double
 
 pub fn beat_step(Double, Int) -> (Double, Double)
 
+pub fn begin_ticket_grip(Double, Double, Double, Double, Double, Double, Bool) -> TicketGrip
+
+pub fn drag_ticket(TicketGrip, Double, Double) -> TicketDrag
+
+pub fn hover_ticket(Double, Double, Double, Double, Double, Double) -> TicketHover
+
+pub fn journey_remaining(Journey, Double) -> Double?
+
+pub fn lift_ticket(TicketGrip, Double) -> TicketLift
+
 pub fn limit_text(String, Int) -> String
+
+pub fn migrate_legacy_journey(Journey, String, String, () -> String, () -> Double) -> Journey?
 
 pub fn noise_sample(Double, Double) -> (Double, Double)
 
@@ -20,11 +32,23 @@ pub fn reduce_journey(Journey, JourneyAction) -> JourneyChange
 
 pub fn reduce_travel(Travel, TravelAction) -> TravelChange
 
+pub fn release_ticket(TicketGrip, Bool) -> TicketRelease
+
 pub fn restore(Travel, Double, String) -> TravelChange
+
+pub fn sample_tickets(Double) -> Array[Ticket]
 
 pub fn scene_index(String) -> Double
 
 pub fn sound_mix(String, Double, Double, Double, Bool, Bool) -> SoundMix
+
+pub fn ticket_is_back(Double) -> Bool
+
+pub fn ticket_resting_angle(Double, Bool) -> Double
+
+pub fn ticket_serial(String) -> String
+
+pub fn ticket_shadow_width(Double) -> Double
 
 pub fn travel_delta(Double) -> Double
 
@@ -126,6 +150,51 @@ pub(all) enum TicketChange {
   Prepend(Ticket)
   EditTickets(Array[(String, String)?])
 }
+
+pub(all) struct TicketDrag {
+  dx : Double
+  x : Double
+  y : Double
+  angle : Double
+  tilt : Double
+  roll : Double
+  shine_x : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct TicketGrip {
+  x : Double
+  y : Double
+  width : Double
+  height : Double
+  base : Double
+  back : Bool
+  dx : Double
+  edge : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct TicketHover {
+  tilt : Double
+  roll : Double
+  z : Double
+  shine_x : Double
+  shine_opacity : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct TicketLift {
+  y : Double
+  z : Double
+  tilt : Double
+  angle : Double
+  roll : Double
+  shine_opacity : Double
+  shadow_y : Double
+  shadow_opacity : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct TicketRelease {
+  back : Bool
+  angle : Double
+} derive(Eq, @debug.Debug)
 
 pub(all) struct Travel {
   journey : Journey

@@ -1,5 +1,15 @@
 import {
+  "moonbitlang/core/math",
+}
+
+import {
   "moonbitlang/core/debug",
 } for "wbtest"
 
-formatter(ignore: [ "fixtures_wbtest.mbt", "browser_fixtures_wbtest.mbt" ])
+formatter(
+  ignore: [
+    "fixtures_wbtest.mbt",
+    "browser_fixtures_wbtest.mbt",
+    "interaction_fixtures_wbtest.mbt",
+  ],
+)

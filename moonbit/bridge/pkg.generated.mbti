@@ -8,6 +8,8 @@ import {
 // Values
 pub fn advance_journey(@js_core.Any, Double) -> @js_core.Any
 
+pub fn begin_ticket_grip(Double, Double, Double, Double, Double, Double, Bool) -> @js_core.Any
+
 pub fn create_sound() -> @js_core.Any
 
 pub fn create_window_renderer(@js_core.Any, @js_core.Any) -> @js_core.Any
@@ -16,7 +18,11 @@ pub fn disable_sound(@js_core.Any) -> @js_core.Promise[Unit]
 
 pub fn dispose_sound(@js_core.Any) -> Unit
 
+pub fn drag_ticket(@js_core.Any, Double, Double) -> @js_core.Any
+
 pub fn enable_sound(@js_core.Any) -> @js_core.Promise[Unit]
+
+pub fn hover_ticket(Double, Double, Double, Double, Double, Double) -> @js_core.Any
 
 pub fn is_journey(@js_core.Any) -> Bool
 
@@ -34,9 +40,27 @@ pub fn is_view(@js_core.Any) -> Bool
 
 pub fn journey_reducer(@js_core.Any, @js_core.Any) -> @js_core.Any
 
+pub fn journey_remaining(@js_core.Any, Double) -> @js_core.Any
+
+pub fn lift_ticket(@js_core.Any, Double) -> @js_core.Any
+
+pub fn migrate_legacy_journey(@js_core.Any, @js_core.Any, () -> String, () -> Double) -> @js_core.Any
+
 pub fn read_storage(String, @js_core.Any, (@js_core.Any) -> Bool) -> @js_core.Any
 
+pub fn release_ticket(@js_core.Any, Bool) -> @js_core.Any
+
 pub fn restore_travel(@js_core.Any, Double, String) -> @js_core.Any
+
+pub fn sample_tickets(Double) -> @js_core.Any
+
+pub fn ticket_is_back(Double) -> Bool
+
+pub fn ticket_resting_angle(Double, Bool) -> Double
+
+pub fn ticket_serial(String) -> String
+
+pub fn ticket_shadow_width(Double) -> Double
 
 pub fn travel_reducer(@js_core.Any, @js_core.Any) -> @js_core.Any
 

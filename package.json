@@ -11,10 +11,10 @@
     "icons": "node scripts/prepare-app-icons.mjs",
     "fonts": "node scripts/prepare-fonts.mjs",
     "build:domain": "node scripts/build-domain.mjs",
-    "check:domain": "node scripts/build-domain.mjs --check && node scripts/generate-domain-fixtures.mjs --check && node scripts/generate-domain-tests.mjs --check && node scripts/generate-validation-fixtures.mjs --check && node scripts/browser-contract.mjs --check-oracle && node scripts/generate-browser-core-tests.mjs --check && node scripts/check-domain-types.mjs",
-    "test:domain": "node scripts/test-domain.mjs && node scripts/browser-contract.mjs",
+    "check:domain": "node scripts/build-domain.mjs --check && node scripts/generate-domain-fixtures.mjs --check && node scripts/generate-domain-tests.mjs --check && node scripts/generate-validation-fixtures.mjs --check && node scripts/browser-contract.mjs --check-oracle && node scripts/generate-browser-core-tests.mjs --check && node scripts/check-domain-types.mjs && node scripts/interaction-contract.mjs --check && node scripts/generate-interaction-core-tests.mjs --check",
+    "test:domain": "node scripts/test-domain.mjs && node scripts/browser-contract.mjs && node scripts/interaction-contract.mjs",
     "test:moonbit": "node scripts/moon-command.mjs test",
-    "fixtures:domain": "node scripts/generate-domain-fixtures.mjs && node scripts/generate-domain-tests.mjs && node scripts/generate-validation-fixtures.mjs && node scripts/browser-contract.mjs --generate && node scripts/generate-browser-core-tests.mjs"
+    "fixtures:domain": "node scripts/generate-domain-fixtures.mjs && node scripts/generate-domain-tests.mjs && node scripts/generate-validation-fixtures.mjs && node scripts/browser-contract.mjs --generate && node scripts/generate-browser-core-tests.mjs && node scripts/interaction-contract.mjs --generate && node scripts/generate-interaction-core-tests.mjs"
   },
   "keywords": [],
   "author": "",

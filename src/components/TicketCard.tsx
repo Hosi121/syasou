@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import type { MotionValue } from 'motion/react'
 import type { Ticket } from '../lib/tickets'
 import { cn } from '../lib/utils'
+import { ticketSerial } from '../lib/ticketInteraction'
 import RailMark from './RailMark'
 
 interface Props {
@@ -23,7 +24,7 @@ export default function TicketCard({ ticket, back = false, rotation, shineX, shi
   const reducedMotion = useReducedMotion()
   const date = dateFormat.format(ticket.arrivedAt).toUpperCase()
   const welcome = ticket.kind === 'welcome'
-  const serial = Array.from(ticket.id).reduce((value, character) => (value * 31 + character.charCodeAt(0)) >>> 0, 7).toString().padStart(8, '0').slice(-8)
+  const serial = ticketSerial(ticket.id)
   return <div className="rail-ticket" data-ticket-kind={ticket.kind ?? 'journey'}>
     <motion.div className="ticket-turn" style={rotation ? { rotateY: rotation } : undefined} animate={rotation ? undefined : { rotateY: back ? 180 : 0 }} transition={{ duration: reducedMotion ? 0 : .6, ease: 'easeInOut' }}>
       <div className="ticket-stock ticket-stock-bottom" aria-hidden="true" /><div className="ticket-stock" aria-hidden="true" /><div className="ticket-stock ticket-stock-top" aria-hidden="true" />

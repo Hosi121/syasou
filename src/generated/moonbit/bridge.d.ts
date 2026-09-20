@@ -23,11 +23,55 @@ export function readStorage(key: MoonBit.String,
                             fallback: any,
                             validate: (_arg0: any) => MoonBit.Bool): any;
 
+export function releaseTicket(grip: any,
+                              complete: MoonBit.Bool): any;
+
+export function hoverTicket(x: MoonBit.Double,
+                            y: MoonBit.Double,
+                            left: MoonBit.Double,
+                            top: MoonBit.Double,
+                            width: MoonBit.Double,
+                            height: MoonBit.Double): any;
+
+export function dragTicket(grip: any,
+                           x: MoonBit.Double,
+                           y: MoonBit.Double): any;
+
+export function liftTicket(grip: any,
+                           top: MoonBit.Double): any;
+
+export function beginTicketGrip(x: MoonBit.Double,
+                                y: MoonBit.Double,
+                                left: MoonBit.Double,
+                                width: MoonBit.Double,
+                                height: MoonBit.Double,
+                                base: MoonBit.Double,
+                                back: MoonBit.Bool): any;
+
+export function ticketSerial(id: MoonBit.String): MoonBit.String;
+
+export function ticketRestingAngle(angle: MoonBit.Double,
+                                   back: MoonBit.Bool): MoonBit.Double;
+
+export function ticketShadowWidth(angle: MoonBit.Double): MoonBit.Double;
+
+export function ticketIsBack(angle: MoonBit.Double): MoonBit.Bool;
+
 export function journeyReducer(state: any,
                                action: any): any;
 
 export function advanceJourney(state: any,
                                now: MoonBit.Double): any;
+
+export function sampleTickets(now: MoonBit.Double): any;
+
+export function journeyRemaining(journey: any,
+                                 now: MoonBit.Double): any;
+
+export function migrateLegacyJourney(legacy: any,
+                                     preferences: any,
+                                     create_id: () => MoonBit.String,
+                                     now: () => MoonBit.Double): any;
 
 export function travelReducer(state: any,
                               action: any): any;

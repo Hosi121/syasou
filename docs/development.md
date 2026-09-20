@@ -21,7 +21,7 @@ npm run dev
 | --- | --- |
 | `src/Startup.tsx`、`src/components/Opening.tsx` | 読み込み、タイトル、入場時の表示 |
 | `src/App.tsx`、`src/components/`、`src/hooks/` | React の画面、手帳・切符の操作、状態と UI の接続 |
-| `moonbit/domain/` | 旅・切符・保存データの検証・音や移動量の計算。JS に依存しない型付きコア |
+| `moonbit/domain/` | 旅・切符・旧セーブ変換・残り時間・保存検証・切符操作と番号・サンプル生成・音や移動量の計算。JS に依存しない型付きコア |
 | `moonbit/browser/` | localStorage、WebGL 描画とシェーダー、Web Audio 合成・スケジューラ、リソース管理 |
 | `moonbit/bridge/`、`src/lib/` | MoonBit と既存の TypeScript API の変換・呼び出し |
 | `moonbit/webgl/`、`moonbit/webaudio/` | ブラウザ API の型付きバインディング |
@@ -31,6 +31,8 @@ npm run dev
 | `tests/*.spec.ts` | 実際の画面・描画・入力を確認する Playwright シナリオ |
 
 DOM・保存・Promise には `mizchi/js` 系の既存パッケージを使っています。未提供の WebGL / Web Audio API はローカルの独立したバインディングにまとめています。詳しくは [upstream contribution 候補](upstream-bindings.md) を参照してください。
+
+切符の持ち上げ・ドラッグ・めくり判定・キャンセル時の角度は MoonBit で計算します。React はポインターの取得、入力欄の除外、イベント購読、Motion の spring への反映を担当します。旧セーブの変換では、ID と現在時刻を必要な場合だけ取得する順序も維持しています。
 
 ## MoonBit を変更する
 
