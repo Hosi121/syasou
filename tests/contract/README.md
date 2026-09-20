@@ -14,7 +14,7 @@ implementation replaced them. The UI migration additionally freezes six TSX
 components and four helper modules from `aaffee3` in `oracle/ui/` and
 `oracle/helpers/`; only their relative library imports change. Rendering output
 was captured before replacing those components. UI effects, pointer guards,
-React hooks and startup now also live in MoonBit.
+state, effects and startup now also live in MoonBit.
 Existing Playwright tests are the unchanged browser contract.
 They run locally or through the manually dispatched `Browser verification`
 workflow. Routine push/PR CI verifies the pure core, API contracts and build.
@@ -31,7 +31,7 @@ workflow. Routine push/PR CI verifies the pure core, API contracts and build.
 | Browser persistence | `browser/platform.mbt` | generic `readStorage`, boolean `writeStorage` |
 | WebGL renderer and shaders | `browser/window.mbt`, `browser/shaders.mbt` | `createWindowRenderer` with update/dispose |
 | Audio synthesis and scheduling | `browser/sound.mbt`, `domain/ambience.mbt` | `TrainSound` constructor, enable/disable/update/dispose |
-| React components, hooks and lifecycle | `ui/` | original DOM, labels, focus, pointer behavior and browser scenarios |
+| Screens, DOM updates, state and lifecycle | `ui/`, `view/` | original DOM, labels, focus, pointer behavior and browser scenarios |
 | Startup and lazy world loading | `ui_startup/`, `ui_world/` | title loading state, delayed world import, failed download/retry |
 | Presentation and initial settings | `domain/presentation.mbt`, `bridge/presentation.mbt` | `formatTime`, `cn`, demo profile, defaults, view metadata |
 
@@ -42,13 +42,14 @@ JS values into typed records, enums and opaque handles. Existing `mizchi/js_core
 observers, time and randomness. Local `webgl` and `webaudio` packages supply the
 missing typed API subset; they contain no application logic.
 
-All application behavior is authored in MoonBit, including React rendering,
+All application behavior is authored in MoonBit, including DOM reconciliation,
 pointer capture, input-field exclusions, subscriptions, reduced-motion handling,
-Motion springs, locale formatting, session storage and visual-viewport effects.
-React, Motion, Radix and Lucide remain npm dependencies. `mizchi/npm_typed`
-supplies React hooks, element creation and ReactDOM; typed local adapters bind
-missing browser/component APIs. The small JS error-boundary class implements
-React's class protocol, with recovery controlled by MoonBit startup state.
+springs, locale formatting, session storage and visual-viewport effects.
+`view/` is the app's DOM runtime; native dialog, DOM events and Web Animations
+provide browser primitives. React, ReactDOM, Motion, Radix, Lucide React and
+`mizchi/npm_typed` are removed from the application dependencies. Lucide SVG
+geometry remains with its ISC license. The runtime is scoped to this application;
+it does not promise the general APIs of the removed frameworks.
 The two TSX entry shims retain CSS loading and Vite's lazy module boundary.
 Existing `src/lib/` files preserve typed public APIs by delegating to MoonBit.
 CSS, development scripts, Playwright tests and frozen oracles retain their
@@ -63,7 +64,7 @@ so Vercel's normal Node/Vite build needs no MoonBit installation.
 1,045 direct domain tests. Never edit expected fixtures or generated tests by hand.
 `npm run check:domain` checks regeneration, oracle drift and public declarations.
 `npm run test:moonbit` runs the domain tests plus a fractional audio-sample binding
-test; `node scripts/moon-command.mjs test moonbit/domain --target native` tests the
+test and seven view-state/lifecycle regressions; `node scripts/moon-command.mjs test moonbit/domain --target native` tests the
 pure core without JS. `npm run test:domain` compares:
 
 - 207 reducer fixtures: timer boundaries, pause/resume, untimed work, missed
@@ -87,9 +88,18 @@ pure core without JS. `npm run test:domain` compares:
   throwing validators and blocked storage. Node-only TS resolution lives in the
   runner. The production app uses normal Vite resolution.
 
-- 21 byte-exact React SSR renderings from the frozen TSX: rail mark, route map,
+- 21 semantic HTML comparisons against unchanged React SSR fixtures from the frozen TSX: rail mark, route map,
   ticket kinds/sides/editable fields, settings states, SVG landscape and title
   loading/ready/leaving/error states. Dates use UTC for this comparison.
+  Comparison ignores only server preload hints, Radix collection markers and
+  post-mount radio tab stops, identity transform spelling, and the spring-backed
+  card rotation absent from Motion's SSR output. Text, structure, remaining
+  attributes, SVG paths and styles are compared. Browser tests check keyboard
+  focus, pointer capture, rotation, dialogs and animation completion.
+  The optional `oracle/ui/package.json` and lockfile reproduce the legacy source
+  with `npm ci --prefix tests/contract/oracle/ui` followed by
+  `npm run capture --prefix tests/contract/oracle/ui`. Routine CI reads the
+  frozen fixtures and does not install React or start a browser.
 - 30 helper results: duration rounding and nonfinite/large inputs, clsx/Tailwind
   merging, URL-encoded and repeated demo parameters, default settings, initial
   journey and view metadata. These also come from frozen TypeScript.
@@ -135,7 +145,7 @@ is inapplicable to this static, browser-local application.
   member names in `TrainSound` are excluded from declaration comparison: its
   private engine replaces private audio nodes; public methods are unchanged.
   Generated declarations are never patched. UI exports also have compiler-produced
-  declarations; the internal React component boundary remains opaque to TypeScript.
+  declarations; the internal view element boundary remains opaque to TypeScript.
 - Audio and WebGL use typed extern bindings. Fractional samples use `Double` at
   the JS boundary and Float32Array rounding at storage. WebGL nullable handles
   retain JS null. Context options are converted into a plain JS dictionary.

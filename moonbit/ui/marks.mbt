@@ -1,5 +1,5 @@
 ///|
-fn rail_mark(stroke_width? : Double = 1.4) -> @react.Element {
+fn rail_mark(stroke_width? : Double = 1.4) -> @view.Element {
   node(
     "svg",
     [p("viewBox", "0 0 40 40"), p("fill", "none"), p("aria-hidden", "true")],
@@ -30,7 +30,7 @@ fn rail_mark(stroke_width? : Double = 1.4) -> @react.Element {
 }
 
 ///|
-fn route_map() -> @react.Element {
+fn route_map() -> @view.Element {
   node("div", [p("className", "route-map"), p("aria-hidden", "true")], [
     node(
       "svg",

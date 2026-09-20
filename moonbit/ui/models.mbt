@@ -144,19 +144,17 @@ fn reduce_travel(travel : SavedTravel, event : TravelEvent) -> SavedTravel {
 }
 
 ///|
-#module("react")
-extern "js" fn reducer_init(
-  reducer : (SavedTravel, TravelEvent) -> SavedTravel,
-  initial : Unit,
-  initialize : () -> SavedTravel,
-) -> @js.Any = "useReducer"
-
-///|
 fn use_travel_reducer(
   initialize : () -> SavedTravel,
 ) -> (SavedTravel, (TravelEvent) -> Unit) {
-  let result = reducer_init(reduce_travel, (), initialize)
-  (result._get("0").cast(), result._get("1").cast())
+  let (travel, set_travel) = @view.use_state_lazy(initialize)
+  let dispatch = @view.use_callback(
+    (event : TravelEvent) => {
+      @view.update(set_travel, current => reduce_travel(current, event))
+    },
+    [],
+  )
+  (travel, dispatch)
 }
 
 ///|

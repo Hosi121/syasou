@@ -1,0 +1,89 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/view"
+
+import {
+  "mizchi/js_browser/dom",
+  "mizchi/js_core",
+}
+
+// Values
+pub fn after_render(() -> Unit) -> Unit
+
+pub fn boundary(Element, () -> Unit) -> Element
+
+pub fn[T] component((T) -> Element, T, key? : String) -> Element
+
+pub fn control(String, String, @js_core.Any, Array[Element]) -> Element
+
+pub fn element(String, @js_core.Any, Array[Element]) -> Element
+
+pub fn fragment(Array[Element]) -> Element
+
+pub fn mount(@dom.Element, Element) -> () -> Unit
+
+pub fn render_static(Element) -> String
+
+pub fn[T] update((T) -> Unit, (T) -> T) -> Unit
+
+pub fn[T] use_callback(T, Array[@js_core.Any]) -> T
+
+pub fn use_effect(() -> () -> Unit, Array[@js_core.Any]) -> Unit
+
+pub fn[T] use_imperative_handle(ViewRef[T], () -> T, Array[@js_core.Any]) -> Unit
+
+pub fn use_motion_event(MotionValue, String, (Double) -> Unit) -> Unit
+
+pub fn use_motion_value(Double) -> MotionValue
+
+pub fn[T] use_ref(T?) -> ViewRef[T]
+
+pub fn use_spring(@js_core.Any, @js_core.Any) -> MotionValue
+
+pub fn[T] use_state(T) -> (T, (T) -> Unit)
+
+pub fn[T] use_state_lazy(() -> T) -> (T, (T) -> Unit)
+
+pub fn[T] use_sync_external_store((() -> Unit) -> () -> Unit, () -> T) -> T
+
+pub fn use_transform(MotionValue, (Double) -> Double) -> MotionValue
+
+// Errors
+
+// Types and methods
+pub(all) enum Element {
+  Blank
+  Text(String)
+  Tag(String, @js_core.Any, Array[Element])
+  Group(Array[Element])
+  Component(@js_core.Any, () -> Element, String?)
+  Control(String, String, @js_core.Any, Array[Element])
+  Portal(Array[Element])
+  Boundary(Element, () -> Unit)
+}
+
+pub struct MotionValue {
+  motion_tag : String
+  mut value : Double
+  mut target : Double
+  mut velocity : Double
+  stiffness : Double
+  damping : Double
+  mass : Double
+  spring : Bool
+  listeners : Map[Int, (Double) -> Unit]
+  mut serial : Int
+  mut frame : Int?
+  mut last_time : Double
+}
+pub fn MotionValue::jump(Self, Double) -> Unit
+pub fn MotionValue::set(Self, Double) -> Unit
+
+pub(all) struct ViewRef[T] {
+  mut current : T?
+}
+pub fn[T] ViewRef::get_current(Self[T]) -> T?
+pub fn[T] ViewRef::set_current(Self[T], T?) -> Unit
+
+// Type aliases
+
+// Traits

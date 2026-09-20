@@ -17,14 +17,14 @@ priv struct JourneyView {
 
 ///|
 fn use_journey(note : String) -> JourneyView {
-  let (preferences, set_preferences) = @react.use_state_lazy(read_preferences)
+  let (preferences, set_preferences) = @view.use_state_lazy(read_preferences)
   let (travel, dispatch) = use_travel_reducer(() => {
     load_travel(preferences, note)
   })
   let journey = travel.journey()
-  let (time, set_time) = @react.use_state_lazy(now)
-  let (save_error, set_save_error) = @react.use_state(false)
-  let note_ref = @react.use_ref(Some(note))
+  let (time, set_time) = @view.use_state_lazy(now)
+  let (save_error, set_save_error) = @view.use_state(false)
+  let note_ref = @view.use_ref(Some(note))
   observe(() => note_ref.set_current(Some(note)), [d(note)])
   observe(() => save_preferences(preferences), [d(preferences)])
   observe(() => set_save_error(!save_travel(travel)), [d(travel)])

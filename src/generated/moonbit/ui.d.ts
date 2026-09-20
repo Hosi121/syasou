@@ -1,5 +1,8 @@
 import type * as MoonBit from "./moonbit.d.ts";
 
+export function renderContract(name: MoonBit.String,
+                               props: any): MoonBit.String;
+
 export function Opening(props: any): any;
 
 export function Landscape(props: any): any;

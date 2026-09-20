@@ -2,26 +2,28 @@
 package "Hosi121/syasou/ui"
 
 import {
+  "Hosi121/syasou/view",
   "mizchi/js_core",
-  "mizchi/npm_typed/react",
 }
 
 // Values
-pub fn app(AppProps) -> @react.Element
+pub fn app(AppProps) -> @view.Element
 
-pub fn contract_card(@js_core.Any) -> @react.Element
+pub fn contract_card(@js_core.Any) -> @view.Element
 
-pub fn contract_landscape(@js_core.Any) -> @react.Element
+pub fn contract_landscape(@js_core.Any) -> @view.Element
 
-pub fn contract_opening(@js_core.Any) -> @react.Element
+pub fn contract_opening(@js_core.Any) -> @view.Element
 
-pub fn contract_rail(@js_core.Any) -> @react.Element
+pub fn contract_rail(@js_core.Any) -> @view.Element
 
-pub fn contract_route(@js_core.Any) -> @react.Element
+pub fn contract_route(@js_core.Any) -> @view.Element
 
-pub fn contract_settings(@js_core.Any) -> @react.Element
+pub fn contract_settings(@js_core.Any) -> @view.Element
 
 pub fn prepare_ui() -> @js_core.Promise[Unit]
+
+pub fn render_contract(String, @js_core.Any) -> String
 
 pub fn start() -> @js_core.Promise[Unit]
 

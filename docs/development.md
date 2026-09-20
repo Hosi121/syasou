@@ -19,7 +19,8 @@ npm run dev
 
 | 場所 | 役割 |
 | --- | --- |
-| `moonbit/ui/` | React の全画面・hooks・起動処理・手帳と切符の操作。React / Motion / Radix を型付きアダプターから呼び出す |
+| `moonbit/ui/` | 全画面・起動処理・手帳と切符の操作 |
+| `moonbit/view/` | DOM 差分更新、状態と副作用の寿命、spring、Web Animations、標準 dialog とポップオーバーの操作 |
 | `moonbit/ui_startup/`、`moonbit/ui_world/` | タイトルと遅延読み込みする本体の ESM エントリーポイント |
 | `src/main.tsx`、`src/App.tsx` | CSS 読み込みと生成モジュールへの接続のみ |
 | `moonbit/domain/` | 旅・切符・旧セーブ変換・残り時間・保存検証・切符操作と番号・サンプル生成・音や移動量の計算。JS に依存しない型付きコア |
@@ -31,15 +32,15 @@ npm run dev
 | `tests/contract/` | 凍結した移行前の実装、API 型、期待値、ブラウザ API の比較用ハーネス |
 | `tests/*.spec.ts` | 実際の画面・描画・入力を確認する Playwright シナリオ |
 
-DOM・保存・Promise には `mizchi/js` 系の既存パッケージを使っています。未提供の WebGL / Web Audio API はローカルの独立したバインディングにまとめています。React は `mizchi/npm_typed@0.1.18` の既存バインディングを使い、Motion / Radix などの不足部分だけローカルで補っています。詳しくは [upstream contribution 候補](upstream-bindings.md) を参照してください。
+DOM・保存・Promise には `mizchi/js` 系の既存パッケージを使っています。未提供の WebGL / Web Audio API はローカルの独立したバインディングにまとめています。UI はアプリ専用の `view` パッケージから DOM を更新します。React / ReactDOM / Motion / Radix / Lucide React と `mizchi/npm_typed` への依存はありません。Lucide の図形データだけをライセンス付きで利用しています。詳しくは [upstream contribution 候補](upstream-bindings.md) を参照してください。
 
-切符の持ち上げ・ドラッグ・めくり判定・キャンセル時の角度は MoonBit で計算します。ポインター取得、入力欄の除外、イベント購読、Motion の spring への反映も MoonBit のコンポーネントで行います。旧セーブの変換では、ID と現在時刻を必要な場合だけ取得する順序も維持しています。
+切符の持ち上げ・ドラッグ・めくり判定・キャンセル時の角度は MoonBit で計算します。ポインター取得、入力欄の除外、イベント購読、MoonBit の spring への反映も MoonBit のコンポーネントで行います。旧セーブの変換では、ID と現在時刻を必要な場合だけ取得する順序も維持しています。
 
-残る TypeScript は Vite の入口、既存公開 API の型と委譲処理、開発設定とテストです。CSS・GLSL、npm ライブラリ、MoonBit が生成する JavaScript は引き続き使います。GitHub の言語比率には生成物や検証用の旧ソースも含まれるため、アプリの移行率とは一致しません。
+残る TypeScript は Vite の入口、既存公開 API の型と委譲処理、開発設定とテストです。CSS・GLSL、フォントとビルド用 npm パッケージ、MoonBit が生成する JavaScript は引き続き使います。旧 API の `cn` 互換性検証用に clsx / tailwind-merge を開発依存として残していますが、画面からは呼ばず、本番バンドルにも入りません。GitHub の言語比率には生成物や検証用の旧ソースも含まれるため、アプリの移行率とは一致しません。
 
-移行前 `aaffee3` と同じ Node / npm 依存で比較すると、本番 JS の全チャンク合計は gzip 179,184 → 216,932 bytes（約 +38 KB）です。これは全チャンクの合計で、初期画面だけの転送量ではありません。MoonBit 化によって配信サイズが減るわけではありません。
+React 使用版 `91e51d1` と今回の版を再ビルドすると、本番 JS 全チャンクの gzip 合計は 217,966 → 59,699 bytes（約 73% 減）でした。初期画面だけの転送量ではありません。[置き換えの検証記録](react-removal.md) に測定条件と検証範囲を記録しています。
 
-起動と本体は別々にコンパイルします。本体の読み込み失敗はタイトルのエラーバウンダリーで受け取り、再試行を表示します。`src/main.tsx` は UI の依存読み込みとマウントまで待つため、モジュール読み込み完了後に元と同じタイトル操作ができます。
+起動と本体は別々にコンパイルします。本体の読み込み失敗はMoonBit の起動状態で受け取り、再試行を表示します。`src/main.tsx` は タイトルのマウントまで待つため、モジュール読み込み完了後に元と同じタイトル操作ができます。
 
 ## MoonBit を変更する
 
@@ -68,7 +69,7 @@ npm run build
 
 生成された JavaScript・型定義は直接編集せず、MoonBit ソースから再生成します。`npm run build` はソースと生成物のハッシュを照合し、更新漏れがあれば失敗します。CI では固定バージョンのコンパイラによる再生成結果も比較します。
 
-`npm run fixtures:domain` は、凍結した TypeScript 実装から期待値と MoonBit の直接テストを生成します。互換性テストは、値、入力の非変更、オブジェクト参照、保存検証、ブラウザ API の呼び出し、音声サンプル、失敗時の挙動を比較します。UI は移行前の TSX から採取した 21 パターンの HTML、表示・設定・保存キーは 30 パターンの旧実装出力とも比較します。これらはブラウザを起動せず Node で実行します。型や UTF-16、数値などの扱いは [移行契約](../tests/contract/README.md) に記録しています。
+`npm run fixtures:domain` は、凍結した TypeScript 実装から期待値と MoonBit の直接テストを生成します。互換性テストは、値、入力の非変更、オブジェクト参照、保存検証、ブラウザ API の呼び出し、音声サンプル、失敗時の挙動を比較します。UI は移行前の TSX から採取した 21 パターンの HTML の意味的な比較（文言、属性、SVG、スタイル）、表示・設定・保存キーは 30 パターンの旧実装出力とも比較します。これらはブラウザを起動せず Node で実行します。React 固有のサーバー描画メタデータだけを比較から除き、操作は既存のブラウザテストで確認します。旧 TSX からの再採取だけは `npm ci --prefix tests/contract/oracle/ui` で隔離した旧依存を用意してから行います。通常の `npm ci` と CI には React が入りません。型や UTF-16、数値などの扱いは [移行契約](../tests/contract/README.md) に記録しています。
 
 ## CI とブラウザ検証
 
@@ -113,3 +114,5 @@ npx vercel deploy --prod --scope hosi121s-projects
 - 紙の粒子は `node scripts/create-grain.mjs` で再生成できます。
 - 空・雪原・列車は提供された画像を使用しています。元画像の領域と合成方法は [素材メモ](../public/scenery/README.md) にあります。切符の箱も提供された `public/ticket-tray.png` を使用しています。
 - ホーム画面追加の設定は `public/manifest.webmanifest` と `index.html` にあります。保存領域はブラウザ・端末ごとで、起動・再読み込みには通信が必要です。
+
+Lucide の SVG 図形のライセンスは [docs/licenses/lucide.txt](licenses/lucide.txt) にあります。

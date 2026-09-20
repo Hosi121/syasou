@@ -1,0 +1,7 @@
+import {
+  "mizchi/js_core" @js,
+  "mizchi/js_browser/dom",
+  "moonbitlang/core/math",
+}
+
+supported_targets = "js"

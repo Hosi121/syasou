@@ -1,10 +1,10 @@
 ///|
 fn use_media(query : String) -> Bool {
-  let subscribe = @react.use_callback(
+  let subscribe = @view.use_callback(
     (listener : () -> Unit) => subscribe_media(query, listener),
     [d(query)],
   )
-  @react.use_sync_external_store(subscribe, () => @dom.matchMedia(query).matches)
+  @view.use_sync_external_store(subscribe, () => @dom.matchMedia(query).matches)
 }
 
 ///|

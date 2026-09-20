@@ -9,14 +9,14 @@ priv struct OpeningProps {
 }
 
 ///|
-fn opening(props : OpeningProps) -> @react.Element {
+fn opening(props : OpeningProps) -> @view.Element {
   component(render_opening, props)
 }
 
 ///|
-fn render_opening(props : OpeningProps) -> @react.Element {
+fn render_opening(props : OpeningProps) -> @view.Element {
   let reduced = reduced_motion()
-  let enter_button : @react.ReactRef[@dom.Element] = @react.use_ref(None)
+  let enter_button : @view.ViewRef[@dom.Element] = @view.use_ref(None)
   observe(() => if props.leaving && reduced { (props.on_complete)() }, [
     d(props.leaving),
     d(reduced),

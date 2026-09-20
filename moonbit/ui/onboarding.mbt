@@ -12,7 +12,7 @@ let guide_steps : ReadOnlyArray[(String, String)] = [
 ]
 
 ///|
-fn guide_drawing(step : Int) -> @react.Element {
+fn guide_drawing(step : Int) -> @view.Element {
   let children = if step == 0 {
     [
       node(
@@ -116,14 +116,14 @@ priv struct GuideProps {
 }
 
 ///|
-fn onboarding(props : GuideProps) -> @react.Element {
+fn onboarding(props : GuideProps) -> @view.Element {
   component(render_guide, props)
 }
 
 ///|
-fn render_guide(props : GuideProps) -> @react.Element {
-  let primary : @react.ReactRef[@dom.Element] = @react.use_ref(None)
-  let receiving = @react.use_ref(Some(false))
+fn render_guide(props : GuideProps) -> @view.Element {
+  let primary : @view.ViewRef[@dom.Element] = @view.use_ref(None)
+  let receiving = @view.use_ref(Some(false))
   let reduced = reduced_motion()
   let (title, description) = guide_steps[props.step]
   let finish = () => {

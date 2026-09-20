@@ -12,11 +12,11 @@ fn use_sound(
   moving : Bool,
   window_open : Bool,
 ) -> SoundView {
-  let engine : @react.ReactRef[SoundEngine] = @react.use_ref(None)
-  let busy_ref = @react.use_ref(Some(false))
-  let (enabled, set_enabled) = @react.use_state(false)
-  let (busy, set_busy) = @react.use_state(false)
-  let (error, set_error) = @react.use_state("")
+  let engine : @view.ViewRef[SoundEngine] = @view.use_ref(None)
+  let busy_ref = @view.use_ref(Some(false))
+  let (enabled, set_enabled) = @view.use_state(false)
+  let (busy, set_busy) = @view.use_state(false)
+  let (error, set_error) = @view.use_state("")
   observe(
     () => {
       if engine.get_current() is Some(sound) {

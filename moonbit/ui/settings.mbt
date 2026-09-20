@@ -10,12 +10,12 @@ fn settings(
   preferences : Preferences,
   on_change : (Preferences) -> Unit,
   active : Bool,
-) -> @react.Element {
+) -> @view.Element {
   component(render_settings, { preferences, on_change, active, })
 }
 
 ///|
-fn render_settings(props : SettingsProps) -> @react.Element {
+fn render_settings(props : SettingsProps) -> @view.Element {
   let prefs = props.preferences
   let on_change = props.on_change
   let duration = (

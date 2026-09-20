@@ -5,13 +5,13 @@ priv struct ViewPickerProps {
 }
 
 ///|
-fn view_picker(value : String, on_change : (String) -> Unit) -> @react.Element {
+fn view_picker(value : String, on_change : (String) -> Unit) -> @view.Element {
   component(render_view_picker, { value, on_change, })
 }
 
 ///|
-fn render_view_picker(props : ViewPickerProps) -> @react.Element {
-  let (open, set_open) = @react.use_state(false)
+fn render_view_picker(props : ViewPickerProps) -> @view.Element {
+  let (open, set_open) = @view.use_state(false)
   foreign("popover", "Root", [p("open", open), p("onOpenChange", set_open)], [
     foreign("popover", "Trigger", [p("asChild", true)], [
       node(

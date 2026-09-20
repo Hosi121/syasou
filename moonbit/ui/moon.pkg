@@ -7,8 +7,7 @@ import {
   "mizchi/js_builtin/date",
   "moonbitlang/core/math",
   "mizchi/js_web/crypto",
-  "mizchi/npm_typed/react",
-  "mizchi/npm_typed/react_dom_client" @react_dom,
+  "Hosi121/syasou/view",
 }
 
 supported_targets = "js"
@@ -19,6 +18,7 @@ options(
       "format": "esm",
       "exports": [
         "prepare_ui:prepareUi",
+        "render_contract:renderContract",
         "contract_rail:RailMark",
         "contract_route:RouteMap",
         "contract_card:TicketCard",

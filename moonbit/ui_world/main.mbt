@@ -1,5 +1,5 @@
 ///|
-pub fn app(props : @ui.AppProps) -> @react.Element {
+pub fn app(props : @ui.AppProps) -> @view.Element {
   @ui.app(props)
 }
 

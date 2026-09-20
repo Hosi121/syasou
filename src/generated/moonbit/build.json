@@ -1,14 +1,14 @@
 {
   "compiler": "v0.10.13+cbb11c36f",
-  "source": "59a6f7a55eb265bc3942ab05331ddf1dcb1997e8e29a6f57d2e97a63ce170be5",
+  "source": "0299f962941c1b8818aaac4101a4e82fdd074e884e4252d053572b459e1e3ab7",
   "artifacts": {
     "bridge.js": "a32346821462534ba03d116c57b9723c153cde1cbb698f96acda6d8882299f0e",
     "bridge.d.ts": "1c2da8948fbf070e79dfc089cd07734901d0a8b04e0c376c542059eced1dc50c",
-    "ui.js": "73c3defe77b73716ef12aa1a75a5e353f053f52b51c50ec16f68abc8ab14fb1d",
-    "ui.d.ts": "a94d59e8d5feb8df8e6817e9b3c48a62f048ac565bb1d12962364d8e0bb393ff",
-    "ui_startup.js": "3f7d32673393ddc67e461c6b292ae377fdf9f59cd1911b50244bb5b678ed09cf",
+    "ui.js": "d7af844b04bc5761967ab38b8ef4b3f4c1fb9f37a9420af5bc119424e6c68fa2",
+    "ui.d.ts": "286ffe7fcc3435e4884455acf52a88b94236c373baf395854b5c3ce1c09a54d6",
+    "ui_startup.js": "fde75098c1a816881158ac6f649a209ed863edb056ead6ac44ce79a2c4b185a4",
     "ui_startup.d.ts": "a8a3a59abbf52b2a3fbf4f959c58d127ef130bc40e635ae0305762bf697171a5",
-    "ui_world.js": "2784cb863b3055ed07d5bee64fe79d83b10bd2e92356cebc4fec057efeaa465b",
+    "ui_world.js": "0926fc53b9f66f1cdb75d8ac04072deeab956fee8130e93f3140f0c68b6d925d",
     "ui_world.d.ts": "10954709af1e87cd390d5aad747d5786a075f631370c688449909e16ffc80944",
     "moonbit.d.ts": "97a3aa026dda2cbda6d5cf8b28c3d75d3f41ec176dc216bf02a33b0e888a86fe"
   }

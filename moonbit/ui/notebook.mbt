@@ -14,13 +14,13 @@ priv struct NotebookProps {
 }
 
 ///|
-fn notebook(props : NotebookProps) -> @react.Element {
+fn notebook(props : NotebookProps) -> @view.Element {
   component(render_notebook, props)
 }
 
 ///|
-fn render_notebook(props : NotebookProps) -> @react.Element {
-  let (show_settings, set_settings) = @react.use_state(false)
+fn render_notebook(props : NotebookProps) -> @view.Element {
+  let (show_settings, set_settings) = @view.use_state(false)
   let reduced = reduced_motion()
   let compact = use_media(compact_layout)
   let travel = props.travel
@@ -63,15 +63,6 @@ fn render_notebook(props : NotebookProps) -> @react.Element {
             p("className", "notebook-object"),
             p("aria-label", "旅の手帳を開く"),
             p("title", "手帳をひらく"),
-            p(
-              "whileHover",
-              if reduced {
-                absent()
-              } else {
-                styles([p("y", -5.0), p("rotate", -1.0)])
-              },
-            ),
-            p("transition", styles([p("duration", 0.18)])),
           ],
           [
             node(

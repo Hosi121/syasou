@@ -1,7 +1,7 @@
 import {
   "Hosi121/syasou/ui",
   "mizchi/js_core" @js,
-  "mizchi/npm_typed/react",
+  "Hosi121/syasou/view",
 }
 
 supported_targets = "js"

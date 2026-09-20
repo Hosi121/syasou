@@ -8,12 +8,12 @@ priv struct LandscapeProps {
 }
 
 ///|
-fn landscape(props : LandscapeProps) -> @react.Element {
+fn landscape(props : LandscapeProps) -> @view.Element {
   component(render_landscape, props)
 }
 
 ///|
-fn fallback_scenery() -> @react.Element {
+fn fallback_scenery() -> @view.Element {
   let hills = "M0 360 C130 340 170 210 310 250 S490 430 660 350 S880 170 1030 290 S1140 350 1200 360 V900 H0Z"
   let slopes = "M0 540 C130 600 200 400 350 440 S580 660 740 520 S1030 430 1200 540 V900 H0Z"
   let strip = (name : String, path : String) => {
@@ -78,10 +78,10 @@ fn fallback_scenery() -> @react.Element {
 }
 
 ///|
-fn render_landscape(props : LandscapeProps) -> @react.Element {
-  let canvas : @react.ReactRef[@dom.HTMLCanvasElement] = @react.use_ref(None)
-  let renderer : @react.ReactRef[WindowRenderer] = @react.use_ref(None)
-  let (webgl, set_webgl) = @react.use_state(false)
+fn render_landscape(props : LandscapeProps) -> @view.Element {
+  let canvas : @view.ViewRef[@dom.HTMLCanvasElement] = @view.use_ref(None)
+  let renderer : @view.ViewRef[WindowRenderer] = @view.use_ref(None)
+  let (webgl, set_webgl) = @view.use_state(false)
   effect(
     () => {
       if canvas.get_current() is Some(canvas) {

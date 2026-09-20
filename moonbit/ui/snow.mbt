@@ -15,12 +15,12 @@ priv struct SnowProps {
 fn snow_scenery(
   props : LandscapeProps,
   exterior? : Bool = false,
-) -> @react.Element {
+) -> @view.Element {
   component(render_snow, { landscape: props, exterior, })
 }
 
 ///|
-fn snow_strip(layer : String) -> @react.Element {
+fn snow_strip(layer : String) -> @view.Element {
   node("div", [p("className", "snow-layer snow-\{layer}")], [
     node(
       "div",
@@ -33,11 +33,11 @@ fn snow_strip(layer : String) -> @react.Element {
 }
 
 ///|
-fn render_snow(input : SnowProps) -> @react.Element {
+fn render_snow(input : SnowProps) -> @view.Element {
   let props = input.landscape
-  let is_visible = @react.use_sync_external_store(subscribe_visibility, visible)
-  let (attempt, set_attempt) = @react.use_state(0)
-  let (status, set_status) = @react.use_state(Loading)
+  let is_visible = @view.use_sync_external_store(subscribe_visibility, visible)
+  let (attempt, set_attempt) = @view.use_state(0)
+  let (status, set_status) = @view.use_state(Loading)
   effect(
     () => {
       let active = Ref(true)

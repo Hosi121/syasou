@@ -18,7 +18,7 @@ fn ticket_card(
   shine_opacity? : MotionValue,
   on_title? : (String) -> Unit,
   on_note? : (String) -> Unit,
-) -> @react.Element {
+) -> @view.Element {
   component(render_card, {
     ticket,
     back,
@@ -31,7 +31,7 @@ fn ticket_card(
 }
 
 ///|
-fn render_card(props : TicketCardProps) -> @react.Element {
+fn render_card(props : TicketCardProps) -> @view.Element {
   let ticket = props.ticket
   let reduced = reduced_motion()
   let date = ticket_date(ticket.arrived_at)

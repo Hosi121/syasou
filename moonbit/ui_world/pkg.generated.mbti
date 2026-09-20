@@ -3,12 +3,12 @@ package "Hosi121/syasou/ui_world"
 
 import {
   "Hosi121/syasou/ui",
+  "Hosi121/syasou/view",
   "mizchi/js_core",
-  "mizchi/npm_typed/react",
 }
 
 // Values
-pub fn app(@ui.AppProps) -> @react.Element
+pub fn app(@ui.AppProps) -> @view.Element
 
 pub fn prepare_ui() -> @js_core.Promise[Unit]
 

@@ -8,23 +8,23 @@ priv struct TrayProps {
 }
 
 ///|
-fn ticket_tray(props : TrayProps) -> @react.Element {
+fn ticket_tray(props : TrayProps) -> @view.Element {
   component(render_tray, props, key=props.arrival.unwrap_or("archive"))
 }
 
 ///|
-fn render_tray(props : TrayProps) -> @react.Element {
-  let (selected, set_selected) = @react.use_state(
+fn render_tray(props : TrayProps) -> @view.Element {
+  let (selected, set_selected) = @view.use_state(
     match props.arrival {
       Some(id) => Some(id)
       None => props.tickets.get(0).map(t => t.id)
     },
   )
-  let (back, set_back) = @react.use_state(false)
-  let (leaving, set_leaving) = @react.use_state(false)
-  let (handled, set_handled) = @react.use_state(false)
-  let physical : @react.ReactRef[TicketHandle] = @react.use_ref(None)
-  let close_button : @react.ReactRef[@dom.Element] = @react.use_ref(None)
+  let (back, set_back) = @view.use_state(false)
+  let (leaving, set_leaving) = @view.use_state(false)
+  let (handled, set_handled) = @view.use_state(false)
+  let physical : @view.ViewRef[TicketHandle] = @view.use_ref(None)
+  let close_button : @view.ViewRef[@dom.Element] = @view.use_ref(None)
   let reduced = reduced_motion()
   let mut index = 0
   for i, ticket in props.tickets {

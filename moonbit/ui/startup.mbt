@@ -1,24 +1,43 @@
 ///|
-fn startup(_props : Unit) -> @react.Element {
-  let (show_opening, set_opening) = @react.use_state(true)
-  let (wants_title, set_wants_title) = @react.use_state_lazy(() => {
-    !has_entered()
-  })
-  let (world_ready, set_world_ready) = @react.use_state(false)
-  let (paper_ready, set_paper_ready) = @react.use_state(false)
-  let (failed, set_failed) = @react.use_state(false)
-  let (guide_request, set_guide_request) = @react.use_state(0)
+fn startup(_props : Unit) -> @view.Element {
+  let (world, set_world) : (
+    ((AppProps) -> @view.Element)?,
+    (((AppProps) -> @view.Element)?) -> Unit,
+  ) = @view.use_state(None)
+  let (show_opening, set_opening) = @view.use_state(true)
+  let (wants_title, set_wants_title) = @view.use_state_lazy(() => !has_entered())
+  let (world_ready, set_world_ready) = @view.use_state(false)
+  let (paper_ready, set_paper_ready) = @view.use_state(false)
+  let (failed, set_failed) = @view.use_state(false)
+  let (guide_request, set_guide_request) = @view.use_state(0)
   let ready = world_ready && paper_ready && !failed
-  let scene_ready = @react.use_callback(() => set_world_ready(true), [])
-  let scene_failed = @react.use_callback(
+  let scene_ready = @view.use_callback(() => set_world_ready(true), [])
+  let scene_failed = @view.use_callback(
     () => {
       set_failed(true)
       set_opening(true)
     },
     [],
   )
-  let reveal = @react.use_callback(() => set_opening(false), [])
-  let show_title = @react.use_callback(
+  effect(
+    () => {
+      let active = Ref(true)
+      launch(async fn() noraise {
+        try {
+          let world_module = load_world().wait()
+          if active.val {
+            set_world(Some(world_component(world_module)))
+          }
+        } catch {
+          _ => if active.val { scene_failed() }
+        }
+      })
+      () => active.val = false
+    },
+    [],
+  )
+  let reveal = @view.use_callback(() => set_opening(false), [])
+  let show_title = @view.use_callback(
     () => {
       set_wants_title(true)
       set_opening(true)
@@ -71,20 +90,19 @@ fn startup(_props : Unit) -> @react.Element {
     enter()
   }
   group([
-    world_boundary(
-      scene_failed,
-      @react.suspense(
-        [
-          component(lazy_world, {
+    match world {
+      Some(render) =>
+        @view.boundary(
+          component(render, {
             covered: show_opening,
             guideRequest: guide_request,
             onReady: scene_ready,
             onShowOpening: show_title,
           }),
-        ],
-        fallback=empty(),
-      ),
-    ),
+          scene_failed,
+        )
+      None => empty()
+    },
     if show_opening {
       opening({
         ready,
@@ -105,8 +123,6 @@ pub fn start() -> @js.Promise[Unit] {
   @js.promisify0(async fn() {
     prepare_ui().wait()
     let root = @dom.document().getElementById("root").unwrap()
-    @react_dom.create_root(root).render(
-      @react.strict_mode([component(startup, ())]),
-    )
+    @view.mount(root, component(startup, ())) |> ignore
   })()
 }

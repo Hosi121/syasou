@@ -7,37 +7,37 @@ pub(all) struct AppProps {
 }
 
 ///|
-pub fn app(props : AppProps) -> @react.Element {
+pub fn app(props : AppProps) -> @view.Element {
   use_visual_viewport()
   let portrait = use_media("(max-width: 760px) and (orientation: portrait)")
   let supports_fullscreen = fullscreen_supported()
-  let (note, set_note) = @react.use_state_lazy(read_note)
+  let (note, set_note) = @view.use_state_lazy(read_note)
   let travel = use_journey(note)
   let journey = travel.journey
   let preferences = travel.preferences
-  let (notebook_open, set_notebook) = @react.use_state(false)
-  let (focus_pocket, set_focus_pocket) = @react.use_state(false)
-  let (archive_open, set_archive) = @react.use_state(false)
+  let (notebook_open, set_notebook) = @view.use_state(false)
+  let (focus_pocket, set_focus_pocket) = @view.use_state(false)
+  let (archive_open, set_archive) = @view.use_state(false)
   let tray_open = travel.pending is Some(_) || archive_open
-  let (guide_open, set_guide) = @react.use_state_lazy(() => {
+  let (guide_open, set_guide) = @view.use_state_lazy(() => {
     !read_guide_done() &&
     journey.phase == @domain.Idle &&
     travel.tickets.all(t => t.kind == Some("sample"))
   })
-  let (guide_step, set_guide_step) = @react.use_state(0)
-  let (window_open, set_window) = @react.use_state(false)
-  let (at_window, set_at_window) = @react.use_state(false)
-  let (view, set_view) = @react.use_state_lazy(read_view)
-  let previous_view = @react.use_ref(
+  let (guide_step, set_guide_step) = @view.use_state(0)
+  let (window_open, set_window) = @view.use_state(false)
+  let (at_window, set_at_window) = @view.use_state(false)
+  let (view, set_view) = @view.use_state_lazy(read_view)
+  let previous_view = @view.use_ref(
     Some(if view == "train" { "snow" } else { view }),
   )
   let outside = view == "train"
-  let (fullscreen, set_fullscreen) = @react.use_state(false)
-  let (fullscreen_error, set_fullscreen_error) = @react.use_state("")
-  let (awake, set_awake) = @react.use_state(false)
-  let (announcement, set_announcement) = @react.use_state("")
-  let sleep_timer : @react.ReactRef[Int] = @react.use_ref(None)
-  let previous_phase = @react.use_ref(Some(journey.phase))
+  let (fullscreen, set_fullscreen) = @view.use_state(false)
+  let (fullscreen_error, set_fullscreen_error) = @view.use_state("")
+  let (awake, set_awake) = @view.use_state(false)
+  let (announcement, set_announcement) = @view.use_state("")
+  let sleep_timer : @view.ViewRef[Int] = @view.use_ref(None)
+  let previous_phase = @view.use_ref(Some(journey.phase))
   let look_target_x = use_motion_value(0.0)
   let look_target_y = use_motion_value(0.0)
   let look_x = spring(look_target_x, [p("stiffness", 25.0), p("damping", 22.0)])
@@ -46,8 +46,8 @@ pub fn app(props : AppProps) -> @react.Element {
   let moving = journey.phase == @domain.Idle ||
     (journey.phase == @domain.Focus && journey.running)
   let sound = use_sound(preferences, moving && !props.covered, window_open)
-  let window_button : @react.ReactRef[@dom.Element] = @react.use_ref(None)
-  let wake = @react.use_callback(
+  let window_button : @view.ViewRef[@dom.Element] = @view.use_ref(None)
+  let wake = @view.use_callback(
     () => {
       set_awake(true)
       if sleep_timer.get_current() is Some(timer) {
@@ -82,7 +82,7 @@ pub fn app(props : AppProps) -> @react.Element {
     },
     [d(props.covered)],
   )
-  let show_guide = @react.use_callback(
+  let show_guide = @view.use_callback(
     () => {
       set_guide_step(0)
       set_guide(true)
@@ -144,7 +144,7 @@ pub fn app(props : AppProps) -> @react.Element {
     },
     [d(journey.phase)],
   )
-  let leave_window = @react.use_callback(
+  let leave_window = @view.use_callback(
     () => {
       set_at_window(false)
       update(set_view, current => {

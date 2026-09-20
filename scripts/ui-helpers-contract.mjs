@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { createServer } from 'vite'
 
 globalThis.window = { location: { search: '' } }
-const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' })
+const server = await createServer({ optimizeDeps: { noDiscovery: true, include: [] }, server: { middlewareMode: true }, appType: 'custom' })
 const fixturePath = new URL('../tests/contract/ui-helpers-fixtures.json', import.meta.url)
 const times = [-Infinity, -60001, -1, -0, 0, .1, 999, 1000, 59999, 60000, 3600000, 9007199254740991, 1e25, Infinity, NaN]
 const classes = [[], ['a', false, null, undefined, 0, 1, { b: true, c: false }], ['p-2 p-4', ['m-1', { hidden: false }]], ['text-sm', 'text-lg', 'hover:p-2 hover:p-3'], ['foo', 'foo']]

@@ -12,7 +12,7 @@ priv struct PointerGrip {
 
 ///|
 priv struct TouchableProps {
-  handle : @react.ReactRef[TicketHandle]
+  handle : @view.ViewRef[TicketHandle]
   ticket : @domain.Ticket
   back : Bool
   disabled : Bool
@@ -22,17 +22,17 @@ priv struct TouchableProps {
 }
 
 ///|
-fn touchable_ticket(props : TouchableProps) -> @react.Element {
+fn touchable_ticket(props : TouchableProps) -> @view.Element {
   component(render_touchable, props)
 }
 
 ///|
-fn render_touchable(props : TouchableProps) -> @react.Element {
+fn render_touchable(props : TouchableProps) -> @view.Element {
   let reduced = use_media("(prefers-reduced-motion: reduce)")
-  let grip : @react.ReactRef[PointerGrip] = @react.use_ref(None)
-  let resting = @react.use_ref(Some(if props.back { 180.0 } else { 0.0 }))
-  let (held, set_held) = @react.use_state(false)
-  let (back, set_back) = @react.use_state(props.back)
+  let grip : @view.ViewRef[PointerGrip] = @view.use_ref(None)
+  let resting = @view.use_ref(Some(if props.back { 180.0 } else { 0.0 }))
+  let (held, set_held) = @view.use_state(false)
+  let (back, set_back) = @view.use_state(props.back)
   let follow = [p("stiffness", 340.0), p("damping", 32.0), p("mass", 0.65)]
   let angle = spring(resting.get_current().unwrap(), follow)
   let x = spring(0.0, follow)
@@ -55,7 +55,7 @@ fn render_touchable(props : TouchableProps) -> @react.Element {
       }
     })
   })
-  let put_down = @react.use_callback(
+  let put_down = @view.use_callback(
     () => {
       x.set(0.0)
       y.set(0.0)
@@ -79,7 +79,7 @@ fn render_touchable(props : TouchableProps) -> @react.Element {
       d(shadow_opacity),
     ],
   )
-  let release = @react.use_callback(
+  let release = @view.use_callback(
     (complete : Bool) => {
       guard grip.get_current() is Some(current) else { return false }
       let released = @domain.release_ticket(current.grip, complete)
@@ -100,7 +100,7 @@ fn render_touchable(props : TouchableProps) -> @react.Element {
     },
     [d(angle), d(props.on_back), d(put_down), d(reduced)],
   )
-  @react.use_imperative_handle(
+  @view.use_imperative_handle(
     props.handle,
     () => { cancel: () => release(false), },
     [d(release)],
@@ -271,6 +271,18 @@ fn render_touchable(props : TouchableProps) -> @react.Element {
       p("data-side", if back { "back" } else { "front" }),
       p("onPointerDown", down),
       p("onPointerMove", pointer_move),
+      // Radix previously suppressed horizontal native touch gestures in its
+      // scroll lock. Keep the ticket drag from starting a browser gesture that
+      // consumes the next tap, while allowing vertical scrolling and pinch zoom.
+      p("onTouchMove", (event : @dom.TouchEvent) => {
+        if grip.get_current() is Some(current) && event.touches.length() == 1 {
+          let touch = event.touches[0]
+          if (touch.clientX - current.grip.x).abs() >
+            (touch.clientY - current.grip.y).abs() {
+            event.preventDefault()
+          }
+        }
+      }),
       p("onPointerUp", (e : UiEvent) => end(e, true)),
       p("onPointerCancel", (e : UiEvent) => end(e, false)),
       p("onLostPointerCapture", (e : UiEvent) => end(e, false)),
