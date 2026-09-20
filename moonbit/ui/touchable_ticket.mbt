@@ -23,7 +23,7 @@ priv struct TouchableProps {
 
 ///|
 fn touchable_ticket(props : TouchableProps) -> @view.Element {
-  component(render_touchable, props)
+  component("render_touchable", render_touchable, props)
 }
 
 ///|
@@ -32,7 +32,7 @@ fn render_touchable(props : TouchableProps) -> @view.Element {
   let grip : @view.ViewRef[PointerGrip] = @view.use_ref(None)
   let resting = @view.use_ref(Some(if props.back { 180.0 } else { 0.0 }))
   let (held, set_held) = @view.use_state(false)
-  let (back, set_back) = @view.use_state(props.back)
+  let (back, _, update_back) = @view.use_state_update(props.back)
   let follow = [p("stiffness", 340.0), p("damping", 32.0), p("mass", 0.65)]
   let angle = spring(resting.get_current().unwrap(), follow)
   let x = spring(0.0, follow)
@@ -47,7 +47,7 @@ fn render_touchable(props : TouchableProps) -> @view.Element {
   let shadow_x = use_transform(x, v => v * 0.6)
   let shadow_width = use_transform(angle, @domain.ticket_shadow_width)
   use_motion_event(angle, "change", v => {
-    update(set_back, current => {
+    update_back(current => {
       if @domain.ticket_is_back(v) == current {
         current
       } else {
@@ -98,12 +98,17 @@ fn render_touchable(props : TouchableProps) -> @view.Element {
       (props.on_back)(released.back)
       true
     },
-    [d(angle), d(props.on_back), d(put_down), d(reduced)],
+    [
+      d(angle),
+      @view.reference_dependency(props.on_back),
+      @view.reference_dependency(put_down),
+      d(reduced),
+    ],
   )
   @view.use_imperative_handle(
     props.handle,
     () => { cancel: () => release(false), },
-    [d(release)],
+    [@view.reference_dependency(release)],
   )
   observe(
     () => {
@@ -139,11 +144,11 @@ fn render_touchable(props : TouchableProps) -> @view.Element {
         visibility()
       }
     },
-    [d(release)],
+    [@view.reference_dependency(release)],
   )
   observe(() => if props.disabled { release(false) |> ignore }, [
     d(props.disabled),
-    d(release),
+    @view.reference_dependency(release),
   ])
   observe(
     () => {
@@ -163,7 +168,7 @@ fn render_touchable(props : TouchableProps) -> @view.Element {
     },
     [
       d(reduced),
-      d(release),
+      @view.reference_dependency(release),
       d(x),
       d(y),
       d(z),
@@ -191,9 +196,9 @@ fn render_touchable(props : TouchableProps) -> @view.Element {
     let next = @domain.begin_ticket_grip(
       event.x(),
       event.y(),
-      rect.left,
-      rect.width,
-      rect.height,
+      rect.left(),
+      rect.width(),
+      rect.height(),
       resting.get_current().unwrap(),
       props.back,
     )
@@ -205,7 +210,7 @@ fn render_touchable(props : TouchableProps) -> @view.Element {
     if reduced {
       return
     }
-    let lifted = @domain.lift_ticket(next, rect.top)
+    let lifted = @domain.lift_ticket(next, rect.top())
     y.set(lifted.y)
     z.set(lifted.z)
     tilt.set(lifted.tilt)
@@ -247,10 +252,10 @@ fn render_touchable(props : TouchableProps) -> @view.Element {
     let hovered = @domain.hover_ticket(
       event.x(),
       event.y(),
-      rect.left,
-      rect.top,
-      rect.width,
-      rect.height,
+      rect.left(),
+      rect.top(),
+      rect.width(),
+      rect.height(),
     )
     tilt.set(hovered.tilt)
     roll.set(hovered.roll)
@@ -269,30 +274,30 @@ fn render_touchable(props : TouchableProps) -> @view.Element {
       p("className", "ticket-handling"),
       p("data-held", held),
       p("data-side", if back { "back" } else { "front" }),
-      p("onPointerDown", down),
-      p("onPointerMove", pointer_move),
+      p1("onPointerDown", down),
+      p1("onPointerMove", pointer_move),
       // Radix previously suppressed horizontal native touch gestures in its
       // scroll lock. Keep the ticket drag from starting a browser gesture that
       // consumes the next tap, while allowing vertical scrolling and pinch zoom.
-      p("onTouchMove", (event : @dom.TouchEvent) => {
-        if grip.get_current() is Some(current) && event.touches.length() == 1 {
-          let touch = event.touches[0]
-          if (touch.clientX - current.grip.x).abs() >
-            (touch.clientY - current.grip.y).abs() {
+      p1("onTouchMove", (event : @dom.TouchEvent) => {
+        if grip.get_current() is Some(current) && event.touches().length() == 1 {
+          let touch = event.touches()[0]
+          if (touch.client_x() - current.grip.x).abs() >
+            (touch.client_y() - current.grip.y).abs() {
             event.preventDefault()
           }
         }
       }),
-      p("onPointerUp", (e : UiEvent) => end(e, true)),
-      p("onPointerCancel", (e : UiEvent) => end(e, false)),
-      p("onLostPointerCapture", (e : UiEvent) => end(e, false)),
-      p("onPointerLeave", () => if grip.get_current() is None { put_down() }),
-      p("onFocusCapture", (e : UiEvent) => {
+      p1("onPointerUp", (e : UiEvent) => end(e, true)),
+      p1("onPointerCancel", (e : UiEvent) => end(e, false)),
+      p1("onLostPointerCapture", (e : UiEvent) => end(e, false)),
+      p0("onPointerLeave", () => if grip.get_current() is None { put_down() }),
+      p1("onFocusCapture", (e : UiEvent) => {
         if e.matches("textarea, input") {
           put_down()
         }
       }),
-      p("onDragStart", (e : UiEvent) => {
+      p1("onDragStart", (e : UiEvent) => {
         if !e.closest("textarea, input, [contenteditable]") {
           e.prevent()
         }

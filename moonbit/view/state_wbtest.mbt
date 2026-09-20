@@ -2,44 +2,45 @@
 test "functional updates compose before a render and setters stay stable" {
   let scope = new_scope()
   let saved : Ref[((Int) -> Unit)?] = Ref(None)
+  let updater : Ref[(((Int) -> Int) -> Unit)?] = Ref(None)
   let initializations = Ref(0)
   let seen = Ref(0)
   let render = () => {
-    let (value, set) = use_state_lazy(() => {
+    let (value, set, apply) = use_state_lazy_update(() => {
       initializations.val += 1
       0
     })
+    updater.val = Some(apply)
     seen.val = value
     saved.val = Some(set)
     Blank
   }
   run_in_scope(scope, render) |> ignore
   let first = saved.val.unwrap()
-  update(first, n => n + 1)
-  update(first, n => n + 1)
+  updater.val.unwrap()(n => n + 1)
+  updater.val.unwrap()(n => n + 1)
   run_in_scope(scope, render) |> ignore
   assert_eq(seen.val, 2)
   assert_eq(initializations.val, 1)
-  assert_true(identical(@js.any(first), @js.any(saved.val.unwrap())))
+  assert_true(physical_equal(first, saved.val.unwrap()))
   dispose_scope(scope)
   first(99)
-  let retained : Int = setter_slot(@js.any(first)).value.cast()
-  assert_eq(retained, 2)
+  assert_eq((@js.unbox(scope.slots[0].value) : Int), 2)
 }
 
 ///|
 test "effects clean up before replacement and on disposal" {
   let scope = new_scope()
-  let dependency = Ref(1)
+  let observed = Ref(1)
   let events : Array[Int] = []
   let render = () => {
-    let current = dependency.val
+    let current = observed.val
     use_effect(
       () => {
         events.push(current)
         () => events.push(-current)
       },
-      [@js.any(current)],
+      [dependency(current)],
     )
     Blank
   }
@@ -49,7 +50,7 @@ test "effects clean up before replacement and on disposal" {
   run_in_scope(scope, render) |> ignore
   flush_effects()
   assert_eq(events.length(), 1)
-  dependency.val = 2
+  observed.val = 2
   run_in_scope(scope, render) |> ignore
   flush_effects()
   dispose_scope(scope)
@@ -59,25 +60,25 @@ test "effects clean up before replacement and on disposal" {
 ///|
 test "superseded and disposed pending effects never run" {
   let scope = new_scope()
-  let dependency = Ref(1)
+  let observed = Ref(1)
   let events : Array[Int] = []
   let render = () => {
-    let current = dependency.val
+    let current = observed.val
     use_effect(
       () => {
         events.push(current)
         () => ()
       },
-      [@js.any(current)],
+      [dependency(current)],
     )
     Blank
   }
   run_in_scope(scope, render) |> ignore
-  dependency.val = 2
+  observed.val = 2
   run_in_scope(scope, render) |> ignore
   flush_effects()
   assert_eq(events, [2])
-  dependency.val = 3
+  observed.val = 3
   run_in_scope(scope, render) |> ignore
   dispose_scope(scope)
   flush_effects()
@@ -99,8 +100,8 @@ test "nested components restore the parent hook scope" {
     Blank
   })
   |> ignore
-  assert_eq(parent.slots.length(), 4)
-  assert_eq(child.slots.length(), 2)
+  assert_eq(parent.slots.length(), 6)
+  assert_eq(child.slots.length(), 3)
   assert_true(runtime.scope is None)
 }
 
@@ -150,5 +151,5 @@ test "host rendering failures restore hook scope before recovery" {
     Blank
   })
   |> ignore
-  assert_eq(next.slots.length(), 2)
+  assert_eq(next.slots.length(), 3)
 }

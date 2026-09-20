@@ -11,7 +11,11 @@ fn settings(
   on_change : (Preferences) -> Unit,
   active : Bool,
 ) -> @view.Element {
-  component(render_settings, { preferences, on_change, active, })
+  component("render_settings", render_settings, {
+    preferences,
+    on_change,
+    active,
+  })
 }
 
 ///|
@@ -50,7 +54,7 @@ fn render_settings(props : SettingsProps) -> @view.Element {
         p("type", "single"),
         p("className", "paper-options"),
         p("value", value.to_string()),
-        p("onValueChange", (v : String) => {
+        p1("onValueChange", (v : String) => {
           if v != "" {
             on_change(prefs.with_value(field, number_value(v)))
           }
@@ -100,7 +104,7 @@ fn render_settings(props : SettingsProps) -> @view.Element {
             p("type", "single"),
             p("className", "paper-options speed-options"),
             p("value", prefs.speed()),
-            p("onValueChange", (v : String) => {
+            p1("onValueChange", (v : String) => {
               if v != "" {
                 on_change(prefs.with_value("speed", v))
               }
@@ -123,7 +127,7 @@ fn render_settings(props : SettingsProps) -> @view.Element {
             p("type", "single"),
             p("className", "paper-options scene-options"),
             p("value", prefs.scene()),
-            p("onValueChange", (v : String) => {
+            p1("onValueChange", (v : String) => {
               if v != "" {
                 on_change(prefs.with_value("scene", v))
               }
@@ -176,7 +180,7 @@ fn render_settings(props : SettingsProps) -> @view.Element {
                 p("min", "0"),
                 p("max", "100"),
                 p("value", value),
-                p("onChange", (e : UiEvent) => {
+                p1("onChange", (e : UiEvent) => {
                   on_change(prefs.with_value(key, e.number()))
                 }),
               ],
@@ -191,7 +195,7 @@ fn render_settings(props : SettingsProps) -> @view.Element {
           p("className", "clock-setting"),
           p("aria-label", "残り時間を表示する"),
           p("aria-pressed", prefs.showTime()),
-          p("onClick", () => {
+          p0("onClick", () => {
             on_change(prefs.with_value("showTime", !prefs.showTime()))
           }),
         ],

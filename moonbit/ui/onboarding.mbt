@@ -117,7 +117,7 @@ priv struct GuideProps {
 
 ///|
 fn onboarding(props : GuideProps) -> @view.Element {
-  component(render_guide, props)
+  component("render_guide", render_guide, props)
 }
 
 ///|
@@ -135,7 +135,7 @@ fn render_guide(props : GuideProps) -> @view.Element {
     "Root",
     [
       p("open", true),
-      p("onOpenChange", (open : Bool) => if !open { (props.on_skip)() }),
+      p1("onOpenChange", (open : Bool) => if !open { (props.on_skip)() }),
     ],
     [
       foreign("dialog", "Portal", [], [
@@ -157,13 +157,13 @@ fn render_guide(props : GuideProps) -> @view.Element {
           "Content",
           [
             p("className", "guide-position"),
-            p("onOpenAutoFocus", (event : UiEvent) => {
+            p1("onOpenAutoFocus", (event : UiEvent) => {
               event.prevent()
               if primary.get_current() is Some(value) {
                 focus(value)
               }
             }),
-            p("onCloseAutoFocus", (event : UiEvent) => {
+            p1("onCloseAutoFocus", (event : UiEvent) => {
               event.prevent()
               if !receiving.get_current().unwrap_or(false) {
                 microtask(() => focus_selector(".notebook-object"))
@@ -245,7 +245,7 @@ fn render_guide(props : GuideProps) -> @view.Element {
                       "button",
                       [
                         p("className", "guide-back"),
-                        p("onClick", () => (props.on_step)(props.step - 1)),
+                        p0("onClick", () => (props.on_step)(props.step - 1)),
                         p("aria-label", "前の案内へ"),
                       ],
                       [icon("ArrowLeft", 17.0, 1.0)],
@@ -258,7 +258,7 @@ fn render_guide(props : GuideProps) -> @view.Element {
                     [
                       p("ref", primary),
                       p("className", "guide-next"),
-                      p(
+                      p0(
                         "onClick",
                         if props.step == 2 {
                           finish

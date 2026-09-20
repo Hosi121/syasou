@@ -4,7 +4,7 @@
 pub type PropertyValue
 
 ///|
-fn[T] p(name : String, value : T) -> (String, PropertyValue) {
+fn[T : @js.ToJs] p(name : String, value : T) -> (String, PropertyValue) {
   (name, @js.any(value).cast())
 }
 
@@ -58,25 +58,26 @@ fn group(children : Array[@view.Element]) -> @view.Element {
 
 ///|
 fn[T] component(
+  identity : String,
   render : (T) -> @view.Element,
   props : T,
   key? : String,
 ) -> @view.Element {
-  @view.component(render, props, key?)
+  @view.component(identity, render, props, key?)
 }
 
 ///|
-fn[T] d(value : T) -> @js.Any {
-  @js.any(value)
+fn[T : @js.Same] d(value : T) -> @view.Dependency {
+  @view.dependency(value)
 }
 
 ///|
-fn effect(run : () -> () -> Unit, deps : Array[@js.Any]) -> Unit {
+fn effect(run : () -> () -> Unit, deps : Array[@view.Dependency]) -> Unit {
   @view.use_effect(run, deps)
 }
 
 ///|
-fn observe(run : () -> Unit, deps : Array[@js.Any]) -> Unit {
+fn observe(run : () -> Unit, deps : Array[@view.Dependency]) -> Unit {
   effect(
     () => {
       run()
@@ -84,11 +85,6 @@ fn observe(run : () -> Unit, deps : Array[@js.Any]) -> Unit {
     },
     deps,
   )
-}
-
-///|
-fn[T] update(setter : (T) -> Unit, transform : (T) -> T) -> Unit {
-  @view.update(setter, transform)
 }
 
 ///|
@@ -132,7 +128,7 @@ fn use_motion_value(value : Double) -> MotionValue {
 }
 
 ///|
-fn[T] spring(
+fn[T : @js.ToJs] spring(
   value : T,
   options : Array[(String, PropertyValue)],
 ) -> MotionValue {
@@ -159,4 +155,17 @@ fn use_motion_event(
 ///|
 fn reduced_motion() -> Bool {
   use_media("(prefers-reduced-motion: reduce)")
+}
+
+///|
+fn p0(name : String, callback : () -> Unit) -> (String, PropertyValue) {
+  p(name, @js.from_fn0(callback))
+}
+
+///|
+fn[T : @js.FromJs] p1(
+  name : String,
+  callback : (T) -> Unit,
+) -> (String, PropertyValue) {
+  p(name, @js.from_fn1(callback))
 }

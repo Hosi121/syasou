@@ -1,0 +1,25 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/host_observer"
+
+import {
+  "Hosi121/syasou/host_dom",
+  "Hosi121/syasou/interop",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+#external
+pub type ResizeObserver
+pub fn ResizeObserver::disconnect(Self) -> Unit
+pub fn ResizeObserver::new((@interop.Any, @interop.Any) -> Unit) -> Self
+pub fn ResizeObserver::observe(Self, @host_dom.Element) -> Unit
+pub impl @interop.FromJs for ResizeObserver
+pub impl @interop.Same for ResizeObserver
+pub impl @interop.ToJs for ResizeObserver
+
+// Type aliases
+
+// Traits

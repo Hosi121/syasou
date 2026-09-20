@@ -1,5 +1,12 @@
 import '@fontsource/dm-mono/latin-400.css'
 import './styles.css'
-import { start } from './generated/moonbit/ui_startup.js'
+import { start } from './wasm'
 
-await start()
+const root = document.getElementById('root')!
+const fallback = root.firstElementChild!
+try {
+  await start()
+} catch {
+  root.replaceChildren(fallback)
+  document.documentElement.dataset.bootError = 'true'
+}

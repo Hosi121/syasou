@@ -21,9 +21,17 @@ globalThis.window = { location: { search: '' } }
 const originalSound = await import('../tests/contract/oracle/sound.ts')
 const originalWindow = await import('../tests/contract/oracle/windowRenderer.ts')
 const originalStorage = await import('../tests/contract/oracle/utils.ts')
-const actualSound = source ? originalSound : await import('../src/lib/sound.ts')
-const actualWindow = source ? originalWindow : await import('../src/lib/windowRenderer.ts')
-const actualStorage = source ? originalStorage : await import('../src/lib/utils.ts')
+const wasm = process.argv.includes('--wasm') ? await (await import('./load-wasm-contract.mjs')).loadWasmContract() : null
+const wasmSound = wasm && { TrainSound: class {
+  constructor() { this.engine = wasm.createSound() }
+  async enable() { await wasm.enableSound(this.engine) }
+  async disable() { await wasm.disableSound(this.engine) }
+  update(preferences, moving, open) { wasm.updateSound(this.engine, preferences, moving, open) }
+  dispose() { wasm.disposeSound(this.engine) }
+} }
+const actualSound = wasmSound ?? (source ? originalSound : await import('../src/lib/sound.ts'))
+const actualWindow = wasm ?? (source ? originalWindow : await import('../src/lib/windowRenderer.ts'))
+const actualStorage = wasm ?? (source ? originalStorage : await import('../src/lib/utils.ts'))
 const construct = () => new actualSound.TrainSound()
 const results = {}
 for (const failure of ['', 'reduced', 'no-webgl', 'shader-null', 'shader-compile', 'shader-throw', 'program-null', 'program-link', 'buffer-null', 'uniform-null']) results[`renderer/${failure || 'normal'}`] = rendererTrace(actualWindow.createWindowRenderer, failure)

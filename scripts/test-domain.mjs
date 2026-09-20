@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
-import * as domain from '../src/generated/moonbit/bridge.js'
+import { loadWasmContract } from './load-wasm-contract.mjs'
+const domain = process.argv.includes('--wasm') ? await loadWasmContract() : await import('../src/generated/moonbit/bridge.js')
 import { decode, sharing } from '../tests/contract/cases.mjs'
 import { checkArtifacts } from './domain-artifacts.mjs'
 

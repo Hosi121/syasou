@@ -10,7 +10,7 @@ priv struct OpeningProps {
 
 ///|
 fn opening(props : OpeningProps) -> @view.Element {
-  component(render_opening, props)
+  component("render_opening", render_opening, props)
 }
 
 ///|
@@ -20,7 +20,7 @@ fn render_opening(props : OpeningProps) -> @view.Element {
   observe(() => if props.leaving && reduced { (props.on_complete)() }, [
     d(props.leaving),
     d(reduced),
-    d(props.on_complete),
+    @view.reference_dependency(props.on_complete),
   ])
   observe(
     () => {
@@ -50,7 +50,7 @@ fn render_opening(props : OpeningProps) -> @view.Element {
           p("ease", "easeOut"),
         ]),
       ),
-      p("onAnimationComplete", () => if props.leaving { (props.on_complete)() }),
+      p0("onAnimationComplete", () => if props.leaving { (props.on_complete)() }),
     ],
     [
       node("div", [p("className", "opening-light"), p("aria-hidden", "true")], []),
@@ -128,7 +128,7 @@ fn render_opening(props : OpeningProps) -> @view.Element {
                   node("p", [], [
                     text("景色をひらけませんでした。"),
                   ]),
-                  node("button", [p("onClick", reload)], [
+                  node("button", [p0("onClick", reload)], [
                     text("もう一度ひらく"),
                     icon("RotateCcw", 14.0, 1.0),
                   ]),
@@ -152,7 +152,7 @@ fn render_opening(props : OpeningProps) -> @view.Element {
                     [
                       p("ref", enter_button),
                       p("className", "opening-enter"),
-                      p("onClick", props.on_enter),
+                      p0("onClick", props.on_enter),
                       p("disabled", props.leaving),
                     ],
                     [
@@ -164,7 +164,7 @@ fn render_opening(props : OpeningProps) -> @view.Element {
                     "button",
                     [
                       p("className", "opening-guide"),
-                      p("onClick", props.on_guide),
+                      p0("onClick", props.on_guide),
                       p("disabled", props.leaving),
                     ],
                     [text("使い方を見る")],

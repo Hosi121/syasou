@@ -1,0 +1,55 @@
+import {
+  "Hosi121/syasou/bridge",
+  "Hosi121/syasou/ui",
+  "Hosi121/syasou/interop" @js,
+}
+
+supported_targets = "wasm-gc"
+
+options(
+  link: {
+    "wasm-gc": {
+      "exports": [
+        "advance_journey:advanceJourney",
+        "begin_ticket_grip:beginTicketGrip",
+        "create_sound:createSound",
+        "create_window_renderer:createWindowRenderer",
+        "default_preferences:defaultPreferences",
+        "disable_sound:disableSound",
+        "dispose_sound:disposeSound",
+        "drag_ticket:dragTicket",
+        "empty_journey:emptyJourney",
+        "enable_sound:enableSound",
+        "format_time:formatTime",
+        "hover_ticket:hoverTicket",
+        "is_demo_search:isDemoSearch",
+        "is_journey:isJourney",
+        "is_note:isNote",
+        "is_preferences:isPreferences",
+        "is_stored_boolean:isStoredBoolean",
+        "is_ticket:isTicket",
+        "is_travel_state:isTravelState",
+        "is_view:isView",
+        "journey_reducer:journeyReducer",
+        "journey_remaining:journeyRemaining",
+        "lift_ticket:liftTicket",
+        "migrate_legacy_journey:migrateLegacyJourney",
+        "profile_storage_key:profileStorageKey",
+        "read_storage:readStorage",
+        "release_ticket:releaseTicket",
+        "restore_travel:restoreTravel",
+        "sample_tickets:sampleTickets",
+        "ticket_is_back:ticketIsBack",
+        "ticket_resting_angle:ticketRestingAngle",
+        "ticket_serial:ticketSerial",
+        "ticket_shadow_width:ticketShadowWidth",
+        "travel_reducer:travelReducer",
+        "update_sound:updateSound",
+        "views:views",
+        "write_storage:writeStorage",
+        "render_contract:renderContract",
+      ],
+      "use-js-builtin-string": true,
+    },
+  },
+)

@@ -9,7 +9,7 @@ priv struct LandscapeProps {
 
 ///|
 fn landscape(props : LandscapeProps) -> @view.Element {
-  component(render_landscape, props)
+  component("render_landscape", render_landscape, props)
 }
 
 ///|
@@ -137,4 +137,26 @@ fn render_landscape(props : LandscapeProps) -> @view.Element {
       node("div", [p("className", "glass-reflection")], []),
     ],
   )
+}
+
+///|
+impl @js.ToJs for LandscapeProps with fn to_js(self) {
+  properties([
+    p("scene", self.scene),
+    p("speed", self.speed),
+    p("moving", self.moving),
+    p("windowOpen", self.windowOpen),
+    p("travelling", self.travelling),
+  ])
+}
+
+///|
+impl @js.FromJs for LandscapeProps with fn from_js(value) {
+  {
+    scene: value._get("scene").cast(),
+    speed: value._get("speed").cast(),
+    moving: value._get("moving").cast(),
+    windowOpen: value._get("windowOpen").cast(),
+    travelling: value._get("travelling").cast(),
+  }
 }

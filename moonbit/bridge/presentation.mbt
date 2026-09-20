@@ -1,9 +1,11 @@
 ///|
 #module("clsx")
+#cfg(target="js")
 extern "js" fn clsx(values : @js.Any) -> String = "clsx"
 
 ///|
 #module("tailwind-merge")
+#cfg(target="js")
 extern "js" fn tw_merge(value : String) -> String = "twMerge"
 
 ///|
@@ -18,6 +20,7 @@ pub fn format_time(milliseconds : Double) -> String {
 
 ///|
 // URLSearchParams has methods upstream but no constructor binding.
+#cfg(target="js")
 extern "js" fn search_params(search : String) -> @url.URLSearchParams =
   #| search => new URLSearchParams(search)
 

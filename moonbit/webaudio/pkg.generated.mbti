@@ -2,7 +2,7 @@
 package "Hosi121/syasou/webaudio"
 
 import {
-  "mizchi/js_core",
+  "Hosi121/syasou/interop",
 }
 
 // Values
@@ -13,6 +13,9 @@ import {
 #external
 pub type AudioBuffer
 pub fn AudioBuffer::channel(Self, Int) -> Samples
+pub impl @interop.FromJs for AudioBuffer
+pub impl @interop.Same for AudioBuffer
+pub impl @interop.ToJs for AudioBuffer
 
 #external
 pub type AudioBufferSourceNode
@@ -23,11 +26,14 @@ pub fn AudioBufferSourceNode::set_loop(Self, Bool) -> Unit
 pub fn AudioBufferSourceNode::start(Self, Double, Double) -> Unit
 pub fn AudioBufferSourceNode::stop(Self, Double) -> Unit
 pub fn AudioBufferSourceNode::stop_now(Self) -> Unit
+pub impl @interop.FromJs for AudioBufferSourceNode
+pub impl @interop.Same for AudioBufferSourceNode
+pub impl @interop.ToJs for AudioBufferSourceNode
 
 #external
 pub type AudioContext
 pub fn AudioContext::AudioContext() -> Self
-pub fn AudioContext::close(Self) -> @js_core.Promise[Unit]
+pub fn AudioContext::close(Self) -> @interop.Promise[Unit]
 pub fn AudioContext::create_buffer(Self, Int, Int, Double) -> AudioBuffer
 pub fn AudioContext::create_compressor(Self) -> DynamicsCompressorNode
 pub fn AudioContext::create_filter(Self) -> BiquadFilterNode
@@ -36,15 +42,21 @@ pub fn AudioContext::create_oscillator(Self) -> OscillatorNode
 pub fn AudioContext::create_source(Self) -> AudioBufferSourceNode
 pub fn AudioContext::current_time(Self) -> Double
 pub fn AudioContext::destination(Self) -> AudioNode
-pub fn AudioContext::resume_(Self) -> @js_core.Promise[Unit]
+pub fn AudioContext::resume_(Self) -> @interop.Promise[Unit]
 pub fn AudioContext::sample_rate(Self) -> Double
 pub fn AudioContext::state(Self) -> String
-pub fn AudioContext::suspend(Self) -> @js_core.Promise[Unit]
+pub fn AudioContext::suspend(Self) -> @interop.Promise[Unit]
+pub impl @interop.FromJs for AudioContext
+pub impl @interop.Same for AudioContext
+pub impl @interop.ToJs for AudioContext
 
 #external
 pub type AudioNode
 pub fn AudioNode::connect(Self, Self) -> Self
 pub fn AudioNode::disconnect(Self) -> Unit
+pub impl @interop.FromJs for AudioNode
+pub impl @interop.Same for AudioNode
+pub impl @interop.ToJs for AudioNode
 
 #external
 pub type AudioParam
@@ -52,6 +64,9 @@ pub fn AudioParam::at_time(Self, Double, Double) -> Unit
 pub fn AudioParam::exponential_ramp(Self, Double, Double) -> Unit
 pub fn AudioParam::set_value(Self, Double) -> Unit
 pub fn AudioParam::target(Self, Double, Double, Double) -> Unit
+pub impl @interop.FromJs for AudioParam
+pub impl @interop.Same for AudioParam
+pub impl @interop.ToJs for AudioParam
 
 #external
 pub type BiquadFilterNode
@@ -59,17 +74,26 @@ pub fn BiquadFilterNode::as_node(Self) -> AudioNode
 pub fn BiquadFilterNode::frequency(Self) -> AudioParam
 pub fn BiquadFilterNode::q(Self) -> AudioParam
 pub fn BiquadFilterNode::set_type(Self, String) -> Unit
+pub impl @interop.FromJs for BiquadFilterNode
+pub impl @interop.Same for BiquadFilterNode
+pub impl @interop.ToJs for BiquadFilterNode
 
 #external
 pub type DynamicsCompressorNode
 pub fn DynamicsCompressorNode::as_node(Self) -> AudioNode
 pub fn DynamicsCompressorNode::ratio(Self) -> AudioParam
 pub fn DynamicsCompressorNode::threshold(Self) -> AudioParam
+pub impl @interop.FromJs for DynamicsCompressorNode
+pub impl @interop.Same for DynamicsCompressorNode
+pub impl @interop.ToJs for DynamicsCompressorNode
 
 #external
 pub type GainNode
 pub fn GainNode::as_node(Self) -> AudioNode
 pub fn GainNode::gain(Self) -> AudioParam
+pub impl @interop.FromJs for GainNode
+pub impl @interop.Same for GainNode
+pub impl @interop.ToJs for GainNode
 
 #external
 pub type OscillatorNode
@@ -77,12 +101,18 @@ pub fn OscillatorNode::as_node(Self) -> AudioNode
 pub fn OscillatorNode::frequency(Self) -> AudioParam
 pub fn OscillatorNode::start(Self) -> Unit
 pub fn OscillatorNode::stop(Self) -> Unit
+pub impl @interop.FromJs for OscillatorNode
+pub impl @interop.Same for OscillatorNode
+pub impl @interop.ToJs for OscillatorNode
 
 #external
 pub type Samples
 pub fn Samples::get(Self, Int) -> Double
 pub fn Samples::length(Self) -> Int
 pub fn Samples::set(Self, Int, Double) -> Unit
+pub impl @interop.FromJs for Samples
+pub impl @interop.Same for Samples
+pub impl @interop.ToJs for Samples
 
 // Type aliases
 

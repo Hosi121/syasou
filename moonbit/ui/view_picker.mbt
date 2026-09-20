@@ -6,13 +6,13 @@ priv struct ViewPickerProps {
 
 ///|
 fn view_picker(value : String, on_change : (String) -> Unit) -> @view.Element {
-  component(render_view_picker, { value, on_change, })
+  component("render_view_picker", render_view_picker, { value, on_change, })
 }
 
 ///|
 fn render_view_picker(props : ViewPickerProps) -> @view.Element {
   let (open, set_open) = @view.use_state(false)
-  foreign("popover", "Root", [p("open", open), p("onOpenChange", set_open)], [
+  foreign("popover", "Root", [p("open", open), p1("onOpenChange", set_open)], [
     foreign("popover", "Trigger", [p("asChild", true)], [
       node(
         "button",
@@ -35,7 +35,7 @@ fn render_view_picker(props : ViewPickerProps) -> @view.Element {
           p("sideOffset", 14),
           p("collisionPadding", 24),
           p("aria-label", "眺めを選ぶ"),
-          p("onEscapeKeyDown", (e : UiEvent) => e.stop()),
+          p1("onEscapeKeyDown", (e : UiEvent) => e.stop()),
         ],
         [
           foreign(
@@ -46,7 +46,7 @@ fn render_view_picker(props : ViewPickerProps) -> @view.Element {
               p("className", "view-options"),
               p("value", props.value),
               p("aria-label", "眺め"),
-              p("onValueChange", (next : String) => {
+              p1("onValueChange", (next : String) => {
                 if next == "forest" || next == "snow" || next == "train" {
                   (props.on_change)(next)
                   set_open(false)

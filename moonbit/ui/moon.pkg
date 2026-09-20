@@ -1,16 +1,16 @@
 import {
   "Hosi121/syasou/domain",
   "Hosi121/syasou/bridge",
-  "mizchi/js_core" @js,
-  "mizchi/js_browser/dom",
-  "mizchi/js_browser/storage",
-  "mizchi/js_builtin/date",
+  "Hosi121/syasou/interop" @js,
+  "Hosi121/syasou/host_dom" @dom,
+  "Hosi121/syasou/host_storage" @storage,
+  "Hosi121/syasou/host_date" @date,
   "moonbitlang/core/math",
-  "mizchi/js_web/crypto",
+  "Hosi121/syasou/host_crypto" @crypto,
   "Hosi121/syasou/view",
 }
 
-supported_targets = "js"
+supported_targets = "+js+wasm-gc"
 
 options(
   link: {

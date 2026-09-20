@@ -1,21 +1,13 @@
 import {
   "Hosi121/syasou/browser",
   "Hosi121/syasou/domain",
-  "mizchi/js_core" @js,
-  "mizchi/js_web/url",
+  "Hosi121/syasou/interop" @js,
+  "Hosi121/syasou/host_url" @url,
 }
 
-supported_targets = "js"
+supported_targets = "+js+wasm-gc"
 
 options(
-  targets: {
-    "journey.mbt": [ "js" ],
-    "tickets.mbt": [ "js" ],
-    "validation.mbt": [ "js" ],
-    "browser.mbt": [ "js" ],
-    "interaction.mbt": [ "js" ],
-    "legacy.mbt": [ "js" ],
-  },
   link: {
     "js": {
       "exports": [

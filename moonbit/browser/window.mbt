@@ -144,16 +144,16 @@ fn Renderer::draw(self : Renderer) -> Unit {
   if self.disposed || self.lost || hidden() {
     return
   }
-  self.gl.viewport(0, 0, self.canvas.width, self.canvas.height)
+  self.gl.viewport(0, 0, self.canvas.width(), self.canvas.height())
   self.gl.uniform2f(
     self.resolution,
-    self.canvas.width.to_double(),
-    self.canvas.height.to_double(),
+    self.canvas.width().to_double(),
+    self.canvas.height().to_double(),
   )
   self.gl.uniform1f(self.time, self.animation_time)
   self.gl.uniform1f(
     self.travel,
-    if self.reduced_motion.matches {
+    if self.reduced_motion.matches() {
       0.0
     } else {
       self.travel_time
@@ -169,7 +169,7 @@ fn Renderer::animate(self : Renderer, now : Double) -> Unit {
   if self.disposed ||
     self.lost ||
     hidden() ||
-    self.reduced_motion.matches ||
+    self.reduced_motion.matches() ||
     !self.params.moving {
     return
   }
@@ -194,7 +194,7 @@ fn Renderer::refresh(self : Renderer) -> Unit {
   if !self.disposed &&
     !self.lost &&
     !hidden() &&
-    !self.reduced_motion.matches &&
+    !self.reduced_motion.matches() &&
     self.params.moving {
     self.frame = @dom.window().requestAnimationFrame(fn(now) {
       self.animate(now)
@@ -205,8 +205,8 @@ fn Renderer::refresh(self : Renderer) -> Unit {
 ///|
 fn Renderer::resize(self : Renderer) -> Unit {
   let rect = bounds(self.canvas)
-  self.canvas.width = @math.Math::round(rect.width).max(1)
-  self.canvas.height = @math.Math::round(rect.height).max(1)
+  self.canvas.set_width(@math.Math::round(rect.width()).max(1))
+  self.canvas.set_height(@math.Math::round(rect.height()).max(1))
   self.refresh()
 }
 

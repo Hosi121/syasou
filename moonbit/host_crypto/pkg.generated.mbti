@@ -1,0 +1,23 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/host_crypto"
+
+import {
+  "Hosi121/syasou/interop",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+#external
+pub type Crypto
+pub fn Crypto::get() -> Self
+pub fn Crypto::randomUUID(Self) -> String
+pub impl @interop.FromJs for Crypto
+pub impl @interop.Same for Crypto
+pub impl @interop.ToJs for Crypto
+
+// Type aliases
+
+// Traits

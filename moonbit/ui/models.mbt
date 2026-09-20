@@ -7,6 +7,7 @@ pub type Preferences
 priv type SavedTravel
 
 ///|
+#cfg(target="js")
 extern "js" fn location_search() -> String =
   #| () => window.location.search
 
@@ -34,7 +35,7 @@ fn read_preferences() -> Preferences {
 }
 
 ///|
-fn[T] Preferences::with_value(
+fn[T : @js.ToJs] Preferences::with_value(
   self : Preferences,
   key : String,
   value : T,
@@ -147,10 +148,10 @@ fn reduce_travel(travel : SavedTravel, event : TravelEvent) -> SavedTravel {
 fn use_travel_reducer(
   initialize : () -> SavedTravel,
 ) -> (SavedTravel, (TravelEvent) -> Unit) {
-  let (travel, set_travel) = @view.use_state_lazy(initialize)
+  let (travel, _, update_travel) = @view.use_state_lazy_update(initialize)
   let dispatch = @view.use_callback(
     (event : TravelEvent) => {
-      @view.update(set_travel, current => reduce_travel(current, event))
+      update_travel(current => reduce_travel(current, event))
     },
     [],
   )

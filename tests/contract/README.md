@@ -32,15 +32,12 @@ workflow. Routine push/PR CI verifies the pure core, API contracts and build.
 | WebGL renderer and shaders | `browser/window.mbt`, `browser/shaders.mbt` | `createWindowRenderer` with update/dispose |
 | Audio synthesis and scheduling | `browser/sound.mbt`, `domain/ambience.mbt` | `TrainSound` constructor, enable/disable/update/dispose |
 | Screens, DOM updates, state and lifecycle | `ui/`, `view/` | original DOM, labels, focus, pointer behavior and browser scenarios |
-| Startup and lazy world loading | `ui_startup/`, `ui_world/` | title loading state, delayed world import, failed download/retry |
+| Startup and scenery resources | `wasm/`, `ui/startup.mbt` | title loading state, delayed style import, failed download/retry |
 | Presentation and initial settings | `domain/presentation.mbt`, `bridge/presentation.mbt` | `formatTime`, `cn`, demo profile, defaults, view metadata |
 
 The pure domain package has no JS imports and runs on both JS and native.
 The browser package owns API calls and lifecycle management. The bridge converts
-JS values into typed records, enums and opaque handles. Existing `mizchi/js_core`,
-`js_browser`, `js_builtin` and `js_web` bindings provide storage, DOM, promises,
-observers, time and randomness. Local `webgl` and `webaudio` packages supply the
-missing typed API subset; they contain no application logic.
+JS values into typed records, enums and opaque handles. The local `interop` and `host_*` packages provide typed conversions, storage, DOM, promises, observers, time and randomness for both JS and Wasm-GC. `webgl` and `webaudio` provide the graphics/audio API subset. Browser import bodies are generated from the same FFI declarations; they contain no game logic.
 
 All application behavior is authored in MoonBit, including DOM reconciliation,
 pointer capture, input-field exclusions, subscriptions, reduced-motion handling,
@@ -55,8 +52,7 @@ Existing `src/lib/` files preserve typed public APIs by delegating to MoonBit.
 CSS, development scripts, Playwright tests and frozen oracles retain their
 original languages.
 GLSL shader text is stored byte-exact in MoonBit; it still runs as GLSL on the GPU.
-The compiler emits ESM committed with generated declarations and a hash manifest,
-so Vercel's normal Node/Vite build needs no MoonBit installation.
+The production entry compiles to Wasm-GC. Its binary and generated browser imports are committed with a hash manifest, so Vercel's normal Node/Vite build needs no MoonBit installation. JS ESM is retained for the existing public `src/lib/` API; the application does not load it. UI JS is built only for contract comparison and is not committed.
 
 ## Verification
 
@@ -144,8 +140,7 @@ is inapplicable to this static, browser-local application.
   nine public TS facade modules retain their captured declarations. Only private
   member names in `TrainSound` are excluded from declaration comparison: its
   private engine replaces private audio nodes; public methods are unchanged.
-  Generated declarations are never patched. UI exports also have compiler-produced
-  declarations; the internal view element boundary remains opaque to TypeScript.
+  Generated declarations are never patched. UI comparison artifacts and declarations remain under `_build/`; production exports only the Wasm startup function.
 - Audio and WebGL use typed extern bindings. Fractional samples use `Double` at
   the JS boundary and Float32Array rounding at storage. WebGL nullable handles
   retain JS null. Context options are converted into a plain JS dictionary.
@@ -160,3 +155,35 @@ Run `node scripts/benchmark-domain.mjs` for local reducer timings. Boundary
 conversion adds work proportional to archived tickets; migration is not a
 performance optimization. Browser scheduling retains the original 24 fps cap
 and 500 ms journey tick; hidden or stationary scenes stop requesting frames.
+
+
+## Wasm execution
+
+`npm run test:wasm` runs the same 207 reducer, 435 validation, 437 interaction,
+15 browser trace and 21 semantic UI fixtures through a compiled Wasm module.
+The helper runner compares duration/profile/default/view outputs through Wasm;
+the five `cn` cases continue to exercise the existing JS-only compatibility API.
+Fixtures and browser scenario assertions are unchanged. The extra nullable
+persistence regression checks that a null fallback never hides a valid save,
+and that saving/reading an explicit null retains its meaning.
+
+The production module and the contract module compile the same MoonBit packages.
+Only the contract module exports the extra inspection functions; it is not
+shipped. Wasm Bool returns are converted to actual JS booleans at the contract
+boundary. Browser imports convert Bool arguments from the i32 ABI before calling
+host APIs. Array conversion is explicit; unchanged ticket arrays preserve their
+original JS identity.
+
+See [Wasm runtime](../../docs/wasm-runtime.md) for the pinned ABI, startup and
+browser requirements. `ac87522` is the preceding deployable JS-target version.
+
+Migration browser checks: desktop Chromium 42/42 and Android Chromium 8/8.
+After the startup recovery fix, a desktop rerun passed 40 scenarios and timed out
+in two ticket scenarios while their DOM was replaced (one recorded a navigation).
+Both passed unchanged in an isolated rerun; no timeout or assertion was relaxed.
+WebKit passed six scenarios, skipped the Chromium-only touch injection scenario,
+and failed the rotation extent assertion (expected right edge >= 844, observed
+472.8359375). The exact same failure reproduces against `ac87522`; it is a known
+pre-existing WebKit limitation, not a passing result. Production failure injection
+also verified recovery from Wasm download/compile, CSS download, initial mount
+and world render failures, plus the Wasm response MIME type.

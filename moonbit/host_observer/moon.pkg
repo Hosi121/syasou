@@ -1,0 +1,6 @@
+import {
+  "Hosi121/syasou/interop" @js,
+  "Hosi121/syasou/host_dom" @dom,
+}
+
+supported_targets = "+js+wasm-gc"

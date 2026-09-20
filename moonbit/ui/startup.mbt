@@ -1,15 +1,12 @@
 ///|
 fn startup(_props : Unit) -> @view.Element {
-  let (world, set_world) : (
-    ((AppProps) -> @view.Element)?,
-    (((AppProps) -> @view.Element)?) -> Unit,
-  ) = @view.use_state(None)
+  let (world, set_world) = @view.use_state(false)
   let (show_opening, set_opening) = @view.use_state(true)
   let (wants_title, set_wants_title) = @view.use_state_lazy(() => !has_entered())
   let (world_ready, set_world_ready) = @view.use_state(false)
   let (paper_ready, set_paper_ready) = @view.use_state(false)
   let (failed, set_failed) = @view.use_state(false)
-  let (guide_request, set_guide_request) = @view.use_state(0)
+  let (guide_request, _, update_guide_request) = @view.use_state_update(0)
   let ready = world_ready && paper_ready && !failed
   let scene_ready = @view.use_callback(() => set_world_ready(true), [])
   let scene_failed = @view.use_callback(
@@ -24,9 +21,9 @@ fn startup(_props : Unit) -> @view.Element {
       let active = Ref(true)
       launch(async fn() noraise {
         try {
-          let world_module = load_world().wait()
+          load_world().wait() |> ignore
           if active.val {
-            set_world(Some(world_component(world_module)))
+            set_world(true)
           }
         } catch {
           _ => if active.val { scene_failed() }
@@ -86,22 +83,22 @@ fn startup(_props : Unit) -> @view.Element {
     }
   }
   let guide = () => {
-    update(set_guide_request, n => n + 1)
+    update_guide_request(n => n + 1)
     enter()
   }
   group([
-    match world {
-      Some(render) =>
-        @view.boundary(
-          component(render, {
-            covered: show_opening,
-            guideRequest: guide_request,
-            onReady: scene_ready,
-            onShowOpening: show_title,
-          }),
-          scene_failed,
-        )
-      None => empty()
+    if world {
+      @view.boundary(
+        component("app", app, {
+          covered: show_opening,
+          guideRequest: guide_request,
+          onReady: scene_ready,
+          onShowOpening: show_title,
+        }),
+        scene_failed,
+      )
+    } else {
+      empty()
     },
     if show_opening {
       opening({
@@ -123,6 +120,10 @@ pub fn start() -> @js.Promise[Unit] {
   @js.promisify0(async fn() {
     prepare_ui().wait()
     let root = @dom.document().getElementById("root").unwrap()
-    @view.mount(root, component(startup, ())) |> ignore
+    @js.try_sync(() => {
+      @view.mount(root, component("startup", startup, ())) |> ignore
+      @js.undefined()
+    })
+    |> ignore
   })()
 }

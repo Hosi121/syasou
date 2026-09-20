@@ -1,7 +1,11 @@
 import {
-  "mizchi/js_core" @js,
-  "mizchi/js_browser/dom",
+  "Hosi121/syasou/interop" @js,
+  "Hosi121/syasou/host_dom" @dom,
   "moonbitlang/core/math",
 }
 
-supported_targets = "js"
+supported_targets = "+js+wasm-gc"
+
+options(
+  targets: { "state_wbtest.mbt": [ "js" ] },
+)

@@ -1,5 +1,5 @@
 ///|
-fn[T] optional(value : @js.Any) -> T? {
+fn[T : @js.FromJs] optional(value : @js.Any) -> T? {
   if @js.is_nullish(value) {
     None
   } else {
@@ -8,7 +8,7 @@ fn[T] optional(value : @js.Any) -> T? {
 }
 
 ///|
-fn[T] nullable(value : T?) -> @js.Any {
+fn[T : @js.ToJs] nullable(value : T?) -> @js.Any {
   match value {
     Some(value) => @js.any(value)
     None => @js.null()
@@ -16,7 +16,7 @@ fn[T] nullable(value : T?) -> @js.Any {
 }
 
 ///|
-fn[T] undefined_or(value : T?) -> @js.Any {
+fn[T : @js.ToJs] undefined_or(value : T?) -> @js.Any {
   match value {
     Some(value) => @js.any(value)
     None => @js.undefined()

@@ -1,6 +1,6 @@
 ///|
 pub struct MotionValue {
-  motion_tag : String
+  mut host : @js.Any?
   mut value : Double
   mut target : Double
   mut velocity : Double
@@ -21,7 +21,7 @@ fn motion_value(
   options : @js.Any,
 ) -> MotionValue {
   {
-    motion_tag: "syasou-motion",
+    host: None,
     value,
     target: value,
     velocity: 0.0,
@@ -180,7 +180,7 @@ pub fn use_transform(
   let output = use_motion_value(transform(source.value))
   use_effect(
     () => subscribe_motion(source, value => output.jump(transform(value))),
-    [@js.any(source)],
+    [dependency(source)],
   )
   output
 }
@@ -192,8 +192,8 @@ pub fn use_motion_event(
   listener : (Double) -> Unit,
 ) -> Unit {
   use_effect(() => subscribe_motion(source, listener), [
-    @js.any(source),
-    @js.any(listener),
+    dependency(source),
+    reference_dependency(listener),
   ])
 }
 
@@ -318,6 +318,7 @@ fn map_object(style : Map[String, String]) -> @js.Any {
 priv type Animation
 
 ///|
+#cfg(target="js")
 extern "js" fn animate(
   node : @dom.Node,
   from : @js.Any,
@@ -330,14 +331,13 @@ extern "js" fn animate(
   #| (node,from,to,duration,delay,easing,done) => {const a=node.animate([from,to],{duration,delay,easing,fill:'backwards'});a.onfinish=done;return a}
 
 ///|
+#cfg(target="js")
 extern "js" fn Animation::cancel(self : Animation) -> Unit =
   #| animation => animation.cancel()
 
 ///|
-extern "js" fn current_style(
-  node : @dom.Node,
-  names : FixedArray[String],
-) -> @js.Any =
+#cfg(target="js")
+extern "js" fn current_style_raw(node : @dom.Node, names : @js.Any) -> @js.Any =
   #| (node,names) => {const style=getComputedStyle(node);return Object.fromEntries(names.map(name=>[name,style.getPropertyValue(name)]))}
 
 ///|
@@ -434,4 +434,32 @@ fn motion_props(mounted : Mounted, props : @js.Any, fresh : Bool) -> Unit {
       ),
     )
   }
+}
+
+///|
+pub impl @js.ToJs for MotionValue with fn to_js(self) {
+  match self.host {
+    Some(host) => host
+    None => {
+      let host = @js.capsule(self)
+      host._set("motion_tag", @js.any("syasou-motion"))
+      self.host = Some(host)
+      host
+    }
+  }
+}
+
+///|
+pub impl @js.FromJs for MotionValue with fn from_js(value) {
+  @js.uncapsule(value)
+}
+
+///|
+fn current_style(node : @dom.Node, names : FixedArray[String]) -> @js.Any {
+  current_style_raw(node, @js.any(names))
+}
+
+///|
+pub impl @js.Same for MotionValue with fn same(a, b) {
+  physical_equal(a, b)
 }

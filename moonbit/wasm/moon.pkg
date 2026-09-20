@@ -1,0 +1,10 @@
+import {
+  "Hosi121/syasou/ui",
+  "Hosi121/syasou/interop" @js,
+}
+
+supported_targets = "wasm-gc"
+
+options(
+  link: { "wasm-gc": { "exports": [ "start" ], "use-js-builtin-string": true } },
+)

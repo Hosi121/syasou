@@ -1,0 +1,153 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/interop"
+
+// Values
+pub fn[T : ToJs] any(T) -> Any
+
+pub fn array_push(Any, Any) -> Unit
+
+pub fn[T] box(T) -> Box[Unit]
+
+pub fn call(Any, String, Any) -> Any
+
+pub fn[T] capsule(T) -> Any
+
+pub fn ffi_function0(() -> Any) -> Any
+
+pub fn ffi_function1((Any) -> Any) -> Any
+
+pub fn ffi_function2((Any, Any) -> Any) -> Any
+
+pub fn ffi_try(() -> Any) -> Any
+
+pub fn[R : ToJs] from_fn0(() -> R) -> Any
+
+pub fn[A : FromJs, R : ToJs] from_fn1((A) -> R) -> Any
+
+pub fn[A : FromJs, B : FromJs, R : ToJs] from_fn2((A, B) -> R) -> Any
+
+pub fn[A, B] identity(A) -> B
+
+pub fn invoke(Any, Any) -> Any
+
+pub fn is_array(Any) -> Bool
+
+pub fn is_null(Any) -> Bool
+
+pub fn is_nullish(Any) -> Bool
+
+pub fn is_undefined(Any) -> Bool
+
+pub fn json_parse(String) -> Any
+
+pub fn json_stringify(Any) -> String
+
+pub fn new_array() -> Any
+
+pub fn new_object() -> Any
+
+pub fn null() -> Any
+
+pub fn object_assign(Any, Any) -> Any
+
+pub fn[T : ToJs] promisify0(async () -> T) -> () -> Promise[T]
+
+pub fn run_async(async () -> Unit noraise) -> Unit
+
+pub fn same_host(Any, Any) -> Bool
+
+pub async fn[T, E : Error] suspend(((T) -> Unit, (E) -> Unit) -> Unit) -> T raise E
+
+pub fn throw_error(String) -> Unit
+
+pub fn[R : FromJs] to_fn0(Any) -> () -> R
+
+pub fn[A : ToJs, R : FromJs] to_fn1(Any) -> (A) -> R
+
+pub fn try_sync(() -> Any) -> Any raise
+
+pub fn typeof_(Any) -> String
+
+pub fn[T] unbox(Box[Unit]) -> T
+
+pub fn[T] uncapsule(Any) -> T
+
+pub fn undefined() -> Any
+
+// Errors
+pub suberror HostError {
+  HostError(Any)
+}
+
+// Types and methods
+#external
+pub type Any
+pub fn Any::_call(Self, String, Array[Self]) -> Self
+pub fn Any::_get(Self, String) -> Self
+pub fn Any::_get_index(Self, Int) -> Self
+pub fn Any::_invoke(Self, Array[Self]) -> Self
+pub fn Any::_set(Self, String, Self) -> Unit
+pub fn[T : FromJs] Any::cast(Self) -> T
+pub fn Any::to_string(Self) -> String
+pub impl FromJs for Any
+pub impl Same for Any
+pub impl ToJs for Any
+
+pub enum Box[T] {
+  Value(T)
+  Empty
+}
+
+#external
+pub type Nullable[T]
+pub fn[T : ToJs] Nullable::new(T) -> Self[T]
+pub fn[T] Nullable::null() -> Self[T]
+pub fn[T : FromJs] Nullable::to_option(Self[T]) -> T?
+
+#external
+pub type Promise[T]
+pub fn Promise::all(Array[Self[Unit]]) -> Self[Unit]
+pub fn Promise::allSettled(Array[Self[Unit]]) -> Self[Unit]
+pub fn[A] Promise::catch_(Self[A], (Any) -> Self[A]) -> Self[A]
+pub fn[T : ToJs] Promise::resolve(T) -> Self[T]
+pub fn[A : FromJs, B] Promise::then(Self[A], (A) -> Self[B]) -> Self[B]
+pub fn[T] Promise::to_any(Self[T]) -> Any
+pub async fn[T : FromJs] Promise::wait(Self[T]) -> T
+pub impl[T] FromJs for Promise[T]
+pub impl[T] ToJs for Promise[T]
+
+// Type aliases
+
+// Traits
+pub(open) trait FromJs {
+  fn from_js(Any) -> Self
+}
+pub impl FromJs for Unit
+pub impl FromJs for Bool
+pub impl FromJs for Int
+pub impl FromJs for Double
+pub impl FromJs for String
+pub impl[T : FromJs] FromJs for T?
+pub impl[T : FromJs] FromJs for FixedArray[T]
+pub impl[T : FromJs] FromJs for Array[T]
+
+pub(open) trait Same {
+  fn same(Self, Self) -> Bool
+}
+pub impl Same for Bool
+pub impl Same for Int
+pub impl Same for Double
+pub impl Same for String
+pub impl[T : Same] Same for T?
+
+pub(open) trait ToJs {
+  fn to_js(Self) -> Any
+}
+pub impl ToJs for Unit
+pub impl ToJs for Bool
+pub impl ToJs for Int
+pub impl ToJs for Double
+pub impl ToJs for String
+pub impl[T : ToJs] ToJs for T?
+pub impl[T : ToJs] ToJs for FixedArray[T]
+pub impl[T : ToJs] ToJs for Array[T]

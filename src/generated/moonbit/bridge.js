@@ -1,5 +1,5 @@
-import { clsx as clsx$1699 } from "clsx";
-import { twMerge as twMerge$1701 } from "tailwind-merge";
+import { clsx as clsx$1815 } from "clsx";
+import { twMerge as twMerge$1817 } from "tailwind-merge";
 function _M0DTP37Hosi1216syasou6domain5Field7Missing() {}
 _M0DTP37Hosi1216syasou6domain5Field7Missing.prototype.$tag = 0;
 const _M0DTP37Hosi1216syasou6domain5Field7Missing__ = new _M0DTP37Hosi1216syasou6domain5Field7Missing();
@@ -21,6 +21,13 @@ _M0DTP37Hosi1216syasou6domain5Field4Text.prototype.$tag = 4;
 function _M0DTP37Hosi1216syasou6domain5Field5Other() {}
 _M0DTP37Hosi1216syasou6domain5Field5Other.prototype.$tag = 5;
 const _M0DTP37Hosi1216syasou6domain5Field5Other__ = new _M0DTP37Hosi1216syasou6domain5Field5Other();
+function _M0DTP37Hosi1216syasou7interop3BoxGuE5Value(param0) {
+  this._0 = param0;
+}
+_M0DTP37Hosi1216syasou7interop3BoxGuE5Value.prototype.$tag = 0;
+function _M0DTP37Hosi1216syasou7interop3BoxGuE5Empty() {}
+_M0DTP37Hosi1216syasou7interop3BoxGuE5Empty.prototype.$tag = 1;
+const _M0DTP37Hosi1216syasou7interop3BoxGuE5Empty__ = new _M0DTP37Hosi1216syasou7interop3BoxGuE5Empty();
 function _M0TP37Hosi1216syasou5webgl14ContextOptions(param0, param1, param2, param3) {
   this.alpha = param0;
   this.antialias = param1;
@@ -56,7 +63,11 @@ const _M0FPB19int__to__string__js = (x, radix) => {
 const _M0FPB20uint__to__string__js = (x, radix) => {
   return (x >>> 0).toString(radix);
 };
-function _M0TPB4IterGRP26mizchi8js__core3AnyE(param0, param1) {
+function _M0TPB4IterGRP37Hosi1216syasou7interop3AnyE(param0, param1) {
+  this.f = param0;
+  this.size_hint = param1;
+}
+function _M0TPB4IterGdE(param0, param1) {
   this.f = param0;
   this.size_hint = param1;
 }
@@ -71,14 +82,26 @@ const _M0MPB7JSArray4push = (arr, val) => { arr.push(val); };
 function _M0TPB8MutLocalGiE(param0) {
   this.val = param0;
 }
-function _M0DTPC16option6OptionGRP26mizchi8js__core3AnyE4None() {}
-_M0DTPC16option6OptionGRP26mizchi8js__core3AnyE4None.prototype.$tag = 0;
-const _M0DTPC16option6OptionGRP26mizchi8js__core3AnyE4None__ = new _M0DTPC16option6OptionGRP26mizchi8js__core3AnyE4None();
-function _M0DTPC16option6OptionGRP26mizchi8js__core3AnyE4Some(param0) {
+function _M0DTPC16option6OptionGRP37Hosi1216syasou7interop3AnyE4None() {}
+_M0DTPC16option6OptionGRP37Hosi1216syasou7interop3AnyE4None.prototype.$tag = 0;
+const _M0DTPC16option6OptionGRP37Hosi1216syasou7interop3AnyE4None__ = new _M0DTPC16option6OptionGRP37Hosi1216syasou7interop3AnyE4None();
+function _M0DTPC16option6OptionGRP37Hosi1216syasou7interop3AnyE4Some(param0) {
   this._0 = param0;
 }
-_M0DTPC16option6OptionGRP26mizchi8js__core3AnyE4Some.prototype.$tag = 1;
-function _M0TPB9ArrayViewGRP26mizchi8js__core3AnyE(param0, param1, param2) {
+_M0DTPC16option6OptionGRP37Hosi1216syasou7interop3AnyE4Some.prototype.$tag = 1;
+function _M0DTPC16option6OptionGdE4None() {}
+_M0DTPC16option6OptionGdE4None.prototype.$tag = 0;
+const _M0DTPC16option6OptionGdE4None__ = new _M0DTPC16option6OptionGdE4None();
+function _M0DTPC16option6OptionGdE4Some(param0) {
+  this._0 = param0;
+}
+_M0DTPC16option6OptionGdE4Some.prototype.$tag = 1;
+function _M0TPB9ArrayViewGdE(param0, param1, param2) {
+  this.buf = param0;
+  this.start = param1;
+  this.end = param2;
+}
+function _M0TPB9ArrayViewGRP37Hosi1216syasou7interop3AnyE(param0, param1, param2) {
   this.buf = param0;
   this.start = param1;
   this.end = param2;
@@ -88,13 +111,6 @@ function $make_array_len_and_init(a, b) {
   arr.fill(b);
   return arr;
 }
-function _M0DTPC16option6OptionGdE4None() {}
-_M0DTPC16option6OptionGdE4None.prototype.$tag = 0;
-const _M0DTPC16option6OptionGdE4None__ = new _M0DTPC16option6OptionGdE4None();
-function _M0DTPC16option6OptionGdE4Some(param0) {
-  this._0 = param0;
-}
-_M0DTPC16option6OptionGdE4Some.prototype.$tag = 1;
 function _M0TPB3MapGsRP37Hosi1216syasou6domain5FieldE(param0, param1, param2, param3, param4, param5, param6) {
   this.entries = param0;
   this.size = param1;
@@ -130,6 +146,9 @@ function _M0TPB5EntryGsbE(param0, param1, param2, param3, param4, param5) {
   this.value = param5;
 }
 const _M0MPC16double6Double8mod__ffi = (a, b) => (a % b);
+function _M0TPC13ref3RefGRP37Hosi1216syasou7interop3BoxGuEE(param0) {
+  this.val = param0;
+}
 function _M0TPB9ArrayViewGUsbEE(param0, param1, param2) {
   this.buf = param0;
   this.start = param1;
@@ -237,15 +256,21 @@ function _M0TP37Hosi1216syasou6domain8SoundMix(param0, param1, param2, param3, p
   this.wind = param3;
   this.cabin = param4;
 }
-const _M0FP26mizchi8js__core9undefined = () => undefined;
-const _M0MP26mizchi8js__core3Any5__get = (obj, key) => obj[key];
-const _M0FP26mizchi8js__core21ffi__promise__resolve = (value) => Promise.resolve(value);
-const _M0FP26mizchi8js__core20ffi__promise__reject = (error) => Promise.reject(error);
-const _M0FP26mizchi8js__core18ffi__promise__then = (promise, callback) => promise.then(callback);
-const _M0MP26mizchi8js__core3Any6__call = (obj, key, args) => obj[key](...args);
-const _M0MP26mizchi8js__core3Any8__invoke = (func, args) => func(...args);
-const _M0FP26mizchi8js__core11is__nullish = (v) => v == null;
-const _M0FP26mizchi8js__core8is__null = (v) => v === null;
+const _M0FP37Hosi1216syasou7interop13int__from__js = v => v;
+const _M0FP37Hosi1216syasou7interop14double__to__js = v => v;
+const _M0FP37Hosi1216syasou7interop16double__from__js = v => v;
+const _M0FP37Hosi1216syasou7interop12bool__to__js = v => Boolean(v);
+const _M0FP37Hosi1216syasou7interop14bool__from__js = v => Boolean(v);
+const _M0FP37Hosi1216syasou7interop14string__to__js = v => v;
+const _M0FP37Hosi1216syasou7interop16string__from__js = v => v;
+const _M0FP37Hosi1216syasou7interop12unit__to__js = () => undefined;
+const _M0FP37Hosi1216syasou7interop14unit__from__js = () => {};
+const _M0FP37Hosi1216syasou7interop11array__push = (array,value) => {array.push(value)};
+const _M0FP37Hosi1216syasou7interop10new__array = () => [];
+const _M0MP37Hosi1216syasou7interop3Any5__get = (o,k) => o[k];
+const _M0MP37Hosi1216syasou7interop3Any12__get__index = (o,k) => o[k];
+const _M0FP37Hosi1216syasou7interop9undefined = () => undefined;
+const _M0FP37Hosi1216syasou7interop11is__nullish = v => v == null;
 function _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ContextE4None() {}
 _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ContextE4None.prototype.$tag = 0;
 const _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ContextE4None__ = new _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ContextE4None();
@@ -253,43 +278,100 @@ function _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ContextE4Some(param0) {
   this._0 = param0;
 }
 _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ContextE4Some.prototype.$tag = 1;
-const _M0FP26mizchi8js__core15ffi__wrap__sync = (op, on_ok, on_error) => { try { on_ok(op()); } catch (e) { on_error(e); } };
-function _M0TPC13ref3RefGORP26mizchi8js__core3AnyE(param0) {
-  this.val = param0;
-}
-function _M0TPC13ref3RefGOsE(param0) {
-  this.val = param0;
-}
-function _M0DTPC16result6ResultGRP26mizchi8js__core3AnyRP26mizchi8js__core7JsErrorE3Err(param0) {
+function _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ProgramE4None() {}
+_M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ProgramE4None.prototype.$tag = 0;
+const _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ProgramE4None__ = new _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ProgramE4None();
+function _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ProgramE4Some(param0) {
   this._0 = param0;
 }
-_M0DTPC16result6ResultGRP26mizchi8js__core3AnyRP26mizchi8js__core7JsErrorE3Err.prototype.$tag = 0;
-function _M0DTPC16result6ResultGRP26mizchi8js__core3AnyRP26mizchi8js__core7JsErrorE2Ok(param0) {
+_M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ProgramE4Some.prototype.$tag = 1;
+function _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl6ShaderE4None() {}
+_M0DTPC16option6OptionGRP37Hosi1216syasou5webgl6ShaderE4None.prototype.$tag = 0;
+const _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl6ShaderE4None__ = new _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl6ShaderE4None();
+function _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl6ShaderE4Some(param0) {
   this._0 = param0;
 }
-_M0DTPC16result6ResultGRP26mizchi8js__core3AnyRP26mizchi8js__core7JsErrorE2Ok.prototype.$tag = 1;
-function _M0DTPC15error5Error37mizchi_2fjs__core_2eJsError_2eJsError(param0) {
+_M0DTPC16option6OptionGRP37Hosi1216syasou5webgl6ShaderE4Some.prototype.$tag = 1;
+const _M0FP37Hosi1216syasou7interop4null = () => null;
+const _M0MP37Hosi1216syasou7interop3Any5__set = (o,k,v) => {o[k]=v};
+const _M0FP37Hosi1216syasou7interop4call = (o,k,a) => o[k](...a);
+const _M0FP37Hosi1216syasou7interop6invoke = (f,a) => f(...a);
+const _M0FP37Hosi1216syasou7interop11new__object = () => ({});
+const _M0FP37Hosi1216syasou7interop8is__null = v => v === null;
+const _M0FP37Hosi1216syasou7interop13is__undefined = v => v === undefined;
+const _M0FP37Hosi1216syasou7interop9is__array = Array.isArray;
+const _M0FP37Hosi1216syasou7interop8typeof__ = v => typeof v;
+const _M0FP37Hosi1216syasou7interop11json__parse = JSON.parse;
+const _M0FP37Hosi1216syasou7interop15json__stringify = JSON.stringify;
+const _M0FP37Hosi1216syasou7interop14object__assign = Object.assign;
+const _M0FP37Hosi1216syasou7interop12throw__error = message => {throw new Error(message)};
+const _M0FP37Hosi1216syasou7interop8ffi__try = run => {try {return {ok:true,value:run()}} catch(error) {return {ok:false,value:error}}};
+const _M0FP37Hosi1216syasou7interop14ffi__function0 = f => f;
+const _M0FP37Hosi1216syasou7interop14ffi__function1 = f => f;
+function _M0DTPC16result6ResultGRP37Hosi1216syasou7interop3AnyRPC15error5ErrorE3Err(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error37mizchi_2fjs__core_2eJsError_2eJsError.prototype.$tag = 0;
-const _M0FP26mizchi8js__core12throw__error = (msg) => { throw new Error(msg); };
-const _M0MP26mizchi8js__core3Any5__set = (obj, key, value) => { obj[key] = value };
-const _M0FP26mizchi8js__core3new = (cls, args) => new cls(...args);
-const _M0FP26mizchi8js__core12global__this = () => globalThis;
-const _M0FP26mizchi8js__core4null = () => null;
-const _M0FP26mizchi8js__core13is__undefined = (v) => v === undefined;
-const _M0FP26mizchi8js__core9is__array = (v) => Array.isArray(v);
-const _M0FP26mizchi8js__core8typeof__ = (v) => typeof v;
-const _M0FP26mizchi8js__core11new__object = () => ({});
-const _M0FP26mizchi8js__core14object__assign = (target, source) => Object.assign(target, source);
-const _M0FP26mizchi8js__core18ffi__from__entries = (entries) => Object.fromEntries(entries.map(e => [e._0, e._1]));
-function _M0TPB9ArrayViewGUsRP26mizchi8js__core3AnyEE(param0, param1, param2) {
-  this.buf = param0;
-  this.start = param1;
-  this.end = param2;
+_M0DTPC16result6ResultGRP37Hosi1216syasou7interop3AnyRPC15error5ErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP37Hosi1216syasou7interop3AnyRPC15error5ErrorE2Ok(param0) {
+  this._0 = param0;
 }
-const _M0FP26mizchi8js__core15json__stringify = (value) => JSON.stringify(value);
-const _M0FP26mizchi8js__core11json__parse = (text) => JSON.parse(text);
+_M0DTPC16result6ResultGRP37Hosi1216syasou7interop3AnyRPC15error5ErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGRP37Hosi1216syasou7interop3AnyRP37Hosi1216syasou7interop9HostErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP37Hosi1216syasou7interop3AnyRP37Hosi1216syasou7interop9HostErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRP37Hosi1216syasou7interop3AnyRP37Hosi1216syasou7interop9HostErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRP37Hosi1216syasou7interop3AnyRP37Hosi1216syasou7interop9HostErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC15error5Error50Hosi121_2fsyasou_2finterop_2eHostError_2eHostError(param0) {
+  this._0 = param0;
+}
+_M0DTPC15error5Error50Hosi121_2fsyasou_2finterop_2eHostError_2eHostError.prototype.$tag = 0;
+function _M0DTP37Hosi1216syasou7interop3BoxGRP37Hosi1216syasou7browser5SoundE5Value(param0) {
+  this._0 = param0;
+}
+_M0DTP37Hosi1216syasou7interop3BoxGRP37Hosi1216syasou7browser5SoundE5Value.prototype.$tag = 0;
+function _M0DTP37Hosi1216syasou7interop3BoxGRP37Hosi1216syasou7browser5SoundE5Empty() {}
+_M0DTP37Hosi1216syasou7interop3BoxGRP37Hosi1216syasou7browser5SoundE5Empty.prototype.$tag = 1;
+function _M0DTP37Hosi1216syasou7interop3BoxGbE5Value(param0) {
+  this._0 = param0;
+}
+_M0DTP37Hosi1216syasou7interop3BoxGbE5Value.prototype.$tag = 0;
+function _M0DTP37Hosi1216syasou7interop3BoxGbE5Empty() {}
+_M0DTP37Hosi1216syasou7interop3BoxGbE5Empty.prototype.$tag = 1;
+const _M0FP37Hosi1216syasou7interop16promise__resolve = value => Promise.resolve(value);
+const _M0FP37Hosi1216syasou9host__dom8document = () => document;
+const _M0FP37Hosi1216syasou9host__dom6window = () => window;
+const _M0FP37Hosi1216syasou9host__dom10matchMedia = q => matchMedia(q);
+const _M0MP37Hosi1216syasou9host__dom5Event14preventDefault = e => e.preventDefault();
+const _M0MP37Hosi1216syasou9host__dom6Window11setInterval = (w,f,d) => w.setInterval(f,d);
+const _M0MP37Hosi1216syasou9host__dom6Window13clearInterval = (w,i) => w.clearInterval(i);
+const _M0MP37Hosi1216syasou9host__dom6Window21requestAnimationFrame = (w,f) => w.requestAnimationFrame(f);
+const _M0MP37Hosi1216syasou9host__dom6Window20cancelAnimationFrame = (w,i) => w.cancelAnimationFrame(i);
+const _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement5width = c => c.width;
+const _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement6height = c => c.height;
+const _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement10set__width = (c,n) => {c.width=n};
+const _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement11set__height = (c,n) => {c.height=n};
+const _M0MP37Hosi1216syasou9host__dom14MediaQueryList7matches = m => m.matches;
+const _M0MP37Hosi1216syasou9host__dom7DOMRect5width = r => r.width;
+const _M0MP37Hosi1216syasou9host__dom7DOMRect6height = r => r.height;
+const _M0MP37Hosi1216syasou9host__dom8Document16addEventListener = (o,n,f) => o.addEventListener(n,f);
+const _M0MP37Hosi1216syasou9host__dom8Document19removeEventListener = (o,n,f) => o.removeEventListener(n,f);
+const _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement16addEventListener = (o,n,f) => o.addEventListener(n,f);
+const _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement19removeEventListener = (o,n,f) => o.removeEventListener(n,f);
+const _M0MP37Hosi1216syasou9host__dom14MediaQueryList17addChangeListener = (m,f) => m.addEventListener("change",f);
+const _M0MP37Hosi1216syasou9host__dom14MediaQueryList20removeChangeListener = (m,f) => m.removeEventListener("change",f);
+const _M0MP37Hosi1216syasou10host__math4Math6random = () => Math.random();
+const _M0MP37Hosi1216syasou10host__math4Math5round = value => Math.round(value);
+const _M0MP37Hosi1216syasou14host__observer14ResizeObserver3new = f => new ResizeObserver(f);
+const _M0MP37Hosi1216syasou14host__observer14ResizeObserver7observe = (o,n) => o.observe(n);
+const _M0MP37Hosi1216syasou14host__observer14ResizeObserver10disconnect = o => o.disconnect();
+const _M0FP37Hosi1216syasou17host__performance11performance = () => performance;
+const _M0MP37Hosi1216syasou17host__performance11Performance3now = p => p.now();
+const _M0FP37Hosi1216syasou13host__storage12localStorage = () => localStorage;
+const _M0MP37Hosi1216syasou13host__storage7Storage9get__item = (s,k) => s.getItem(k);
+const _M0MP37Hosi1216syasou13host__storage7Storage7setItem = (s,k,v) => s.setItem(k,v);
 const _M0MP37Hosi1216syasou8webaudio12AudioContext12AudioContext = () => new AudioContext();
 const _M0MP37Hosi1216syasou8webaudio12AudioContext12sample__rate = ctx => ctx.sampleRate;
 const _M0MP37Hosi1216syasou8webaudio12AudioContext13current__time = ctx => ctx.currentTime;
@@ -328,10 +410,7 @@ const _M0MP37Hosi1216syasou8webaudio14OscillatorNode4stop = node => node.stop();
 const _M0MP37Hosi1216syasou8webaudio12AudioContext8resume__ = ctx => ctx.resume();
 const _M0MP37Hosi1216syasou8webaudio12AudioContext7suspend = ctx => ctx.suspend();
 const _M0MP37Hosi1216syasou8webaudio12AudioContext5close = ctx => ctx.close();
-const _M0FP36mizchi11js__builtin6global10globalThis = () => globalThis;
-const _M0FP36mizchi11js__browser3dom6window = () => window;
-const _M0FP36mizchi11js__browser3dom8document = () => document;
-const _M0FP37Hosi1216syasou5webgl7context = (canvas, options) => canvas.getContext("webgl", {
+const _M0FP37Hosi1216syasou5webgl12context__raw = (canvas, options) => canvas.getContext("webgl", {
    alpha: options.alpha, antialias: options.antialias, depth: options.depth,
    preserveDrawingBuffer: options.preserveDrawingBuffer
  });
@@ -345,7 +424,7 @@ const _M0MP37Hosi1216syasou5webgl7Context13link__program = (gl, program) => gl.l
 const _M0MP37Hosi1216syasou5webgl7Context15program__linked = (gl, program) => gl.getProgramParameter(program, gl.LINK_STATUS);
 const _M0MP37Hosi1216syasou5webgl7Context14create__buffer = (gl) => gl.createBuffer();
 const _M0MP37Hosi1216syasou5webgl7Context12bind__buffer = (gl, target, buffer) => gl.bindBuffer(target, buffer);
-const _M0MP37Hosi1216syasou5webgl7Context17buffer__data__f32 = (gl, target, values, usage) => gl.bufferData(target, new Float32Array(values), usage);
+const _M0MP37Hosi1216syasou5webgl7Context17buffer__data__raw = (gl, target, values, usage) => gl.bufferData(target, new Float32Array(values), usage);
 const _M0MP37Hosi1216syasou5webgl7Context12use__program = (gl, program) => gl.useProgram(program);
 const _M0MP37Hosi1216syasou5webgl7Context19attribute__location = (gl, program, name) => gl.getAttribLocation(program, name);
 const _M0MP37Hosi1216syasou5webgl7Context17enable__attribute = (gl, location) => gl.enableVertexAttribArray(location);
@@ -358,13 +437,6 @@ const _M0MP37Hosi1216syasou5webgl7Context12draw__arrays = (gl, mode, first, coun
 const _M0MP37Hosi1216syasou5webgl7Context14delete__buffer = (gl, buffer) => gl.deleteBuffer(buffer);
 const _M0MP37Hosi1216syasou5webgl7Context14delete__shader = (gl, shader) => gl.deleteShader(shader);
 const _M0MP37Hosi1216syasou5webgl7Context15delete__program = (gl, program) => gl.deleteProgram(program);
-const _M0FP36mizchi11js__browser7storage12localStorage = () => localStorage;
-const _M0MP36mizchi11js__browser7storage7Storage7getItem = (storage, key) => storage.getItem(key) ?? undefined;
-const _M0MP36mizchi11js__browser7storage7Storage7setItem = (storage, key, value) => {
-  storage.setItem(key, value);
-};
-const _M0MP36mizchi11js__builtin4math4Math6random = () => Math.random();
-const _M0MP36mizchi11js__builtin4math4Math5round = (x) => Math.round(x);
 const _M0FP37Hosi1216syasou7browser12set__opacity = (canvas, value) => { canvas.style.opacity = value };
 const _M0FP37Hosi1216syasou7browser6hidden = () => document.hidden;
 const _M0FP37Hosi1216syasou7browser6bounds = canvas => canvas.getBoundingClientRect();
@@ -391,20 +463,13 @@ function _M0TP37Hosi1216syasou7browser8Renderer(param0, param1, param2, param3, 
   this.motion_callback = param19;
   this.lost_callback = param20;
 }
-function _M0DTPC16option6OptionGRP36mizchi11js__browser8observer14ResizeObserverE4None() {}
-_M0DTPC16option6OptionGRP36mizchi11js__browser8observer14ResizeObserverE4None.prototype.$tag = 0;
-const _M0DTPC16option6OptionGRP36mizchi11js__browser8observer14ResizeObserverE4None__ = new _M0DTPC16option6OptionGRP36mizchi11js__browser8observer14ResizeObserverE4None();
-function _M0DTPC16option6OptionGRP36mizchi11js__browser8observer14ResizeObserverE4Some(param0) {
+function _M0DTPC16option6OptionGRP37Hosi1216syasou14host__observer14ResizeObserverE4None() {}
+_M0DTPC16option6OptionGRP37Hosi1216syasou14host__observer14ResizeObserverE4None.prototype.$tag = 0;
+const _M0DTPC16option6OptionGRP37Hosi1216syasou14host__observer14ResizeObserverE4None__ = new _M0DTPC16option6OptionGRP37Hosi1216syasou14host__observer14ResizeObserverE4None();
+function _M0DTPC16option6OptionGRP37Hosi1216syasou14host__observer14ResizeObserverE4Some(param0) {
   this._0 = param0;
 }
-_M0DTPC16option6OptionGRP36mizchi11js__browser8observer14ResizeObserverE4Some.prototype.$tag = 1;
-function _M0DTPC16option6OptionGRP311moonbitlang5async9js__async11AbortSignalE4None() {}
-_M0DTPC16option6OptionGRP311moonbitlang5async9js__async11AbortSignalE4None.prototype.$tag = 0;
-const _M0DTPC16option6OptionGRP311moonbitlang5async9js__async11AbortSignalE4None__ = new _M0DTPC16option6OptionGRP311moonbitlang5async9js__async11AbortSignalE4None();
-function _M0DTPC16option6OptionGRP311moonbitlang5async9js__async11AbortSignalE4Some(param0) {
-  this._0 = param0;
-}
-_M0DTPC16option6OptionGRP311moonbitlang5async9js__async11AbortSignalE4Some.prototype.$tag = 1;
+_M0DTPC16option6OptionGRP37Hosi1216syasou14host__observer14ResizeObserverE4Some.prototype.$tag = 1;
 function _M0DTP37Hosi1216syasou7browser6Source5Noise(param0) {
   this._0 = param0;
 }
@@ -428,14 +493,7 @@ function _M0TP37Hosi1216syasou7browser5Sound(param0, param1, param2, param3, par
   this.moving = param11;
   this.period = param12;
 }
-function _M0DTPC16result6ResultGRP26mizchi8js__core7PromiseGuERPC15error5ErrorE3Err(param0) {
-  this._0 = param0;
-}
-_M0DTPC16result6ResultGRP26mizchi8js__core7PromiseGuERPC15error5ErrorE3Err.prototype.$tag = 0;
-function _M0DTPC16result6ResultGRP26mizchi8js__core7PromiseGuERPC15error5ErrorE2Ok(param0) {
-  this._0 = param0;
-}
-_M0DTPC16result6ResultGRP26mizchi8js__core7PromiseGuERPC15error5ErrorE2Ok.prototype.$tag = 1;
+const _M0MP37Hosi1216syasou9host__url15URLSearchParams10get__value = (s,k) => s.get(k);
 function _M0TPB9ArrayViewGUsRP37Hosi1216syasou6domain5FieldEE(param0, param1, param2) {
   this.buf = param0;
   this.start = param1;
@@ -498,9 +556,12 @@ function _M0DTP37Hosi1216syasou6domain12TravelAction4Edit(param0, param1, param2
 _M0DTP37Hosi1216syasou6domain12TravelAction4Edit.prototype.$tag = 3;
 const _M0FP37Hosi1216syasou6bridge14search__params = search => new URLSearchParams(search);
 const _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger = { method_0: _M0IPB13StringBuilderPB6Logger13write__string, method_1: _M0IP016_24default__implPB6Logger16write__substringGRPB13StringBuilderE, method_2: _M0IPB13StringBuilderPB6Logger11write__view, method_3: _M0IPB13StringBuilderPB6Logger11write__char, method_4: _M0IP016_24default__implPB6Logger28write__string__interpolationGRPB13StringBuilderE, method_5: _M0IP016_24default__implPB6Logger5writeGRPB13StringBuilderE };
-const _M0MPB4Iter4nextN6constrS9918GRP26mizchi8js__core3AnyE = 0;
-const _M0MPB4Iter4nextN6constrS9919GRP26mizchi8js__core3AnyE = 0;
-const _M0MPB4Iter3newN6constrS9926GRP26mizchi8js__core3AnyE = 0;
+const _M0MPB4Iter4nextN6constrS9918GRP37Hosi1216syasou7interop3AnyE = 0;
+const _M0MPB4Iter4nextN6constrS9919GRP37Hosi1216syasou7interop3AnyE = 0;
+const _M0MPB4Iter4nextN6constrS9918GdE = 0;
+const _M0MPB4Iter4nextN6constrS9919GdE = 0;
+const _M0MPB4Iter3newN6constrS9926GRP37Hosi1216syasou7interop3AnyE = 0;
+const _M0MPB4Iter3newN6constrS9926GdE = 0;
 const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS527 = "welcome-v1";
 const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS529 = "local";
 const _M0FP37Hosi1216syasou6domain14reduce__travelN7_2abindS530 = "mist";
@@ -526,8 +587,9 @@ const _M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS541 = { _0: "読み�
 const _M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS542 = { _0: "企画のラフを描く", _1: "浮かんだアイデアを三つ、紙に描いた。\nまだ途中だけれど、形が見えてきた。", _2: "express", _3: "dawn", _4: 45 };
 const _M0FP37Hosi1216syasou6domain15sample__ticketsN5tupleS543 = { _0: "明日のことを手帳に", _1: "気にかかっていたことを、ひとつずつ書き出した。\n明日は、自分のペースで。", _2: "rapid", _3: "night", _4: 15 };
 const _M0FP37Hosi1216syasou6domain15sample__ticketsN7_2abindS488 = "sample";
-const _M0FP37Hosi1216syasou7browser16create__rendererN6recordS214 = new _M0TP37Hosi1216syasou5webgl14ContextOptions(false, false, false, true);
-const _M0FP37Hosi1216syasou7browser16create__rendererN6recordS215 = new _M0TP37Hosi1216syasou6domain9Landscape("mist", "local", true, false);
+const _M0FP37Hosi1216syasou7interop7handoff = _M0MPC13ref3Ref3RefGRP37Hosi1216syasou7interop3BoxGuEE(_M0DTP37Hosi1216syasou7interop3BoxGuE5Empty__);
+const _M0FP37Hosi1216syasou7browser16create__rendererN6recordS217 = new _M0TP37Hosi1216syasou5webgl14ContextOptions(false, false, false, true);
+const _M0FP37Hosi1216syasou7browser16create__rendererN6recordS218 = new _M0TP37Hosi1216syasou6domain9Landscape("mist", "local", true, false);
 function _M0FPB13consume4__acc(acc, input) {
   const _p = (acc >>> 0) + ((Math.imul(input, -1028477379) | 0) >>> 0) | 0;
   const _p$2 = 17;
@@ -634,7 +696,7 @@ function _M0IP016_24default__implPB6Logger16write__substringGRPB13StringBuilderE
 function _M0IP016_24default__implPB4Show6outputGiE(self, logger) {
   logger.method_table.method_0(logger.self, _M0IPC13int3IntPB4Show10to__string(self));
 }
-function _M0MPB4Iter4nextGRP26mizchi8js__core3AnyE(self) {
+function _M0MPB4Iter4nextGRP37Hosi1216syasou7interop3AnyE(self) {
   const _func = self.f;
   const result = _func();
   const _bind = self.size_hint;
@@ -643,10 +705,26 @@ function _M0MPB4Iter4nextGRP26mizchi8js__core3AnyE(self) {
     } else {
       const _Some = _bind;
       const _n = _Some;
-      self.size_hint = _n > 0 ? _n - 1 | 0 : _M0MPB4Iter4nextN6constrS9918GRP26mizchi8js__core3AnyE;
+      self.size_hint = _n > 0 ? _n - 1 | 0 : _M0MPB4Iter4nextN6constrS9918GRP37Hosi1216syasou7interop3AnyE;
     }
   } else {
-    self.size_hint = _M0MPB4Iter4nextN6constrS9919GRP26mizchi8js__core3AnyE;
+    self.size_hint = _M0MPB4Iter4nextN6constrS9919GRP37Hosi1216syasou7interop3AnyE;
+  }
+  return result;
+}
+function _M0MPB4Iter4nextGdE(self) {
+  const _func = self.f;
+  const result = _func();
+  const _bind = self.size_hint;
+  if (result.$tag === 1) {
+    if (_bind === undefined) {
+    } else {
+      const _Some = _bind;
+      const _n = _Some;
+      self.size_hint = _n > 0 ? _n - 1 | 0 : _M0MPB4Iter4nextN6constrS9918GdE;
+    }
+  } else {
+    self.size_hint = _M0MPB4Iter4nextN6constrS9919GdE;
   }
   return result;
 }
@@ -656,16 +734,27 @@ function _M0MPC13int3Int18to__string_2einner(self, radix) {
 function _M0MPC14uint4UInt18to__string_2einner(self, radix) {
   return _M0FPB20uint__to__string__js(self, radix);
 }
-function _M0MPB4Iter3newGRP26mizchi8js__core3AnyE(f, size_hint) {
+function _M0MPB4Iter3newGRP37Hosi1216syasou7interop3AnyE(f, size_hint) {
   let size_hint$2;
   if (size_hint === undefined) {
     size_hint$2 = undefined;
   } else {
     const _Some = size_hint;
     const _n = _Some;
-    size_hint$2 = _n > 0 ? _n : _M0MPB4Iter3newN6constrS9926GRP26mizchi8js__core3AnyE;
+    size_hint$2 = _n > 0 ? _n : _M0MPB4Iter3newN6constrS9926GRP37Hosi1216syasou7interop3AnyE;
   }
-  return new _M0TPB4IterGRP26mizchi8js__core3AnyE(f, size_hint$2);
+  return new _M0TPB4IterGRP37Hosi1216syasou7interop3AnyE(f, size_hint$2);
+}
+function _M0MPB4Iter3newGdE(f, size_hint) {
+  let size_hint$2;
+  if (size_hint === undefined) {
+    size_hint$2 = undefined;
+  } else {
+    const _Some = size_hint;
+    const _n = _Some;
+    size_hint$2 = _n > 0 ? _n : _M0MPB4Iter3newN6constrS9926GdE;
+  }
+  return new _M0TPB4IterGdE(f, size_hint$2);
 }
 function _M0MPC16string10StringView9to__owned(self) {
   return self.str.substring(self.start, self.end);
@@ -707,55 +796,70 @@ function _M0MPC16string6String6repeat(self, n) {
     }
   }
 }
-function _M0MPC15array5Array4pushGRP26mizchi8js__core3AnyE(self, value) {
+function _M0MPC15array5Array4pushGRP37Hosi1216syasou7interop3AnyE(self, value) {
   _M0MPB7JSArray4push(self, value);
 }
 function _M0MPC15array5Array4pushGRP37Hosi1216syasou7browser6SourceE(self, value) {
   _M0MPB7JSArray4push(self, value);
 }
+function _M0MPC15array5Array4pushGdE(self, value) {
+  _M0MPB7JSArray4push(self, value);
+}
+function _M0MPB4Iter9to__arrayGdE(self) {
+  const _bind = self.size_hint;
+  let result;
+  if (_bind === undefined) {
+    result = [];
+  } else {
+    result = [];
+  }
+  while (true) {
+    const _bind$2 = _M0MPB4Iter4nextGdE(self);
+    if (_bind$2.$tag === 1) {
+      const _Some = _bind$2;
+      const _x = _Some._0;
+      _M0MPC15array5Array4pushGdE(result, _x);
+      continue;
+    } else {
+      break;
+    }
+  }
+  return result;
+}
 function _M0IPC13int3IntPB4Show10to__string(self) {
   return _M0MPC13int3Int18to__string_2einner(self, 10);
 }
-function _M0MPC15array9ArrayView4iterGRP26mizchi8js__core3AnyE(self) {
+function _M0MPC15array9ArrayView4iterGRP37Hosi1216syasou7interop3AnyE(self) {
   const i = new _M0TPB8MutLocalGiE(0);
   const len = self.end - self.start | 0;
-  return _M0MPB4Iter3newGRP26mizchi8js__core3AnyE(() => {
+  return _M0MPB4Iter3newGRP37Hosi1216syasou7interop3AnyE(() => {
     if (i.val < len) {
       const elem = self.buf[self.start + i.val | 0];
       i.val = i.val + 1 | 0;
-      return new _M0DTPC16option6OptionGRP26mizchi8js__core3AnyE4Some(elem);
+      return new _M0DTPC16option6OptionGRP37Hosi1216syasou7interop3AnyE4Some(elem);
     } else {
-      return _M0DTPC16option6OptionGRP26mizchi8js__core3AnyE4None__;
+      return _M0DTPC16option6OptionGRP37Hosi1216syasou7interop3AnyE4None__;
     }
   }, len);
 }
-function _M0MPC15array5Array4iterGRP26mizchi8js__core3AnyE(self) {
-  return _M0MPC15array9ArrayView4iterGRP26mizchi8js__core3AnyE(new _M0TPB9ArrayViewGRP26mizchi8js__core3AnyE(self, 0, self.length));
-}
-function _M0MPC15array10FixedArray11from__arrayGUsRP26mizchi8js__core3AnyEE(array) {
-  const _p = array.end - array.start | 0;
-  if (_p <= 0) {
-    return [];
-  } else {
-    const _p$2 = 0;
-    const _p$3 = $make_array_len_and_init(_p, array.buf[array.start + _p$2 | 0]);
-    let _tmp = 1;
-    while (true) {
-      const _p$4 = _tmp;
-      if (_p$4 < _p) {
-        if (_p$4 >>> 0 < _p$3.length) {
-          _p$3[_p$4] = array.buf[array.start + _p$4 | 0];
-        } else {
-          $oob();
-        }
-        _tmp = _p$4 + 1 | 0;
-        continue;
-      } else {
-        break;
-      }
+function _M0MPC15array9ArrayView4iterGdE(self) {
+  const i = new _M0TPB8MutLocalGiE(0);
+  const len = self.end - self.start | 0;
+  return _M0MPB4Iter3newGdE(() => {
+    if (i.val < len) {
+      const elem = self.buf[self.start + i.val | 0];
+      i.val = i.val + 1 | 0;
+      return new _M0DTPC16option6OptionGdE4Some(elem);
+    } else {
+      return _M0DTPC16option6OptionGdE4None__;
     }
-    return _p$3;
-  }
+  }, len);
+}
+function _M0MPC15array10FixedArray4iterGdE(self) {
+  return _M0MPC15array9ArrayView4iterGdE(new _M0TPB9ArrayViewGdE(self, 0, self.length));
+}
+function _M0MPC15array5Array4iterGRP37Hosi1216syasou7interop3AnyE(self) {
+  return _M0MPC15array9ArrayView4iterGRP37Hosi1216syasou7interop3AnyE(new _M0TPB9ArrayViewGRP37Hosi1216syasou7interop3AnyE(self, 0, self.length));
 }
 function _M0IPC16option6OptionPB2Eq5equalGsE(self, other) {
   if (self === undefined) {
@@ -1321,7 +1425,7 @@ function _M0MPC16double6Double3min(self, other) {
 function _M0MPC16double6Double3max(self, other) {
   return self !== self ? other : other !== other ? self : self > other ? self : other;
 }
-function _M0MPC15array5Array2atGRP26mizchi8js__core3AnyE(self, index) {
+function _M0MPC15array5Array2atGRP37Hosi1216syasou7interop3AnyE(self, index) {
   const len = self.length;
   return index >= 0 && index < len ? self[index] : $panic();
 }
@@ -1363,21 +1467,24 @@ function _M0MPC15array5Array8containsGsE(self, value) {
     }
   }
 }
-function _M0MPC15array5Array10push__iterGRP26mizchi8js__core3AnyE(self, iter) {
+function _M0MPC15array5Array10push__iterGRP37Hosi1216syasou7interop3AnyE(self, iter) {
   const _bind = iter.size_hint;
   if (_bind === undefined) {
   }
   while (true) {
-    const _bind$2 = _M0MPB4Iter4nextGRP26mizchi8js__core3AnyE(iter);
+    const _bind$2 = _M0MPB4Iter4nextGRP37Hosi1216syasou7interop3AnyE(iter);
     if (_bind$2.$tag === 1) {
       const _Some = _bind$2;
       const _x = _Some._0;
-      _M0MPC15array5Array4pushGRP26mizchi8js__core3AnyE(self, _x);
+      _M0MPC15array5Array4pushGRP37Hosi1216syasou7interop3AnyE(self, _x);
       continue;
     } else {
       return;
     }
   }
+}
+function _M0MPC13ref3Ref3RefGRP37Hosi1216syasou7interop3BoxGuEE(x) {
+  return new _M0TPC13ref3RefGRP37Hosi1216syasou7interop3BoxGuEE(x);
 }
 function _M0FPC16double4ceil(d) {
   return _M0MPC16double6Double4ceil(d);
@@ -2357,139 +2464,272 @@ function _M0FP37Hosi1216syasou6domain12scene__index(scene) {
     }
   }
 }
-function _M0MP26mizchi8js__core7Promise7resolveGuE(x) {
-  return _M0FP26mizchi8js__core21ffi__promise__resolve(x);
+function _M0FP37Hosi1216syasou7interop3anyGRPB5ArrayGRP37Hosi1216syasou7interop3AnyEE(value) {
+  return _M0IPC15array5ArrayP37Hosi1216syasou7interop4ToJs6to__jsGRP37Hosi1216syasou7interop3AnyE(value);
 }
-function _M0MP26mizchi8js__core7Promise4thenGuuE(self, resolve) {
-  return _M0FP26mizchi8js__core18ffi__promise__then(self, (a) => {
-    let _try_err;
-    _L: {
-      const _bind = resolve(a);
-      if (_bind.$tag === 1) {
-        const _ok = _bind;
-        return _ok._0;
+function _M0FP37Hosi1216syasou7interop3anyGdE(value) {
+  return _M0IPC16double6DoubleP37Hosi1216syasou7interop4ToJs6to__js(value);
+}
+function _M0FP37Hosi1216syasou7interop3anyGsE(value) {
+  return _M0IPC16string6StringP37Hosi1216syasou7interop4ToJs6to__js(value);
+}
+function _M0FP37Hosi1216syasou7interop3anyGbE(value) {
+  return _M0IPC14bool4BoolP37Hosi1216syasou7interop4ToJs6to__js(value);
+}
+function _M0FP37Hosi1216syasou7interop3anyGuE(value) {
+  return _M0IPC14unit4UnitP37Hosi1216syasou7interop4ToJs6to__js(value);
+}
+function _M0FP37Hosi1216syasou7interop3anyGRP37Hosi1216syasou7interop3AnyE(value) {
+  return value;
+}
+function _M0FP37Hosi1216syasou7interop3anyGAdE(value) {
+  return _M0IPC15array10FixedArrayP37Hosi1216syasou7interop4ToJs6to__jsGdE(value);
+}
+function _M0FP37Hosi1216syasou7interop3anyGRP37Hosi1216syasou7interop7PromiseGuEE(value) {
+  return value;
+}
+function _M0FP37Hosi1216syasou7interop3anyGRPB5ArrayGdEE(value) {
+  return _M0IPC15array5ArrayP37Hosi1216syasou7interop4ToJs6to__jsGdE(value);
+}
+function _M0MP37Hosi1216syasou7interop3Any4castGRPB5ArrayGRP37Hosi1216syasou7interop3AnyEE(value) {
+  return _M0IPC15array5ArrayP37Hosi1216syasou7interop6FromJs8from__jsGRP37Hosi1216syasou7interop3AnyE(value);
+}
+function _M0MP37Hosi1216syasou7interop3Any4castGsE(value) {
+  return _M0IPC16string6StringP37Hosi1216syasou7interop6FromJs8from__js(value);
+}
+function _M0MP37Hosi1216syasou7interop3Any4castGdE(value) {
+  return _M0IPC16double6DoubleP37Hosi1216syasou7interop6FromJs8from__js(value);
+}
+function _M0MP37Hosi1216syasou7interop3Any4castGbE(value) {
+  return _M0IPC14bool4BoolP37Hosi1216syasou7interop6FromJs8from__js(value);
+}
+function _M0MP37Hosi1216syasou7interop3Any4castGOsE(value) {
+  return _M0IPC16option6OptionP37Hosi1216syasou7interop6FromJs8from__jsGsE(value);
+}
+function _M0MP37Hosi1216syasou7interop3Any4castGRP37Hosi1216syasou7interop3AnyE(value) {
+  return value;
+}
+function _M0MP37Hosi1216syasou7interop3Any4castGiE(value) {
+  return _M0IPC13int3IntP37Hosi1216syasou7interop6FromJs8from__js(value);
+}
+function _M0MP37Hosi1216syasou7interop3Any4castGORP37Hosi1216syasou5webgl7ContextE(value) {
+  return _M0IPC16option6OptionP37Hosi1216syasou7interop6FromJs8from__jsGRP37Hosi1216syasou5webgl7ContextE(value);
+}
+function _M0MP37Hosi1216syasou7interop3Any4castGORP37Hosi1216syasou5webgl7ProgramE(value) {
+  return _M0IPC16option6OptionP37Hosi1216syasou7interop6FromJs8from__jsGRP37Hosi1216syasou5webgl7ProgramE(value);
+}
+function _M0MP37Hosi1216syasou7interop3Any4castGuE(value) {
+  _M0IPC14unit4UnitP37Hosi1216syasou7interop6FromJs8from__js(value);
+}
+function _M0MP37Hosi1216syasou7interop3Any4castGORP37Hosi1216syasou5webgl6ShaderE(value) {
+  return _M0IPC16option6OptionP37Hosi1216syasou7interop6FromJs8from__jsGRP37Hosi1216syasou5webgl6ShaderE(value);
+}
+function _M0IPC13int3IntP37Hosi1216syasou7interop6FromJs8from__js(value) {
+  return _M0FP37Hosi1216syasou7interop13int__from__js(value);
+}
+function _M0IPC16double6DoubleP37Hosi1216syasou7interop4ToJs6to__js(self) {
+  return _M0FP37Hosi1216syasou7interop14double__to__js(self);
+}
+function _M0IPC16double6DoubleP37Hosi1216syasou7interop6FromJs8from__js(value) {
+  return _M0FP37Hosi1216syasou7interop16double__from__js(value);
+}
+function _M0IPC14bool4BoolP37Hosi1216syasou7interop4ToJs6to__js(self) {
+  return _M0FP37Hosi1216syasou7interop12bool__to__js(self);
+}
+function _M0IPC14bool4BoolP37Hosi1216syasou7interop6FromJs8from__js(value) {
+  return _M0FP37Hosi1216syasou7interop14bool__from__js(value);
+}
+function _M0IPC16string6StringP37Hosi1216syasou7interop4ToJs6to__js(self) {
+  return _M0FP37Hosi1216syasou7interop14string__to__js(self);
+}
+function _M0IPC16string6StringP37Hosi1216syasou7interop6FromJs8from__js(value) {
+  return _M0FP37Hosi1216syasou7interop16string__from__js(value);
+}
+function _M0IPC14unit4UnitP37Hosi1216syasou7interop4ToJs6to__js(self) {
+  return _M0FP37Hosi1216syasou7interop12unit__to__js(self);
+}
+function _M0IPC14unit4UnitP37Hosi1216syasou7interop6FromJs8from__js(value) {
+  _M0FP37Hosi1216syasou7interop14unit__from__js(value);
+}
+function _M0IPC15array5ArrayP37Hosi1216syasou7interop4ToJs6to__jsGRP37Hosi1216syasou7interop3AnyE(self) {
+  const out = _M0FP37Hosi1216syasou7interop10new__array();
+  const _bind = self.length;
+  let _tmp = 0;
+  while (true) {
+    const _ = _tmp;
+    if (_ < _bind) {
+      const item = self[_];
+      _M0FP37Hosi1216syasou7interop11array__push(out, _M0FP37Hosi1216syasou7interop3anyGRP37Hosi1216syasou7interop3AnyE(item));
+      _tmp = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return out;
+}
+function _M0IPC15array5ArrayP37Hosi1216syasou7interop4ToJs6to__jsGdE(self) {
+  const out = _M0FP37Hosi1216syasou7interop10new__array();
+  const _bind = self.length;
+  let _tmp = 0;
+  while (true) {
+    const _ = _tmp;
+    if (_ < _bind) {
+      const item = self[_];
+      _M0FP37Hosi1216syasou7interop11array__push(out, _M0FP37Hosi1216syasou7interop3anyGdE(item));
+      _tmp = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return out;
+}
+function _M0IPC15array5ArrayP37Hosi1216syasou7interop6FromJs8from__jsGRP37Hosi1216syasou7interop3AnyE(value) {
+  const count = _M0MP37Hosi1216syasou7interop3Any4castGiE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "length"));
+  if (count <= 0) {
+    return [];
+  } else {
+    const _p = new Array(count);
+    let _tmp = 0;
+    while (true) {
+      const _p$2 = _tmp;
+      if (_p$2 < count) {
+        _p[_p$2] = _M0MP37Hosi1216syasou7interop3Any4castGRP37Hosi1216syasou7interop3AnyE(_M0MP37Hosi1216syasou7interop3Any12__get__index(value, _p$2));
+        _tmp = _p$2 + 1 | 0;
+        continue;
       } else {
-        const _err = _bind;
-        _try_err = _err._0;
-        break _L;
+        break;
       }
     }
-    return _M0FP26mizchi8js__core20ffi__promise__reject(_try_err);
-  });
+    return _p;
+  }
 }
-function _M0MP26mizchi8js__core7Promise7catch__GuuE(self, f) {
-  return _M0MP26mizchi8js__core3Any6__call(self, "catch", [f]);
+function _M0IPC15array10FixedArrayP37Hosi1216syasou7interop4ToJs6to__jsGdE(self) {
+  return _M0FP37Hosi1216syasou7interop3anyGRPB5ArrayGdEE(_M0MPB4Iter9to__arrayGdE(_M0MPC15array10FixedArray4iterGdE(self)));
 }
-function _M0MP26mizchi8js__core8Nullable10to__optionGRP37Hosi1216syasou5webgl7ContextE(self) {
-  return _M0FP26mizchi8js__core8is__null(self) ? _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ContextE4None__ : new _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ContextE4Some(self);
+function _M0IPC16option6OptionP37Hosi1216syasou7interop6FromJs8from__jsGsE(value) {
+  return _M0FP37Hosi1216syasou7interop11is__nullish(value) ? undefined : _M0MP37Hosi1216syasou7interop3Any4castGsE(value);
 }
-function _M0FP26mizchi8js__core9try__sync(op) {
-  const result = new _M0TPC13ref3RefGORP26mizchi8js__core3AnyE(_M0DTPC16option6OptionGRP26mizchi8js__core3AnyE4None__);
-  const error = new _M0TPC13ref3RefGOsE(undefined);
-  _M0FP26mizchi8js__core15ffi__wrap__sync(op, (v) => {
-    result.val = new _M0DTPC16option6OptionGRP26mizchi8js__core3AnyE4Some(v);
-  }, (e) => {
-    const msg = _M0MP26mizchi8js__core3Any5__get(e, "message");
-    error.val = msg;
-  });
-  const _bind = error.val;
-  if (_bind === undefined) {
-    const _bind$2 = result.val;
-    if (_bind$2.$tag === 1) {
-      const _Some = _bind$2;
-      const _v = _Some._0;
-      return new _M0DTPC16result6ResultGRP26mizchi8js__core3AnyRP26mizchi8js__core7JsErrorE2Ok(_v);
-    } else {
-      return new _M0DTPC16result6ResultGRP26mizchi8js__core3AnyRP26mizchi8js__core7JsErrorE3Err(new _M0DTPC15error5Error37mizchi_2fjs__core_2eJsError_2eJsError("No result"));
-    }
+function _M0IPC16option6OptionP37Hosi1216syasou7interop6FromJs8from__jsGRP37Hosi1216syasou5webgl7ContextE(value) {
+  return _M0FP37Hosi1216syasou7interop11is__nullish(value) ? _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ContextE4None__ : new _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ContextE4Some(value);
+}
+function _M0IPC16option6OptionP37Hosi1216syasou7interop6FromJs8from__jsGRP37Hosi1216syasou5webgl7ProgramE(value) {
+  return _M0FP37Hosi1216syasou7interop11is__nullish(value) ? _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ProgramE4None__ : new _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl7ProgramE4Some(value);
+}
+function _M0IPC16option6OptionP37Hosi1216syasou7interop6FromJs8from__jsGRP37Hosi1216syasou5webgl6ShaderE(value) {
+  return _M0FP37Hosi1216syasou7interop11is__nullish(value) ? _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl6ShaderE4None__ : new _M0DTPC16option6OptionGRP37Hosi1216syasou5webgl6ShaderE4Some(value);
+}
+function _M0MP37Hosi1216syasou7interop8Nullable10to__optionGRP37Hosi1216syasou5webgl7ContextE(self) {
+  return _M0MP37Hosi1216syasou7interop3Any4castGORP37Hosi1216syasou5webgl7ContextE(self);
+}
+function _M0MP37Hosi1216syasou7interop8Nullable10to__optionGRP37Hosi1216syasou5webgl7ProgramE(self) {
+  return _M0MP37Hosi1216syasou7interop3Any4castGORP37Hosi1216syasou5webgl7ProgramE(self);
+}
+function _M0MP37Hosi1216syasou7interop8Nullable10to__optionGRP37Hosi1216syasou5webgl6ShaderE(self) {
+  return _M0MP37Hosi1216syasou7interop3Any4castGORP37Hosi1216syasou5webgl6ShaderE(self);
+}
+function _M0MP37Hosi1216syasou7interop3Any6__call(self, name, args) {
+  return _M0FP37Hosi1216syasou7interop4call(self, name, _M0FP37Hosi1216syasou7interop3anyGRPB5ArrayGRP37Hosi1216syasou7interop3AnyEE(args));
+}
+function _M0MP37Hosi1216syasou7interop3Any8__invoke(self, args) {
+  return _M0FP37Hosi1216syasou7interop6invoke(self, _M0FP37Hosi1216syasou7interop3anyGRPB5ArrayGRP37Hosi1216syasou7interop3AnyEE(args));
+}
+function _M0FP37Hosi1216syasou7interop9try__sync(run) {
+  const result = _M0FP37Hosi1216syasou7interop8ffi__try(run);
+  if (_M0MP37Hosi1216syasou7interop3Any4castGbE(_M0MP37Hosi1216syasou7interop3Any5__get(result, "ok"))) {
+    return new _M0DTPC16result6ResultGRP37Hosi1216syasou7interop3AnyRPC15error5ErrorE2Ok(_M0MP37Hosi1216syasou7interop3Any5__get(result, "value"));
   } else {
-    const _Some = _bind;
-    const _msg = _Some;
-    return new _M0DTPC16result6ResultGRP26mizchi8js__core3AnyRP26mizchi8js__core7JsErrorE3Err(new _M0DTPC15error5Error37mizchi_2fjs__core_2eJsError_2eJsError(_msg));
+    return new _M0DTPC16result6ResultGRP37Hosi1216syasou7interop3AnyRP37Hosi1216syasou7interop9HostErrorE3Err(new _M0DTPC15error5Error50Hosi121_2fsyasou_2finterop_2eHostError_2eHostError(_M0MP37Hosi1216syasou7interop3Any5__get(result, "value")));
   }
 }
-function _M0FP26mizchi8js__core13from__entries(entries) {
-  return _M0FP26mizchi8js__core18ffi__from__entries(_M0MPC15array10FixedArray11from__arrayGUsRP26mizchi8js__core3AnyEE(new _M0TPB9ArrayViewGUsRP26mizchi8js__core3AnyEE(entries, 0, entries.length)));
+function _M0FP37Hosi1216syasou7interop9from__fn0GuE(f) {
+  return _M0FP37Hosi1216syasou7interop14ffi__function0(() => _M0FP37Hosi1216syasou7interop3anyGuE(f()));
 }
-function _M0FP26mizchi8js__core16identity__optionGsE(v) {
-  return _M0FP26mizchi8js__core11is__nullish(v) ? undefined : v;
+function _M0FP37Hosi1216syasou7interop9from__fn1GRP37Hosi1216syasou7interop3AnyuE(f) {
+  return _M0FP37Hosi1216syasou7interop14ffi__function1((a) => _M0FP37Hosi1216syasou7interop3anyGuE(f(_M0MP37Hosi1216syasou7interop3Any4castGRP37Hosi1216syasou7interop3AnyE(a))));
 }
-function _M0FP36mizchi11js__builtin6global12global__this() {
-  return _M0FP36mizchi11js__builtin6global10globalThis();
+function _M0FP37Hosi1216syasou7interop9from__fn1GuRP37Hosi1216syasou7interop7PromiseGuEE(f) {
+  return _M0FP37Hosi1216syasou7interop14ffi__function1((a) => _M0FP37Hosi1216syasou7interop3anyGRP37Hosi1216syasou7interop7PromiseGuEE(f(_M0MP37Hosi1216syasou7interop3Any4castGuE(a))));
 }
-function _M0MP36mizchi7js__web5event11EventTarget24addEventListener_2einner(self, event_type, handler, capture, once, passive, signal) {
-  const entries = [];
-  _M0MPC15array5Array4pushGRP37Hosi1216syasou7browser6SourceE(entries, { _0: "capture", _1: capture });
-  _M0MPC15array5Array4pushGRP37Hosi1216syasou7browser6SourceE(entries, { _0: "once", _1: once });
-  _M0MPC15array5Array4pushGRP37Hosi1216syasou7browser6SourceE(entries, { _0: "passive", _1: passive });
-  if (signal.$tag === 1) {
-    const _Some = signal;
-    const _v = _Some._0;
-    _M0MPC15array5Array4pushGRP37Hosi1216syasou7browser6SourceE(entries, { _0: "signal", _1: _v });
+function _M0FP37Hosi1216syasou7interop9from__fn1GRP37Hosi1216syasou7interop3AnyRP37Hosi1216syasou7interop7PromiseGuEE(f) {
+  return _M0FP37Hosi1216syasou7interop14ffi__function1((a) => _M0FP37Hosi1216syasou7interop3anyGRP37Hosi1216syasou7interop7PromiseGuEE(f(_M0MP37Hosi1216syasou7interop3Any4castGRP37Hosi1216syasou7interop3AnyE(a))));
+}
+function _M0FP37Hosi1216syasou7interop5unboxGRP37Hosi1216syasou7browser5SoundE(value) {
+  const typed = value;
+  if (typed.$tag === 0) {
+    const _Value = typed;
+    return _Value._0;
+  } else {
+    return $panic();
   }
-  _M0MP26mizchi8js__core3Any6__call(self, "addEventListener", [event_type, handler, _M0FP26mizchi8js__core13from__entries(entries)]);
 }
-function _M0MP36mizchi7js__web5event11EventTarget27removeEventListener_2einner(self, event_type, handler, capture) {
-  _M0MP26mizchi8js__core3Any6__call(self, "removeEventListener", [event_type, handler, _M0FP26mizchi8js__core13from__entries([{ _0: "capture", _1: capture }])]);
+function _M0FP37Hosi1216syasou7interop5unboxGbE(value) {
+  const typed = value;
+  if (typed.$tag === 0) {
+    const _Value = typed;
+    return _Value._0;
+  } else {
+    return $panic();
+  }
 }
-function _M0MP36mizchi11js__browser3dom6Window11setInterval(self, handler, delay) {
-  return _M0MP26mizchi8js__core3Any6__call(self, "setInterval", [handler, delay]);
+function _M0FP37Hosi1216syasou7interop7capsuleGRP37Hosi1216syasou7browser5SoundE(value) {
+  const stored = new _M0DTP37Hosi1216syasou7interop3BoxGRP37Hosi1216syasou7browser5SoundE5Value(value);
+  const out = _M0FP37Hosi1216syasou7interop11new__object();
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "_read", _M0FP37Hosi1216syasou7interop9from__fn0GuE(() => {
+    _M0FP37Hosi1216syasou7interop7handoff.val = stored;
+  }));
+  return out;
 }
-function _M0MP36mizchi11js__browser3dom6Window13clearInterval(self, id) {
-  _M0MP26mizchi8js__core3Any6__call(self, "clearInterval", [id]);
+function _M0FP37Hosi1216syasou7interop7capsuleGbE(value) {
+  const stored = new _M0DTP37Hosi1216syasou7interop3BoxGbE5Value(value);
+  const out = _M0FP37Hosi1216syasou7interop11new__object();
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "_read", _M0FP37Hosi1216syasou7interop9from__fn0GuE(() => {
+    _M0FP37Hosi1216syasou7interop7handoff.val = stored;
+  }));
+  return out;
 }
-function _M0MP36mizchi11js__browser3dom6Window21requestAnimationFrame(self, callback) {
-  return _M0MP26mizchi8js__core3Any6__call(self, "requestAnimationFrame", [callback]);
+function _M0FP37Hosi1216syasou7interop9uncapsuleGRP37Hosi1216syasou7browser5SoundE(value) {
+  _M0MP37Hosi1216syasou7interop3Any6__call(value, "_read", []);
+  const stored = _M0FP37Hosi1216syasou7interop7handoff.val;
+  _M0FP37Hosi1216syasou7interop7handoff.val = _M0DTP37Hosi1216syasou7interop3BoxGuE5Empty__;
+  return _M0FP37Hosi1216syasou7interop5unboxGRP37Hosi1216syasou7browser5SoundE(stored);
 }
-function _M0MP36mizchi11js__browser3dom6Window20cancelAnimationFrame(self, id) {
-  _M0MP26mizchi8js__core3Any6__call(self, "cancelAnimationFrame", [id]);
+function _M0FP37Hosi1216syasou7interop9uncapsuleGbE(value) {
+  _M0MP37Hosi1216syasou7interop3Any6__call(value, "_read", []);
+  const stored = _M0FP37Hosi1216syasou7interop7handoff.val;
+  _M0FP37Hosi1216syasou7interop7handoff.val = _M0DTP37Hosi1216syasou7interop3BoxGuE5Empty__;
+  return _M0FP37Hosi1216syasou7interop5unboxGbE(stored);
 }
-function _M0MP36mizchi11js__browser3dom5Event14preventDefault(self) {
-  _M0MP26mizchi8js__core3Any6__call(self, "preventDefault", []);
+function _M0MP37Hosi1216syasou7interop7Promise7resolveGuE(value) {
+  return _M0FP37Hosi1216syasou7interop16promise__resolve(_M0FP37Hosi1216syasou7interop3anyGuE(value));
 }
-function _M0FP36mizchi11js__browser3dom10matchMedia(query) {
-  return _M0MP26mizchi8js__core3Any6__call(_M0FP26mizchi8js__core12global__this(), "matchMedia", [query]);
+function _M0MP37Hosi1216syasou7interop7Promise4thenGuuE(self, f) {
+  return _M0MP37Hosi1216syasou7interop3Any6__call(self, "then", [_M0FP37Hosi1216syasou7interop9from__fn1GuRP37Hosi1216syasou7interop7PromiseGuEE(f)]);
 }
-function _M0MP36mizchi11js__browser3dom14MediaQueryList17addChangeListener(self, listener) {
-  _M0MP26mizchi8js__core3Any6__call(self, "addEventListener", ["change", listener]);
+function _M0MP37Hosi1216syasou7interop7Promise7catch__GuE(self, f) {
+  return _M0MP37Hosi1216syasou7interop3Any6__call(self, "catch", [_M0FP37Hosi1216syasou7interop9from__fn1GRP37Hosi1216syasou7interop3AnyRP37Hosi1216syasou7interop7PromiseGuEE(f)]);
 }
-function _M0MP36mizchi11js__browser3dom14MediaQueryList20removeChangeListener(self, listener) {
-  _M0MP26mizchi8js__core3Any6__call(self, "removeEventListener", ["change", listener]);
+function _M0MP37Hosi1216syasou13host__storage7Storage7getItem(self, key) {
+  return _M0MP37Hosi1216syasou7interop3Any4castGOsE(_M0MP37Hosi1216syasou13host__storage7Storage9get__item(self, key));
 }
-function _M0MP36mizchi11js__browser3dom17HTMLCanvasElement24addEventListener_2einner(self, event_type, handler, capture, once, passive, signal) {
-  _M0MP36mizchi7js__web5event11EventTarget24addEventListener_2einner(self, event_type, handler, capture, once, passive, signal);
+function _M0FP37Hosi1216syasou5webgl7context(canvas, options) {
+  const value = _M0FP37Hosi1216syasou7interop11new__object();
+  _M0MP37Hosi1216syasou7interop3Any5__set(value, "alpha", _M0FP37Hosi1216syasou7interop3anyGbE(options.alpha));
+  _M0MP37Hosi1216syasou7interop3Any5__set(value, "antialias", _M0FP37Hosi1216syasou7interop3anyGbE(options.antialias));
+  _M0MP37Hosi1216syasou7interop3Any5__set(value, "depth", _M0FP37Hosi1216syasou7interop3anyGbE(options.depth));
+  _M0MP37Hosi1216syasou7interop3Any5__set(value, "preserveDrawingBuffer", _M0FP37Hosi1216syasou7interop3anyGbE(options.preserveDrawingBuffer));
+  return _M0FP37Hosi1216syasou5webgl12context__raw(canvas, value);
 }
-function _M0MP36mizchi11js__browser3dom17HTMLCanvasElement27removeEventListener_2einner(self, event_type, handler, capture) {
-  _M0MP36mizchi7js__web5event11EventTarget27removeEventListener_2einner(self, event_type, handler, capture);
-}
-function _M0MP36mizchi11js__browser3dom8Document24addEventListener_2einner(self, event_type, handler, capture, once, passive, signal) {
-  _M0MP36mizchi7js__web5event11EventTarget24addEventListener_2einner(self, event_type, handler, capture, once, passive, signal);
-}
-function _M0MP36mizchi11js__browser3dom8Document27removeEventListener_2einner(self, event_type, handler, capture) {
-  _M0MP36mizchi7js__web5event11EventTarget27removeEventListener_2einner(self, event_type, handler, capture);
-}
-function _M0MP36mizchi11js__browser8observer14ResizeObserver3new(callback) {
-  const ctor = _M0MP26mizchi8js__core3Any5__get(_M0FP36mizchi11js__builtin6global12global__this(), "ResizeObserver");
-  return _M0FP26mizchi8js__core3new(ctor, [callback]);
-}
-function _M0MP36mizchi11js__browser8observer14ResizeObserver7observe(self, target) {
-  _M0MP26mizchi8js__core3Any6__call(self, "observe", [target]);
-}
-function _M0MP36mizchi11js__browser8observer14ResizeObserver10disconnect(self) {
-  _M0MP26mizchi8js__core3Any6__call(self, "disconnect", []);
-}
-function _M0FP36mizchi7js__web11performance11performance() {
-  return _M0MP26mizchi8js__core3Any5__get(_M0FP26mizchi8js__core12global__this(), "performance");
-}
-function _M0MP36mizchi7js__web11performance11Performance3now(self) {
-  return _M0MP26mizchi8js__core3Any6__call(self, "now", []);
+function _M0MP37Hosi1216syasou5webgl7Context17buffer__data__f32(self, target, values, usage) {
+  _M0MP37Hosi1216syasou5webgl7Context17buffer__data__raw(self, target, _M0FP37Hosi1216syasou7interop3anyGAdE(values), usage);
 }
 function _M0FP37Hosi1216syasou7browser7compile(gl, shaders, program, kind, source) {
-  const _bind = _M0MP26mizchi8js__core8Nullable10to__optionGRP37Hosi1216syasou5webgl7ContextE(_M0MP37Hosi1216syasou5webgl7Context14create__shader(gl, kind));
+  const _bind = _M0MP37Hosi1216syasou7interop8Nullable10to__optionGRP37Hosi1216syasou5webgl6ShaderE(_M0MP37Hosi1216syasou5webgl7Context14create__shader(gl, kind));
   if (_bind.$tag === 1) {
     const _Some = _bind;
     const _shader = _Some._0;
-    _M0MPC15array5Array4pushGRP26mizchi8js__core3AnyE(shaders, _shader);
+    _M0MPC15array5Array4pushGRP37Hosi1216syasou7interop3AnyE(shaders, _shader);
     _M0MP37Hosi1216syasou5webgl7Context14shader__source(gl, _shader, source);
     _M0MP37Hosi1216syasou5webgl7Context15compile__shader(gl, _shader);
     if (!_M0MP37Hosi1216syasou5webgl7Context16shader__compiled(gl, _shader)) {
@@ -2504,15 +2744,17 @@ function _M0FP37Hosi1216syasou7browser7compile(gl, shaders, program, kind, sourc
 function _M0FP37Hosi1216syasou7browser9catch__jsGbE(f) {
   let _try_err;
   _L: {
-    const _bind = _M0FP26mizchi8js__core9try__sync(() => f());
+    const _bind = _M0FP37Hosi1216syasou7interop9try__sync(() => _M0FP37Hosi1216syasou7interop7capsuleGbE(f()));
+    let _tmp;
     if (_bind.$tag === 1) {
       const _ok = _bind;
-      return _ok._0;
+      _tmp = _ok._0;
     } else {
       const _err = _bind;
       _try_err = _err._0;
       break _L;
     }
+    return _M0FP37Hosi1216syasou7interop9uncapsuleGbE(_tmp);
   }
   return -1;
 }
@@ -2520,16 +2762,16 @@ function _M0MP37Hosi1216syasou7browser8Renderer4draw(self) {
   if (self.disposed || (self.lost || _M0FP37Hosi1216syasou7browser6hidden())) {
     return undefined;
   }
-  _M0MP37Hosi1216syasou5webgl7Context8viewport(self.gl, 0, 0, self.canvas.width, self.canvas.height);
-  _M0MP37Hosi1216syasou5webgl7Context9uniform2f(self.gl, self.resolution, self.canvas.width + 0, self.canvas.height + 0);
+  _M0MP37Hosi1216syasou5webgl7Context8viewport(self.gl, 0, 0, _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement5width(self.canvas), _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement6height(self.canvas));
+  _M0MP37Hosi1216syasou5webgl7Context9uniform2f(self.gl, self.resolution, _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement5width(self.canvas) + 0, _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement6height(self.canvas) + 0);
   _M0MP37Hosi1216syasou5webgl7Context9uniform1f(self.gl, self.time, self.animation_time);
-  _M0MP37Hosi1216syasou5webgl7Context9uniform1f(self.gl, self.travel, self.reduced_motion.matches ? 0 : self.travel_time);
+  _M0MP37Hosi1216syasou5webgl7Context9uniform1f(self.gl, self.travel, _M0MP37Hosi1216syasou9host__dom14MediaQueryList7matches(self.reduced_motion) ? 0 : self.travel_time);
   _M0MP37Hosi1216syasou5webgl7Context9uniform1f(self.gl, self.scene, _M0FP37Hosi1216syasou6domain12scene__index(self.params.scene));
   _M0MP37Hosi1216syasou5webgl7Context12draw__arrays(self.gl, 4, 0, 6);
 }
 function _M0MP37Hosi1216syasou7browser8Renderer7animate(self, now) {
   self.frame = 0;
-  if (self.disposed || (self.lost || (_M0FP37Hosi1216syasou7browser6hidden() || (self.reduced_motion.matches || !self.params.moving)))) {
+  if (self.disposed || (self.lost || (_M0FP37Hosi1216syasou7browser6hidden() || (_M0MP37Hosi1216syasou9host__dom14MediaQueryList7matches(self.reduced_motion) || !self.params.moving)))) {
     return undefined;
   }
   const elapsed = now - self.last_frame;
@@ -2541,17 +2783,17 @@ function _M0MP37Hosi1216syasou7browser8Renderer7animate(self, now) {
     self.last_frame = now;
     _M0MP37Hosi1216syasou7browser8Renderer4draw(self);
   }
-  self.frame = _M0MP36mizchi11js__browser3dom6Window21requestAnimationFrame(_M0FP36mizchi11js__browser3dom6window(), (now$2) => {
+  self.frame = _M0MP37Hosi1216syasou9host__dom6Window21requestAnimationFrame(_M0FP37Hosi1216syasou9host__dom6window(), (now$2) => {
     _M0MP37Hosi1216syasou7browser8Renderer7animate(self, now$2);
   });
 }
 function _M0MP37Hosi1216syasou7browser8Renderer7refresh(self) {
-  _M0MP36mizchi11js__browser3dom6Window20cancelAnimationFrame(_M0FP36mizchi11js__browser3dom6window(), self.frame);
+  _M0MP37Hosi1216syasou9host__dom6Window20cancelAnimationFrame(_M0FP37Hosi1216syasou9host__dom6window(), self.frame);
   self.frame = 0;
-  self.last_frame = _M0MP36mizchi7js__web11performance11Performance3now(_M0FP36mizchi7js__web11performance11performance());
+  self.last_frame = _M0MP37Hosi1216syasou17host__performance11Performance3now(_M0FP37Hosi1216syasou17host__performance11performance());
   _M0MP37Hosi1216syasou7browser8Renderer4draw(self);
-  if (!self.disposed && (!self.lost && (!_M0FP37Hosi1216syasou7browser6hidden() && (!self.reduced_motion.matches && self.params.moving)))) {
-    self.frame = _M0MP36mizchi11js__browser3dom6Window21requestAnimationFrame(_M0FP36mizchi11js__browser3dom6window(), (now) => {
+  if (!self.disposed && (!self.lost && (!_M0FP37Hosi1216syasou7browser6hidden() && (!_M0MP37Hosi1216syasou9host__dom14MediaQueryList7matches(self.reduced_motion) && self.params.moving)))) {
+    self.frame = _M0MP37Hosi1216syasou9host__dom6Window21requestAnimationFrame(_M0FP37Hosi1216syasou9host__dom6window(), (now) => {
       _M0MP37Hosi1216syasou7browser8Renderer7animate(self, now);
     });
     return;
@@ -2562,22 +2804,22 @@ function _M0MP37Hosi1216syasou7browser8Renderer7refresh(self) {
 function _M0MP37Hosi1216syasou7browser8Renderer6resize(self) {
   const rect = _M0FP37Hosi1216syasou7browser6bounds(self.canvas);
   const _tmp = self.canvas;
-  const _p = _M0MP36mizchi11js__builtin4math4Math5round(rect.width);
+  const _p = _M0MP37Hosi1216syasou10host__math4Math5round(_M0MP37Hosi1216syasou9host__dom7DOMRect5width(rect));
   const _p$2 = 1;
-  _tmp.width = _p > _p$2 ? _p : _p$2;
+  _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement10set__width(_tmp, _p > _p$2 ? _p : _p$2);
   const _tmp$2 = self.canvas;
-  const _p$3 = _M0MP36mizchi11js__builtin4math4Math5round(rect.height);
+  const _p$3 = _M0MP37Hosi1216syasou10host__math4Math5round(_M0MP37Hosi1216syasou9host__dom7DOMRect6height(rect));
   const _p$4 = 1;
-  _tmp$2.height = _p$3 > _p$4 ? _p$3 : _p$4;
+  _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement11set__height(_tmp$2, _p$3 > _p$4 ? _p$3 : _p$4);
   _M0MP37Hosi1216syasou7browser8Renderer7refresh(self);
 }
 function _M0FP37Hosi1216syasou7browser16create__renderer(canvas, on_unavailable) {
-  const _bind = _M0MP26mizchi8js__core8Nullable10to__optionGRP37Hosi1216syasou5webgl7ContextE(_M0FP37Hosi1216syasou5webgl7context(canvas, _M0FP37Hosi1216syasou7browser16create__rendererN6recordS214));
+  const _bind = _M0MP37Hosi1216syasou7interop8Nullable10to__optionGRP37Hosi1216syasou5webgl7ContextE(_M0FP37Hosi1216syasou5webgl7context(canvas, _M0FP37Hosi1216syasou7browser16create__rendererN6recordS217));
   if (_bind.$tag === 1) {
     const _Some = _bind;
     const _gl = _Some._0;
     const shaders = [];
-    const _bind$2 = _M0MP26mizchi8js__core8Nullable10to__optionGRP37Hosi1216syasou5webgl7ContextE(_M0MP37Hosi1216syasou5webgl7Context15create__program(_gl));
+    const _bind$2 = _M0MP37Hosi1216syasou7interop8Nullable10to__optionGRP37Hosi1216syasou5webgl7ProgramE(_M0MP37Hosi1216syasou5webgl7Context15create__program(_gl));
     if (_bind$2.$tag === 1) {
       const _Some$2 = _bind$2;
       const _program = _Some$2._0;
@@ -2619,13 +2861,13 @@ function _M0FP37Hosi1216syasou7browser16create__renderer(canvas, on_unavailable)
       const time = _M0MP37Hosi1216syasou5webgl7Context17uniform__location(_gl, _program, "u_time");
       const travel = _M0MP37Hosi1216syasou5webgl7Context17uniform__location(_gl, _program, "u_travel");
       const scene = _M0MP37Hosi1216syasou5webgl7Context17uniform__location(_gl, _program, "u_scene");
-      const reduced_motion = _M0FP36mizchi11js__browser3dom10matchMedia("(prefers-reduced-motion: reduce)");
-      const renderer = new _M0TP37Hosi1216syasou7browser8Renderer(canvas, _gl, shaders, _program, buffer, resolution, time, travel, scene, reduced_motion, _M0FP37Hosi1216syasou7browser16create__rendererN6recordS215, 0, 0, _M0MP36mizchi7js__web11performance11Performance3now(_M0FP36mizchi7js__web11performance11performance()), 0, false, false, _M0DTPC16option6OptionGRP36mizchi11js__browser8observer14ResizeObserverE4None__, undefined, undefined, undefined);
-      const resize_observer = _M0MP36mizchi11js__browser8observer14ResizeObserver3new((_discard_, _discard_$2) => {
+      const reduced_motion = _M0FP37Hosi1216syasou9host__dom10matchMedia("(prefers-reduced-motion: reduce)");
+      const renderer = new _M0TP37Hosi1216syasou7browser8Renderer(canvas, _gl, shaders, _program, buffer, resolution, time, travel, scene, reduced_motion, _M0FP37Hosi1216syasou7browser16create__rendererN6recordS218, 0, 0, _M0MP37Hosi1216syasou17host__performance11Performance3now(_M0FP37Hosi1216syasou17host__performance11performance()), 0, false, false, _M0DTPC16option6OptionGRP37Hosi1216syasou14host__observer14ResizeObserverE4None__, undefined, undefined, undefined);
+      const resize_observer = _M0MP37Hosi1216syasou14host__observer14ResizeObserver3new((_discard_, _discard_$2) => {
         _M0MP37Hosi1216syasou7browser8Renderer6resize(renderer);
       });
-      renderer.observer = new _M0DTPC16option6OptionGRP36mizchi11js__browser8observer14ResizeObserverE4Some(resize_observer);
-      _M0MP36mizchi11js__browser8observer14ResizeObserver7observe(resize_observer, canvas);
+      renderer.observer = new _M0DTPC16option6OptionGRP37Hosi1216syasou14host__observer14ResizeObserverE4Some(resize_observer);
+      _M0MP37Hosi1216syasou14host__observer14ResizeObserver7observe(resize_observer, canvas);
       const visibility = (_discard_) => {
         _M0MP37Hosi1216syasou7browser8Renderer7refresh(renderer);
       };
@@ -2634,18 +2876,18 @@ function _M0FP37Hosi1216syasou7browser16create__renderer(canvas, on_unavailable)
       };
       const lost = (event) => {
         const event$2 = event;
-        _M0MP36mizchi11js__browser3dom5Event14preventDefault(event$2);
+        _M0MP37Hosi1216syasou9host__dom5Event14preventDefault(event$2);
         renderer.lost = true;
-        _M0MP36mizchi11js__browser3dom6Window20cancelAnimationFrame(_M0FP36mizchi11js__browser3dom6window(), renderer.frame);
+        _M0MP37Hosi1216syasou9host__dom6Window20cancelAnimationFrame(_M0FP37Hosi1216syasou9host__dom6window(), renderer.frame);
         _M0FP37Hosi1216syasou7browser12set__opacity(canvas, "0");
         on_unavailable();
       };
       renderer.visibility_callback = visibility;
       renderer.motion_callback = motion;
       renderer.lost_callback = lost;
-      _M0MP36mizchi11js__browser3dom8Document24addEventListener_2einner(_M0FP36mizchi11js__browser3dom8document(), "visibilitychange", visibility, false, false, false, _M0DTPC16option6OptionGRP311moonbitlang5async9js__async11AbortSignalE4None__);
-      _M0MP36mizchi11js__browser3dom14MediaQueryList17addChangeListener(reduced_motion, motion);
-      _M0MP36mizchi11js__browser3dom17HTMLCanvasElement24addEventListener_2einner(canvas, "webglcontextlost", lost, false, false, false, _M0DTPC16option6OptionGRP311moonbitlang5async9js__async11AbortSignalE4None__);
+      _M0MP37Hosi1216syasou9host__dom8Document16addEventListener(_M0FP37Hosi1216syasou9host__dom8document(), "visibilitychange", visibility);
+      _M0MP37Hosi1216syasou9host__dom14MediaQueryList17addChangeListener(reduced_motion, motion);
+      _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement16addEventListener(canvas, "webglcontextlost", lost);
       _M0MP37Hosi1216syasou7browser8Renderer6resize(renderer);
       return renderer;
     } else {
@@ -2664,33 +2906,33 @@ function _M0MP37Hosi1216syasou7browser8Renderer6update(self, params) {
 }
 function _M0MP37Hosi1216syasou7browser8Renderer7dispose(self) {
   self.disposed = true;
-  _M0MP36mizchi11js__browser3dom6Window20cancelAnimationFrame(_M0FP36mizchi11js__browser3dom6window(), self.frame);
+  _M0MP37Hosi1216syasou9host__dom6Window20cancelAnimationFrame(_M0FP37Hosi1216syasou9host__dom6window(), self.frame);
   const _bind = self.observer;
   if (_bind.$tag === 1) {
     const _Some = _bind;
     const _observer = _Some._0;
-    _M0MP36mizchi11js__browser8observer14ResizeObserver10disconnect(_observer);
+    _M0MP37Hosi1216syasou14host__observer14ResizeObserver10disconnect(_observer);
   }
   const _bind$2 = self.visibility_callback;
   if (_bind$2 === undefined) {
   } else {
     const _Some = _bind$2;
     const _callback = _Some;
-    _M0MP36mizchi11js__browser3dom8Document27removeEventListener_2einner(_M0FP36mizchi11js__browser3dom8document(), "visibilitychange", _callback, false);
+    _M0MP37Hosi1216syasou9host__dom8Document19removeEventListener(_M0FP37Hosi1216syasou9host__dom8document(), "visibilitychange", _callback);
   }
   const _bind$3 = self.motion_callback;
   if (_bind$3 === undefined) {
   } else {
     const _Some = _bind$3;
     const _callback = _Some;
-    _M0MP36mizchi11js__browser3dom14MediaQueryList20removeChangeListener(self.reduced_motion, _callback);
+    _M0MP37Hosi1216syasou9host__dom14MediaQueryList20removeChangeListener(self.reduced_motion, _callback);
   }
   const _bind$4 = self.lost_callback;
   if (_bind$4 === undefined) {
   } else {
     const _Some = _bind$4;
     const _callback = _Some;
-    _M0MP36mizchi11js__browser3dom17HTMLCanvasElement27removeEventListener_2einner(self.canvas, "webglcontextlost", _callback, false);
+    _M0MP37Hosi1216syasou9host__dom17HTMLCanvasElement19removeEventListener(self.canvas, "webglcontextlost", _callback);
   }
   _M0MP37Hosi1216syasou5webgl7Context14delete__buffer(self.gl, self.buffer);
   const _bind$5 = self.shaders;
@@ -2720,7 +2962,7 @@ function _M0FP37Hosi1216syasou7browser12noise__layer(context, noise, sources, ki
   const gain = _M0MP37Hosi1216syasou8webaudio12AudioContext12create__gain(context);
   _M0MP37Hosi1216syasou8webaudio10AudioParam10set__value(_M0MP37Hosi1216syasou8webaudio8GainNode4gain(gain), 0);
   _M0MP37Hosi1216syasou8webaudio9AudioNode7connect(_M0MP37Hosi1216syasou8webaudio9AudioNode7connect(_M0MP37Hosi1216syasou8webaudio9AudioNode7connect(source, filter), gain), destination);
-  _M0MP37Hosi1216syasou8webaudio21AudioBufferSourceNode5start(source, 0, _M0MP36mizchi11js__builtin4math4Math6random() * 4);
+  _M0MP37Hosi1216syasou8webaudio21AudioBufferSourceNode5start(source, 0, _M0MP37Hosi1216syasou10host__math4Math6random() * 4);
   _M0MPC15array5Array4pushGRP37Hosi1216syasou7browser6SourceE(sources, new _M0DTP37Hosi1216syasou7browser6Source5Noise(source));
   return gain;
 }
@@ -2744,7 +2986,7 @@ function _M0FP37Hosi1216syasou7browser13create__sound() {
       while (true) {
         const i = _tmp$2;
         if (i < _bind) {
-          const _bind$2 = _M0FP37Hosi1216syasou6domain13noise__sample(brown, _M0MP36mizchi11js__builtin4math4Math6random());
+          const _bind$2 = _M0FP37Hosi1216syasou6domain13noise__sample(brown, _M0MP37Hosi1216syasou10host__math4Math6random());
           const _next = _bind$2._0;
           const _value = _bind$2._1;
           brown = _next;
@@ -2804,7 +3046,7 @@ function _M0MP37Hosi1216syasou7browser5Sound5clack(self, time, strength) {
   _M0MP37Hosi1216syasou8webaudio10AudioParam17exponential__ramp(_M0MP37Hosi1216syasou8webaudio8GainNode4gain(envelope), strength, time + 0.012);
   _M0MP37Hosi1216syasou8webaudio10AudioParam17exponential__ramp(_M0MP37Hosi1216syasou8webaudio8GainNode4gain(envelope), 0.001, time + 0.16);
   _M0MP37Hosi1216syasou8webaudio9AudioNode7connect(_M0MP37Hosi1216syasou8webaudio9AudioNode7connect(_M0MP37Hosi1216syasou8webaudio9AudioNode7connect(noise, filter), envelope), self.train);
-  _M0MP37Hosi1216syasou8webaudio21AudioBufferSourceNode5start(noise, time, _M0MP36mizchi11js__builtin4math4Math6random() * 4);
+  _M0MP37Hosi1216syasou8webaudio21AudioBufferSourceNode5start(noise, time, _M0MP37Hosi1216syasou10host__math4Math6random() * 4);
   _M0MP37Hosi1216syasou8webaudio21AudioBufferSourceNode4stop(noise, time + 0.18);
   _M0MP37Hosi1216syasou8webaudio21AudioBufferSourceNode9on__ended(noise, () => {
     _M0MP37Hosi1216syasou8webaudio9AudioNode10disconnect(noise);
@@ -2836,22 +3078,22 @@ function _M0MP37Hosi1216syasou7browser5Sound8schedule(self) {
   }
 }
 function _M0MP37Hosi1216syasou7browser5Sound6enable(self) {
-  return _M0MP26mizchi8js__core7Promise4thenGuuE(_M0MP37Hosi1216syasou8webaudio12AudioContext8resume__(self.context), (_discard_) => {
+  return _M0MP37Hosi1216syasou7interop7Promise4thenGuuE(_M0MP37Hosi1216syasou8webaudio12AudioContext8resume__(self.context), (_discard_) => {
     const _p = _M0MP37Hosi1216syasou8webaudio12AudioContext5state(self.context);
     const _p$2 = "running";
     if (!(_p === _p$2)) {
-      _M0FP26mizchi8js__core12throw__error("audio-unavailable");
+      _M0FP37Hosi1216syasou7interop12throw__error("audio-unavailable");
     }
     _M0MP37Hosi1216syasou8webaudio10AudioParam6target(_M0MP37Hosi1216syasou8webaudio8GainNode4gain(self.master), 0.7, _M0MP37Hosi1216syasou8webaudio12AudioContext13current__time(self.context), 0.4);
     self.next_beat = _M0MP37Hosi1216syasou8webaudio12AudioContext13current__time(self.context) + 0.1;
     self.beat = 0;
     const _bind = self.scheduler;
     if (_bind === undefined) {
-      self.scheduler = _M0MP36mizchi11js__browser3dom6Window11setInterval(_M0FP36mizchi11js__browser3dom6window(), () => {
+      self.scheduler = _M0MP37Hosi1216syasou9host__dom6Window11setInterval(_M0FP37Hosi1216syasou9host__dom6window(), () => {
         _M0MP37Hosi1216syasou7browser5Sound8schedule(self);
       }, 80);
     }
-    return new _M0DTPC16result6ResultGRP26mizchi8js__core7PromiseGuERPC15error5ErrorE2Ok(_M0MP26mizchi8js__core7Promise7resolveGuE(undefined));
+    return _M0MP37Hosi1216syasou7interop7Promise7resolveGuE(undefined);
   });
 }
 function _M0MP37Hosi1216syasou7browser5Sound7disable(self) {
@@ -2861,7 +3103,7 @@ function _M0MP37Hosi1216syasou7browser5Sound7disable(self) {
   } else {
     const _Some = _bind;
     const _id = _Some;
-    _M0MP36mizchi11js__browser3dom6Window13clearInterval(_M0FP36mizchi11js__browser3dom6window(), _id);
+    _M0MP37Hosi1216syasou9host__dom6Window13clearInterval(_M0FP37Hosi1216syasou9host__dom6window(), _id);
   }
   self.scheduler = undefined;
   return _M0MP37Hosi1216syasou8webaudio12AudioContext7suspend(self.context);
@@ -2881,7 +3123,7 @@ function _M0MP37Hosi1216syasou7browser5Sound7dispose(self) {
   } else {
     const _Some = _bind;
     const _id = _Some;
-    _M0MP36mizchi11js__browser3dom6Window13clearInterval(_M0FP36mizchi11js__browser3dom6window(), _id);
+    _M0MP37Hosi1216syasou9host__dom6Window13clearInterval(_M0FP37Hosi1216syasou9host__dom6window(), _id);
   }
   const _bind$2 = self.sources;
   const _bind$3 = _bind$2.length;
@@ -2907,35 +3149,23 @@ function _M0MP37Hosi1216syasou7browser5Sound7dispose(self) {
       break;
     }
   }
-  _M0MP26mizchi8js__core7Promise7catch__GuuE(_M0MP37Hosi1216syasou8webaudio12AudioContext5close(self.context), (_discard_) => _M0MP26mizchi8js__core7Promise7resolveGuE(undefined));
+  _M0MP37Hosi1216syasou7interop7Promise7catch__GuE(_M0MP37Hosi1216syasou8webaudio12AudioContext5close(self.context), (_discard_) => _M0MP37Hosi1216syasou7interop7Promise7resolveGuE(undefined));
 }
 function _M0FP37Hosi1216syasou7browser13read__storage(key, fallback, validate) {
-  let _try_err;
-  _L: {
-    const _bind = _M0FP26mizchi8js__core9try__sync(() => {
-      const source = _M0MPC16option6Option10unwrap__orGsE(_M0MP36mizchi11js__browser7storage7Storage7getItem(_M0FP36mizchi11js__browser7storage12localStorage(), key), "null");
-      const value = _M0FP26mizchi8js__core11json__parse(source === "" ? "null" : source);
-      return validate(value) ? value : fallback;
-    });
-    if (_bind.$tag === 1) {
-      const _ok = _bind;
-      return _ok._0;
-    } else {
-      const _err = _bind;
-      _try_err = _err._0;
-      break _L;
-    }
-  }
-  return fallback;
-}
-function _M0FP37Hosi1216syasou7browser14write__storage(key, value) {
   let result;
   let _try_err;
   _L: {
     _L$2: {
-      const _bind = _M0FP26mizchi8js__core9try__sync(() => {
-        _M0MP36mizchi11js__browser7storage7Storage7setItem(_M0FP36mizchi11js__browser7storage12localStorage(), key, _M0FP26mizchi8js__core15json__stringify(value));
-        return true;
+      const _bind = _M0FP37Hosi1216syasou7interop9try__sync(() => {
+        const source = _M0MPC16option6Option10unwrap__orGsE(_M0MP37Hosi1216syasou13host__storage7Storage7getItem(_M0FP37Hosi1216syasou13host__storage12localStorage(), key), "null");
+        const value = _M0FP37Hosi1216syasou7interop11json__parse(source === "" ? "null" : source);
+        if (validate(value)) {
+          const found = _M0FP37Hosi1216syasou7interop11new__object();
+          _M0MP37Hosi1216syasou7interop3Any5__set(found, "value", value);
+          return found;
+        } else {
+          return _M0FP37Hosi1216syasou7interop9undefined();
+        }
       });
       if (_bind.$tag === 1) {
         const _ok = _bind;
@@ -2947,30 +3177,55 @@ function _M0FP37Hosi1216syasou7browser14write__storage(key, value) {
       }
       break _L;
     }
-    result = false;
+    result = _M0FP37Hosi1216syasou7interop9undefined();
   }
-  return result;
+  return _M0FP37Hosi1216syasou7interop13is__undefined(result) ? fallback : _M0MP37Hosi1216syasou7interop3Any5__get(result, "value");
 }
-function _M0MP36mizchi7js__web3url15URLSearchParams3get(self, name) {
-  return _M0FP26mizchi8js__core16identity__optionGsE(_M0MP26mizchi8js__core3Any6__call(self, "get", [name]));
+function _M0FP37Hosi1216syasou7browser14write__storage(key, value) {
+  const holder = _M0FP37Hosi1216syasou7interop11new__object();
+  _M0MP37Hosi1216syasou7interop3Any5__set(holder, "value", value);
+  let result;
+  let _try_err;
+  _L: {
+    _L$2: {
+      const _bind = _M0FP37Hosi1216syasou7interop9try__sync(() => {
+        _M0MP37Hosi1216syasou13host__storage7Storage7setItem(_M0FP37Hosi1216syasou13host__storage12localStorage(), key, _M0FP37Hosi1216syasou7interop15json__stringify(_M0MP37Hosi1216syasou7interop3Any5__get(holder, "value")));
+        return _M0FP37Hosi1216syasou7interop3anyGbE(true);
+      });
+      if (_bind.$tag === 1) {
+        const _ok = _bind;
+        result = _ok._0;
+      } else {
+        const _err = _bind;
+        _try_err = _err._0;
+        break _L$2;
+      }
+      break _L;
+    }
+    result = _M0FP37Hosi1216syasou7interop3anyGbE(false);
+  }
+  return _M0MP37Hosi1216syasou7interop3Any4castGbE(result);
+}
+function _M0MP37Hosi1216syasou9host__url15URLSearchParams3get(self, key) {
+  return _M0MP37Hosi1216syasou7interop3Any4castGOsE(_M0MP37Hosi1216syasou9host__url15URLSearchParams10get__value(self, key));
 }
 function _M0FP37Hosi1216syasou6bridge11read__field(value) {
-  if (_M0FP26mizchi8js__core13is__undefined(value)) {
+  if (_M0FP37Hosi1216syasou7interop13is__undefined(value)) {
     return _M0DTP37Hosi1216syasou6domain5Field7Missing__;
   }
-  if (_M0FP26mizchi8js__core8is__null(value)) {
+  if (_M0FP37Hosi1216syasou7interop8is__null(value)) {
     return _M0DTP37Hosi1216syasou6domain5Field4Null__;
   }
-  const _bind = _M0FP26mizchi8js__core8typeof__(value);
+  const _bind = _M0FP37Hosi1216syasou7interop8typeof__(value);
   switch (_bind) {
     case "boolean": {
-      return new _M0DTP37Hosi1216syasou6domain5Field4Flag(value);
+      return new _M0DTP37Hosi1216syasou6domain5Field4Flag(_M0MP37Hosi1216syasou7interop3Any4castGbE(value));
     }
     case "number": {
-      return new _M0DTP37Hosi1216syasou6domain5Field7Numeric(value);
+      return new _M0DTP37Hosi1216syasou6domain5Field7Numeric(_M0MP37Hosi1216syasou7interop3Any4castGdE(value));
     }
     case "string": {
-      return new _M0DTP37Hosi1216syasou6domain5Field4Text(value);
+      return new _M0DTP37Hosi1216syasou6domain5Field4Text(_M0MP37Hosi1216syasou7interop3Any4castGsE(value));
     }
     default: {
       return _M0DTP37Hosi1216syasou6domain5Field5Other__;
@@ -2978,7 +3233,7 @@ function _M0FP37Hosi1216syasou6bridge11read__field(value) {
   }
 }
 function _M0FP37Hosi1216syasou6bridge12read__record(value, names) {
-  const is_object = !_M0FP26mizchi8js__core8is__null(value) && _M0FP26mizchi8js__core8typeof__(value) === "object";
+  const is_object = !_M0FP37Hosi1216syasou7interop8is__null(value) && _M0FP37Hosi1216syasou7interop8typeof__(value) === "object";
   const _bind = [];
   const fields = _M0MPB3Map3MapGsRP37Hosi1216syasou6domain5FieldE(new _M0TPB9ArrayViewGUsRP37Hosi1216syasou6domain5FieldEE(_bind, 0, 0), undefined);
   if (is_object) {
@@ -2988,7 +3243,7 @@ function _M0FP37Hosi1216syasou6bridge12read__record(value, names) {
       const _ = _tmp;
       if (_ < _bind$2) {
         const name = names[_];
-        _M0MPB3Map3setGsRP37Hosi1216syasou6domain5FieldE(fields, name, _M0FP37Hosi1216syasou6bridge11read__field(_M0MP26mizchi8js__core3Any5__get(value, name)));
+        _M0MPB3Map3setGsRP37Hosi1216syasou6domain5FieldE(fields, name, _M0FP37Hosi1216syasou6bridge11read__field(_M0MP37Hosi1216syasou7interop3Any5__get(value, name)));
         _tmp = _ + 1 | 0;
         continue;
       } else {
@@ -3008,12 +3263,12 @@ function _M0FP37Hosi1216syasou6bridge10is__ticket(value) {
   return _M0FP37Hosi1216syasou6domain13valid__ticket(_M0FP37Hosi1216syasou6bridge12read__record(value, _M0FP37Hosi1216syasou6bridge14ticket__fields));
 }
 function _M0FP37Hosi1216syasou6bridge17is__travel__state(value) {
-  const object = !_M0FP26mizchi8js__core8is__null(value) && _M0FP26mizchi8js__core8typeof__(value) === "object";
-  const j = object ? _M0MP26mizchi8js__core3Any5__get(value, "journey") : _M0FP26mizchi8js__core9undefined();
-  const items = object ? _M0MP26mizchi8js__core3Any5__get(value, "tickets") : _M0FP26mizchi8js__core9undefined();
+  const object = !_M0FP37Hosi1216syasou7interop8is__null(value) && _M0FP37Hosi1216syasou7interop8typeof__(value) === "object";
+  const j = object ? _M0MP37Hosi1216syasou7interop3Any5__get(value, "journey") : _M0FP37Hosi1216syasou7interop9undefined();
+  const items = object ? _M0MP37Hosi1216syasou7interop3Any5__get(value, "tickets") : _M0FP37Hosi1216syasou7interop9undefined();
   let tickets;
-  if (_M0FP26mizchi8js__core9is__array(items)) {
-    const array = items;
+  if (_M0FP37Hosi1216syasou7interop9is__array(items)) {
+    const array = _M0MP37Hosi1216syasou7interop3Any4castGRPB5ArrayGRP37Hosi1216syasou7interop3AnyEE(items);
     const _p = new Array(array.length);
     const _p$2 = array.length;
     let _tmp = 0;
@@ -3032,7 +3287,7 @@ function _M0FP37Hosi1216syasou6bridge17is__travel__state(value) {
   } else {
     tickets = _M0DTPC16option6OptionGRPB5ArrayGRP37Hosi1216syasou6domain6RecordEE4None__;
   }
-  const pending = object ? _M0MP26mizchi8js__core3Any5__get(value, "pendingArrivalId") : _M0FP26mizchi8js__core9undefined();
+  const pending = object ? _M0MP37Hosi1216syasou7interop3Any5__get(value, "pendingArrivalId") : _M0FP37Hosi1216syasou7interop9undefined();
   return _M0FP37Hosi1216syasou6domain13valid__travel(object, _M0FP37Hosi1216syasou6bridge12read__record(j, _M0FP37Hosi1216syasou6bridge15journey__fields), tickets, _M0FP37Hosi1216syasou6bridge11read__field(pending));
 }
 function _M0FP37Hosi1216syasou6bridge8is__view(value) {
@@ -3045,16 +3300,16 @@ function _M0FP37Hosi1216syasou6bridge19is__stored__boolean(value) {
   return _M0FP37Hosi1216syasou6domain14valid__boolean(_M0FP37Hosi1216syasou6bridge11read__field(value));
 }
 function _M0FP37Hosi1216syasou6bridge8optionalGsE(value) {
-  return _M0FP26mizchi8js__core11is__nullish(value) ? undefined : value;
+  return _M0FP37Hosi1216syasou7interop11is__nullish(value) ? undefined : _M0MP37Hosi1216syasou7interop3Any4castGsE(value);
 }
 function _M0FP37Hosi1216syasou6bridge8optionalGdE(value) {
-  return _M0FP26mizchi8js__core11is__nullish(value) ? _M0DTPC16option6OptionGdE4None__ : new _M0DTPC16option6OptionGdE4Some(value);
+  return _M0FP37Hosi1216syasou7interop11is__nullish(value) ? _M0DTPC16option6OptionGdE4None__ : new _M0DTPC16option6OptionGdE4Some(_M0MP37Hosi1216syasou7interop3Any4castGdE(value));
 }
 function _M0FP37Hosi1216syasou6bridge12read__ticket(value) {
-  return new _M0TP37Hosi1216syasou6domain6Ticket(_M0MP26mizchi8js__core3Any5__get(value, "id"), _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP26mizchi8js__core3Any5__get(value, "kind")), _M0MP26mizchi8js__core3Any5__get(value, "startedAt"), _M0MP26mizchi8js__core3Any5__get(value, "arrivedAt"), _M0MP26mizchi8js__core3Any5__get(value, "speed"), _M0MP26mizchi8js__core3Any5__get(value, "scene"), _M0MP26mizchi8js__core3Any5__get(value, "title"), _M0MP26mizchi8js__core3Any5__get(value, "note"));
+  return new _M0TP37Hosi1216syasou6domain6Ticket(_M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "id")), _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "kind")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "startedAt")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "arrivedAt")), _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "speed")), _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "scene")), _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "title")), _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "note")));
 }
 function _M0FP37Hosi1216syasou6bridge13read__journey(value) {
-  const _bind = _M0MP26mizchi8js__core3Any5__get(value, "phase");
+  const _bind = _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "phase"));
   let phase;
   switch (_bind) {
     case "focus": {
@@ -3073,11 +3328,11 @@ function _M0FP37Hosi1216syasou6bridge13read__journey(value) {
       phase = 0;
     }
   }
-  return new _M0TP37Hosi1216syasou6domain7Journey(phase, _M0MP26mizchi8js__core3Any5__get(value, "running"), _M0FP37Hosi1216syasou6bridge8optionalGdE(_M0MP26mizchi8js__core3Any5__get(value, "deadline")), _M0FP37Hosi1216syasou6bridge8optionalGdE(_M0MP26mizchi8js__core3Any5__get(value, "remaining")), _M0MP26mizchi8js__core3Any5__get(value, "focusMinutes"), _M0MP26mizchi8js__core3Any5__get(value, "restMinutes"), _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP26mizchi8js__core3Any5__get(value, "id")), _M0FP37Hosi1216syasou6bridge8optionalGdE(_M0MP26mizchi8js__core3Any5__get(value, "startedAt")), _M0FP37Hosi1216syasou6bridge8optionalGdE(_M0MP26mizchi8js__core3Any5__get(value, "arrivedAt")), _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP26mizchi8js__core3Any5__get(value, "speed")), _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP26mizchi8js__core3Any5__get(value, "scene")));
+  return new _M0TP37Hosi1216syasou6domain7Journey(phase, _M0MP37Hosi1216syasou7interop3Any4castGbE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "running")), _M0FP37Hosi1216syasou6bridge8optionalGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "deadline")), _M0FP37Hosi1216syasou6bridge8optionalGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "remaining")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "focusMinutes")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "restMinutes")), _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "id")), _M0FP37Hosi1216syasou6bridge8optionalGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "startedAt")), _M0FP37Hosi1216syasou6bridge8optionalGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "arrivedAt")), _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "speed")), _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "scene")));
 }
 function _M0FP37Hosi1216syasou6bridge12read__travel(value) {
-  const tickets = _M0MP26mizchi8js__core3Any5__get(value, "tickets");
-  const _tmp = _M0FP37Hosi1216syasou6bridge13read__journey(_M0MP26mizchi8js__core3Any5__get(value, "journey"));
+  const tickets = _M0MP37Hosi1216syasou7interop3Any4castGRPB5ArrayGRP37Hosi1216syasou7interop3AnyEE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "tickets"));
+  const _tmp = _M0FP37Hosi1216syasou6bridge13read__journey(_M0MP37Hosi1216syasou7interop3Any5__get(value, "journey"));
   const _p = new Array(tickets.length);
   const _p$2 = tickets.length;
   let _tmp$2 = 0;
@@ -3092,60 +3347,60 @@ function _M0FP37Hosi1216syasou6bridge12read__travel(value) {
       break;
     }
   }
-  return new _M0TP37Hosi1216syasou6domain6Travel(_tmp, _p, _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP26mizchi8js__core3Any5__get(value, "pendingArrivalId")));
+  return new _M0TP37Hosi1216syasou6domain6Travel(_tmp, _p, _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "pendingArrivalId")));
 }
 function _M0FP37Hosi1216syasou6bridge13write__ticket(ticket) {
-  const out = _M0FP26mizchi8js__core11new__object();
-  _M0MP26mizchi8js__core3Any5__set(out, "id", ticket.id);
+  const out = _M0FP37Hosi1216syasou7interop11new__object();
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "id", _M0FP37Hosi1216syasou7interop3anyGsE(ticket.id));
   const _bind = ticket.kind;
   if (_bind === undefined) {
   } else {
     const _Some = _bind;
     const _kind = _Some;
-    _M0MP26mizchi8js__core3Any5__set(out, "kind", _kind);
+    _M0MP37Hosi1216syasou7interop3Any5__set(out, "kind", _M0FP37Hosi1216syasou7interop3anyGsE(_kind));
   }
-  _M0MP26mizchi8js__core3Any5__set(out, "startedAt", ticket.started_at);
-  _M0MP26mizchi8js__core3Any5__set(out, "arrivedAt", ticket.arrived_at);
-  _M0MP26mizchi8js__core3Any5__set(out, "speed", ticket.speed);
-  _M0MP26mizchi8js__core3Any5__set(out, "scene", ticket.scene);
-  _M0MP26mizchi8js__core3Any5__set(out, "title", ticket.title);
-  _M0MP26mizchi8js__core3Any5__set(out, "note", ticket.note);
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "startedAt", _M0FP37Hosi1216syasou7interop3anyGdE(ticket.started_at));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "arrivedAt", _M0FP37Hosi1216syasou7interop3anyGdE(ticket.arrived_at));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "speed", _M0FP37Hosi1216syasou7interop3anyGsE(ticket.speed));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "scene", _M0FP37Hosi1216syasou7interop3anyGsE(ticket.scene));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "title", _M0FP37Hosi1216syasou7interop3anyGsE(ticket.title));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "note", _M0FP37Hosi1216syasou7interop3anyGsE(ticket.note));
   return out;
 }
 function _M0FP37Hosi1216syasou6bridge8nullableGdE(value) {
   if (value.$tag === 1) {
     const _Some = value;
     const _value = _Some._0;
-    return _value;
+    return _M0FP37Hosi1216syasou7interop3anyGdE(_value);
   } else {
-    return _M0FP26mizchi8js__core4null();
+    return _M0FP37Hosi1216syasou7interop4null();
   }
 }
 function _M0FP37Hosi1216syasou6bridge8nullableGsE(value) {
   if (value === undefined) {
-    return _M0FP26mizchi8js__core4null();
+    return _M0FP37Hosi1216syasou7interop4null();
   } else {
     const _Some = value;
     const _value = _Some;
-    return _value;
+    return _M0FP37Hosi1216syasou7interop3anyGsE(_value);
   }
 }
 function _M0FP37Hosi1216syasou6bridge13undefined__orGsE(value) {
   if (value === undefined) {
-    return _M0FP26mizchi8js__core9undefined();
+    return _M0FP37Hosi1216syasou7interop9undefined();
   } else {
     const _Some = value;
     const _value = _Some;
-    return _value;
+    return _M0FP37Hosi1216syasou7interop3anyGsE(_value);
   }
 }
 function _M0FP37Hosi1216syasou6bridge13undefined__orGdE(value) {
   if (value.$tag === 1) {
     const _Some = value;
     const _value = _Some._0;
-    return _value;
+    return _M0FP37Hosi1216syasou7interop3anyGdE(_value);
   } else {
-    return _M0FP26mizchi8js__core9undefined();
+    return _M0FP37Hosi1216syasou7interop9undefined();
   }
 }
 function _M0FP37Hosi1216syasou6bridge14write__journey(source, change) {
@@ -3160,13 +3415,13 @@ function _M0FP37Hosi1216syasou6bridge14write__journey(source, change) {
       case 1: {
         const _Replace = change;
         const _next = _Replace._0;
-        const out$2 = _M0FP26mizchi8js__core11new__object();
-        _M0MP26mizchi8js__core3Any5__set(out$2, "focusMinutes", _next.focus_minutes);
-        _M0MP26mizchi8js__core3Any5__set(out$2, "restMinutes", _next.rest_minutes);
-        _M0MP26mizchi8js__core3Any5__set(out$2, "id", _M0FP37Hosi1216syasou6bridge13undefined__orGsE(_next.id));
-        _M0MP26mizchi8js__core3Any5__set(out$2, "startedAt", _M0FP37Hosi1216syasou6bridge13undefined__orGdE(_next.started_at));
-        _M0MP26mizchi8js__core3Any5__set(out$2, "speed", _M0FP37Hosi1216syasou6bridge13undefined__orGsE(_next.speed));
-        _M0MP26mizchi8js__core3Any5__set(out$2, "scene", _M0FP37Hosi1216syasou6bridge13undefined__orGsE(_next.scene));
+        const out$2 = _M0FP37Hosi1216syasou7interop11new__object();
+        _M0MP37Hosi1216syasou7interop3Any5__set(out$2, "focusMinutes", _M0FP37Hosi1216syasou7interop3anyGdE(_next.focus_minutes));
+        _M0MP37Hosi1216syasou7interop3Any5__set(out$2, "restMinutes", _M0FP37Hosi1216syasou7interop3anyGdE(_next.rest_minutes));
+        _M0MP37Hosi1216syasou7interop3Any5__set(out$2, "id", _M0FP37Hosi1216syasou6bridge13undefined__orGsE(_next.id));
+        _M0MP37Hosi1216syasou7interop3Any5__set(out$2, "startedAt", _M0FP37Hosi1216syasou6bridge13undefined__orGdE(_next.started_at));
+        _M0MP37Hosi1216syasou7interop3Any5__set(out$2, "speed", _M0FP37Hosi1216syasou6bridge13undefined__orGsE(_next.speed));
+        _M0MP37Hosi1216syasou7interop3Any5__set(out$2, "scene", _M0FP37Hosi1216syasou6bridge13undefined__orGsE(_next.scene));
         next = _next;
         out = out$2;
         write_arrival = false;
@@ -3177,7 +3432,7 @@ function _M0FP37Hosi1216syasou6bridge14write__journey(source, change) {
         const _next$2 = _Patch._0;
         const _write_arrival = _Patch._1;
         next = _next$2;
-        out = _M0FP26mizchi8js__core14object__assign(_M0FP26mizchi8js__core11new__object(), source);
+        out = _M0FP37Hosi1216syasou7interop14object__assign(_M0FP37Hosi1216syasou7interop11new__object(), source);
         write_arrival = _write_arrival;
         break _L;
       }
@@ -3202,12 +3457,12 @@ function _M0FP37Hosi1216syasou6bridge14write__journey(source, change) {
       phase = "finished";
     }
   }
-  _M0MP26mizchi8js__core3Any5__set(out, "phase", phase);
-  _M0MP26mizchi8js__core3Any5__set(out, "running", next.running);
-  _M0MP26mizchi8js__core3Any5__set(out, "deadline", _M0FP37Hosi1216syasou6bridge8nullableGdE(next.deadline));
-  _M0MP26mizchi8js__core3Any5__set(out, "remaining", _M0FP37Hosi1216syasou6bridge8nullableGdE(next.remaining));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "phase", _M0FP37Hosi1216syasou7interop3anyGsE(phase));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "running", _M0FP37Hosi1216syasou7interop3anyGbE(next.running));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "deadline", _M0FP37Hosi1216syasou6bridge8nullableGdE(next.deadline));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "remaining", _M0FP37Hosi1216syasou6bridge8nullableGdE(next.remaining));
   if (write_arrival) {
-    _M0MP26mizchi8js__core3Any5__set(out, "arrivedAt", _M0FP37Hosi1216syasou6bridge13undefined__orGdE(next.arrived_at));
+    _M0MP37Hosi1216syasou7interop3Any5__set(out, "arrivedAt", _M0FP37Hosi1216syasou6bridge13undefined__orGdE(next.arrived_at));
   }
   return out;
 }
@@ -3217,27 +3472,28 @@ function _M0FP37Hosi1216syasou6bridge13write__travel(source, change) {
     const _journey = _Update._0;
     const _tickets = _Update._1;
     const _pending = _Update._2;
-    const out = _M0FP26mizchi8js__core14object__assign(_M0FP26mizchi8js__core11new__object(), source);
-    _M0MP26mizchi8js__core3Any5__set(out, "journey", _M0FP37Hosi1216syasou6bridge14write__journey(_M0MP26mizchi8js__core3Any5__get(source, "journey"), _journey));
-    const originals = _M0MP26mizchi8js__core3Any5__get(source, "tickets");
+    const out = _M0FP37Hosi1216syasou7interop14object__assign(_M0FP37Hosi1216syasou7interop11new__object(), source);
+    _M0MP37Hosi1216syasou7interop3Any5__set(out, "journey", _M0FP37Hosi1216syasou6bridge14write__journey(_M0MP37Hosi1216syasou7interop3Any5__get(source, "journey"), _journey));
+    const originals = _M0MP37Hosi1216syasou7interop3Any4castGRPB5ArrayGRP37Hosi1216syasou7interop3AnyEE(_M0MP37Hosi1216syasou7interop3Any5__get(source, "tickets"));
     let items;
     switch (_tickets.$tag) {
       case 0: {
-        items = originals;
+        items = _M0MP37Hosi1216syasou7interop3Any5__get(source, "tickets");
         break;
       }
       case 1: {
         const _Prepend = _tickets;
         const _ticket = _Prepend._0;
         const _self = [];
-        _M0MPC15array5Array4pushGRP26mizchi8js__core3AnyE(_self, _M0FP37Hosi1216syasou6bridge13write__ticket(_ticket));
-        _M0MPC15array5Array10push__iterGRP26mizchi8js__core3AnyE(_self, _M0MPC15array5Array4iterGRP26mizchi8js__core3AnyE(originals));
-        items = _self;
+        _M0MPC15array5Array4pushGRP37Hosi1216syasou7interop3AnyE(_self, _M0FP37Hosi1216syasou6bridge13write__ticket(_ticket));
+        _M0MPC15array5Array10push__iterGRP37Hosi1216syasou7interop3AnyE(_self, _M0MPC15array5Array4iterGRP37Hosi1216syasou7interop3AnyE(originals));
+        items = _M0FP37Hosi1216syasou7interop3anyGRPB5ArrayGRP37Hosi1216syasou7interop3AnyEE(_self);
         break;
       }
       default: {
         const _EditTickets = _tickets;
         const _edits = _EditTickets._0;
+        let _tmp;
         let _p;
         _L: {
           _L$2: {
@@ -3247,40 +3503,41 @@ function _M0FP37Hosi1216syasou6bridge13write__travel(source, change) {
             }
             const _p$2 = new Array(_edits.length);
             const _p$3 = _edits.length;
-            let _tmp = 0;
+            let _tmp$2 = 0;
             while (true) {
-              const _p$4 = _tmp;
+              const _p$4 = _tmp$2;
               if (_p$4 < _p$3) {
                 const _p$5 = _edits[_p$4];
-                let _tmp$2;
+                let _tmp$3;
                 if (_p$5 === undefined) {
-                  _tmp$2 = _M0MPC15array5Array2atGRP26mizchi8js__core3AnyE(originals, _p$4);
+                  _tmp$3 = _M0MPC15array5Array2atGRP37Hosi1216syasou7interop3AnyE(originals, _p$4);
                 } else {
                   const _p$6 = _p$5;
                   const _p$7 = _p$6;
                   const _p$8 = _p$7._0;
                   const _p$9 = _p$7._1;
-                  const _p$10 = _M0FP26mizchi8js__core14object__assign(_M0FP26mizchi8js__core11new__object(), _M0MPC15array5Array2atGRP26mizchi8js__core3AnyE(originals, _p$4));
-                  _M0MP26mizchi8js__core3Any5__set(_p$10, "title", _p$8);
-                  _M0MP26mizchi8js__core3Any5__set(_p$10, "note", _p$9);
-                  _tmp$2 = _p$10;
+                  const _p$10 = _M0FP37Hosi1216syasou7interop14object__assign(_M0FP37Hosi1216syasou7interop11new__object(), _M0MPC15array5Array2atGRP37Hosi1216syasou7interop3AnyE(originals, _p$4));
+                  _M0MP37Hosi1216syasou7interop3Any5__set(_p$10, "title", _M0FP37Hosi1216syasou7interop3anyGsE(_p$8));
+                  _M0MP37Hosi1216syasou7interop3Any5__set(_p$10, "note", _M0FP37Hosi1216syasou7interop3anyGsE(_p$9));
+                  _tmp$3 = _p$10;
                 }
-                _p$2[_p$4] = _tmp$2;
-                _tmp = _p$4 + 1 | 0;
+                _p$2[_p$4] = _tmp$3;
+                _tmp$2 = _p$4 + 1 | 0;
                 continue;
               } else {
                 break;
               }
             }
-            items = _p$2;
+            _tmp = _p$2;
             break _L;
           }
-          items = _p;
+          _tmp = _p;
         }
+        items = _M0FP37Hosi1216syasou7interop3anyGRPB5ArrayGRP37Hosi1216syasou7interop3AnyEE(_tmp);
       }
     }
-    _M0MP26mizchi8js__core3Any5__set(out, "tickets", items);
-    _M0MP26mizchi8js__core3Any5__set(out, "pendingArrivalId", _M0FP37Hosi1216syasou6bridge8nullableGsE(_pending));
+    _M0MP37Hosi1216syasou7interop3Any5__set(out, "tickets", items);
+    _M0MP37Hosi1216syasou7interop3Any5__set(out, "pendingArrivalId", _M0FP37Hosi1216syasou6bridge8nullableGsE(_pending));
     return out;
   } else {
     return source;
@@ -3290,11 +3547,11 @@ function _M0FP37Hosi1216syasou6bridge15restore__travel(state, now, note) {
   return _M0FP37Hosi1216syasou6bridge13write__travel(state, _M0FP37Hosi1216syasou6domain7restore(_M0FP37Hosi1216syasou6bridge12read__travel(state), now, note));
 }
 function _M0FP37Hosi1216syasou6bridge12read__action(value) {
-  const now = _M0MP26mizchi8js__core3Any5__get(value, "now");
-  const _bind = _M0MP26mizchi8js__core3Any5__get(value, "type");
+  const now = _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "now"));
+  const _bind = _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "type"));
   switch (_bind) {
     case "start": {
-      return new _M0DTP37Hosi1216syasou6domain13JourneyAction5Start(now, _M0MP26mizchi8js__core3Any5__get(value, "focusMinutes"), _M0MP26mizchi8js__core3Any5__get(value, "restMinutes"), _M0MP26mizchi8js__core3Any5__get(value, "id"), _M0MP26mizchi8js__core3Any5__get(value, "speed"), _M0MP26mizchi8js__core3Any5__get(value, "scene"));
+      return new _M0DTP37Hosi1216syasou6domain13JourneyAction5Start(now, _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "focusMinutes")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "restMinutes")), _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "id")), _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "speed")), _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "scene")));
     }
     case "finish": {
       return new _M0DTP37Hosi1216syasou6domain13JourneyAction6Finish(now);
@@ -3308,11 +3565,11 @@ function _M0FP37Hosi1216syasou6bridge12read__action(value) {
   }
 }
 function _M0FP37Hosi1216syasou6bridge15travel__reducer(state, action) {
-  const _bind = _M0MP26mizchi8js__core3Any5__get(action, "type");
+  const _bind = _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(action, "type"));
   let event;
   switch (_bind) {
     case "welcome-ticket": {
-      event = new _M0DTP37Hosi1216syasou6domain12TravelAction7Welcome(_M0MP26mizchi8js__core3Any5__get(action, "now"));
+      event = new _M0DTP37Hosi1216syasou6domain12TravelAction7Welcome(_M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(action, "now")));
       break;
     }
     case "acknowledge-arrival": {
@@ -3320,93 +3577,95 @@ function _M0FP37Hosi1216syasou6bridge15travel__reducer(state, action) {
       break;
     }
     case "edit-ticket": {
-      const changes = _M0MP26mizchi8js__core3Any5__get(action, "changes");
-      event = new _M0DTP37Hosi1216syasou6domain12TravelAction4Edit(_M0MP26mizchi8js__core3Any5__get(action, "id"), _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP26mizchi8js__core3Any5__get(changes, "title")), _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP26mizchi8js__core3Any5__get(changes, "note")));
+      const changes = _M0MP37Hosi1216syasou7interop3Any5__get(action, "changes");
+      event = new _M0DTP37Hosi1216syasou6domain12TravelAction4Edit(_M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(action, "id")), _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP37Hosi1216syasou7interop3Any5__get(changes, "title")), _M0FP37Hosi1216syasou6bridge8optionalGsE(_M0MP37Hosi1216syasou7interop3Any5__get(changes, "note")));
       break;
     }
     default: {
-      event = new _M0DTP37Hosi1216syasou6domain12TravelAction12JourneyEvent(_M0FP37Hosi1216syasou6bridge12read__action(_M0MP26mizchi8js__core3Any5__get(action, "action")), _M0MP26mizchi8js__core3Any5__get(action, "note"));
+      event = new _M0DTP37Hosi1216syasou6domain12TravelAction12JourneyEvent(_M0FP37Hosi1216syasou6bridge12read__action(_M0MP37Hosi1216syasou7interop3Any5__get(action, "action")), _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(action, "note")));
     }
   }
   return _M0FP37Hosi1216syasou6bridge13write__travel(state, _M0FP37Hosi1216syasou6domain14reduce__travel(_M0FP37Hosi1216syasou6bridge12read__travel(state), event));
 }
 function _M0FP37Hosi1216syasou6bridge4clsx(_tmp) {
-  return clsx$1699(_tmp);
+  return clsx$1815(_tmp);
 }
 function _M0FP37Hosi1216syasou6bridge9tw__merge(_tmp) {
-  return twMerge$1701(_tmp);
+  return twMerge$1817(_tmp);
 }
 function _M0FP37Hosi1216syasou6bridge12class__names(values) {
-  return _M0FP37Hosi1216syasou6bridge9tw__merge(_M0FP37Hosi1216syasou6bridge4clsx(values));
+  return _M0FP37Hosi1216syasou6bridge9tw__merge(_M0FP37Hosi1216syasou6bridge4clsx(_M0FP37Hosi1216syasou7interop3anyGRPB5ArrayGRP37Hosi1216syasou7interop3AnyEE(values)));
 }
 function _M0FP37Hosi1216syasou6bridge12format__time(milliseconds) {
   return _M0FP37Hosi1216syasou6domain12format__time(milliseconds);
 }
 function _M0FP37Hosi1216syasou6bridge16is__demo__search(search) {
-  return _M0IPC16option6OptionPB2Eq5equalGsE(_M0MP36mizchi7js__web3url15URLSearchParams3get(_M0FP37Hosi1216syasou6bridge14search__params(search), "demo"), _M0FP37Hosi1216syasou6bridge16is__demo__searchN6constrS235);
+  return _M0IPC16option6OptionPB2Eq5equalGsE(_M0MP37Hosi1216syasou9host__url15URLSearchParams3get(_M0FP37Hosi1216syasou6bridge14search__params(search), "demo"), _M0FP37Hosi1216syasou6bridge16is__demo__searchN6constrS235);
 }
 function _M0FP37Hosi1216syasou6bridge21profile__storage__key(key, demo) {
   return demo ? `${key}.demo` : key;
 }
 function _M0FP37Hosi1216syasou6bridge20default__preferences() {
-  const out = _M0FP26mizchi8js__core11new__object();
-  _M0MP26mizchi8js__core3Any5__set(out, "focusMinutes", 25);
-  _M0MP26mizchi8js__core3Any5__set(out, "restMinutes", 5);
-  _M0MP26mizchi8js__core3Any5__set(out, "speed", "local");
-  _M0MP26mizchi8js__core3Any5__set(out, "scene", "mist");
-  _M0MP26mizchi8js__core3Any5__set(out, "showTime", true);
-  _M0MP26mizchi8js__core3Any5__set(out, "trainVolume", 45);
-  _M0MP26mizchi8js__core3Any5__set(out, "rainVolume", 0);
-  _M0MP26mizchi8js__core3Any5__set(out, "windVolume", 20);
+  const out = _M0FP37Hosi1216syasou7interop11new__object();
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "focusMinutes", _M0FP37Hosi1216syasou7interop3anyGdE(25));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "restMinutes", _M0FP37Hosi1216syasou7interop3anyGdE(5));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "speed", _M0FP37Hosi1216syasou7interop3anyGsE("local"));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "scene", _M0FP37Hosi1216syasou7interop3anyGsE("mist"));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "showTime", _M0FP37Hosi1216syasou7interop3anyGbE(true));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "trainVolume", _M0FP37Hosi1216syasou7interop3anyGdE(45));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "rainVolume", _M0FP37Hosi1216syasou7interop3anyGdE(0));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "windVolume", _M0FP37Hosi1216syasou7interop3anyGdE(20));
   return out;
 }
 function _M0FP37Hosi1216syasou6bridge14empty__journey() {
-  const out = _M0FP26mizchi8js__core11new__object();
-  _M0MP26mizchi8js__core3Any5__set(out, "phase", "idle");
-  _M0MP26mizchi8js__core3Any5__set(out, "running", false);
-  _M0MP26mizchi8js__core3Any5__set(out, "deadline", _M0FP26mizchi8js__core4null());
-  _M0MP26mizchi8js__core3Any5__set(out, "remaining", _M0FP26mizchi8js__core4null());
-  _M0MP26mizchi8js__core3Any5__set(out, "focusMinutes", 25);
-  _M0MP26mizchi8js__core3Any5__set(out, "restMinutes", 5);
+  const out = _M0FP37Hosi1216syasou7interop11new__object();
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "phase", _M0FP37Hosi1216syasou7interop3anyGsE("idle"));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "running", _M0FP37Hosi1216syasou7interop3anyGbE(false));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "deadline", _M0FP37Hosi1216syasou7interop4null());
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "remaining", _M0FP37Hosi1216syasou7interop4null());
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "focusMinutes", _M0FP37Hosi1216syasou7interop3anyGdE(25));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "restMinutes", _M0FP37Hosi1216syasou7interop3anyGdE(5));
   return out;
 }
 function _M0FP37Hosi1216syasou6bridge5views() {
   const _p = _M0FP37Hosi1216syasou6domain13view__options.length;
+  let _tmp;
   if (_p <= 0) {
-    return [];
+    _tmp = [];
   } else {
     const _p$2 = new Array(_p);
-    let _tmp = 0;
+    let _tmp$2 = 0;
     while (true) {
-      const _p$3 = _tmp;
+      const _p$3 = _tmp$2;
       if (_p$3 < _p) {
         const _p$4 = _p$3 >>> 0 < _M0FP37Hosi1216syasou6domain13view__options.length ? _M0FP37Hosi1216syasou6domain13view__options[_p$3] : $oob();
-        const _p$5 = _M0FP26mizchi8js__core11new__object();
-        _M0MP26mizchi8js__core3Any5__set(_p$5, "id", _p$4._0);
-        _M0MP26mizchi8js__core3Any5__set(_p$5, "label", _p$4._1);
+        const _p$5 = _M0FP37Hosi1216syasou7interop11new__object();
+        _M0MP37Hosi1216syasou7interop3Any5__set(_p$5, "id", _M0FP37Hosi1216syasou7interop3anyGsE(_p$4._0));
+        _M0MP37Hosi1216syasou7interop3Any5__set(_p$5, "label", _M0FP37Hosi1216syasou7interop3anyGsE(_p$4._1));
         _p$2[_p$3] = _p$5;
-        _tmp = _p$3 + 1 | 0;
+        _tmp$2 = _p$3 + 1 | 0;
         continue;
       } else {
         break;
       }
     }
-    return _p$2;
+    _tmp = _p$2;
   }
+  return _M0FP37Hosi1216syasou7interop3anyGRPB5ArrayGRP37Hosi1216syasou7interop3AnyEE(_tmp);
 }
 function _M0FP37Hosi1216syasou6bridge24migrate__legacy__journey(legacy, preferences, create_id, now) {
-  const _bind = _M0FP37Hosi1216syasou6domain24migrate__legacy__journey(_M0FP37Hosi1216syasou6bridge13read__journey(legacy), _M0MP26mizchi8js__core3Any5__get(preferences, "speed"), _M0MP26mizchi8js__core3Any5__get(preferences, "scene"), create_id, now);
+  const _bind = _M0FP37Hosi1216syasou6domain24migrate__legacy__journey(_M0FP37Hosi1216syasou6bridge13read__journey(legacy), _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(preferences, "speed")), _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(preferences, "scene")), create_id, now);
   if (_bind === undefined) {
     return legacy;
   } else {
     const _Some = _bind;
     const _next = _Some;
-    const out = _M0FP26mizchi8js__core14object__assign(_M0FP26mizchi8js__core11new__object(), legacy);
-    _M0MP26mizchi8js__core3Any5__set(out, "id", _M0FP37Hosi1216syasou6bridge13undefined__orGsE(_next.id));
-    _M0MP26mizchi8js__core3Any5__set(out, "speed", _M0FP37Hosi1216syasou6bridge13undefined__orGsE(_next.speed));
-    _M0MP26mizchi8js__core3Any5__set(out, "scene", _M0FP37Hosi1216syasou6bridge13undefined__orGsE(_next.scene));
-    _M0MP26mizchi8js__core3Any5__set(out, "startedAt", _M0FP37Hosi1216syasou6bridge13undefined__orGdE(_next.started_at));
-    _M0MP26mizchi8js__core3Any5__set(out, "arrivedAt", _M0FP37Hosi1216syasou6bridge13undefined__orGdE(_next.arrived_at));
+    const out = _M0FP37Hosi1216syasou7interop14object__assign(_M0FP37Hosi1216syasou7interop11new__object(), legacy);
+    _M0MP37Hosi1216syasou7interop3Any5__set(out, "id", _M0FP37Hosi1216syasou6bridge13undefined__orGsE(_next.id));
+    _M0MP37Hosi1216syasou7interop3Any5__set(out, "speed", _M0FP37Hosi1216syasou6bridge13undefined__orGsE(_next.speed));
+    _M0MP37Hosi1216syasou7interop3Any5__set(out, "scene", _M0FP37Hosi1216syasou6bridge13undefined__orGsE(_next.scene));
+    _M0MP37Hosi1216syasou7interop3Any5__set(out, "startedAt", _M0FP37Hosi1216syasou6bridge13undefined__orGdE(_next.started_at));
+    _M0MP37Hosi1216syasou7interop3Any5__set(out, "arrivedAt", _M0FP37Hosi1216syasou6bridge13undefined__orGdE(_next.arrived_at));
     return out;
   }
 }
@@ -3429,7 +3688,7 @@ function _M0FP37Hosi1216syasou6bridge15sample__tickets(now) {
       break;
     }
   }
-  return _p$2;
+  return _M0FP37Hosi1216syasou7interop3anyGRPB5ArrayGRP37Hosi1216syasou7interop3AnyEE(_p$2);
 }
 function _M0FP37Hosi1216syasou6bridge16advance__journey(state, now) {
   return _M0FP37Hosi1216syasou6bridge14write__journey(state, _M0FP37Hosi1216syasou6domain7advance(_M0FP37Hosi1216syasou6bridge13read__journey(state), now));
@@ -3438,7 +3697,7 @@ function _M0FP37Hosi1216syasou6bridge16journey__reducer(state, action) {
   return _M0FP37Hosi1216syasou6bridge14write__journey(state, _M0FP37Hosi1216syasou6domain15reduce__journey(_M0FP37Hosi1216syasou6bridge13read__journey(state), _M0FP37Hosi1216syasou6bridge12read__action(action)));
 }
 function _M0FP37Hosi1216syasou6bridge10read__grip(value) {
-  return new _M0TP37Hosi1216syasou6domain10TicketGrip(_M0MP26mizchi8js__core3Any5__get(value, "x"), _M0MP26mizchi8js__core3Any5__get(value, "y"), _M0MP26mizchi8js__core3Any5__get(value, "width"), _M0MP26mizchi8js__core3Any5__get(value, "height"), _M0MP26mizchi8js__core3Any5__get(value, "base"), _M0MP26mizchi8js__core3Any5__get(value, "back"), _M0MP26mizchi8js__core3Any5__get(value, "dx"), _M0MP26mizchi8js__core3Any5__get(value, "edge"));
+  return new _M0TP37Hosi1216syasou6domain10TicketGrip(_M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "x")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "y")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "width")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "height")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "base")), _M0MP37Hosi1216syasou7interop3Any4castGbE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "back")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "dx")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "edge")));
 }
 function _M0FP37Hosi1216syasou6bridge16ticket__is__back(angle) {
   return _M0FP37Hosi1216syasou6domain16ticket__is__back(angle);
@@ -3454,57 +3713,57 @@ function _M0FP37Hosi1216syasou6bridge14ticket__serial(id) {
 }
 function _M0FP37Hosi1216syasou6bridge19begin__ticket__grip(x, y, left, width, height, base, back) {
   const grip = _M0FP37Hosi1216syasou6domain19begin__ticket__grip(x, y, left, width, height, base, back);
-  const out = _M0FP26mizchi8js__core11new__object();
-  _M0MP26mizchi8js__core3Any5__set(out, "x", grip.x);
-  _M0MP26mizchi8js__core3Any5__set(out, "y", grip.y);
-  _M0MP26mizchi8js__core3Any5__set(out, "width", grip.width);
-  _M0MP26mizchi8js__core3Any5__set(out, "height", grip.height);
-  _M0MP26mizchi8js__core3Any5__set(out, "base", grip.base);
-  _M0MP26mizchi8js__core3Any5__set(out, "back", grip.back);
-  _M0MP26mizchi8js__core3Any5__set(out, "dx", grip.dx);
-  _M0MP26mizchi8js__core3Any5__set(out, "edge", grip.edge);
+  const out = _M0FP37Hosi1216syasou7interop11new__object();
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "x", _M0FP37Hosi1216syasou7interop3anyGdE(grip.x));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "y", _M0FP37Hosi1216syasou7interop3anyGdE(grip.y));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "width", _M0FP37Hosi1216syasou7interop3anyGdE(grip.width));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "height", _M0FP37Hosi1216syasou7interop3anyGdE(grip.height));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "base", _M0FP37Hosi1216syasou7interop3anyGdE(grip.base));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "back", _M0FP37Hosi1216syasou7interop3anyGbE(grip.back));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "dx", _M0FP37Hosi1216syasou7interop3anyGdE(grip.dx));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "edge", _M0FP37Hosi1216syasou7interop3anyGdE(grip.edge));
   return out;
 }
 function _M0FP37Hosi1216syasou6bridge12lift__ticket(grip, top) {
   const lift = _M0FP37Hosi1216syasou6domain12lift__ticket(_M0FP37Hosi1216syasou6bridge10read__grip(grip), top);
-  const out = _M0FP26mizchi8js__core11new__object();
-  _M0MP26mizchi8js__core3Any5__set(out, "y", lift.y);
-  _M0MP26mizchi8js__core3Any5__set(out, "z", lift.z);
-  _M0MP26mizchi8js__core3Any5__set(out, "tilt", lift.tilt);
-  _M0MP26mizchi8js__core3Any5__set(out, "angle", lift.angle);
-  _M0MP26mizchi8js__core3Any5__set(out, "roll", lift.roll);
-  _M0MP26mizchi8js__core3Any5__set(out, "shineOpacity", lift.shine_opacity);
-  _M0MP26mizchi8js__core3Any5__set(out, "shadowY", lift.shadow_y);
-  _M0MP26mizchi8js__core3Any5__set(out, "shadowOpacity", lift.shadow_opacity);
+  const out = _M0FP37Hosi1216syasou7interop11new__object();
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "y", _M0FP37Hosi1216syasou7interop3anyGdE(lift.y));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "z", _M0FP37Hosi1216syasou7interop3anyGdE(lift.z));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "tilt", _M0FP37Hosi1216syasou7interop3anyGdE(lift.tilt));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "angle", _M0FP37Hosi1216syasou7interop3anyGdE(lift.angle));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "roll", _M0FP37Hosi1216syasou7interop3anyGdE(lift.roll));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "shineOpacity", _M0FP37Hosi1216syasou7interop3anyGdE(lift.shine_opacity));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "shadowY", _M0FP37Hosi1216syasou7interop3anyGdE(lift.shadow_y));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "shadowOpacity", _M0FP37Hosi1216syasou7interop3anyGdE(lift.shadow_opacity));
   return out;
 }
 function _M0FP37Hosi1216syasou6bridge12drag__ticket(grip, x, y) {
   const drag = _M0FP37Hosi1216syasou6domain12drag__ticket(_M0FP37Hosi1216syasou6bridge10read__grip(grip), x, y);
-  const out = _M0FP26mizchi8js__core11new__object();
-  _M0MP26mizchi8js__core3Any5__set(out, "dx", drag.dx);
-  _M0MP26mizchi8js__core3Any5__set(out, "x", drag.x);
-  _M0MP26mizchi8js__core3Any5__set(out, "y", drag.y);
-  _M0MP26mizchi8js__core3Any5__set(out, "angle", drag.angle);
-  _M0MP26mizchi8js__core3Any5__set(out, "tilt", drag.tilt);
-  _M0MP26mizchi8js__core3Any5__set(out, "roll", drag.roll);
-  _M0MP26mizchi8js__core3Any5__set(out, "shineX", drag.shine_x);
+  const out = _M0FP37Hosi1216syasou7interop11new__object();
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "dx", _M0FP37Hosi1216syasou7interop3anyGdE(drag.dx));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "x", _M0FP37Hosi1216syasou7interop3anyGdE(drag.x));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "y", _M0FP37Hosi1216syasou7interop3anyGdE(drag.y));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "angle", _M0FP37Hosi1216syasou7interop3anyGdE(drag.angle));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "tilt", _M0FP37Hosi1216syasou7interop3anyGdE(drag.tilt));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "roll", _M0FP37Hosi1216syasou7interop3anyGdE(drag.roll));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "shineX", _M0FP37Hosi1216syasou7interop3anyGdE(drag.shine_x));
   return out;
 }
 function _M0FP37Hosi1216syasou6bridge13hover__ticket(x, y, left, top, width, height) {
   const hover = _M0FP37Hosi1216syasou6domain13hover__ticket(x, y, left, top, width, height);
-  const out = _M0FP26mizchi8js__core11new__object();
-  _M0MP26mizchi8js__core3Any5__set(out, "tilt", hover.tilt);
-  _M0MP26mizchi8js__core3Any5__set(out, "roll", hover.roll);
-  _M0MP26mizchi8js__core3Any5__set(out, "z", hover.z);
-  _M0MP26mizchi8js__core3Any5__set(out, "shineX", hover.shine_x);
-  _M0MP26mizchi8js__core3Any5__set(out, "shineOpacity", hover.shine_opacity);
+  const out = _M0FP37Hosi1216syasou7interop11new__object();
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "tilt", _M0FP37Hosi1216syasou7interop3anyGdE(hover.tilt));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "roll", _M0FP37Hosi1216syasou7interop3anyGdE(hover.roll));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "z", _M0FP37Hosi1216syasou7interop3anyGdE(hover.z));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "shineX", _M0FP37Hosi1216syasou7interop3anyGdE(hover.shine_x));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "shineOpacity", _M0FP37Hosi1216syasou7interop3anyGdE(hover.shine_opacity));
   return out;
 }
 function _M0FP37Hosi1216syasou6bridge15release__ticket(grip, complete) {
   const released = _M0FP37Hosi1216syasou6domain15release__ticket(_M0FP37Hosi1216syasou6bridge10read__grip(grip), complete);
-  const out = _M0FP26mizchi8js__core11new__object();
-  _M0MP26mizchi8js__core3Any5__set(out, "back", released.back);
-  _M0MP26mizchi8js__core3Any5__set(out, "angle", released.angle);
+  const out = _M0FP37Hosi1216syasou7interop11new__object();
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "back", _M0FP37Hosi1216syasou7interop3anyGbE(released.back));
+  _M0MP37Hosi1216syasou7interop3Any5__set(out, "angle", _M0FP37Hosi1216syasou7interop3anyGdE(released.angle));
   return out;
 }
 function _M0FP37Hosi1216syasou6bridge13read__storage(key, fallback, validate) {
@@ -3514,29 +3773,29 @@ function _M0FP37Hosi1216syasou6bridge14write__storage(key, value) {
   return _M0FP37Hosi1216syasou7browser14write__storage(key, value);
 }
 function _M0FP37Hosi1216syasou6bridge13create__sound() {
-  return _M0FP37Hosi1216syasou7browser13create__sound();
+  return _M0FP37Hosi1216syasou7interop7capsuleGRP37Hosi1216syasou7browser5SoundE(_M0FP37Hosi1216syasou7browser13create__sound());
 }
 function _M0FP37Hosi1216syasou6bridge13enable__sound(value) {
-  const sound = value;
+  const sound = _M0FP37Hosi1216syasou7interop9uncapsuleGRP37Hosi1216syasou7browser5SoundE(value);
   return _M0MP37Hosi1216syasou7browser5Sound6enable(sound);
 }
 function _M0FP37Hosi1216syasou6bridge14disable__sound(value) {
-  const sound = value;
+  const sound = _M0FP37Hosi1216syasou7interop9uncapsuleGRP37Hosi1216syasou7browser5SoundE(value);
   return _M0MP37Hosi1216syasou7browser5Sound7disable(sound);
 }
 function _M0FP37Hosi1216syasou6bridge13update__sound(value, preferences, moving, open) {
-  const sound = value;
-  const mix = _M0FP37Hosi1216syasou6domain10sound__mix(_M0MP26mizchi8js__core3Any5__get(preferences, "speed"), _M0MP26mizchi8js__core3Any5__get(preferences, "trainVolume"), _M0MP26mizchi8js__core3Any5__get(preferences, "rainVolume"), _M0MP26mizchi8js__core3Any5__get(preferences, "windVolume"), moving, open);
+  const sound = _M0FP37Hosi1216syasou7interop9uncapsuleGRP37Hosi1216syasou7browser5SoundE(value);
+  const mix = _M0FP37Hosi1216syasou6domain10sound__mix(_M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(preferences, "speed")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(preferences, "trainVolume")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(preferences, "rainVolume")), _M0MP37Hosi1216syasou7interop3Any4castGdE(_M0MP37Hosi1216syasou7interop3Any5__get(preferences, "windVolume")), moving, open);
   _M0MP37Hosi1216syasou7browser5Sound6update(sound, mix, moving);
 }
 function _M0FP37Hosi1216syasou6bridge14dispose__sound(value) {
-  const sound = value;
+  const sound = _M0FP37Hosi1216syasou7interop9uncapsuleGRP37Hosi1216syasou7browser5SoundE(value);
   _M0MP37Hosi1216syasou7browser5Sound7dispose(sound);
 }
 function _M0FP37Hosi1216syasou6bridge24create__window__renderer(canvas, on_unavailable) {
   const callback = () => {
-    if (!_M0FP26mizchi8js__core11is__nullish(on_unavailable)) {
-      _M0MP26mizchi8js__core3Any8__invoke(on_unavailable, []);
+    if (!_M0FP37Hosi1216syasou7interop11is__nullish(on_unavailable)) {
+      _M0MP37Hosi1216syasou7interop3Any8__invoke(on_unavailable, []);
       return;
     } else {
       return;
@@ -3544,17 +3803,17 @@ function _M0FP37Hosi1216syasou6bridge24create__window__renderer(canvas, on_unava
   };
   const _bind = _M0FP37Hosi1216syasou7browser16create__renderer(canvas, callback);
   if (_bind === undefined) {
-    return _M0FP26mizchi8js__core4null();
+    return _M0FP37Hosi1216syasou7interop4null();
   } else {
     const _Some = _bind;
     const _renderer = _Some;
-    const out = _M0FP26mizchi8js__core11new__object();
-    _M0MP26mizchi8js__core3Any5__set(out, "update", (value) => {
-      _M0MP37Hosi1216syasou7browser8Renderer6update(_renderer, new _M0TP37Hosi1216syasou6domain9Landscape(_M0MP26mizchi8js__core3Any5__get(value, "scene"), _M0MP26mizchi8js__core3Any5__get(value, "speed"), _M0MP26mizchi8js__core3Any5__get(value, "moving"), _M0MP26mizchi8js__core3Any5__get(value, "travelling")));
-    });
-    _M0MP26mizchi8js__core3Any5__set(out, "dispose", () => {
+    const out = _M0FP37Hosi1216syasou7interop11new__object();
+    _M0MP37Hosi1216syasou7interop3Any5__set(out, "update", _M0FP37Hosi1216syasou7interop9from__fn1GRP37Hosi1216syasou7interop3AnyuE((value) => {
+      _M0MP37Hosi1216syasou7browser8Renderer6update(_renderer, new _M0TP37Hosi1216syasou6domain9Landscape(_M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "scene")), _M0MP37Hosi1216syasou7interop3Any4castGsE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "speed")), _M0MP37Hosi1216syasou7interop3Any4castGbE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "moving")), _M0MP37Hosi1216syasou7interop3Any4castGbE(_M0MP37Hosi1216syasou7interop3Any5__get(value, "travelling"))));
+    }));
+    _M0MP37Hosi1216syasou7interop3Any5__set(out, "dispose", _M0FP37Hosi1216syasou7interop9from__fn0GuE(() => {
       _M0MP37Hosi1216syasou7browser8Renderer7dispose(_renderer);
-    });
+    }));
     return out;
   }
 }

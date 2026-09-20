@@ -2,30 +2,30 @@
 package "Hosi121/syasou/ui"
 
 import {
+  "Hosi121/syasou/interop",
   "Hosi121/syasou/view",
-  "mizchi/js_core",
 }
 
 // Values
 pub fn app(AppProps) -> @view.Element
 
-pub fn contract_card(@js_core.Any) -> @view.Element
+pub fn contract_card(@interop.Any) -> @view.Element
 
-pub fn contract_landscape(@js_core.Any) -> @view.Element
+pub fn contract_landscape(@interop.Any) -> @view.Element
 
-pub fn contract_opening(@js_core.Any) -> @view.Element
+pub fn contract_opening(@interop.Any) -> @view.Element
 
-pub fn contract_rail(@js_core.Any) -> @view.Element
+pub fn contract_rail(@interop.Any) -> @view.Element
 
-pub fn contract_route(@js_core.Any) -> @view.Element
+pub fn contract_route(@interop.Any) -> @view.Element
 
-pub fn contract_settings(@js_core.Any) -> @view.Element
+pub fn contract_settings(@interop.Any) -> @view.Element
 
-pub fn prepare_ui() -> @js_core.Promise[Unit]
+pub fn prepare_ui() -> @interop.Promise[Unit]
 
-pub fn render_contract(String, @js_core.Any) -> String
+pub fn render_contract(String, @interop.Any) -> String
 
-pub fn start() -> @js_core.Promise[Unit]
+pub fn start() -> @interop.Promise[Unit]
 
 // Errors
 
@@ -39,12 +39,21 @@ pub(all) struct AppProps {
 
 #external
 pub type Preferences
+pub impl @interop.FromJs for Preferences
+pub impl @interop.Same for Preferences
+pub impl @interop.ToJs for Preferences
 
 #external
 pub type PropertyValue
+pub impl @interop.FromJs for PropertyValue
+pub impl @interop.Same for PropertyValue
+pub impl @interop.ToJs for PropertyValue
 
 #external
 pub type UiEvent
+pub impl @interop.FromJs for UiEvent
+pub impl @interop.Same for UiEvent
+pub impl @interop.ToJs for UiEvent
 
 // Type aliases
 

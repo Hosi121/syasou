@@ -1,0 +1,23 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/host_performance"
+
+import {
+  "Hosi121/syasou/interop",
+}
+
+// Values
+pub fn performance() -> Performance
+
+// Errors
+
+// Types and methods
+#external
+pub type Performance
+pub fn Performance::now(Self) -> Double
+pub impl @interop.FromJs for Performance
+pub impl @interop.Same for Performance
+pub impl @interop.ToJs for Performance
+
+// Type aliases
+
+// Traits

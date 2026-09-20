@@ -45,22 +45,24 @@ fn write_travel(source : @js.Any, change : @domain.TravelChange) -> @js.Any {
   out._set("journey", write_journey(source._get("journey"), journey))
   let originals : Array[@js.Any] = source._get("tickets").cast()
   let items = match tickets {
-    @domain.KeepTickets => originals
-    @domain.Prepend(ticket) => [write_ticket(ticket), ..originals]
+    @domain.KeepTickets => source._get("tickets")
+    @domain.Prepend(ticket) => @js.any([write_ticket(ticket), ..originals])
     @domain.EditTickets(edits) =>
-      edits.mapi((i, edit) => {
-        match edit {
-          None => originals[i]
-          Some((title, note)) => {
-            let item = @js.object_assign(@js.new_object(), originals[i])
-            item._set("title", @js.any(title))
-            item._set("note", @js.any(note))
-            item
+      @js.any(
+        edits.mapi((i, edit) => {
+          match edit {
+            None => originals[i]
+            Some((title, note)) => {
+              let item = @js.object_assign(@js.new_object(), originals[i])
+              item._set("title", @js.any(title))
+              item._set("note", @js.any(note))
+              item
+            }
           }
-        }
-      })
+        }),
+      )
   }
-  out._set("tickets", @js.any(items))
+  out._set("tickets", items)
   out._set("pendingArrivalId", nullable(pending))
   out
 }

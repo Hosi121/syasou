@@ -1,0 +1,132 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/host_dom"
+
+import {
+  "Hosi121/syasou/interop",
+}
+
+// Values
+pub fn document() -> Document
+
+pub fn matchMedia(String) -> MediaQueryList
+
+pub fn window() -> Window
+
+// Errors
+
+// Types and methods
+#external
+pub type DOMRect
+pub fn DOMRect::height(Self) -> Double
+pub fn DOMRect::left(Self) -> Double
+pub fn DOMRect::top(Self) -> Double
+pub fn DOMRect::width(Self) -> Double
+pub fn DOMRect::x(Self) -> Double
+pub fn DOMRect::y(Self) -> Double
+pub impl @interop.FromJs for DOMRect
+pub impl @interop.Same for DOMRect
+pub impl @interop.ToJs for DOMRect
+
+#external
+pub type Document
+pub fn Document::addEventListener(Self, String, (@interop.Any) -> Unit) -> Unit
+pub fn Document::by_id(Self, String) -> @interop.Any
+pub fn Document::createComment(Self, String) -> Node
+pub fn Document::createElement(Self, String) -> Element
+pub fn Document::createElementNs(Self, String, String) -> Element
+pub fn Document::createTextNode(Self, String) -> Node
+pub fn Document::getElementById(Self, String) -> Element?
+pub fn Document::query(Self, String) -> @interop.Any
+pub fn Document::querySelector(Self, String) -> Element?
+pub fn Document::removeEventListener(Self, String, (@interop.Any) -> Unit) -> Unit
+pub impl @interop.FromJs for Document
+pub impl @interop.Same for Document
+pub impl @interop.ToJs for Document
+
+#external
+pub type Element
+pub fn Element::removeAttribute(Self, String) -> Unit
+pub fn Element::setAttribute(Self, String, String) -> Unit
+pub impl @interop.FromJs for Element
+pub impl @interop.Same for Element
+pub impl @interop.ToJs for Element
+
+#external
+pub type Event
+pub fn Event::preventDefault(Self) -> Unit
+pub impl @interop.FromJs for Event
+pub impl @interop.Same for Event
+pub impl @interop.ToJs for Event
+
+#external
+pub type HTMLCanvasElement
+pub fn HTMLCanvasElement::addEventListener(Self, String, (@interop.Any) -> Unit) -> Unit
+pub fn HTMLCanvasElement::as_any(Self) -> @interop.Any
+pub fn HTMLCanvasElement::as_element(Self) -> Element
+pub fn HTMLCanvasElement::height(Self) -> Int
+pub fn HTMLCanvasElement::removeEventListener(Self, String, (@interop.Any) -> Unit) -> Unit
+pub fn HTMLCanvasElement::set_height(Self, Int) -> Unit
+pub fn HTMLCanvasElement::set_width(Self, Int) -> Unit
+pub fn HTMLCanvasElement::width(Self) -> Int
+pub impl @interop.FromJs for HTMLCanvasElement
+pub impl @interop.Same for HTMLCanvasElement
+pub impl @interop.ToJs for HTMLCanvasElement
+
+#external
+pub type MediaQueryList
+pub fn MediaQueryList::addChangeListener(Self, (Event) -> Unit) -> Unit
+pub fn MediaQueryList::matches(Self) -> Bool
+pub fn MediaQueryList::removeChangeListener(Self, (Event) -> Unit) -> Unit
+pub impl @interop.FromJs for MediaQueryList
+pub impl @interop.Same for MediaQueryList
+pub impl @interop.ToJs for MediaQueryList
+
+#external
+pub type Node
+pub fn Node::first(Self) -> @interop.Any
+pub fn Node::firstChild(Self) -> Self?
+pub fn Node::insertBefore(Self, Self, Self?) -> Self
+pub fn Node::insert_before(Self, Self, @interop.Any) -> Self
+pub fn Node::next(Self) -> @interop.Any
+pub fn Node::nextSibling(Self) -> Self?
+pub fn Node::parent(Self) -> @interop.Any
+pub fn Node::parentNode(Self) -> Self?
+pub fn Node::removeChild(Self, Self) -> Self
+pub impl @interop.FromJs for Node
+pub impl @interop.Same for Node
+pub impl @interop.ToJs for Node
+
+#external
+pub type Touch
+pub fn Touch::client_x(Self) -> Double
+pub fn Touch::client_y(Self) -> Double
+pub impl @interop.FromJs for Touch
+pub impl @interop.Same for Touch
+pub impl @interop.ToJs for Touch
+
+#external
+pub type TouchEvent
+pub fn TouchEvent::preventDefault(Self) -> Unit
+pub fn TouchEvent::touch_values(Self) -> @interop.Any
+pub fn TouchEvent::touches(Self) -> Array[Touch]
+pub impl @interop.FromJs for TouchEvent
+pub impl @interop.Same for TouchEvent
+pub impl @interop.ToJs for TouchEvent
+
+#external
+pub type Window
+pub fn Window::cancelAnimationFrame(Self, Int) -> Unit
+pub fn Window::clearInterval(Self, Int) -> Unit
+pub fn Window::clearTimeout(Self, Int) -> Unit
+pub fn Window::innerHeight(Self) -> Int
+pub fn Window::innerWidth(Self) -> Int
+pub fn Window::requestAnimationFrame(Self, (Double) -> Unit) -> Int
+pub fn Window::setInterval(Self, () -> Unit, Int) -> Int
+pub fn Window::setTimeout(Self, () -> Unit, Int) -> Int
+pub impl @interop.FromJs for Window
+pub impl @interop.Same for Window
+pub impl @interop.ToJs for Window
+
+// Type aliases
+
+// Traits

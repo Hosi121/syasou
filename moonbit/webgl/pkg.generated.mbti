@@ -2,31 +2,37 @@
 package "Hosi121/syasou/webgl"
 
 import {
-  "mizchi/js_browser/dom",
-  "mizchi/js_core",
+  "Hosi121/syasou/host_dom",
+  "Hosi121/syasou/interop",
 }
 
 // Values
-pub fn context(@dom.HTMLCanvasElement, ContextOptions) -> @js_core.Nullable[Context]
+pub fn context(@host_dom.HTMLCanvasElement, ContextOptions) -> @interop.Nullable[Context]
+
+pub fn context_raw(@host_dom.HTMLCanvasElement, @interop.Any) -> @interop.Nullable[Context]
 
 // Errors
 
 // Types and methods
 #external
 pub type Buffer
+pub impl @interop.FromJs for Buffer
+pub impl @interop.Same for Buffer
+pub impl @interop.ToJs for Buffer
 
 #external
 pub type Context
 pub fn Context::attach_shader(Self, Program, Shader) -> Unit
 pub fn Context::attribute_location(Self, Program, String) -> Int
 pub fn Context::attribute_pointer(Self, Int, Int, Int, Bool, Int, Int) -> Unit
-pub fn Context::bind_buffer(Self, Int, @js_core.Nullable[Buffer]) -> Unit
+pub fn Context::bind_buffer(Self, Int, @interop.Nullable[Buffer]) -> Unit
 pub fn Context::buffer_data_f32(Self, Int, FixedArray[Double], Int) -> Unit
+pub fn Context::buffer_data_raw(Self, Int, @interop.Any, Int) -> Unit
 pub fn Context::compile_shader(Self, Shader) -> Unit
-pub fn Context::create_buffer(Self) -> @js_core.Nullable[Buffer]
-pub fn Context::create_program(Self) -> @js_core.Nullable[Program]
-pub fn Context::create_shader(Self, Int) -> @js_core.Nullable[Shader]
-pub fn Context::delete_buffer(Self, @js_core.Nullable[Buffer]) -> Unit
+pub fn Context::create_buffer(Self) -> @interop.Nullable[Buffer]
+pub fn Context::create_program(Self) -> @interop.Nullable[Program]
+pub fn Context::create_shader(Self, Int) -> @interop.Nullable[Shader]
+pub fn Context::delete_buffer(Self, @interop.Nullable[Buffer]) -> Unit
 pub fn Context::delete_program(Self, Program) -> Unit
 pub fn Context::delete_shader(Self, Shader) -> Unit
 pub fn Context::draw_arrays(Self, Int, Int, Int) -> Unit
@@ -35,11 +41,14 @@ pub fn Context::link_program(Self, Program) -> Unit
 pub fn Context::program_linked(Self, Program) -> Bool
 pub fn Context::shader_compiled(Self, Shader) -> Bool
 pub fn Context::shader_source(Self, Shader, String) -> Unit
-pub fn Context::uniform1f(Self, @js_core.Nullable[Uniform], Double) -> Unit
-pub fn Context::uniform2f(Self, @js_core.Nullable[Uniform], Double, Double) -> Unit
-pub fn Context::uniform_location(Self, Program, String) -> @js_core.Nullable[Uniform]
+pub fn Context::uniform1f(Self, @interop.Nullable[Uniform], Double) -> Unit
+pub fn Context::uniform2f(Self, @interop.Nullable[Uniform], Double, Double) -> Unit
+pub fn Context::uniform_location(Self, Program, String) -> @interop.Nullable[Uniform]
 pub fn Context::use_program(Self, Program) -> Unit
 pub fn Context::viewport(Self, Int, Int, Int, Int) -> Unit
+pub impl @interop.FromJs for Context
+pub impl @interop.Same for Context
+pub impl @interop.ToJs for Context
 
 pub(all) struct ContextOptions {
   alpha : Bool
@@ -50,12 +59,21 @@ pub(all) struct ContextOptions {
 
 #external
 pub type Program
+pub impl @interop.FromJs for Program
+pub impl @interop.Same for Program
+pub impl @interop.ToJs for Program
 
 #external
 pub type Shader
+pub impl @interop.FromJs for Shader
+pub impl @interop.Same for Shader
+pub impl @interop.ToJs for Shader
 
 #external
 pub type Uniform
+pub impl @interop.FromJs for Uniform
+pub impl @interop.Same for Uniform
+pub impl @interop.ToJs for Uniform
 
 // Type aliases
 

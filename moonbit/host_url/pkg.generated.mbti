@@ -1,0 +1,23 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/host_url"
+
+import {
+  "Hosi121/syasou/interop",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+#external
+pub type URLSearchParams
+pub fn URLSearchParams::get(Self, String) -> String?
+pub fn URLSearchParams::get_value(Self, String) -> @interop.Any
+pub impl @interop.FromJs for URLSearchParams
+pub impl @interop.Same for URLSearchParams
+pub impl @interop.ToJs for URLSearchParams
+
+// Type aliases
+
+// Traits

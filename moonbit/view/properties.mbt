@@ -2,7 +2,7 @@
 fn invoke(props : @js.Any, name : String, event : @js.Any) -> Unit {
   let callback = props._get(name)
   if kind(callback) == "function" {
-    let call : (@js.Any) -> Unit = callback.cast()
+    let call : (@js.Any) -> Unit = @js.to_fn1(callback)
     call(event)
   }
 }

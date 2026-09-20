@@ -3,73 +3,73 @@ package "Hosi121/syasou/bridge"
 
 import {
   "Hosi121/syasou/domain",
-  "mizchi/js_core",
+  "Hosi121/syasou/interop",
 }
 
 // Values
-pub fn advance_journey(@js_core.Any, Double) -> @js_core.Any
+pub fn advance_journey(@interop.Any, Double) -> @interop.Any
 
-pub fn begin_ticket_grip(Double, Double, Double, Double, Double, Double, Bool) -> @js_core.Any
+pub fn begin_ticket_grip(Double, Double, Double, Double, Double, Double, Bool) -> @interop.Any
 
-pub fn class_names(Array[@js_core.Any]) -> String
+pub fn class_names(Array[@interop.Any]) -> String
 
-pub fn create_sound() -> @js_core.Any
+pub fn create_sound() -> @interop.Any
 
-pub fn create_window_renderer(@js_core.Any, @js_core.Any) -> @js_core.Any
+pub fn create_window_renderer(@interop.Any, @interop.Any) -> @interop.Any
 
-pub fn default_preferences() -> @js_core.Any
+pub fn default_preferences() -> @interop.Any
 
-pub fn disable_sound(@js_core.Any) -> @js_core.Promise[Unit]
+pub fn disable_sound(@interop.Any) -> @interop.Promise[Unit]
 
-pub fn dispose_sound(@js_core.Any) -> Unit
+pub fn dispose_sound(@interop.Any) -> Unit
 
-pub fn drag_ticket(@js_core.Any, Double, Double) -> @js_core.Any
+pub fn drag_ticket(@interop.Any, Double, Double) -> @interop.Any
 
-pub fn empty_journey() -> @js_core.Any
+pub fn empty_journey() -> @interop.Any
 
-pub fn enable_sound(@js_core.Any) -> @js_core.Promise[Unit]
+pub fn enable_sound(@interop.Any) -> @interop.Promise[Unit]
 
 pub fn format_time(Double) -> String
 
-pub fn hover_ticket(Double, Double, Double, Double, Double, Double) -> @js_core.Any
+pub fn hover_ticket(Double, Double, Double, Double, Double, Double) -> @interop.Any
 
 pub fn is_demo_search(String) -> Bool
 
-pub fn is_journey(@js_core.Any) -> Bool
+pub fn is_journey(@interop.Any) -> Bool
 
-pub fn is_note(@js_core.Any) -> Bool
+pub fn is_note(@interop.Any) -> Bool
 
-pub fn is_preferences(@js_core.Any) -> Bool
+pub fn is_preferences(@interop.Any) -> Bool
 
-pub fn is_stored_boolean(@js_core.Any) -> Bool
+pub fn is_stored_boolean(@interop.Any) -> Bool
 
-pub fn is_ticket(@js_core.Any) -> Bool
+pub fn is_ticket(@interop.Any) -> Bool
 
-pub fn is_travel_state(@js_core.Any) -> Bool
+pub fn is_travel_state(@interop.Any) -> Bool
 
-pub fn is_view(@js_core.Any) -> Bool
+pub fn is_view(@interop.Any) -> Bool
 
-pub fn journey_reducer(@js_core.Any, @js_core.Any) -> @js_core.Any
+pub fn journey_reducer(@interop.Any, @interop.Any) -> @interop.Any
 
-pub fn journey_remaining(@js_core.Any, Double) -> @js_core.Any
+pub fn journey_remaining(@interop.Any, Double) -> @interop.Any
 
-pub fn lift_ticket(@js_core.Any, Double) -> @js_core.Any
+pub fn lift_ticket(@interop.Any, Double) -> @interop.Any
 
-pub fn migrate_legacy_journey(@js_core.Any, @js_core.Any, () -> String, () -> Double) -> @js_core.Any
+pub fn migrate_legacy_journey(@interop.Any, @interop.Any, () -> String, () -> Double) -> @interop.Any
 
 pub fn profile_storage_key(String, Bool) -> String
 
-pub fn read_journey(@js_core.Any) -> @domain.Journey
+pub fn read_journey(@interop.Any) -> @domain.Journey
 
-pub fn read_storage(String, @js_core.Any, (@js_core.Any) -> Bool) -> @js_core.Any
+pub fn read_storage(String, @interop.Any, (@interop.Any) -> Bool) -> @interop.Any
 
-pub fn read_ticket(@js_core.Any) -> @domain.Ticket
+pub fn read_ticket(@interop.Any) -> @domain.Ticket
 
-pub fn release_ticket(@js_core.Any, Bool) -> @js_core.Any
+pub fn release_ticket(@interop.Any, Bool) -> @interop.Any
 
-pub fn restore_travel(@js_core.Any, Double, String) -> @js_core.Any
+pub fn restore_travel(@interop.Any, Double, String) -> @interop.Any
 
-pub fn sample_tickets(Double) -> @js_core.Any
+pub fn sample_tickets(Double) -> @interop.Any
 
 pub fn ticket_is_back(Double) -> Bool
 
@@ -79,13 +79,13 @@ pub fn ticket_serial(String) -> String
 
 pub fn ticket_shadow_width(Double) -> Double
 
-pub fn travel_reducer(@js_core.Any, @js_core.Any) -> @js_core.Any
+pub fn travel_reducer(@interop.Any, @interop.Any) -> @interop.Any
 
-pub fn update_sound(@js_core.Any, @js_core.Any, Bool, Bool) -> Unit
+pub fn update_sound(@interop.Any, @interop.Any, Bool, Bool) -> Unit
 
-pub fn views() -> @js_core.Any
+pub fn views() -> @interop.Any
 
-pub fn write_storage(String, @js_core.Any) -> Bool
+pub fn write_storage(String, @interop.Any) -> Bool
 
 // Errors
 

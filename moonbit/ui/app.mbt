@@ -27,7 +27,7 @@ pub fn app(props : AppProps) -> @view.Element {
   let (guide_step, set_guide_step) = @view.use_state(0)
   let (window_open, set_window) = @view.use_state(false)
   let (at_window, set_at_window) = @view.use_state(false)
-  let (view, set_view) = @view.use_state_lazy(read_view)
+  let (view, set_view, update_view) = @view.use_state_lazy_update(read_view)
   let previous_view = @view.use_ref(
     Some(if view == "train" { "snow" } else { view }),
   )
@@ -65,7 +65,7 @@ pub fn app(props : AppProps) -> @view.Element {
   )
   observe(() => save_note(note), [d(note)])
   observe(() => save_view(view), [d(view)])
-  observe(props.onReady, [d(props.onReady)])
+  observe(props.onReady, [@view.reference_dependency(props.onReady)])
   observe(
     () => {
       if !props.covered && !tray_open && !notebook_open && !guide_open {
@@ -87,7 +87,7 @@ pub fn app(props : AppProps) -> @view.Element {
       set_guide_step(0)
       set_guide(true)
       set_at_window(false)
-      update(set_view, current => {
+      update_view(current => {
         if current == "train" {
           previous_view.get_current().unwrap()
         } else {
@@ -100,7 +100,7 @@ pub fn app(props : AppProps) -> @view.Element {
   )
   observe(() => if props.guideRequest > 0 { show_guide() }, [
     d(props.guideRequest),
-    d(show_guide),
+    @view.reference_dependency(show_guide),
   ])
   observe(
     () => if travel.pending is Some(id) && id != "" { set_guide(false) },
@@ -142,12 +142,12 @@ pub fn app(props : AppProps) -> @view.Element {
         },
       )
     },
-    [d(journey.phase)],
+    [@view.reference_dependency(journey.phase)],
   )
   let leave_window = @view.use_callback(
     () => {
       set_at_window(false)
-      update(set_view, current => {
+      update_view(current => {
         if current == "train" {
           previous_view.get_current().unwrap()
         } else {
@@ -198,7 +198,7 @@ pub fn app(props : AppProps) -> @view.Element {
       d(tray_open),
       d(props.covered),
       d(guide_open),
-      d(leave_window),
+      @view.reference_dependency(leave_window),
     ],
   )
   let board = () => {
@@ -259,8 +259,8 @@ pub fn app(props : AppProps) -> @view.Element {
         p("aria-hidden", props.covered),
         p("aria-label", "列車の窓辺"),
         p("data-view", view),
-        p("onPointerDown", wake),
-        p("onPointerMove", (event : UiEvent) => {
+        p0("onPointerDown", wake),
+        p1("onPointerMove", (event : UiEvent) => {
           wake()
           if event.pointer_type() != "mouse" ||
             reduced ||
@@ -278,7 +278,7 @@ pub fn app(props : AppProps) -> @view.Element {
             (event.y() / @dom.window().innerHeight().to_double() - 0.5) * -5.0,
           )
         }),
-        p("onPointerLeave", () => {
+        p0("onPointerLeave", () => {
           look_target_x.set(0.0)
           look_target_y.set(0.0)
         }),
@@ -353,7 +353,7 @@ pub fn app(props : AppProps) -> @view.Element {
                         "車窓を眺める"
                       },
                     ),
-                    p("onClick", () => {
+                    p0("onClick", () => {
                       set_at_window(!at_window)
                       look_target_x.set(0.0)
                       look_target_y.set(0.0)
@@ -391,7 +391,7 @@ pub fn app(props : AppProps) -> @view.Element {
                 ),
                 p("aria-pressed", window_open),
                 p("aria-hidden", at_window),
-                p("onClick", () => set_window(!window_open)),
+                p0("onClick", () => set_window(!window_open)),
                 p(
                   "title",
                   if window_open {
@@ -457,7 +457,7 @@ pub fn app(props : AppProps) -> @view.Element {
                 p("className", "corner-action"),
                 p("aria-label", "旅の手帳を開く"),
                 p("title", "手帳をひらく"),
-                p("onClick", () => {
+                p0("onClick", () => {
                   set_view(previous_view.get_current().unwrap())
                   set_at_window(false)
                   set_notebook(true)
@@ -473,7 +473,7 @@ pub fn app(props : AppProps) -> @view.Element {
             [
               p("className", "corner-action"),
               p("aria-label", "タイトルに戻る"),
-              p("onClick", props.onShowOpening),
+              p0("onClick", props.onShowOpening),
               p("title", "タイトルへ"),
             ],
             [
@@ -489,7 +489,7 @@ pub fn app(props : AppProps) -> @view.Element {
             [
               p("className", "corner-action"),
               p("aria-label", "使い方を見る"),
-              p("onClick", show_guide),
+              p0("onClick", show_guide),
               p("title", "旅のしおり"),
             ],
             [icon("BookOpen", 18.0, 1.0)],
@@ -500,7 +500,7 @@ pub fn app(props : AppProps) -> @view.Element {
               [
                 p("className", "corner-action"),
                 p("aria-label", "座席に戻る"),
-                p("onClick", leave_window),
+                p0("onClick", leave_window),
                 p("title", "座席に戻る"),
               ],
               [icon("ArrowLeft", 19.0, 1.0)],
@@ -522,7 +522,7 @@ pub fn app(props : AppProps) -> @view.Element {
                   },
                 ),
                 p("aria-pressed", fullscreen),
-                p("onClick", toggle_fullscreen),
+                p0("onClick", toggle_fullscreen),
                 p(
                   "title",
                   if fullscreen {
@@ -601,7 +601,7 @@ pub fn app(props : AppProps) -> @view.Element {
               (travel.acknowledge)()
               set_archive(false)
               set_at_window(false)
-              update(set_view, current => {
+              update_view(current => {
                 if current == "train" {
                   previous_view.get_current().unwrap()
                 } else {

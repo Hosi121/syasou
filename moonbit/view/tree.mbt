@@ -4,7 +4,7 @@ pub(all) enum Element {
   Text(String)
   Tag(String, @js.Any, Array[Element])
   Group(Array[Element])
-  Component(@js.Any, () -> Element, String?)
+  Component(String, () -> Element, String?)
   Control(String, String, @js.Any, Array[Element])
   Portal(Array[Element])
   Boundary(Element, () -> Unit)
@@ -26,11 +26,12 @@ pub fn fragment(children : Array[Element]) -> Element {
 
 ///|
 pub fn[T] component(
+  identity : String,
   render : (T) -> Element,
   props : T,
   key? : String,
 ) -> Element {
-  Component(@js.any(render), () => render(props), key)
+  Component(identity, () => render(props), key)
 }
 
 ///|
@@ -50,10 +51,12 @@ pub fn boundary(child : Element, on_error : () -> Unit) -> Element {
 
 ///|
 // Catch JavaScript host exceptions at the UI boundary, then recover in MoonBit.
+#cfg(target="js")
 extern "js" fn attempt(run : () -> Unit, on_error : () -> Unit) -> Unit =
   #| (run,onError) => {try {run()} catch {onError()}}
 
 ///|
+#cfg(target="js")
 extern "js" fn guarded(run : () -> Unit, on_error : () -> Unit) -> Unit =
   #| (run,onError) => {try {run()} catch (error) {onError();throw error}}
 
@@ -88,7 +91,7 @@ fn compatible(a : Element, b : Element) -> Bool {
     | (Portal(_), Portal(_))
     | (Boundary(_, _), Boundary(_, _)) => true
     (Tag(a, _, _), Tag(b, _, _)) => a == b
-    (Component(a, _, _), Component(b, _, _)) => identical(a, b)
+    (Component(a, _, _), Component(b, _, _)) => a == b
     (Control(a, b, _, _), Control(c, d, _, _)) => a == c && b == d
     _ => false
   }

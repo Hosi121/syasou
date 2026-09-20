@@ -14,7 +14,7 @@ process.env.TZ = 'UTC'
 globalThis.window = { location: { search: '' }, addEventListener() {}, removeEventListener() {}, matchMedia: () => ({ matches: false, addEventListener() {}, removeEventListener() {} }) }
 globalThis.matchMedia = window.matchMedia
 const fixtures = JSON.parse(readFileSync(new URL('../tests/contract/ui-fixtures.json', import.meta.url), 'utf8'))
-const ui = await import(process.argv.includes('--build-output') ? '../_build/js/release/build/ui/ui.js' : '../src/generated/moonbit/ui.js')
+const ui = process.argv.includes('--wasm') ? await (await import('./load-wasm-contract.mjs')).loadWasmContract() : await import('../_build/js/release/build/ui/ui.js')
 const noop = () => {}
 const withCallbacks = props => ({ ...props, onChange: noop, onEnter: noop, onGuide: noop, onComplete: noop, ...(props.editable ? { onTitleChange: noop, onNoteChange: noop } : {}) })
 function style(value) {

@@ -1,6 +1,7 @@
 ///|
 // Existing date bindings use Int for Date.now; preserve epoch milliseconds as
 // Double at this boundary. DOM overloads below retain options missing upstream.
+#cfg(target="js")
 extern "js" fn now() -> Double = "Date" "now"
 
 ///|
@@ -9,10 +10,12 @@ fn uuid() -> String {
 }
 
 ///|
+#cfg(target="js")
 extern "js" fn hidden() -> Bool =
   #| () => document.hidden
 
 ///|
+#cfg(target="js")
 extern "js" fn focus(node : @dom.Element) -> Unit =
   #| node => node.focus({preventScroll:true})
 
@@ -49,6 +52,7 @@ fn frame(callback : () -> Unit) -> Unit {
 }
 
 ///|
+#cfg(target="js")
 extern "js" fn microtask(callback : () -> Unit) -> Unit =
   #| callback => queueMicrotask(callback)
 
@@ -60,18 +64,22 @@ fn on_document(name : String, callback : () -> Unit) -> () -> Unit {
 }
 
 ///|
-extern "js" fn on_window(name : String, callback : () -> Unit) -> () -> Unit =
+#cfg(target="js")
+extern "js" fn on_window_raw(name : String, callback : () -> Unit) -> @js.Any =
   #| (name, callback) => { window.addEventListener(name, callback); return () => window.removeEventListener(name, callback); }
 
 ///|
+#cfg(target="js")
 extern "js" fn reload() -> Unit =
   #| () => location.reload()
 
 ///|
+#cfg(target="js")
 extern "js" fn formatted_ticket_date(time : Double) -> String =
   #| time => new Intl.DateTimeFormat('en-GB', {day:'2-digit',month:'short',year:'2-digit'}).format(time)
 
 ///|
+#cfg(target="js")
 extern "js" fn ticket_time(time : Double) -> String =
   #| time => new Intl.DateTimeFormat('en-GB', {hour:'2-digit',minute:'2-digit',hour12:false}).format(time)
 
@@ -94,26 +102,36 @@ fn format_time(milliseconds : Double) -> String {
 pub type UiEvent
 
 ///|
+#cfg(target="js")
 extern "js" fn UiEvent::prevent(self : UiEvent) -> Unit =
   #| event => event.preventDefault()
 
 ///|
+#cfg(target="js")
 extern "js" fn UiEvent::stop(self : UiEvent) -> Unit =
   #| event => event.stopPropagation()
 
 ///|
+#cfg(target="js")
 extern "js" fn UiEvent::value(self : UiEvent) -> String =
   #| event => event.target.value
 
 ///|
+#cfg(target="js")
 extern "js" fn UiEvent::number(self : UiEvent) -> Double =
   #| event => Number(event.target.value)
 
 ///|
+#cfg(target="js")
 extern "js" fn number_value(value : String) -> Double =
   #| value => Number(value)
 
 ///|
 fn ticket_date(time : Double) -> String {
   formatted_ticket_date(time).to_upper()
+}
+
+///|
+fn on_window(name : String, callback : () -> Unit) -> () -> Unit {
+  @js.to_fn0(on_window_raw(name, callback))
 }

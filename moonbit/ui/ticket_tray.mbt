@@ -9,7 +9,12 @@ priv struct TrayProps {
 
 ///|
 fn ticket_tray(props : TrayProps) -> @view.Element {
-  component(render_tray, props, key=props.arrival.unwrap_or("archive"))
+  component(
+    "render_tray",
+    render_tray,
+    props,
+    key=props.arrival.unwrap_or("archive"),
+  )
 }
 
 ///|
@@ -53,7 +58,7 @@ fn render_tray(props : TrayProps) -> @view.Element {
   foreign(
     "dialog",
     "Root",
-    [p("open", true), p("onOpenChange", (open : Bool) => if !open { close() })],
+    [p("open", true), p1("onOpenChange", (open : Bool) => if !open { close() })],
     [
       foreign("dialog", "Portal", [], [
         foreign("dialog", "Overlay", [p("asChild", true)], [
@@ -76,18 +81,18 @@ fn render_tray(props : TrayProps) -> @view.Element {
           "Content",
           [
             p("className", "ticket-tray-dialog"),
-            p("onEscapeKeyDown", (e : UiEvent) => {
+            p1("onEscapeKeyDown", (e : UiEvent) => {
               if physical.get_current() is Some(handle) && (handle.cancel)() {
                 e.prevent()
               }
             }),
-            p("onOpenAutoFocus", (e : UiEvent) => {
+            p1("onOpenAutoFocus", (e : UiEvent) => {
               e.prevent()
               if close_button.get_current() is Some(button) {
                 focus(button)
               }
             }),
-            p("onCloseAutoFocus", (e : UiEvent) => {
+            p1("onCloseAutoFocus", (e : UiEvent) => {
               e.prevent()
               if arrival && !welcome {
                 microtask(() => focus_selector(".notebook-object"))
@@ -287,7 +292,7 @@ fn render_tray(props : TrayProps) -> @view.Element {
                                   ),
                                 ]),
                               ),
-                              p("onAnimationComplete", () => {
+                              p0("onAnimationComplete", () => {
                                 if leaving {
                                   (props.on_close)()
                                 }
@@ -334,7 +339,7 @@ fn render_tray(props : TrayProps) -> @view.Element {
                           "切符を閉じる"
                         },
                       ),
-                      p("onClick", close),
+                      p0("onClick", close),
                       p("disabled", leaving),
                     ],
                     [icon("X", 20.0, 1.0)],
@@ -346,7 +351,7 @@ fn render_tray(props : TrayProps) -> @view.Element {
                         [
                           p("aria-label", "新しい切符を見る"),
                           p("disabled", index == 0 || leaving),
-                          p("onClick", () => select(index - 1)),
+                          p0("onClick", () => select(index - 1)),
                         ],
                         [icon("ArrowLeft", 23.0, 1.0)],
                       ),
@@ -358,7 +363,7 @@ fn render_tray(props : TrayProps) -> @view.Element {
                             "disabled",
                             index >= props.tickets.length() - 1 || leaving,
                           ),
-                          p("onClick", () => select(index + 1)),
+                          p0("onClick", () => select(index + 1)),
                         ],
                         [icon("ArrowRight", 23.0, 1.0)],
                       ),
@@ -380,7 +385,7 @@ fn render_tray(props : TrayProps) -> @view.Element {
                               "切符の裏を見る"
                             },
                           ),
-                          p("onClick", () => {
+                          p0("onClick", () => {
                             set_back(!back)
                             set_handled(true)
                           }),
@@ -397,7 +402,7 @@ fn render_tray(props : TrayProps) -> @view.Element {
                       [
                         p("ref", close_button),
                         p("className", "ticket-put-away"),
-                        p("onClick", close),
+                        p0("onClick", close),
                         p("disabled", leaving),
                       ],
                       [

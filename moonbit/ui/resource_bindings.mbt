@@ -1,8 +1,10 @@
 ///|
+#cfg(target="js")
 extern "js" fn image_decode(source : String) -> @js.Promise[Unit] =
   #| source => { const image = new Image(); image.src = source; return image.decode(); }
 
 ///|
+#cfg(target="js")
 extern "js" fn font_load(font : String, sample : String) -> @js.Promise[Unit] =
   #| (font, sample) => document.fonts.load(font, sample).then(() => {})
 

@@ -23,9 +23,10 @@ try {
   else {
     assert.deepStrictEqual(captured, JSON.parse(readFileSync(fixturePath, 'utf8')), 'Frozen helper output drifted')
     if (!process.argv.includes('--check')) {
-      const moon = await import('../src/generated/moonbit/bridge.js')
+      const js = await import('../src/generated/moonbit/bridge.js')
+      const moon = process.argv.includes('--wasm') ? await (await import('./load-wasm-contract.mjs')).loadWasmContract() : js
       assert.deepStrictEqual(times.map(moon.formatTime), captured.times)
-      assert.deepStrictEqual(classes.map(moon.classNames), captured.classes)
+      assert.deepStrictEqual(classes.map(js.classNames), captured.classes)
       assert.deepStrictEqual(searches.map(search => { const demo=moon.isDemoSearch(search); return [demo,moon.profileStorageKey('syasou.note.v1',demo)] }), captured.profiles)
       assert.deepStrictEqual(moon.defaultPreferences(), captured.defaults)
       assert.deepStrictEqual(moon.emptyJourney(), captured.emptyJourney)

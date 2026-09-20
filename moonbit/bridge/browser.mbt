@@ -14,18 +14,18 @@ pub fn write_storage(key : String, value : @js.Any) -> Bool {
 
 ///|
 pub fn create_sound() -> @js.Any {
-  @js.any(@browser.create_sound())
+  @js.capsule(@browser.create_sound())
 }
 
 ///|
 pub fn enable_sound(value : @js.Any) -> @js.Promise[Unit] {
-  let sound : @browser.Sound = value.cast()
+  let sound : @browser.Sound = @js.uncapsule(value)
   sound.enable()
 }
 
 ///|
 pub fn disable_sound(value : @js.Any) -> @js.Promise[Unit] {
-  let sound : @browser.Sound = value.cast()
+  let sound : @browser.Sound = @js.uncapsule(value)
   sound.disable()
 }
 
@@ -36,7 +36,7 @@ pub fn update_sound(
   moving : Bool,
   open : Bool,
 ) -> Unit {
-  let sound : @browser.Sound = value.cast()
+  let sound : @browser.Sound = @js.uncapsule(value)
   let mix = @domain.sound_mix(
     preferences._get("speed").cast(),
     preferences._get("trainVolume").cast(),
@@ -50,7 +50,7 @@ pub fn update_sound(
 
 ///|
 pub fn dispose_sound(value : @js.Any) -> Unit {
-  let sound : @browser.Sound = value.cast()
+  let sound : @browser.Sound = @js.uncapsule(value)
   sound.dispose()
 }
 

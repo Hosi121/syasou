@@ -88,7 +88,7 @@ fn run_control(
       attrs._set("dir", @js.any("ltr"))
       attrs._set(
         "onKeyDown",
-        @js.any((event : @js.Any) => radio_keydown(event)),
+        @js.from_fn1((event : @js.Any) => radio_keydown(event)),
       )
       return (Tag("div", attrs, children), next)
     }
@@ -103,7 +103,7 @@ fn run_control(
     attrs._set("tabIndex", @js.any(if selected { 0 } else { -1 }))
     attrs._set(
       "onClick",
-      @js.any(() => {
+      @js.from_fn0(() => {
         invoke(
           toggle.props,
           "onValueChange",
@@ -145,7 +145,10 @@ fn run_control(
         "data-state",
         @js.any(if panel.open { "open" } else { "closed" }),
       )
-      attrs._set("onClick", @js.any(() => change_panel(panel, !panel.open)))
+      attrs._set(
+        "onClick",
+        @js.from_fn0(() => change_panel(panel, !panel.open)),
+      )
       (
         if bool(props._get("asChild")) {
           child_tag(children, attrs)
@@ -174,7 +177,7 @@ fn run_control(
         "onOpenAutoFocus", "onCloseAutoFocus", "onEscapeKeyDown", "side", "align",
         "sideOffset", "collisionPadding",
       ])
-      attrs._set("panel", @js.any(panel))
+      attrs._set("panel", @js.capsule(panel))
       attrs._set("id", @js.any(panel.id + "-content"))
       attrs._set("role", @js.any("dialog"))
       attrs._set("tabIndex", @js.any(-1))
@@ -210,7 +213,7 @@ fn run_control(
         props,
         dictionary([
           ("type", @js.any("button")),
-          ("onClick", @js.any(() => change_panel(panel, false))),
+          ("onClick", @js.from_fn0(() => change_panel(panel, false))),
         ]),
       )
       (Tag("button", attrs, children), context)
@@ -220,21 +223,22 @@ fn run_control(
 }
 
 ///|
-extern "js" fn query_all(
-  node : @dom.Node,
-  selector : String,
-) -> FixedArray[@dom.Node] =
+#cfg(target="js")
+extern "js" fn query_all_raw(node : @dom.Node, selector : String) -> @js.Any =
   #| (node,selector) => Array.from(node.querySelectorAll(selector))
 
 ///|
+#cfg(target="js")
 extern "js" fn current_target(event : @js.Any) -> @dom.Node =
   #| event => event.currentTarget
 
 ///|
+#cfg(target="js")
 extern "js" fn shift(event : @js.Any) -> Bool =
   #| event => event.shiftKey
 
 ///|
+#cfg(target="js")
 extern "js" fn tabbable(node : @dom.Node) -> Bool =
   #| node => !node.disabled && !node.closest('[inert],[aria-hidden="true"]') && node.getClientRects().length>0 && node.tabIndex>=0
 
@@ -278,30 +282,30 @@ fn radio_keydown(event : @js.Any) -> Unit {
 }
 
 ///|
+#cfg(target="js")
 extern "js" fn show_modal(node : @dom.Node) -> Unit =
   #| node => node.showModal()
 
 ///|
+#cfg(target="js")
 extern "js" fn close_modal(node : @dom.Node) -> Unit =
   #| node => node.close()
 
 ///|
-priv struct Rect {
-  x : Double
-  y : Double
-  width : Double
-  height : Double
-}
+type Rect = @dom.DOMRect
 
 ///|
+#cfg(target="js")
 extern "js" fn rect(node : @dom.Node) -> Rect =
   #| node => node.getBoundingClientRect()
 
 ///|
+#cfg(target="js")
 extern "js" fn pointer_x(event : @js.Any) -> Double =
   #| event => event.clientX
 
 ///|
+#cfg(target="js")
 extern "js" fn pointer_y(event : @js.Any) -> Double =
   #| event => event.clientY
 
@@ -311,7 +315,7 @@ fn mount_behavior(mounted : Mounted) -> Unit {
   if @js.is_nullish(raw) {
     return
   }
-  let panel : Panel = raw.cast()
+  let panel : Panel = @js.uncapsule(raw)
   let node = mounted.first
   let previous = active_node()
   let keydown = (event : @js.Any) => {
@@ -351,10 +355,10 @@ fn mount_behavior(mounted : Mounted) -> Unit {
         let box = rect(node)
         let x = pointer_x(event)
         let y = pointer_y(event)
-        if x < box.x ||
-          y < box.y ||
-          x > box.x + box.width ||
-          y > box.y + box.height {
+        if x < box.x() ||
+          y < box.y() ||
+          x > box.x() + box.width() ||
+          y > box.y() + box.height() {
           change_panel(panel, false)
         }
       }
@@ -384,9 +388,13 @@ fn mount_behavior(mounted : Mounted) -> Unit {
       style_property(
         node,
         "left",
-        "\{(anchor.x+anchor.width-box.width).max(24.0).min(width-box.width-24.0)}px",
+        "\{(anchor.x()+anchor.width()-box.width()).max(24.0).min(width-box.width()-24.0)}px",
       )
-      style_property(node, "top", "\{(anchor.y-box.height-14.0).max(24.0)}px")
+      style_property(
+        node,
+        "top",
+        "\{(anchor.y()-box.height()-14.0).max(24.0)}px",
+      )
     }
     let event = custom_event("openautofocus")
     invoke(mounted.props._get("panelCallbacks"), "onOpenAutoFocus", event)
@@ -411,4 +419,9 @@ fn mount_behavior(mounted : Mounted) -> Unit {
       queue(() => if connected(target) { focus_node(target) })
     }
   }
+}
+
+///|
+fn query_all(node : @dom.Node, selector : String) -> Array[@dom.Node] {
+  query_all_raw(node, selector).cast()
 }

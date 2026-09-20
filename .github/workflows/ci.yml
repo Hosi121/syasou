@@ -38,8 +38,10 @@ jobs:
       - run: node scripts/moon-command.mjs fmt --check
       - run: npm run check:domain
       - run: npm run test:moonbit
+      - run: node scripts/moon-command.mjs test moonbit/interop --target wasm-gc
       - run: node scripts/moon-command.mjs test moonbit/domain --target native
       - run: npm run test:domain
+      - run: npm run test:wasm
 
   build:
     runs-on: ubuntu-latest

@@ -68,7 +68,7 @@ if (process.argv.includes('--generate')) {
   assert.deepStrictEqual(captured, fixtures, 'Interaction oracle fixtures drifted')
   if (!process.argv.includes('--check')) {
     const modules = await Promise.all(['ticketInteraction', 'journeyLegacy', 'sampleTickets'].map(name => import(`../src/lib/${name}.ts`)))
-    const api = Object.assign({}, ...modules)
+    const api = process.argv.includes('--wasm') ? await (await import('./load-wasm-contract.mjs')).loadWasmContract() : Object.assign({}, ...modules)
     for (const fixture of fixtures) assert.deepStrictEqual(run(api, fixture), fixture.expected, fixture.name)
   }
 }

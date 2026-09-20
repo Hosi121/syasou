@@ -1,0 +1,25 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/host_date"
+
+import {
+  "Hosi121/syasou/interop",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+#external
+pub type Date
+pub fn Date::get_date(Self) -> Int
+pub fn Date::get_full_year(Self) -> Int
+pub fn Date::get_month(Self) -> Int
+pub fn Date::new() -> Self
+pub impl @interop.FromJs for Date
+pub impl @interop.Same for Date
+pub impl @interop.ToJs for Date
+
+// Type aliases
+
+// Traits

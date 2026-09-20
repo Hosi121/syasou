@@ -19,7 +19,7 @@ fn ticket_card(
   on_title? : (String) -> Unit,
   on_note? : (String) -> Unit,
 ) -> @view.Element {
-  component(render_card, {
+  component("render_card", render_card, {
     ticket,
     back,
     rotation,
@@ -194,7 +194,7 @@ fn render_card(props : TicketCardProps) -> @view.Element {
                               p("aria-label", "切符に残す作業"),
                               p("value", ticket.title),
                               p("maxLength", 80),
-                              p("onChange", (e : UiEvent) => change(e.value())),
+                              p1("onChange", (e : UiEvent) => change(e.value())),
                               p("placeholder", "この旅で進めたこと"),
                               p("spellCheck", false),
                             ],
@@ -292,7 +292,7 @@ fn render_card(props : TicketCardProps) -> @view.Element {
                       p("aria-label", "切符のメモ"),
                       p("value", ticket.note),
                       p("maxLength", 300),
-                      p("onChange", (e : UiEvent) => change(e.value())),
+                      p1("onChange", (e : UiEvent) => change(e.value())),
                       p(
                         "placeholder", "この旅で考えたこと、残しておきたいこと。",
                       ),

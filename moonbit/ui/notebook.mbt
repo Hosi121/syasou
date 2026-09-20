@@ -15,7 +15,7 @@ priv struct NotebookProps {
 
 ///|
 fn notebook(props : NotebookProps) -> @view.Element {
-  component(render_notebook, props)
+  component("render_notebook", render_notebook, props)
 }
 
 ///|
@@ -48,7 +48,7 @@ fn render_notebook(props : NotebookProps) -> @view.Element {
     "Root",
     [
       p("open", props.open),
-      p("onOpenChange", (value : Bool) => {
+      p1("onOpenChange", (value : Bool) => {
         (props.on_open)(value)
         if !value {
           set_settings(false)
@@ -96,7 +96,7 @@ fn render_notebook(props : NotebookProps) -> @view.Element {
           "Content",
           [
             p("className", "journal-anchor"),
-            p("onOpenAutoFocus", (event : UiEvent) => {
+            p1("onOpenAutoFocus", (event : UiEvent) => {
               event.prevent()
               focus_selector(
                 if props.focus_pocket {
@@ -106,7 +106,7 @@ fn render_notebook(props : NotebookProps) -> @view.Element {
                 },
               )
             }),
-            p("onCloseAutoFocus", (event : UiEvent) => {
+            p1("onCloseAutoFocus", (event : UiEvent) => {
               if props.suspended {
                 event.prevent()
               }
@@ -180,7 +180,7 @@ fn render_notebook(props : NotebookProps) -> @view.Element {
                           "button",
                           [
                             p("className", "paper-back paper-icon"),
-                            p("onClick", () => set_settings(false)),
+                            p0("onClick", () => set_settings(false)),
                             p("aria-label", "手帳に戻る"),
                           ],
                           [icon("ArrowLeft", 19.0, 1.1)],
@@ -197,7 +197,7 @@ fn render_notebook(props : NotebookProps) -> @view.Element {
                             "button",
                             [
                               p("className", "paper-time"),
-                              p("onClick", () => set_settings(true)),
+                              p0("onClick", () => set_settings(true)),
                               p(
                                 "aria-label", "作業と休憩の時間を設定",
                               ),
@@ -231,7 +231,7 @@ fn render_notebook(props : NotebookProps) -> @view.Element {
                             "button",
                             [
                               p("className", "paper-speed"),
-                              p("onClick", () => {
+                              p0("onClick", () => {
                                 (travel.set_preferences)(
                                   preferences.with_value(
                                     "speed",
@@ -265,7 +265,7 @@ fn render_notebook(props : NotebookProps) -> @view.Element {
                             [
                               p("id", "journal-main-action"),
                               p("className", "paper-play"),
-                              p(
+                              p0(
                                 "onClick",
                                 if active {
                                   props.on_toggle
@@ -320,7 +320,7 @@ fn render_notebook(props : NotebookProps) -> @view.Element {
                             p("aria-label", "手帳のメモ"),
                             p("value", props.note),
                             p("maxLength", 300),
-                            p("onChange", (e : UiEvent) => {
+                            p1("onChange", (e : UiEvent) => {
                               (props.on_note)(e.value())
                             }),
                             p("spellCheck", false),
@@ -334,7 +334,7 @@ fn render_notebook(props : NotebookProps) -> @view.Element {
                         "button",
                         [
                           p("className", "paper-icon"),
-                          p("onClick", () => set_settings(!show_settings)),
+                          p0("onClick", () => set_settings(!show_settings)),
                           p(
                             "aria-label",
                             if show_settings {
@@ -352,7 +352,7 @@ fn render_notebook(props : NotebookProps) -> @view.Element {
                         "button",
                         [
                           p("className", "paper-icon"),
-                          p("onClick", sound.toggle),
+                          p0("onClick", sound.toggle),
                           p("disabled", sound.busy),
                           p("aria-label", sound_label),
                           p("aria-pressed", sound.enabled),
@@ -375,7 +375,7 @@ fn render_notebook(props : NotebookProps) -> @view.Element {
                           "button",
                           [
                             p("className", "paper-icon"),
-                            p("onClick", travel.finish),
+                            p0("onClick", travel.finish),
                             p("aria-label", "旅を終える"),
                             p("title", "旅を終える"),
                           ],
@@ -409,7 +409,7 @@ fn render_notebook(props : NotebookProps) -> @view.Element {
                             ),
                           ]),
                         ),
-                        p("onClick", props.on_archive),
+                        p0("onClick", props.on_archive),
                         p("aria-label", "集めた切符を見る"),
                         p("title", "集めた切符"),
                       ],

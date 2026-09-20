@@ -1,10 +1,6 @@
 import {
-  "mizchi/js_core",
-  "mizchi/js_browser/dom",
+  "Hosi121/syasou/interop" @js_core,
+  "Hosi121/syasou/host_dom" @dom,
 }
 
-supported_targets = "js"
-
-options(
-  targets: { "bindings.mbt": [ "js" ] },
-)
+supported_targets = "+js+wasm-gc"

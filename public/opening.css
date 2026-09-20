@@ -43,7 +43,8 @@ html, body { margin: 0; background: #dedede; }
 .opening-failure p { margin: 0 0 12px; }
 .opening-failure button, .opening-failure a { display: inline-flex; gap: 13px; align-items: center; color: #383838; font: inherit; text-decoration: underline; text-underline-offset: 5px; border: 0; background: transparent; cursor: pointer; }
 [data-boot-error] .boot-static .opening-loading { display: none; }
-[data-boot-error] .boot-static .opening-failure[hidden] { display: block; }
+.boot-static .opening-action > .opening-failure { display: none; }
+[data-boot-error] .boot-static .opening-action > .opening-failure { display: block; }
 @media (max-height: 650px) {
   .opening-brand { top: calc(50% - 163px); }
   .opening-emblem { width: 42px; height: 42px; margin-bottom: 17px; }

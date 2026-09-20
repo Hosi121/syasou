@@ -1,0 +1,23 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/host_math"
+
+import {
+  "Hosi121/syasou/interop",
+}
+
+// Values
+
+// Errors
+
+// Types and methods
+#external
+pub type Math
+pub fn Math::random() -> Double
+pub fn Math::round(Double) -> Int
+pub impl @interop.FromJs for Math
+pub impl @interop.Same for Math
+pub impl @interop.ToJs for Math
+
+// Type aliases
+
+// Traits

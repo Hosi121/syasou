@@ -9,7 +9,7 @@ fn create_renderer(
 ) -> WindowRenderer? {
   let renderer = @bridge.create_window_renderer(
     canvas.as_any(),
-    @js.any(unavailable),
+    @js.from_fn0(unavailable),
   )
   if @js.is_nullish(renderer) {
     None

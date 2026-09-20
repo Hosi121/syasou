@@ -1,9 +1,9 @@
 import {
-  "mizchi/js_core",
+  "Hosi121/syasou/interop" @js_core,
 }
 
-supported_targets = "js"
+supported_targets = "+js+wasm-gc"
 
 options(
-  targets: { "bindings.mbt": [ "js" ] },
+  targets: { "bindings_wbtest.mbt": [ "js" ] },
 )

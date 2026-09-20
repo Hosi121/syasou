@@ -1,0 +1,27 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/host_storage"
+
+import {
+  "Hosi121/syasou/interop",
+}
+
+// Values
+pub fn localStorage() -> Storage
+
+pub fn sessionStorage() -> Storage
+
+// Errors
+
+// Types and methods
+#external
+pub type Storage
+pub fn Storage::getItem(Self, String) -> String?
+pub fn Storage::get_item(Self, String) -> @interop.Any
+pub fn Storage::setItem(Self, String, String) -> Unit
+pub impl @interop.FromJs for Storage
+pub impl @interop.Same for Storage
+pub impl @interop.ToJs for Storage
+
+// Type aliases
+
+// Traits

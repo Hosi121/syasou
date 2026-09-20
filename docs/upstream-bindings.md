@@ -62,7 +62,7 @@ GLSL and animation policy stay in the app. WebGL 2 and the full API are outside
 this subset.
 
 A few missing canvas/document accessors in `browser/platform.mbt` can be proposed
-separately for the existing DOM package. Storage already uses upstream bindings;
+separately for the existing DOM package. The earlier JS-target implementation used upstream storage bindings;
 the persisted-data rules belong to this app.
 
 
@@ -81,3 +81,15 @@ replacement for React, Radix or Motion. Before proposing it as a general library
 its API, focus behavior and lifecycle should be reviewed with an existing
 MoonBit UI project. The independently packaged WebGL and Web Audio bindings above
 remain the more focused upstream candidates. No upstream PR has been submitted.
+
+
+## Wasm-GC follow-up
+
+The production app now uses local `host_*` and `interop` bindings because the
+reviewed DOM/Promise packages support only the JS target. Typed JS-value
+conversion, stable callback identities, and generating Wasm host imports from
+FFI declarations are additional extraction candidates. The app's hook storage,
+component identities and capsule protocol are internal implementation details,
+not proposed upstream APIs. A nullable captured externref issue in the pinned
+compiler is isolated in `browser/platform.mbt` and covered by a Wasm persistence
+regression. No upstream issue or PR has been sent as part of this migration.

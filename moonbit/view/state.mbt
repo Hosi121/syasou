@@ -1,6 +1,7 @@
 ///|
 pub(all) struct ViewRef[T] {
   mut current : T?
+  host : @js.Any
 }
 
 ///|
@@ -15,8 +16,8 @@ pub fn[T] ViewRef::set_current(self : ViewRef[T], value : T?) -> Unit {
 
 ///|
 priv struct Slot {
-  mut value : @js.Any
-  mut deps : Array[@js.Any]
+  mut value : @js.Box[Unit]
+  mut deps : Array[Dependency]
   mut cleanup : () -> Unit
   mut generation : Int
 }
@@ -37,30 +38,39 @@ priv struct Runtime {
 }
 
 ///|
-// The lazy world and entrance are separately compiled modules. They share the
-// same app-owned scheduler; no framework or application code lives in this FFI.
-extern "js" fn shared_runtime(initial : Runtime) -> Runtime =
-  #| initial => globalThis[Symbol.for('syasou.view.runtime')] ??= initial
-
-///|
-let runtime : Runtime = shared_runtime({
+// One Wasm instance owns both the entrance and the world.
+let runtime : Runtime = {
   scope: None,
   schedule: () => (),
   effects: [],
   serial: 0,
-})
-
-///|
-extern "js" fn identical(a : @js.Any, b : @js.Any) -> Bool = "Object" "is"
-
-///|
-fn same_deps(a : Array[@js.Any], b : Array[@js.Any]) -> Bool {
-  a.length() == b.length() &&
-  a.iter().zip(b.iter()).all(pair => identical(pair.0, pair.1))
 }
 
 ///|
-fn slot(initialize : () -> @js.Any) -> (Slot, Bool) {
+pub struct Dependency {
+  value : @js.Box[Unit]
+  same : (@js.Box[Unit]) -> Bool
+}
+
+///|
+pub fn[T : @js.Same] dependency(value : T) -> Dependency {
+  { value: @js.box(value), same: other => value.same((@js.unbox(other) : T)), }
+}
+
+///|
+
+///|
+#cfg(target="js")
+extern "js" fn identical(a : @js.Any, b : @js.Any) -> Bool = "Object" "is"
+
+///|
+fn same_deps(a : Array[Dependency], b : Array[Dependency]) -> Bool {
+  a.length() == b.length() &&
+  a.iter().zip(b.iter()).all(pair => (pair.0.same)(pair.1.value))
+}
+
+///|
+fn slot(initialize : () -> @js.Box[Unit]) -> (Slot, Bool) {
   let scope = runtime.scope.unwrap()
   let index = scope.cursor
   scope.cursor += 1
@@ -77,59 +87,66 @@ fn slot(initialize : () -> @js.Any) -> (Slot, Bool) {
 }
 
 ///|
-extern "js" fn attach_setter(setter : @js.Any, slot : Slot) -> Unit =
-  #| (setter,slot) => {setter[Symbol.for('syasou.view.state')]=slot}
 
 ///|
-extern "js" fn setter_slot(setter : @js.Any) -> Slot =
-  #| setter => setter[Symbol.for('syasou.view.state')]
-
-///|
-pub fn[T] use_state_lazy(initialize : () -> T) -> (T, (T) -> Unit) {
+pub fn[T : @js.Same] use_state_lazy_update(
+  initialize : () -> T,
+) -> (T, (T) -> Unit, ((T) -> T) -> Unit) {
   let scope = runtime.scope.unwrap()
-  let (cell, _) = slot(() => @js.any(initialize()))
+  let (cell, _) = slot(() => @js.box(initialize()))
   let (setter, _) = slot(() => {
     let set = (value : T) => {
-      if scope.alive && !identical(cell.value, @js.any(value)) {
-        cell.value = @js.any(value)
+      if scope.alive && !value.same((@js.unbox(cell.value) : T)) {
+        cell.value = @js.box(value)
         (runtime.schedule)()
       }
     }
-    attach_setter(@js.any(set), cell)
-    @js.any(set)
+    @js.box(set)
   })
-  (cell.value.cast(), setter.value.cast())
+  let set : (T) -> Unit = @js.unbox(setter.value)
+  let (updater, _) = slot(() => {
+    @js.box((transform : (T) -> T) => set(transform(@js.unbox(cell.value))))
+  })
+  (@js.unbox(cell.value), set, @js.unbox(updater.value))
 }
 
 ///|
-pub fn[T] use_state(value : T) -> (T, (T) -> Unit) {
+pub fn[T : @js.Same] use_state(value : T) -> (T, (T) -> Unit) {
   use_state_lazy(() => value)
 }
 
 ///|
-pub fn[T] update(setter : (T) -> Unit, transform : (T) -> T) -> Unit {
-  setter(transform(setter_slot(@js.any(setter)).value.cast()))
+pub fn[T : @js.Same] use_state_lazy(initialize : () -> T) -> (T, (T) -> Unit) {
+  let (value, set, _) = use_state_lazy_update(initialize)
+  (value, set)
+}
+
+///|
+pub fn[T : @js.Same] use_state_update(
+  value : T,
+) -> (T, (T) -> Unit, ((T) -> T) -> Unit) {
+  use_state_lazy_update(() => value)
 }
 
 ///|
 pub fn[T] use_ref(initial : T?) -> ViewRef[T] {
-  slot(() => @js.any(new_ref(initial))).0.value.cast()
+  @js.unbox(slot(() => @js.box(new_ref(initial))).0.value)
 }
 
 ///|
-pub fn[T] use_callback(callback : T, deps : Array[@js.Any]) -> T {
-  let (cell, fresh) = slot(() => @js.any(callback))
+pub fn[T] use_callback(callback : T, deps : Array[Dependency]) -> T {
+  let (cell, fresh) = slot(() => @js.box(callback))
   if fresh || !same_deps(cell.deps, deps) {
-    cell.value = @js.any(callback)
+    cell.value = @js.box(callback)
     cell.deps = deps
   }
-  cell.value.cast()
+  @js.unbox(cell.value)
 }
 
 ///|
-pub fn use_effect(run : () -> () -> Unit, deps : Array[@js.Any]) -> Unit {
+pub fn use_effect(run : () -> () -> Unit, deps : Array[Dependency]) -> Unit {
   let scope = runtime.scope.unwrap()
-  let (cell, fresh) = slot(@js.undefined)
+  let (cell, fresh) = slot(() => @js.box(()))
   if fresh || !same_deps(cell.deps, deps) {
     cell.deps = deps
     cell.generation += 1
@@ -147,7 +164,7 @@ pub fn use_effect(run : () -> () -> Unit, deps : Array[@js.Any]) -> Unit {
 pub fn[T] use_imperative_handle(
   reference : ViewRef[T],
   make : () -> T,
-  deps : Array[@js.Any],
+  deps : Array[Dependency],
 ) -> Unit {
   use_effect(
     () => {
@@ -159,7 +176,7 @@ pub fn[T] use_imperative_handle(
 }
 
 ///|
-pub fn[T] use_sync_external_store(
+pub fn[T : @js.Same] use_sync_external_store(
   subscribe : (() -> Unit) -> () -> Unit,
   snapshot : () -> T,
 ) -> T {
@@ -171,25 +188,25 @@ pub fn[T] use_sync_external_store(
       check()
       cleanup
     },
-    [@js.any(subscribe)],
+    [reference_dependency(subscribe)],
   )
   value
 }
 
 ///|
-// MoonBit's non-raising defer does not catch host JS exceptions.
-extern "js" fn render_finally(
-  run : () -> Element,
-  cleanup : () -> Unit,
-) -> Element =
-  #| (run,cleanup) => {try {return run()} finally {cleanup()}}
+// A Unit callback catches host throws without exposing MoonBit trees in FFI.
+#cfg(target="js")
+extern "js" fn render_finally(run : () -> Unit, cleanup : () -> Unit) -> Unit =
+  #| (run,cleanup) => {try {run()} finally {cleanup()}}
 
 ///|
 fn run_in_scope(scope : Scope, run : () -> Element) -> Element {
   let previous = runtime.scope
   runtime.scope = Some(scope)
   scope.cursor = 0
-  render_finally(run, () => runtime.scope = previous)
+  let result : Ref[Element?] = Ref(None)
+  render_finally(() => result.val = Some(run()), () => runtime.scope = previous)
+  result.val.unwrap()
 }
 
 ///|
@@ -216,21 +233,33 @@ pub fn after_render(run : () -> Unit) -> Unit {
 }
 
 ///|
-extern "js" fn register_ref(
-  reference : @js.Any,
-  assign : (@js.Any) -> Unit,
-) -> Unit =
-  #| (reference,assign) => {reference._assign=assign}
+fn[T] new_ref(initial : T?) -> ViewRef[T] {
+  { current: initial, host: @js.new_object(), }
+}
+
+// Only DOM refs are exported. Other hook references remain entirely in MoonBit.
 
 ///|
-fn[T] new_ref(initial : T?) -> ViewRef[T] {
-  let reference = ViewRef::{ current: initial, }
-  register_ref(@js.any(reference), value => {
-    reference.current = if @js.is_undefined(value) {
-      None
-    } else {
-      Some(value.cast())
-    }
-  })
-  reference
+pub impl[T : @js.FromJs] @js.ToJs for ViewRef[T] with fn to_js(self) {
+  self.host._set(
+    "_assign",
+    @js.from_fn1((value : @js.Any) => {
+      self.current = if @js.is_undefined(value) {
+        None
+      } else {
+        Some(value.cast())
+      }
+    }),
+  )
+  self.host
+}
+
+// For MoonBit reference values, notably closures; never use for external refs.
+
+///|
+pub fn[T] reference_dependency(value : T) -> Dependency {
+  {
+    value: @js.box(value),
+    same: other => physical_equal(value, (@js.unbox(other) : T)),
+  }
 }

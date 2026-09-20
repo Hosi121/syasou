@@ -16,7 +16,7 @@ fn snow_scenery(
   props : LandscapeProps,
   exterior? : Bool = false,
 ) -> @view.Element {
-  component(render_snow, { landscape: props, exterior, })
+  component("render_snow", render_snow, { landscape: props, exterior, })
 }
 
 ///|
@@ -36,7 +36,7 @@ fn snow_strip(layer : String) -> @view.Element {
 fn render_snow(input : SnowProps) -> @view.Element {
   let props = input.landscape
   let is_visible = @view.use_sync_external_store(subscribe_visibility, visible)
-  let (attempt, set_attempt) = @view.use_state(0)
+  let (attempt, _, update_attempt) = @view.use_state_update(0)
   let (status, set_status) = @view.use_state(Loading)
   effect(
     () => {
@@ -68,7 +68,7 @@ fn render_snow(input : SnowProps) -> @view.Element {
         text("雪原の素材を読み込めませんでした。"),
         node(
           "button",
-          [p("onClick", () => update(set_attempt, value => value + 1))],
+          [p0("onClick", () => update_attempt(value => value + 1))],
           [text("もう一度読み込む")],
         ),
       ]),
@@ -125,4 +125,9 @@ fn render_snow(input : SnowProps) -> @view.Element {
       },
     ],
   )
+}
+
+///|
+impl @js.Same for ArtworkStatus with fn same(a, b) {
+  physical_equal(a, b)
 }
