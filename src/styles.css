@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@fontsource/dm-mono/latin-400.css";
 
 @font-face { font-family: 'Shippori Mincho'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/shippori-mincho-400.woff2') format('woff2'); }
 @font-face { font-family: 'Shippori Mincho'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/shippori-mincho-500.woff2') format('woff2'); }

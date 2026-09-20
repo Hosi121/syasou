@@ -10,6 +10,8 @@ export function generateBrowserFFI() {
     const declarations = []
     const conversions = []
     const packageText = readFileSync(join(folder, 'moon.pkg'), 'utf8')
+    // Bootstrap tools execute as JS; they are not imports of the Wasm app.
+    if (/supported_targets\s*=\s*"js"/.test(packageText)) continue
     const alias = packageText.includes('@js_core') ? '@js_core' : '@js'
     for (const name of readdirSync(folder).filter(n => n.endsWith('.mbt') && !n.includes('generated') && !n.endsWith('test.mbt'))) {
       const file = join(folder, name)

@@ -23,7 +23,9 @@ npm run dev
 | `moonbit/view/` | DOM 差分更新、状態と副作用の寿命、spring、Web Animations、標準 dialog とポップオーバーの操作 |
 | `moonbit/wasm/` | タイトルと本体を一つの Wasm インスタンスで動かす入口 |
 | `moonbit/interop/`、`moonbit/host_*/` | JS 値の型付き変換、Promise、DOM・保存・時刻などの接続 |
-| `src/main.tsx`、`src/wasm.ts`、`src/App.tsx` | Wasm の取得と起動、CSS の読み込み |
+| `moonbit/bootstrap/`、`moonbit/boot_guard/` | Wasm の取得・初期化、コールバックの接続、起動失敗時の復帰。MoonBit から JS を生成 |
+| `moonbit/runtime_policy/` | 手書き JS/TS や npm ランタイムが本番バンドルへ混入するのを検出 |
+| `src/world.css` | 景色とモバイル用 CSS の遅延読み込み入口 |
 | `moonbit/domain/` | 旅・切符・旧セーブ変換・残り時間・保存検証・切符操作と番号・サンプル生成・音や移動量の計算。JS に依存しない型付きコア |
 | `moonbit/browser/` | localStorage、WebGL 描画とシェーダー、Web Audio 合成・スケジューラ、リソース管理 |
 | `moonbit/bridge/`、`src/lib/` | MoonBit と既存の TypeScript API の変換・呼び出し |
@@ -36,15 +38,17 @@ npm run dev
 
 UI はアプリ専用の `view` パッケージで DOM を更新します。画面・状態・操作・保存・描画・音の処理は Wasm 内で実行し、DOM / WebGL / Web Audio の呼び出しを型付き FFI でブラウザへ渡します。FFI 宣言の JS 本体から、Wasm が実際に参照する接続コードだけを `scripts/generate-browser-ffi.mjs` と `scripts/build-wasm.mjs` で生成します。React / ReactDOM / Motion / Radix / Lucide React と `mizchi/npm_typed` への依存はありません。Lucide の図形データだけをライセンス付きで利用しています。
 
-以前使っていた `mizchi/js` 系の DOM・Promise パッケージは JS 専用だったため、必要な API を `host_*` と `interop` に揃えています。JS ターゲットは旧公開 API と互換性テスト用として残し、通常配信する画面は `wasm-gc` ターゲットです。既定の `moon test` は JS で動きます。[Wasm 配信の詳細](wasm-runtime.md)と [upstream contribution 候補](upstream-bindings.md)を参照してください。
+以前使っていた `mizchi/js` 系の DOM・Promise パッケージは JS 専用だったため、必要な API を `host_*` と `interop` に揃えています。JS ターゲットは起動部分・旧公開 API・互換性テストに使い、通常配信する画面は `wasm-gc` ターゲットです。既定の `moon test` は JS で動きます。[Wasm 配信の詳細](wasm-runtime.md)と [upstream contribution 候補](upstream-bindings.md)を参照してください。
 
 切符の持ち上げ・ドラッグ・めくり判定・キャンセル時の角度は MoonBit で計算します。ポインター取得、入力欄の除外、イベント購読、MoonBit の spring への反映も MoonBit のコンポーネントで行います。旧セーブの変換では、ID と現在時刻を必要な場合だけ取得する順序も維持しています。
 
-残る TypeScript は Vite の入口、既存公開 API の型と委譲処理、開発設定とテストです。CSS・GLSL、フォントとビルド用 npm パッケージは引き続き使います。旧 TypeScript API の検証・利用に必要な `bridge.js` は残していますが、本番の画面からは読み込みません。旧 API の `cn` 互換性検証用に clsx / tailwind-merge を開発依存として残していますが、画面からは呼ばず、本番バンドルにも入りません。GitHub の言語比率には生成物や検証用の旧ソースも含まれるため、アプリの移行率とは一致しません。
+残る TypeScript は既存公開 API の型と委譲処理、開発設定とテストです。CSS・GLSL、フォントとビルド用 npm パッケージは引き続き使います。旧 TypeScript API の検証・利用に必要な `bridge.js` は残していますが、本番の画面からは読み込みません。旧 API の `cn` 互換性検証用に clsx / tailwind-merge を開発依存として残していますが、画面からは呼ばず、本番バンドルにも入りません。[MoonBit 化の範囲](moonbit-coverage.md)に残るコードを整理しています。GitHub の言語比率とアプリの実装元は別の指標です。
 
-本番の実行コードは Wasm 205,337 bytes + JS 15,580 bytes、Node の `gzipSync` では合計 89,953 bytes です。直前の MoonBit→JS 版は 59,699 bytes なので、転送量は増えています。CSS・画像・フォントはこの比較に含めていません。React 除去時の測定は [当時の検証記録](react-removal.md)に残しています。
+本番の実行コードのアセットは Wasm 205,337 bytes + JS 18,977 bytes、Node の `gzipSync` では合計 90,959 bytes です。HTML 内の起動エラー検知コード（生成 JS 797 bytes、単独 gzip 309 bytes）と CSS・画像・フォントはこの比較に含めていません。手書きローダーの Wasm 版は 89,953 bytes、以前の MoonBit→JS 版は 59,699 bytes でした。React 除去時の測定は [当時の検証記録](react-removal.md)に残しています。
 
-タイトルと本体のコードを一つの Wasm に含めます。`src/App.tsx` は景色の CSS を遅延読み込みする境界です。その失敗は MoonBit の起動状態で受け取り、再試行を表示します。Wasm 自体の取得・初期化に失敗した場合は、静的 HTML の再読み込みリンクを表示します。
+タイトルと本体のコードを一つの Wasm に含めます。`src/world.css` を遅延読み込みし、その失敗は MoonBit の起動状態で受け取って再試行を表示します。Wasm 自体の取得・初期化に失敗した場合は、MoonBit のローダーが静的 HTML のタイトルを復元して再読み込みリンクを表示します。ローダー JS 自体の通信失敗は、MoonBit から生成して HTML に埋め込んだ `boot_guard` が検知します。
+
+Vite の本番ビルドは解決済みモジュール一覧を `runtime_policy` に渡します。実行用 JS は生成された `bootstrap.js` と `browser-host.js` だけを許可し、旧 API・手書き TS・npm ランタイムの混入で失敗します。HTML 内の生成コードも `check:domain` と通常ビルドで照合します。
 
 ## MoonBit を変更する
 

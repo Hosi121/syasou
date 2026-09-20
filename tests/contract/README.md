@@ -187,3 +187,17 @@ and failed the rotation extent assertion (expected right edge >= 844, observed
 pre-existing WebKit limitation, not a passing result. Production failure injection
 also verified recovery from Wasm download/compile, CSS download, initial mount
 and world render failures, plus the Wasm response MIME type.
+
+## MoonBit bootstrap
+
+The handwritten application entries (`main.tsx`, `wasm.ts`, `App.tsx`) have been
+replaced by the MoonBit `bootstrap` / `boot_guard` packages and `world.css`.
+The three loading scenarios retain their assertions; only intercepted resource
+paths change to the generated bootstrap and the lazy stylesheet.
+The existing 42 desktop scenarios pass with the generated loader. Production
+failure injection covers loader download, Wasm download/compilation, lazy CSS,
+initial mount and world rendering, including a successful retry for each.
+Callback-cache tests cover stable identity, different captures and different
+functions. The `runtime_policy` package rejects handwritten JS/TS and npm
+runtimes from the production graph; an actual Vite build with an injected TS
+entry is rejected. Contract fixtures and the Wasm application bytes are unchanged.

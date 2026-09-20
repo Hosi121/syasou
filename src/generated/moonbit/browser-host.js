@@ -13,7 +13,7 @@ export const imports = {
   "webaudio_AudioNode_connect": ((node, destination) => node.connect(destination)),
   "host_dom_Document_by_id": ((d,i) => d.getElementById(i)),
   "interop_undefined": (() => undefined),
-  "ui_load_world": (() => import('../../App.tsx')),
+  "ui_load_world": (() => import('../../world.css')),
   "ui_UiEvent_value": (event => event.target.value),
   "host_dom_HTMLCanvasElement_set_width": ((c,n) => {c.width=n}),
   "ui_UiEvent_pointer_node": (event => event.currentTarget),
@@ -259,3 +259,4 @@ export const imports = {
   "ui_ticket_time": (time => new Intl.DateTimeFormat('en-GB', {hour:'2-digit',minute:'2-digit',hour12:false}).format(time)),
   "interop_Any_to_string": (String),
 }
+export function getImports() { return imports }

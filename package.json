@@ -21,6 +21,9 @@
   "author": "",
   "license": "ISC",
   "type": "module",
+  "imports": {
+    "#syasou/browser-host": "./src/generated/moonbit/browser-host.js"
+  },
   "dependencies": {
     "@fontsource/dm-mono": "^5.3.0",
     "@fontsource/shippori-mincho": "^5.3.0"

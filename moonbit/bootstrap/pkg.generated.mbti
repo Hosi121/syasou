@@ -1,0 +1,14 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Hosi121/syasou/bootstrap"
+
+// Values
+
+// Errors
+type DownloadFailed
+
+// Types and methods
+type WeakMap
+
+// Type aliases
+
+// Traits

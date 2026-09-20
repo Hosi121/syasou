@@ -25,4 +25,10 @@ for (const [name, content] of Object.entries(wasmArtifacts)) {
   output(name, content)
 }
 output('build.json', JSON.stringify({ compiler: compilerVersion, source: sourceDigest(), artifacts }, null, 2) + '\n')
+const guard = readFileSync(new URL('boot-guard.js', outputDir), 'utf8').trim()
+const html = readFileSync('index.html', 'utf8')
+const generatedHtml = html.replace(/<!-- moonbit:boot-guard:start -->[\s\S]*?<!-- moonbit:boot-guard:end -->/, `<!-- moonbit:boot-guard:start -->\n    <script>${guard}</script>\n    <!-- moonbit:boot-guard:end -->`)
+if (check) {
+  if (html !== generatedHtml) throw new Error('Generated HTML boot guard changed; run npm run build:domain')
+} else writeFileSync('index.html', generatedHtml)
 console.log(check ? 'MoonBit artifacts reproduce exactly' : 'Generated MoonBit Wasm, browser imports, and JS contract artifacts')

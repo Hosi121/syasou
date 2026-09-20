@@ -73,7 +73,7 @@ test('skipping restores the seat, is remembered, and the guide is available from
 test('HTML displays a branded loading view even before the application code arrives', async ({ page }) => {
   let release!: () => void
   const hold = new Promise<void>(resolve => { release = resolve })
-  await page.route('**/src/main.tsx*', async route => { await hold; await route.continue() })
+  await page.route('**/src/generated/moonbit/bootstrap.js*', async route => { await hold; await route.continue() })
   try {
     await page.goto('/', { waitUntil: 'commit' })
     await expect(page.locator('.boot-static .opening-title')).toHaveText('車窓')
@@ -86,7 +86,7 @@ test('HTML displays a branded loading view even before the application code arri
 test('the loading indicator waits for the real world module and then reveals the entrance', async ({ page }) => {
   let release!: () => void
   const hold = new Promise<void>(resolve => { release = resolve })
-  await page.route('**/src/App.tsx*', async route => { await hold; await route.continue() })
+  await page.route('**/src/world.css*', async route => { await hold; await route.continue() })
   try {
     await page.goto('/', { waitUntil: 'domcontentloaded' })
     await expect(page.locator('.opening-screen:not(.boot-static)')).toHaveAttribute('aria-busy', 'true')
@@ -98,11 +98,11 @@ test('the loading indicator waits for the real world module and then reveals the
 })
 
 test('a failed world download offers a working retry', async ({ page }) => {
-  await page.route('**/src/App.tsx*', route => route.abort())
+  await page.route('**/src/world.css*', route => route.abort())
   await page.goto('/')
   await expect(page.getByRole('alert')).toContainText('景色をひらけませんでした')
   await expect(page.getByRole('button', { name: '窓辺へ', exact: true })).toHaveCount(0)
-  await page.unroute('**/src/App.tsx*')
+  await page.unroute('**/src/world.css*')
   await page.getByRole('button', { name: 'もう一度ひらく' }).click()
   await expect(page.getByRole('button', { name: '窓辺へ', exact: true })).toBeVisible()
 })

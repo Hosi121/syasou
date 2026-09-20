@@ -6,6 +6,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
     <link rel="stylesheet" href="/opening.css" />
+    <link rel="stylesheet" href="/src/styles.css" />
     <link rel="preload" href="/fonts/syasou-title.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="prefetch" as="image" href="/ticket-tray.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
@@ -16,7 +17,24 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="description" content="自分のペースで、どこかへ。流れる車窓と列車の音に包まれる、小さな作業空間。" />
     <title>車窓</title>
-    <script>window.addEventListener('error',function(e){if(e.target instanceof HTMLScriptElement&&e.target.type==='module')document.documentElement.dataset.bootError='true'},true)</script>
+    <!-- moonbit:boot-guard:start -->
+    <script>(() => {
+  const _M0FP37Hosi1216syasou11boot__guard6listen = callback => window.addEventListener('error', callback, true);
+  const _M0FP37Hosi1216syasou11boot__guard10is__script = event => event.target instanceof HTMLScriptElement;
+  const _M0FP37Hosi1216syasou11boot__guard12script__type = event => event.target.type;
+  const _M0FP37Hosi1216syasou11boot__guard17show__boot__error = () => { document.documentElement.dataset.bootError = 'true' };
+  (() => {
+    _M0FP37Hosi1216syasou11boot__guard6listen((event) => {
+      if (_M0FP37Hosi1216syasou11boot__guard10is__script(event) && _M0FP37Hosi1216syasou11boot__guard12script__type(event) === "module") {
+        _M0FP37Hosi1216syasou11boot__guard17show__boot__error();
+        return;
+      } else {
+        return;
+      }
+    });
+  })();
+})();</script>
+    <!-- moonbit:boot-guard:end -->
   </head>
   <body>
     <div id="root">
@@ -37,6 +55,6 @@
         <div class="opening-paper-grain" aria-hidden="true"></div>
       </main>
     </div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/generated/moonbit/bootstrap.js"></script>
   </body>
 </html>
